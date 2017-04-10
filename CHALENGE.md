@@ -1,6 +1,6 @@
 #mLearn front-end challenge
 
-O objetivo do desafio é construir de personagens do [Star Wars](https://developer.marvel.com/).
+O objetivo do desafio é construir de personagens do [Star Wars](http://swapi.co).
 
 ## Algumas regras
 
@@ -11,10 +11,28 @@ O objetivo do desafio é construir de personagens do [Star Wars](https://develop
 ## Requisitos
 
 - A página deve ser responsiva. Se possível, utilize a abordagem _mobile-first_.
-- Para cada personagens, as seguintes informações devem estar presentes na página de catálogo:
-    - Campo 1
-    - Campo 2
-    - Campo 3
+- Mostrar uma página de catálogo com a lista de personagens Star Wars (ver [documentação](https://swapi.co/documentation#people).
+    - name
+    - species
+    - birth_year
+    
+- Quando seleciona um personagem, abre uma página de detalhes com as informações:
+    - name
+    - birth_year
+    - eye_color 
+    - gender
+    - hair_color
+    - height 
+    - mass
+    - skin_color
+    - homeworld
+    - films
+    - species
+    
+- Bónus:
+
+    - filtro por filme no catálogo
+    - obter uma thumbnail da internet
 
 ## Diferenciais
 
