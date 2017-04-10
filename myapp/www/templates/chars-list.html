@@ -1,0 +1,12 @@
+<ion-view view-title="Characters">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="char in chars">
+        <h2>{{char.name}}</h2>
+        <p>{{char.birth_year}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="hasNext" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
