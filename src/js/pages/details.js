@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/components/header';
+import axios from 'axios';
 class Details extends Component {
 
     constructor(props) {
@@ -19,6 +20,31 @@ class Details extends Component {
         }
     }
 
+    getHomeWorld(apiUrl) {
+        const context = this;
+        axios.get(apiUrl)
+            .then(function (response) {
+                context.setState({
+                    homeworld: response.data.name,
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    getSpecies(apiUrl) {
+        const context = this;
+        axios.get(apiUrl)
+            .then(function (response) {
+                context.setState({
+                    species: response.data.name,
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     componentWillMount() {
         const context = this.props.location.query;
         this.setState({
@@ -30,9 +56,9 @@ class Details extends Component {
             height: context.height,
             mass: context.mass,
             skin_color: context.skin_color,
-            homeworld: context.homeworld,
+            homeworld: this.getHomeWorld(context.homeworld),
             films: context.films,
-            species: context.species
+            species: this.getSpecies(context.species)
         })
     }
 
