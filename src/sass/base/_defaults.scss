@@ -1,0 +1,149 @@
+/**
+ * COLORS
+ */
+
+$brand-color: #373839;
+$brand-neutral-colors: (#EBBF41, #DC2878, #501EB4, #49516F);
+$brand-accent-colors: (#00CCEB, #FF7D28);
+$brand-link-color: #333333;
+$brand-status-colors: (
+        critical: #FF324D,
+        error: #FF324D,
+        warning: #FFD602,
+        ok: #8CC800,
+        unknown: #a8a8a8,
+        disabled: #a8a8a8
+) !default;
+
+$brand-grey-colors: (#000001, #333333, #3B3B3B, #434343, #666666, #9B9B9C, #E8E8E8);
+
+@if not variable-exists(brand-graph-colors) {
+  $brand-graph-colors: ();
+  $brand-graph-colors: join($brand-graph-colors, $brand-accent-colors);
+  $brand-graph-colors: join($brand-graph-colors, $brand-neutral-colors);
+};
+
+/**
+ * BUTTON
+ */
+
+$button-secondary-color: nth($brand-neutral-colors, 2);
+
+/**
+ * SOCIAL NETWORKS
+ */
+
+$fb-color: #5c6bc0;
+$google-color: #ef5350;
+
+  /**
+   * FORMS
+   */
+
+$form-border-radius: 8px;
+
+/**
+ * NAV-BAR
+ */
+
+$nav-bar-size: 52px !default;
+$nav-bar-border-color: nth($brand-grey-colors, 6);
+$nav-bar-transition-duration: .2s;
+
+/*
+ * IMAGE
+*/
+
+$image-bottom-padding: 45px;
+
+/**
+ * FOOTER
+ */
+
+
+/**
+ * MEDIA QUERIES RANGES
+ */
+
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+/**
+ * GRID
+ */
+
+$num-cols: 12 !default;
+$gutter-width: 1.5rem !default;
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
+
+/**
+ * FONTS
+ */
+
+$brand-font-family: 'Work Sans', Arial, sans-serif;
+$brand-large-number-font-family: 'Work Sans', Arial, sans-serif;
+$code-font-family: Consolas, Menlo, 'DejaVu Sans Mono', 'Liberation Mono', monospace;
+$text-strong-font-weight: 500;
+
+$fonts-path: "https://fonts.gstatic.com/s/worksans/v2";
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 300;
+  src:
+          local('Work Sans Light'),
+          local('WorkSans-Light'),
+          url("#{$fonts-path}/FD_Udbezj8EHXbdsqLUplxampu5_7CjHW5spxoeN3Vs.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  src:
+          local('Work Sans'),
+          local('WorkSans-Regular'),
+          url("#{$fonts-path}//ElUAY9q6T0Ayx4zWzW63VJBw1xU1rKptJj_0jans920.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  src:
+          local('Work Sans Medium'),
+          local('WorkSans-Medium'),
+          url("#{$fonts-path}/Nbre-U_bp6Xktt8cpgwaJBampu5_7CjHW5spxoeN3Vs.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  src:
+          local('Work Sans SemiBold'),
+          local('WorkSans-SemiBold'),
+          url("#{$fonts-path}/z9rX03Xuz9ZNHTMg1_ghGRampu5_7CjHW5spxoeN3Vs.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  src:
+          local('Work Sans Bold'),
+          local('WorkSans-Bold'),
+          url("#{$fonts-path}/4udXuXg54JlPEP5iKO5AmRampu5_7CjHW5spxoeN3Vs.woff2") format('woff2');
+}

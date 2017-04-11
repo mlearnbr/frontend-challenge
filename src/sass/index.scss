@@ -1,0 +1,17 @@
+
+/* Global Styles */
+@import 'base/defaults';
+@import 'base/grid';
+@import 'base/screen';
+@import 'base/helpers';
+@import 'base/buttons';
+
+/* Grommet Style */
+@import '../../node_modules/grommet/scss/grommet-core/index';
+
+/* Pages */
+@import "pages/p-home";
+@import "pages/p-details";
+
+/* Components Styles */
+@import "components/header";
