@@ -1,0 +1,21 @@
+@mixin dark-gradient-background() {
+  $top-color: rgba(163, 241, 241, 0.3);
+  $bottom-color: rgba(156, 230, 230, 0.3);
+
+
+  background: $top-color; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(105deg, $top-color 0%, $top-color 50%, $bottom-color 50%, $bottom-color 100%); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(105deg, $top-color 0%, $top-color 50%, $bottom-color 50%, $bottom-color 100%); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(105deg, $top-color 0%, $top-color 50%, $bottom-color 50%, $bottom-color 100%); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(105deg,rgba(163, 241, 241, 0.3),rgba(163, 241, 241, 0.4) 50%,rgba(156, 230, 230, 0.3) 0,rgba(156, 230, 230, 0.4)); /* Standard syntax */
+}
+
+@mixin custom-colored-btn($background-color) {
+  background-color: $background-color;
+  border-color: $background-color;
+  color: white;
+
+  &:hover {
+    box-shadow: 0px 0px 0px 2px $background-color;
+  }
+}

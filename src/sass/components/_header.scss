@@ -1,0 +1,17 @@
+#header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #1c1e22;
+
+  #logo {
+    color: #ffe309;
+    font-size: 28px;
+    font-family: 'Lato', 'Work Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @media (max-width: 991px) {
+      text-align: center;
+    }
+  }
+}
