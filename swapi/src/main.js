@@ -8,11 +8,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
-import 'materialize-css/dist/css/materialize.min.css'
-import 'materialize-css/dist/js/materialize.min.js'
-
 const routes = [
-  { path: '/', component: App },
+  { path: '/', component: People },
   { path: '/people', component: People },
   { path: '/people', component: People },
   { path: '/planets', component: Planets },
