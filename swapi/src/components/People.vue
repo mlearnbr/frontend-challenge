@@ -1,9 +1,60 @@
 <template>
-  <h1>People page</h1>
+  <section class="people container">
+  <h1>People Data</h1>
+    <div class="row">
+      <div class="col xl12 l12 m12 s12">
+        <div class="row">
+          <div class="col s6" v-for="(person, index) in peopleList">
+            <ul class="collection">
+              <li class="collection-item avatar indigo lighten-5">
+                <i class="material-icons circle">person_pin</i>
+                <span class="title">{{ person.name }}</span>
+                <p>Birth Year: {{ person.birth_year }}</p>
+                <router-link :to="'/people/' + index" class="secondary-content"><i class="material-icons">grade</i></router-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'people'
+  name: 'people',
+  data() {
+    return {
+      peopleList: []
+    }
+  },
+  methods: {
+    fetchApi() {
+      this.$http.get('http://swapi.co/api/people').then(response => {
+        this.peopleList = response.data.results
+        console.log(response)
+        console.log(this.peopleList)
+      })
+    },
+
+    getSpecies() {
+      this.$http.get('http://swapi.co/api/species').then()
+    }
+  },
+  created() {
+    this.fetchApi(),
+    this.getSpecies()
+  }
 }
 </script>
+
+<style lang="scss">
+.people {
+  h1 {
+    color: #333;
+  }
+  .material-icons.circle {
+    font-size: 2em !important;
+  }
+}
+</style>
