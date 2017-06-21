@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import People from './components/People.vue'
 import Planets from './components/Planets.vue'
+import Details from './components/PersonDetails.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 
@@ -12,6 +13,7 @@ const routes = [
   { path: '/', component: People },
   { path: '/people', component: People },
   { path: '/people', component: People },
+  { path: '/people/:id', component: Details },
   { path: '/planets', component: Planets },
 ]
 
