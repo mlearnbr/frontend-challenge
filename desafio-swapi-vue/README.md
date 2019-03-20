@@ -1,5 +1,10 @@
 # desafio-swapi-vue
 
+## Install Vue-cli
+```
+npm install -g vue-cli
+```
+
 ## Project setup
 ```
 npm install
@@ -8,6 +13,7 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+http://localhost:8080/
 ```
 
 ### Compiles and minifies for production
