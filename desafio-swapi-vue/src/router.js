@@ -21,7 +21,7 @@ export default new Router({
             component: Personagens
         },
         {
-            path: '/personagens/:id',
+            path: '/personagem/:id',
             props: true,
             name: 'personagem',
             component: Personagem
