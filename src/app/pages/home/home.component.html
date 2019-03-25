@@ -1,0 +1,79 @@
+<div *ngIf="!somePersonWasSelected">
+  <h1 class="title"><span class="has-text-warning	"
+      style="text-shadow: 2px 0 0 #363636, -2px 0 0 #363636, 0 2px 0 #363636, 0 -2px 0 #363636, 1px 1px #363636, -1px -1px 0 #363636, 1px -1px 0 #363636, -1px 1px 0 #363636;">Star
+      Wars</span> Characters</h1>
+  <h2 class="subtitle">
+    click on some character to know more about it.
+  </h2>
+
+  <div *ngFor="let person of starWarsPeople">
+    <div class="tile is-ancestor is-centered">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification clickable is-primary" (click)="showPerson(person)">
+              <p class="title">{{person.name}}</p>
+              <p class="subtitle">born on {{person.birth_year}}</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="somePersonWasSelected">
+  <h1 class="title">{{selectedPerson.name}}</h1>
+  <h2 class="subtitle"><a (click)="chooseAnotherCharacter()">choose another character</a></h2>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-8">
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-primary">
+            <p class="title">Birth year 🎂</p>
+            <p class="subtitle">{{selectedPerson.birth_year}}</p>
+          </article>
+          <article class="tile is-child notification is-info">
+            <p class="title">👁 color</p>
+            <p class="subtitle">{{selectedPerson.eye_color}}</p>
+          </article>
+        </div>
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-danger">
+            <p class="title">Gender 👫</p>
+            <p class="subtitle">{{selectedPerson.gender}}</p>
+          </article>
+          <article class="tile is-child notification is-primary">
+              <p class="title">Skin color</p>
+              <p class="subtitle">{{selectedPerson.skin_color}}</p>
+            </article>
+        </div>
+      </div>
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-warning">
+          <p class="title">Hair color</p>
+          <p class="subtitle">{{selectedPerson.hair_color}}</p>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-success">
+        <div class="content">
+          <p class="title">Height 📏</p>
+          <p class="subtitle">{{selectedPerson.height}}</p>
+          <div class="content">
+            <!-- Content -->
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="starWarsPeople.length == 0">
+  <div style="margin: 0 auto; width: 250px;">
+    <div class="bb8"></div>
+  </div>
+  <p class="quote text-center">"Beeep boop beep beep boop beeeeeep" - BB8</p>
+</div>
