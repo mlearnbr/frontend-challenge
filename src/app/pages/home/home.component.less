@@ -1,0 +1,116 @@
+@white: #ffffff;
+@orange: #e99b3c;
+@Gray: #DCD5DC;
+@darkOrange: #d67117;
+@shadowBlue: #3b778a;
+@bitDarkerGray: #c9c2c2;
+@lightGray: #e8e8e8;
+@black-ish: #161616;
+@headShadow: rgba(22, 22, 22, 0.2);
+@blue-ishGray: #a8b5b5;
+@red-ishGray: #a39b9b;
+@purple-ishGray: #b5a9b5;
+@gray2: #d4d3d3;
+@darkBlue-ishGray: #819393;
+@dust: #795548;
+@bgcolr: #588fa0;
+
+@blockWidth: 6px;
+@blockHeight: 6px;
+
+body {
+	background-color: @bgcolr;
+	margin: 0;
+  overflow: hidden;
+}
+
+.text-center {
+	text-align: center; 
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.quote{
+	position: relative;
+	top: 260px;
+	color: transparent;
+	text-align: center;
+	// font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 23px;
+	animation: quote 1s ease-in 1s forwards;
+}
+
+.bb8 {
+	&:before {
+		height: @blockHeight;
+		width: @blockWidth;
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 1;
+		background-color: transparent;
+		box-shadow: 100px 60px @black-ish, 100px 60px @black-ish, 100px 66px @white, 100px 72px @white, 100px 78px @lightGray, 100px 84px @lightGray, 100px 90px @lightGray, 100px 96px @black-ish, 100px 102px @black-ish, 106px 102px @orange, 112px 102px @orange, 118px 102px @orange, 112px 84px @lightGray, 112px 90px @lightGray, 112px 96px @gray2, 118px 96px @gray2, 124px 96px @gray2, 130px 96px @gray2, 136px 96px @gray2, 130px 102px @black-ish, 136px 102px @black-ish, 130px 108px @black-ish, 136px 108px @black-ish, 148px 114px @black-ish, 142px 114px @lightGray, 148px 108px @lightGray, 154px 114px @lightGray, 148px 120px @lightGray, 94px 120px @orange, 106px 120px @orange, 118px 120px @orange, 124px 120px @orange, 94px 114px 0 1px @white, 100px 120px 0 1px @white, 100px 114px 0 1px @white, 100px 108px 0 1px @white, 106px 108px 0 1px @white, 106px 114px 0 1px @white, 112px 108px 0 1px @white, 112px 114px 0 1px @white, 112px 120px 0 1px @white, 118px 108px 0 1px @white, 118px 114px 0 1px @white, 124px 102px 0 1px @white, 124px 108px 0 1px @white, 124px 114px 0 1px @white, 130px 114px 0 1px @white, 130px 120px 0 1px @white, 136px 114px 0 1px @white, 136px 120px 0 1px @white, 142px 120px 0 1px @white, 142px 108px 0 1px @white, 142px 102px 0 1px @white, 154px 120px @white, 94px 126px @bitDarkerGray, 100px 126px @bitDarkerGray, 106px 126px @bitDarkerGray, 112px 126px @bitDarkerGray, 118px 126px @bitDarkerGray, 124px 126px @bitDarkerGray, 130px 126px @bitDarkerGray, 136px 126px @bitDarkerGray, 142px 126px @bitDarkerGray, 148px 126px @bitDarkerGray, 154px 126px @bitDarkerGray, 136px 132px @red-ishGray, 130px 132px @red-ishGray, 124px 132px @red-ishGray, 118px 132px @red-ishGray, 112px 132px @red-ishGray, 106px 132px @red-ishGray, 142px 132px @red-ishGray, 112px 132px @headShadow, 118px 132px @headShadow, 124px 132px @headShadow, 130px 132px @headShadow, 136px 132px @headShadow, 100px 138px @headShadow, 106px 138px @headShadow, 112px 138px @headShadow, 118px 138px @headShadow, 124px 138px @headShadow, 130px 138px @headShadow, 136px 138px @headShadow, 142px 138px @headShadow, 148px 138px @headShadow, 106px 144px @headShadow, 112px 144px @headShadow, 118px 144px @headShadow, 124px 144px @headShadow, 130px 144px @headShadow, 136px 144px @headShadow, 142px 144px @headShadow, 112px 150px @headShadow, 118px 150px @headShadow, 124px 150px @headShadow, 130px 150px @headShadow, 136px 150px @headShadow;
+		transform-origin: 127px 183px;
+		transform: rotate(0deg) translate(0px,0px);
+		animation: bbhead 1s ease-out 1s forwards, bbheadshake 1s 2s infinite;
+	}
+	&:after {
+		height: @blockHeight;
+		width: @blockWidth;
+		content: '';
+		display: block;
+		background-color: transparent;
+		box-shadow: 112px 132px @white, 118px 132px @white, 124px 132px @white, 130px 132px @white, 136px 132px @white, 100px 138px @white, 106px 138px @white, 112px 138px @white, 118px 138px @white, 124px 138px @white, 130px 138px @white, 136px 138px @blue-ishGray, 142px 138px @white, 148px 138px @white, 88px 144px @orange, 94px 144px @white, 100px 144px @white, 106px 144px @white, 112px 144px @white, 118px 144px @white, 124px 144px @white, 130px 144px @white, 136px 144px @white, 142px 144px @white, 148px 144px @white, 154px 144px @white, 160px 144px @white, 88px 150px @orange, 94px 150px @darkOrange, 100px 150px @white, 106px 150px @white, 112px 150px @white, 118px 150px @white, 124px 150px @white, 130px 150px @orange, 136px 150px @orange, 142px 150px @orange, 148px 150px @orange, 154px 150px @white, 160px 150px @white, 82px 156px @Gray, 88px 156px @darkOrange, 94px 156px @darkOrange, 100px 156px @white, 106px 156px @darkBlue-ishGray, 112px 156px @white, 118px 156px @orange, 124px 156px @orange, 130px 156px @orange, 136px 156px @orange, 142px 156px @orange, 148px 156px @orange, 154px 156px @orange, 160px 156px @orange, 166px 156px @white, 82px 162px @orange, 88px 162px @darkOrange, 94px 162px @darkOrange, 100px 162px @white, 106px 162px @white, 112px 162px @white, 118px 162px @orange, 124px 162px @orange, 130px 162px @white, 136px 162px @orange, 142px 162px @orange, 148px 162px @white, 154px 162px @orange, 160px 162px @orange, 166px 162px @white, 76px 168px @blue-ishGray, 82px 168px @orange, 88px 168px @darkOrange, 94px 168px @darkOrange, 100px 168px @white, 106px 168px @white, 112px 168px @orange, 118px 168px @orange, 124px 168px @white, 130px 168px @blue-ishGray, 136px 168px @white, 142px 168px @white, 148px 168px #D5E0E0, 154px 168px @white, 160px 168px @orange, 166px 168px @orange, 172px 168px @white, 76px 174px @Gray, 82px 174px @darkOrange, 88px 174px @darkOrange, 94px 174px @Gray, 100px 174px @white, 106px 174px @white, 112px 174px @orange, 118px 174px @orange, 124px 174px @orange, 130px 174px @white, 136px 174px @blue-ishGray, 142px 174px #D6E1E1, 148px 174px @white, 154px 174px @orange, 160px 174px @orange, 166px 174px @orange, 172px 174px @white, 76px 180px @orange, 82px 180px @darkOrange, 88px 180px @darkOrange, 94px 180px @Gray, 100px 180px @white, 106px 180px @white, 112px 180px @orange, 118px 180px @orange, 124px 180px @orange, 130px 180px @white, 136px 180px @blue-ishGray, 142px 180px #D6E1E1, 148px 180px @white, 154px 180px @orange, 160px 180px @orange, 166px 180px @orange, 172px 180px @white, 76px 186px @orange, 82px 186px @Gray, 88px 186px @Gray, 94px 186px @Gray, 100px 186px @darkBlue-ishGray, 106px 186px @white, 112px 186px @orange, 118px 186px @orange, 124px 186px @white, 130px 186px @blue-ishGray, 136px 186px @white, 142px 186px @white, 148px 186px #D6E1E1, 154px 186px @white, 160px 186px @orange, 166px 186px @orange, 172px 186px @white, 76px 192px #EDE8EA, 82px 192px @Gray, 88px 192px @Gray, 94px 192px @Gray, 100px 192px @Gray, 106px 192px @white, 112px 192px @white, 118px 192px @orange, 124px 192px @orange, 130px 192px @white, 136px 192px @orange, 142px 192px @orange, 148px 192px @white, 154px 192px @orange, 160px 192px @orange, 166px 192px @white, 172px 192px @white, 82px 198px @blue-ishGray, 88px 198px @Gray, 94px 198px @Gray, 100px 198px @Gray, 106px 198px @white, 112px 198px @white, 118px 198px @orange, 124px 198px @orange, 130px 198px @orange, 136px 198px @orange, 142px 198px @orange, 148px 198px @orange, 154px 198px @orange, 160px 198px @orange, 166px 198px @white, 82px 204px #EDE8EA, 88px 204px @Gray, 94px 204px @Gray, 100px 204px @Gray, 106px 204px @Gray, 112px 204px @white, 118px 204px @white, 124px 204px @white, 130px 204px @orange, 136px 204px @orange, 142px 204px @orange, 148px 204px @orange, 154px 204px @white, 160px 204px @white, 166px 204px @white, 88px 210px @orange, 94px 210px @darkOrange, 100px 210px @darkOrange, 106px 210px @Gray, 112px 210px @Gray, 118px 210px @darkBlue-ishGray, 124px 210px @white, 130px 210px @white, 136px 210px @white, 142px 210px @white, 148px 210px @white, 154px 210px @white, 160px 210px @darkBlue-ishGray, 88px 216px @orange, 94px 216px @orange, 100px 216px @darkOrange, 106px 216px @darkOrange, 112px 216px @Gray, 118px 216px @Gray, 124px 216px @Gray, 130px 216px @white, 136px 216px @white, 142px 216px @white, 148px 216px @white, 154px 216px @white, 160px 216px @white, 100px 222px @darkOrange, 106px 222px @darkOrange, 112px 222px @darkOrange, 118px 222px @Gray, 124px 222px @Gray, 130px 222px @Gray, 136px 222px @Gray, 142px 222px @purple-ishGray, 148px 222px @purple-ishGray, 112px 228px @darkOrange, 118px 228px @darkOrange, 124px 228px @purple-ishGray, 130px 228px @purple-ishGray, 136px 228px @purple-ishGray;
+		animation-name: bbroll;
+		animation-delay: 1s;
+		animation-duration: 0.4s;
+		animation-iteration-count:infinite;
+		animation-timing-function: linear;
+		transform-origin: 127px 183px;
+	}
+}
+
+
+@keyframes bbroll {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+@keyframes bbhead {
+	20%{
+		transform: rotate(-30deg);
+	}
+	100% {
+		transform: rotate(25deg);
+	}
+}
+
+
+@keyframes bbheadshake {
+	0% {
+		transform: rotate(25deg) translate(0px,0px);
+
+	}
+	50% {
+		transform: rotate(20deg) translate(2px,2px);
+	}
+	100%{
+		transform: rotate(25deg) translate(0px,0px);
+	}
+}
+
+@keyframes quote {
+	0% {
+		color: transparent;
+	}
+	100% {
+		color: #363636;
+	}
+}
