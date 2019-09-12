@@ -1,0 +1,14 @@
+<div *ngIf="!characterSelected">
+  <div *ngFor="let character of characters?.results" (click)="selectCharacter(character)">
+    {{character.name}}
+  </div>
+  <button *ngIf="characters?.count > characters?.results.length" (click)="getCharacters()">plus</button>
+</div>
+
+<div class="characterDetails" *ngIf="characterSelected">
+
+</div>
+
+<div *ngIf="!characters" class="loading">
+  <img src="../../assets/images/millennium-falcon.gif" alt="Loading">
+</div>
