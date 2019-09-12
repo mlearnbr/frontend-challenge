@@ -1,42 +1,65 @@
+@font-face {
+  font-family: 'jedi';
+  src: url('../assets/fonts/Starjedi.ttf');
+}
+
+@font-face {
+  font-family: 'jedi-outline';
+  src: url('../assets/fonts/Starjhol.ttf');
+}
+
+@font-face {
+  font-family: 'jedi-subtitle';
+  src: url('../assets/fonts/Typo Grotesk Demo.otf');
+}
+
+@font-face {
+font-family: 'biko';
+src: url('../assets/fonts/Biko_Regular.otf');
+}
+
+html {
+font-family: "biko";
+}
+
 @keyframes move-twink-back {
   from {background-position:0 0;}
   to {background-position:-10000px 5000px;}
 }
-@-webkit-keyframes move-twink-back {
-  from {background-position:0 0;}
-  to {background-position:-10000px 5000px;}
-}
-@-moz-keyframes move-twink-back {
-  from {background-position:0 0;}
-  to {background-position:-10000px 5000px;}
-}
-@-ms-keyframes move-twink-back {
-  from {background-position:0 0;}
-  to {background-position:-10000px 5000px;}
+
+header {
+  color:#ffffff;
+  position:relative;
 }
 
 .stars, .twinkling {
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  display:block;
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .stars {
   background:#000 url(../assets/images/stars.png) repeat top center;
-  z-index:0;
 }
 
 .twinkling{
   background:transparent url(../assets/images/twinkling.png) repeat top center;
-  z-index:1;
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
   animation:move-twink-back 200s linear infinite;
+}
+
+.logo {
+	text-align: center;
+}
+
+.title {
+	font-family: "jedi-outline";
+  font-size: 4em;
+  color: yellow;
+}
+
+.subtitle {
+	font-family: 'jedi-subtitle';
+	letter-spacing: .75em;
+	font-size: .75em;
+  margin-top: 10px;
 }
