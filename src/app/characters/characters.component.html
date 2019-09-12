@@ -1,12 +1,26 @@
-<div *ngIf="!characterSelected">
-  <div *ngFor="let character of characters?.results" (click)="selectCharacter(character)">
-    {{character.name}}
+<div *ngIf="!characterSelected" class="characters">
+  <div class="charactersList">
+      <div *ngFor="let character of characters?.results; index as i" (click)="selectCharacter(character)" class="charactersContainer" >
+          <img [src]="imageUrl(getIdFromUrl(character.url))" alt="">
+          <div class="charactersInfo">
+            <h3>{{character.name}}</h3>
+            <span>specie</span>
+            <span style="float: right;">{{character.birth_year}}</span>
+          </div>
+      </div>
   </div>
-  <button *ngIf="characters?.count > characters?.results.length" (click)="getCharacters()">plus</button>
+  <button class="btn-viewMore" *ngIf="characters?.count > characters?.results.length" (click)="getCharacters()">View more</button>
 </div>
 
-<div class="characterDetails" *ngIf="characterSelected">
 
+<div class="characterDetails" *ngIf="characterSelected">
+  <div class="characterDetails-container">
+      <img [src]="imageUrl(getIdFromUrl(characterSelected.url))" alt="">
+      <div class="characterDetails-info">
+          <button class="btn-viewMore" (click)="close()">Close</button>
+        teste
+      </div>
+  </div>
 </div>
 
 <div *ngIf="!characters" class="loading">

@@ -1,27 +1,3 @@
-@font-face {
-  font-family: 'jedi';
-  src: url('../assets/fonts/Starjedi.ttf');
-}
-
-@font-face {
-  font-family: 'jedi-outline';
-  src: url('../assets/fonts/Starjhol.ttf');
-}
-
-@font-face {
-  font-family: 'jedi-subtitle';
-  src: url('../assets/fonts/Typo Grotesk Demo.otf');
-}
-
-@font-face {
-font-family: 'biko';
-src: url('../assets/fonts/Biko_Regular.otf');
-}
-
-html {
-font-family: "biko";
-}
-
 @keyframes move-twink-back {
   from {background-position:0 0;}
   to {background-position:-10000px 5000px;}
@@ -30,6 +6,7 @@ font-family: "biko";
 header {
   color:#ffffff;
   position:relative;
+  padding-top: 15px;
 }
 
 .stars, .twinkling {

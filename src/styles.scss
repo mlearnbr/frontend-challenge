@@ -1,1 +1,25 @@
 @import "reset.css";
+
+@font-face {
+  font-family: 'jedi';
+  src: url('assets/fonts/Starjedi.ttf');
+}
+
+@font-face {
+  font-family: 'jedi-outline';
+  src: url('assets/fonts/Starjhol.ttf');
+}
+
+@font-face {
+  font-family: 'jedi-subtitle';
+  src: url('assets/fonts/Typo Grotesk Demo.otf');
+}
+
+@font-face {
+font-family: 'biko';
+src: url('assets/fonts/Biko_Regular.otf');
+}
+
+* {
+font-family: "biko";
+}

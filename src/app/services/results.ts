@@ -1,6 +1,6 @@
 export class Results {
   count: number;
-  next: '';
-  previous: '';
+  next: string;
+  previous: string;
   results: string[] = [];
 }
