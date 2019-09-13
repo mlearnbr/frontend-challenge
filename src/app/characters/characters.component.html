@@ -17,8 +17,18 @@
   <div class="characterDetails-container">
       <img [src]="imageUrl(getIdFromUrl(characterSelected.url))" alt="">
       <div class="characterDetails-info">
-          <button class="btn-viewMore" (click)="close()">Close</button>
-        teste
+          <a class="btn-close" (click)="close()"><img src="../../assets/images/icon-close.png" alt="Close"></a>
+        <h3>{{characterSelected.name}}</h3>
+        <p>birth year: {{characterSelected.birth_year}}</p>
+        <p>eye color: {{characterSelected.eye_color}}</p>
+        <p>gender: {{characterSelected.gender}}</p>
+        <p>hair color: {{characterSelected.hair_color}}</p>
+        <p>height: {{characterSelected.height}}</p>
+        <p>mass: {{characterSelected.mass}}</p>
+        <p>skin color: {{characterSelected.skin_color}}</p>
+        <!-- <p>homeworld: {{characterSelected.homeworld}}</p> -->
+        <!-- <p>films: {{characterSelected.films}}</p>
+        <p>species: {{characterSelected.species}}</p> -->
       </div>
   </div>
 </div>
