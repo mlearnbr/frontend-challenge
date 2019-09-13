@@ -1,5 +1,7 @@
 # SwTheCharacterList
 
+Link do site no ar https://hopeful-mclean-047e1e.netlify.com
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Development server

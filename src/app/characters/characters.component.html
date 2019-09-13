@@ -1,12 +1,13 @@
 <div *ngIf="!characterSelected" class="characters">
   <div class="charactersList">
       <div *ngFor="let character of characters?.results; index as i" (click)="selectCharacter(character)" class="charactersContainer" >
-          <img [src]="imageUrl(getIdFromUrl(character.url))" alt="">
-          <div class="charactersInfo">
-            <h3>{{character.name}}</h3>
-            <span>specie</span>
-            <span style="float: right;">{{character.birth_year}}</span>
-          </div>
+        <div class="charactersInfo">
+            <img [src]="imageUrl(getIdFromUrl(character.url))" alt="">
+            <div class="charactersInfoBox">
+              <h3>{{character.name}}</h3>
+              <span>Birth year: {{character.birth_year}}</span>
+            </div>
+        </div>
       </div>
   </div>
   <button class="btn-viewMore" *ngIf="characters?.count > characters?.results.length" (click)="getCharacters()">View more</button>
@@ -19,16 +20,23 @@
       <div class="characterDetails-info">
           <a class="btn-close" (click)="close()"><img src="../../assets/images/icon-close.png" alt="Close"></a>
         <h3>{{characterSelected.name}}</h3>
-        <p>birth year: {{characterSelected.birth_year}}</p>
-        <p>eye color: {{characterSelected.eye_color}}</p>
-        <p>gender: {{characterSelected.gender}}</p>
-        <p>hair color: {{characterSelected.hair_color}}</p>
-        <p>height: {{characterSelected.height}}</p>
-        <p>mass: {{characterSelected.mass}}</p>
-        <p>skin color: {{characterSelected.skin_color}}</p>
-        <!-- <p>homeworld: {{characterSelected.homeworld}}</p> -->
-        <!-- <p>films: {{characterSelected.films}}</p>
-        <p>species: {{characterSelected.species}}</p> -->
+        <div class="characterDetails-infoBox">
+            <div>
+                <p>Birth year: {{characterSelected.birth_year}}</p>
+                <p>Eye color: {{characterSelected.eye_color}}</p>
+                <p>Gender: {{characterSelected.gender}}</p>
+                <p>Hair color: {{characterSelected.hair_color}}</p>
+                <p>Height: {{characterSelected.height}}</p>
+                <p>Mass: {{characterSelected.mass}}</p>
+                <p>Skin color: {{characterSelected.skin_color}}</p>
+            </div>
+            <div>
+                <p>Homeworld: {{planets?.name}}</p>
+                <p>Films:</p>
+                <p *ngFor="let film of films">{{film.title}}</p>
+                <p>Specie: {{species?.name}}</p>
+            </div>
+        </div>
       </div>
   </div>
 </div>

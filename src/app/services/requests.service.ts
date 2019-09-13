@@ -13,5 +13,5 @@ export class RequestsService {
 
   doGet(route) {
     return this.http.get<Results>(this.API + route);
- }
+  }
 }

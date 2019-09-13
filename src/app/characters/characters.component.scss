@@ -25,15 +25,19 @@ h3 {
       padding: 5px;
       border: 2px solid yellow;
       border-radius: 2px;
-      img {
-        max-width: 100%;
-        border-radius: 2px 2px 0 0;
-      }
       .charactersInfo {
         background-color: #fff;
-        border-radius: 0 0 2px 2px;
-        padding: 10px;
-        height: 75px;
+        height: 100%;
+        border-radius: 2px;
+        img {
+          max-width: 100%;
+          border-radius: 2px 2px 0 0;
+        }
+        .charactersInfoBox {
+          border-radius: 0 0 2px 2px;
+          background-color: #fff;
+          padding: 10px;
+        }
       }
     }
   }
@@ -80,13 +84,16 @@ h3 {
     border-radius: 2px;
     display: flex;
     margin: 0 auto;
+    max-width: 100%;
     img{
-      width: 40%;
+      width: 300px;
+      border-radius: 2px 0 0 2px;
     }
     .characterDetails-info {
       padding: 10px;
       background-color: #fff;
-      width: 60%;
+      width: 300px;
+      border-radius: 0 2px 2px 0;
       .btn-close{
         float: right;
         img {
@@ -104,9 +111,17 @@ h3 {
     flex-direction: column;
     img{
       width: 100%;
+      border-radius: 2px 2px 0 0;
     }
     .characterDetails-info {
       width: 100%;
+      border-radius: 0 0 2px 2px;
+      .characterDetails-infoBox{
+        display: flex;
+        > div {
+          margin-right: 20px;
+        }
+      }
     }
     }
   }
