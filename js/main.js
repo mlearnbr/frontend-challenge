@@ -48,7 +48,7 @@ async function fetchPeople(){
         });
         
         completarEspecies();
-        preencherModal(personagens);
+        salvarLocalStorage(personagens);
     })
     .catch(err => console.error(err))
 }
