@@ -26,25 +26,25 @@ function iniciaModal(idPersonagem){
     modalNome.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].name;
 
     let modalAnoNascimento = document.querySelector(".modalAnoNascimento");
-    modalAnoNascimento.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].birth_year;
+    modalAnoNascimento.innerHTML = `Nasceu em: ${arrayPersonagensLocalStorage.results[idPersonagem-1].birth_year}`;
 
     let modalCorOlho = document.querySelector(".modalCorOlho");
-    modalCorOlho.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].eye_color;
+    modalCorOlho.innerHTML = `Cor do olho: ${arrayPersonagensLocalStorage.results[idPersonagem-1].eye_color}`;
 
     let modalGenero = document.querySelector(".modalGenero");
-    modalGenero.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].gender;
+    modalGenero.innerHTML = `Sexo: ${arrayPersonagensLocalStorage.results[idPersonagem-1].gender}`;
 
     let modalCorCabelo = document.querySelector(".modalCorCabelo");
-    modalCorCabelo.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].hair_color;
+    modalCorCabelo.innerHTML = `Cor do cabelo: ${arrayPersonagensLocalStorage.results[idPersonagem-1].hair_color}`;
 
     let modalAltura = document.querySelector(".modalAltura");
-    modalAltura.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].height;
+    modalAltura.innerHTML = `Altura: ${arrayPersonagensLocalStorage.results[idPersonagem-1].height}`;
 
     let modalMassa = document.querySelector(".modalMassa");
-    modalMassa.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].mass;
+    modalMassa.innerHTML = `Massa: ${arrayPersonagensLocalStorage.results[idPersonagem-1].mass}`;
 
     let modalCorPele = document.querySelector(".modalCorPele");
-    modalCorPele.innerHTML = arrayPersonagensLocalStorage.results[idPersonagem-1].skin_color;
+    modalCorPele.innerHTML = `Cor da pele: ${arrayPersonagensLocalStorage.results[idPersonagem-1].skin_color}`;
 
     let modalMundo = document.querySelector(".modalMundo");
     modalMundo.setAttribute('homeworld', `${arrayPersonagensLocalStorage.results[idPersonagem-1].homeworld}`);
@@ -73,7 +73,7 @@ async function fetchFilms(url, elemento){
     return await fetch(url)
     .then(resp => resp.json())
     .then(filmes => {
-        elemento.innerHTML = filmes.title;
+        elemento.innerHTML = `Filmes: ${filmes.title}`;
     })
     .catch(err => console.error(err))
 }
@@ -82,7 +82,7 @@ async function fetchHomeWorld(url, elemento){
     return await fetch(url)
     .then(resp => resp.json())
     .then(homeworld => {
-        elemento.innerHTML = homeworld.name;
+        elemento.innerHTML = `Mundo: ${homeworld.name}`;
     })
     .catch(err => console.error(err))
 }

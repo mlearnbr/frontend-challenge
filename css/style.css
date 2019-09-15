@@ -115,9 +115,18 @@ html{
 
 .conteudoModal{
     background: var(--corBranca);
-    width: 70%;
+    width: 60%;
     color:blueviolet;
     position: relative;
+}
+.fechar{
+    position: absolute;
+    top: 0;
+    right: 0.2em;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 @keyframes modal{
