@@ -1,0 +1,153 @@
+:root {
+    --corPreta: #1D1E20; 
+    --corBranca: #ffffff;
+    --corAmarela: #FFC500;
+    --corCinza: #6A7575;
+  }
+html{
+    background-color: var(--corPreta); 
+    font-family: 'Lexend Deca', sans-serif;
+    color:var(--corBranca);
+}  
+*:focus {
+    outline: none;
+}
+
+.containerLogo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0em 3em 0em;
+}
+.containerLogo img{
+    height: 8em;
+}
+
+.containerFiltros{
+    display:flex;
+    justify-content: space-evenly;
+    margin: 0em 0em 2em 0em;
+}
+#filtrarPersonagem, #filtrarFilme{
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px var(--corAmarela);
+    font-size: 1.2em;
+    color: var(--corCinza);
+    padding-bottom: 0.3em;
+}
+#filtroPersonagem, #filtroFilme{
+    position: relative;
+}
+#filtroPersonagem i, #filtroFilme i{
+    position: absolute;
+    right: 0em;
+    top:0;
+    color: var(--corAmarela);
+}
+
+.gridPersonagens{
+    display: flex;  
+    flex-wrap: wrap;
+    padding: 0em 2em 2em 2em;
+    margin: 0em 2em 2em 2em;
+}
+.box{
+    border: solid 1px var(--corAmarela);
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(25% - 2em);
+
+    box-sizing: border-box;
+    /* padding: 1em 1em 1em 1em; */
+    margin: 1em 1em 1em 1em;
+    position: relative;
+    height: 10em;
+    cursor: pointer;
+}
+.box h2{
+    text-align: left;
+    color: var(--corBranca);
+    position: absolute;
+    bottom: 0em;
+    left: 1em;
+    margin-right: 0.5em;
+}
+.generoPersonagem{
+    position: absolute;
+    top:2em;
+    left: 1em;
+    text-align: left;
+    color: var(--corBranca);
+    font-size: 0.7em;
+    font-weight: bold;
+    font-style: italic;
+}
+.especiePersonagem{
+    position: absolute;
+    top: 1em;   
+    right: 0em;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: var(--corBranca);
+    padding: 1em 2em 1em 2em;
+    background-color: var(--corAmarela);
+}
+
+.modal-container{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0, 0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.mostrar{
+    display: flex;
+}
+
+.conteudoModal{
+    background: var(--corBranca);
+    width: 70%;
+    color:blueviolet;
+    position: relative;
+}
+
+@keyframes modal{
+    from{
+        opacity: 0;
+        transform: translate3d(0, -60px, 0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
+}
+.mostrar .conteudoModal{
+    animation: modal .3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.invisivel{
+    display: none;
+}
+
+
