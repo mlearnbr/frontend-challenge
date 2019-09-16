@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Wars</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="containerLogo">
+        <img src="img/starwarslogo.png" alt="Star Wars Logo">
+    </div>
+
+    <div class="containerFiltros">
+        <span id="filtroPersonagem">
+            <input type="text" name="filtro" id="filtrarPersonagem" placeholder="Filtre por personagem">
+            <i class="fa fa-search"></i>
+        </span>
+
+        <span id="filtroEspecie">
+            <input type="text" name="filtro2" id="filtrarEspecie" placeholder="Filtre por espécie">
+            <i class="fa fa-search"></i>
+        </span>
+    </div>
+
+    <section class="gridPersonagens" onclick="pegarIdPersonagem()"></section>
+
+    <div id="modal-promocao" class="modal-container">
+        <div class="conteudoModal">
+            <button class="fechar">x</button>
+            <div class="containerInfos">
+                <h2 class="modalNome"></h2>
+                <p class="modalEspecies"></p>
+                <p class="modalAnoNascimento"></p>
+                <p class="modalCorOlho"></p>
+                <p class="modalGenero"></p>
+                <p class="modalCorCabelo"></p>
+                <p class="modalAltura"></p>
+                <p class="modalMassa"></p>
+                <p class="modalCorPele"></p>
+                <p class="modalMundo"></p>
+                <p class="modalFilmes"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/filtrosPersonagens.js"></script>
+    <script src="js/filtrosEspecie.js"></script>
+    <script src="js/modal.js"></script>
+
+</body>
+
+</html>
