@@ -48,7 +48,16 @@
                   <p>Height: {{personagem.height}}</p>
                   <p>Mass: {{personagem.mass}} kg</p>
                   <p>Skin color: {{personagem.skin_color}}</p>
-                  <p>Homeworld: {{planetas.name}}</p>                  
+                  <div v-for="(planeta,index) in planetas" :key="index">
+                    <p>Homeworld: {{planeta.name}}</p>                                   
+                  </div> 
+                  <p>films:</p>                 
+                  <div v-for="filme in filmes" :key="filme.episode_id">
+                    <p>{{filme.title}}</p>                                   
+                  </div>
+                  <div v-for="especie in especies" :key="especie.classification">
+                    <p>species: {{especie.name}}</p>                                   
+                  </div>  
                   <!-- <p>Species: {{personagem.species}}</p>
                   <p>Films: {{personagem.films}}</p> -->                                   
                 </div>
@@ -59,26 +68,28 @@
          </div>
        </div>
      </div>
-     <div>
+     <!-- <div>
         <ul>
             <li v-for="item in filmes.results">
                 {{ item.title }}
             </li>
-        </ul>
-        <!-- <pre>{{ item.title }}</pre> -->
-     </div> 
+        </ul>        
+     </div>  -->
      
    </div>  
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'vueExibicao',
   data: function(){
     return {
       grupoPersonagens: [],
       planetas: [],
-      filmes: []
+      filmes: [],
+      especies: []
     }
   },
   methods: {
@@ -92,6 +103,9 @@ export default {
                 .then(response => {
                     response.results.map(personagem => {
                         this.grupoPersonagens.push(personagem);
+                        axios.get(personagem.homeworld).then((res)=>{this.planetas.push(res.data)})
+                        personagem.films.map(item => {console.log(item); axios.get(item).then((res)=>{this.filmes.push(res.data)}) })   
+                        axios.get(personagem.species).then((res)=>{this.especies.push(res.data)})                                                                     
                     });
                 });
     },
@@ -100,17 +114,17 @@ export default {
       let campo_pesquisa = document.querySelector("#pesquisa").value
       if(campo_pesquisa != ""){
         this.listarPersonagens(campo_pesquisa);
-        this.listarFilmes();
+        // this.listarFilmes();
       }
     },
 
-    listarFilmes(){
-        fetch("https://swapi.co/api/films/")
-        .then(response => response.json())
-        .then(data=>{
-            this.filmes = data;
-        })
-    }
+    // listarFilmes(){
+    //     fetch("https://swapi.co/api/films/")
+    //     .then(response => response.json())
+    //     .then(data=>{
+    //         this.filmes = data;
+    //     })
+    // }
 
   }
 }
