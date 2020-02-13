@@ -14,8 +14,18 @@ export const Label = styled.label`
   font-size: 14px;
   font-weight: bold;
   margin-right: 5px;
+  color: ${props => props.color};
 `;
 
 export const Text = styled.h4`
-  font-size: 14;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: ${props => props.color};
+`;
+
+export const TextBlack = styled.h2`
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
 `;
