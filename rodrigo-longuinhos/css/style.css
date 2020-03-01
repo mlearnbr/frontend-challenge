@@ -29,9 +29,11 @@ background: linear-gradient(to right,#ce2e3c,#da6709);}
 .titulo h3 {font-size: 1.5em; color:#fff; line-height: 1.3em;}
 .buttons {width: 100%; margin-top: 10%;}
 .buttons i {float: right;}
-.btn-pesquisar {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px;
+.btn-pesquisar {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px; margin: 1%;
 background-color: #fff; color: #130400;}
-.btn-sobre {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px;
+.btn-catalogo {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px; margin: 1%;
+    background-color: #fff; color: #130400;}
+.btn-sobre {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px; margin: 1%;
     background-color: #130400; color:#fff ;}
 
 /* PESQUISAR */
