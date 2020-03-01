@@ -23,7 +23,7 @@ background: linear-gradient(to right,#ce2e3c,#da6709);}
 .menu li a:hover {border:1px solid #da6709;}
 
 /* BANNER */
-.banner {width: 100%; float: left; text-align: center; padding: 3% 4%; background: url(../img/starwars-backdrop.jpg) no-repeat fixed;}
+.banner {width: 100%; float: left; text-align: center; padding: 3% 4%; background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),url(../img/starwars-backdrop.jpg) no-repeat fixed;}
 .titulo {width: 100%;}
 .titulo h2 {font-size: 2.5em; color:#ff0; font-weight: 700;}
 .titulo h3 {font-size: 1.5em; color:#fff; line-height: 1.3em;}
@@ -40,12 +40,13 @@ background-color: #fff; color: #130400;}
 .pesquisar {width: 100%; float: left; text-align: center; padding: 3% 4%; background-color:#130400;}
 .pesquisar h2 {color:#fff;}
 .pesquisar form {margin-top: 2%;}
-.pesquisar input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5%; border-radius: 5px;}
+.pesquisar select {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5%; border-radius: 5px; margin-top: 2%;}
+.pesquisar input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5%; border-radius: 5px; margin-top: 2%;}
 .pesquisar button {width: 100%; font-size: 1.5em; text-align: center; background-color: #fff; color: 130400; padding: 5%; border-radius: 10px; cursor: pointer; margin-top: 2%;}
 
 /* RESULTADO */
 .resultado {width: 100%; float: left; text-align: center; padding: 3% 4%; background-color:#130400;}
 .resultado h2 {color:#fff;}
 .resultado form {margin-top: 2%;}
-.resultado input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5%; border-radius: 5px;}
+.resultado input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 4%; border-radius: 5px; margin-top: 2%}
 .resultado button {width: 100%; font-size: 1.5em; text-align: center; background-color: #fff; color: 130400; padding: 5%; border-radius: 10px; cursor: pointer; margin-top: 2%;}
