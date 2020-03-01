@@ -1,5 +1,5 @@
 /*=========== RESET ===========*/
-* {margin: 0; padding: 0; font-size: 100%; font-weight: 300; border: none; outline: none; box-sizing: border-box;
+* {margin: 0; padding: 0; font-size: 100%; border: none; outline: none; font-weight: 300; box-sizing: border-box;
 font-family: 'Lato', sans-serif;}
 
 body {background-color: #f5f5f5;}
@@ -9,7 +9,7 @@ img {max-width: 100%;}
 
 /* CABEÇALHO */
 .cabecalho {width:100%; float: left; padding: 3% 4%;}
-.logo {width: 56px; height: 56px; float: left; background: url(../img/logo-mobile.png) center center/56px no-repeat; 
+.logo {margin: 0; width: 56px; height: 56px; float: left; background: url(../img/logo-mobile.png) center center no-repeat; 
 font-size: 0;}
 .btn-menu {width: 56px; height: 56px; float: right; text-align: center; color: #fff; border-radius: 56px; cursor: pointer;
 background: linear-gradient(to right,#ce2e3c,#da6709);}
@@ -21,3 +21,15 @@ background: linear-gradient(to right,#ce2e3c,#da6709);}
 .menu li {padding: 1.5%;}
 .menu li a {font-size: 2em; color: #fff; padding: 1.5% 3%;}
 .menu li a:hover {border:1px solid #da6709;}
+
+/*BANNER */
+.banner {width: 100%; float: left; text-align: center; padding: 3% 4%; background: url(../img/starwars-backdrop.jpg) no-repeat fixed;}
+.titulo {width: 100%;}
+.titulo h2 {font-size: 2.5em; color:#f90; font-weight: 700;}
+.titulo h3 {font-size: 1.5em; color:#fff;}
+.buttons {width: 100%; margin-top: 10%;}
+.buttons i {float: right;}
+.btn-pesquisar {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px;
+background-color: #fff; color: #130400;}
+.btn-sobre {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px;
+    background-color: #130400; color:#fff ;}
