@@ -43,8 +43,8 @@ body {
 /* Set the animation & hide the logo */
 .logo {    
     position: absolute;
-    top: 20%;
-    left: 45%;
+    top: 38%;
+    left: 25%;
     z-index: 1;
     margin: auto;
     animation: logo 9s ease-out 9s;
@@ -122,3 +122,15 @@ p {
           top: -170%;
       }
   }
+
+  @media only screen and (min-width:1200px) {
+    .logo {    
+        position: absolute;
+        top: 40%;
+        left: 43%;
+        z-index: 1;
+        margin: auto;
+        animation: logo 9s ease-out 9s;
+        opacity: 0;
+    }
+}
