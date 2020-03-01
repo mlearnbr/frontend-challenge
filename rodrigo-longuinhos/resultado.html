@@ -33,21 +33,24 @@
         </nav>
     </header>
     <div class="banner">
-        <div class="titulo">
-            <h2>Star Wars mLearn</h2>
-            <h3>Selecione um personagem de Star Wars em pesquisar para acessar suas informações detalhadas via SWAPI - The Star Wars API</h3>
+        <div class="resultado">
+            <h2>Informações do Personagem</h2>
+            <form>
+                <input type="text" name="name" placeholder="name" value="Luke Skywalker" disabled>
+                <input type="text" name="birth_year" placeholder="birth_year" disabled>
+                <input type="text" name="eye_color" placeholder="eye_color" disabled>
+                <input type="text" name="gender" placeholder="gender" disabled>
+                <input type="text" name="hair_color" placeholder="hair_color" disabled>
+                <input type="text" name="height" placeholder="height" disabled>
+                <input type="text" name="mass" placeholder="mass" disabled>
+                <input type="text" name="skin_color" placeholder="skin_color" disabled>
+                <input type="text" name="homeworld" placeholder="homeworld" disabled>
+                <input type="text" name="films" placeholder="films" disabled>
+                <input type="text" name="species" placeholder="species" disabled>
+                <button> Voltar </button>
+            </form>
         </div>
-        <div class="buttons">
-            <button class="btn-catalogo">Catálogo <i class="fa fa-arrow-circle-right"></i></button>
-            <button class="btn-pesquisar">Pesquisar <i class="fa fa-arrow-circle-right"></i></button>
-            <button class="btn-sobre">Sobre <i class="fa fa-question-circle"></i></button>
-        </div>
-        <div class="titulo">
-            <h3>All the Star Wars data you've ever wanted:
-                Planets, Spaceships, Vehicles, People, Films and Species
-                From all SEVEN Star Wars films
-                Now with The Force Awakens data!</h3>
-        </div>
+
     </div>    
     <script>
         $(".btn-menu").click(function(){
