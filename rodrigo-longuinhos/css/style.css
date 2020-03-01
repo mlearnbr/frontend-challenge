@@ -15,7 +15,7 @@ font-size: 0;}
 background: linear-gradient(to right,#ce2e3c,#da6709);}
 
 /* MENU */
-.menu {width: 100%; height: 100%; position: fixed; background-color: rgba(0,0,0,0.9); top: 0; left: 0;}
+.menu {display: none; width: 100%; height: 100%; position: fixed; background-color: rgba(0,0,0,0.9); top: 0; left: 0;}
 .btn-close {font-size: 3em; color: #fff; float: right; cursor: pointer; margin-right: 5%;}
 .menu ul {width: 100%; float: left; text-align: center;}
 .menu li {padding: 1.5%;}

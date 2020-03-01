@@ -9,16 +9,19 @@
     <meta name="keywords" content="frontend,mobile first,layout responsivo,javascript,aplicativos híbridos">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <!-- Fonts -->
+    <!-- Fonts/links -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
     <link rel="icon" href="img/favicon.png">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <header class="cabecalho">
-        <a href="index.html"><h1 class"logo"> Star Wars - mLearn Frontend Challenge ></h1></a>
-        <button class"btn-menu"><i> class="fa fa-bars fa-lg"></i></button>
+        <a href="index.html"><h1 class="logo"> Star Wars - mLearn Frontend Challenge ></h1></a>
+        <button class="btn-menu"><i class="fa fa-bars fa-lg"></i></button>
         <nav class="menu">
             <a class="btn-close">x</a>
             <ul>
@@ -27,5 +30,13 @@
             </ul>
         </nav>
     </header>
+    <script>
+        $(".btn-menu").click(function(){
+            $(".menu").show();
+        })
+        $(".btn-close").click(function(){
+            $(".menu").hide();
+        })
+    </script>
 </body>
 </html>
