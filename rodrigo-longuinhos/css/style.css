@@ -56,6 +56,13 @@ background: linear-gradient(to right,#ff0,#ff0);}
 .resultado input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 4%; border-radius: 5px; margin-top: 2%;}
 .resultado button {width: 100%; font-size: 1.5em; text-align: center; background-color: #fff; color: 130400; padding: 5%; border-radius: 10px; cursor: pointer; margin-top: 2%;}
 
+/* RODAPÉ */
+.rodape {width:100%; float:left; padding: 3% 4%; text-align: center; background: linear-gradient(to right,#ce2e3c,#da6709);}
+.social-icons a {font-size: 1.5em; color: rgba(255,255,255,0.7); margin-right: 3%;}
+.social-icons a:last-child {margin-right: 0;} /*zerar a margem do último item*/
+.social-icons a:hover {color: rgb(255,255,255); }
+.copyright {margin-top: 2%;color: rgba(255,255,255,0.7);}
+
 /* MOBILE FIRST */
 /* Small Devices*/
 @media screen and (min-width: 480px){
