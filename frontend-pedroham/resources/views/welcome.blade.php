@@ -19,7 +19,7 @@
                     @endif
 
                     <div class="col-lg-4">
-                        <div class="card border-dark" style="width: 18rem; margin: 1%;">
+                        <div class="card" style="width: 18rem; margin: 1%;">
                             <div class="card-body">
                                 <h5 class="card-title">{{$personagem['name']}}</h5>
                                 <p class="card-text">Birth Year: {{$personagem['birth_year']}}</p>
