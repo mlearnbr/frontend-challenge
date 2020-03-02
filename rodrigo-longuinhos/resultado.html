@@ -17,6 +17,21 @@
     <link rel="icon" href="img/favicon.png">
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- AJAX - Send a Request To a SWAPI -->
+    <script>
+        function UserAction() {
+         var xhttp = new XMLHttpRequest()
+         xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+                 alert(this.responseText)
+             }
+         };
+         xhttp.open("POST", "https://swapi.co/api/people/1", true)
+         xhttp.setRequestHeader("Content-type", "application/json")
+         xhttp.send("Your JSON Data Here")
+         }
+     </script>
 </head>
 <body>
     <header class="cabecalho">
@@ -38,22 +53,38 @@
         <div class="resultado">
             <h2>Informações</h2>
             <form>
-                <input type="text" name="name" placeholder="name" value="Luke Skywalker" disabled>
-                <input type="text" name="birth_year" placeholder="birth_year" disabled>
-                <input type="text" name="eye_color" placeholder="eye_color" disabled>
-                <input type="text" name="gender" placeholder="gender" disabled>
-                <input type="text" name="hair_color" placeholder="hair_color" disabled>
-                <input type="text" name="height" placeholder="height" disabled>
-                <input type="text" name="mass" placeholder="mass" disabled>
-                <input type="text" name="skin_color" placeholder="skin_color" disabled>
-                <input type="text" name="homeworld" placeholder="homeworld" disabled>
-                <input type="text" name="films" placeholder="films" disabled>
-                <input type="text" name="species" placeholder="species" disabled>
+                <input type="text" id="nome" name="nome" placeholder="name">
+                <input type="text" id="birth_year" name="birth_year" placeholder="birth_year" disabled>
+                <input type="text" id="eye_color" name="eye_color" placeholder="eye_color" disabled>
+                <input type="text" id="gender" name="gender" placeholder="gender" disabled>
+                <input type="text" id="hair_color" name="hair_color" placeholder="hair_color" disabled>
+                <input type="text" id="height" name="height" placeholder="height" disabled>
+                <input type="text" id="mass" name="mass" placeholder="mass" disabled>
+                <input type="text" id="skin_color" name="skin_color" placeholder="skin_color" disabled>
+                <input type="text" id="homeworld" name="homeworld" placeholder="homeworld" disabled>
+                <input type="text" id="films" name="films" placeholder="films" disabled>
+                <input type="text" id="species" name="species" placeholder="species" disabled>
                 <button> Voltar </button>
             </form>
-        </div>
 
-    </div>    
+            <script>
+                var obj = JSON.parse(UserAction())
+                var myJSON = JSON.stringify(obj)
+                var nome = window.document.getElementById("nome")
+                window.document.getElementById("nome").innerHTML = obj.name + ", " + obj.name
+            </script>
+        </div>
+    </div> 
+    <footer class="rodape">
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="copyright">Copyright Desafio mLearn 2020. Todos os direitos reservados</p>
+    </footer>   
     <script>
         $(".btn-menu").click(function(){
             $(".menu").show();
