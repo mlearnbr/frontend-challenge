@@ -17,6 +17,20 @@
     <link rel="icon" href="img/favicon.png">
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function UserAction() {
+         var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+                 alert(this.responseText)
+             }
+         };
+         xhttp.open("POST", "https://swapi.co/api/people", true)
+         xhttp.setRequestHeader("Content-type", "application/json")
+         xhttp.send("Your JSON Data Here")
+         return this.responseText
+         }
+     </script>
 </head>
 <body>
     <header class="cabecalho">
@@ -37,6 +51,9 @@
     <div class="banner">
         <div class="catalogo">
             <h2>Catálogo</h2>
+            <script>
+                UserAction();
+            </script>
             <form>
                 <input type="text" name="name" placeholder="name" disabled>
                 <input type="text" name="species" placeholder="species" disabled>
