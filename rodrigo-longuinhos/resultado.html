@@ -21,15 +21,17 @@
     <!-- AJAX - Send a Request To a SWAPI -->
     <script>
         function UserAction() {
-        var xhttp = new XMLHttpRequest()
+        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText)           
+                alert(this.responseText)
+                json = JSON.parse(this.responseText)
+                return json
             }
-        };
+         }
         xhttp.open("POST", "https://swapi.co/api/people/1", true)
         xhttp.setRequestHeader("Content-type", "application/json")
-        xhttp.send("Your JSON Data Here")        
+        xhttp.send("Your JSON Data Here")
         }
     </script>
 </head>
@@ -53,7 +55,7 @@
         <div class="resultado">
             <h2>Informações</h2>
             <form>
-                <input type="text" id="nome" name="nome" placeholder="name">
+                <input type="text" id="nome" name="nome" placeholder="name" value="teste para ver se muda">
                 <input type="text" id="birth_year" name="birth_year" placeholder="birth_year" disabled>
                 <input type="text" id="eye_color" name="eye_color" placeholder="eye_color" disabled>
                 <input type="text" id="gender" name="gender" placeholder="gender" disabled>
@@ -68,7 +70,10 @@
             </form>
 
             <script>
-                obj = UserAction();                  
+                obj = UserAction();
+                var nome = window.document.getElementById("nome")
+                var nomeJson = obj.name;
+                nome.setAttribute("value",nomeJson)
             </script>
         </div>
     </div> 
