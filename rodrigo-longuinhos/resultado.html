@@ -15,25 +15,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
     <link rel="icon" href="img/favicon.png">
-    <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- AJAX - Send a Request To a SWAPI -->
-    <script>
-        function UserAction() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText)
-                json = JSON.parse(this.responseText)
-                return json
-            }
-         }
-        xhttp.open("POST", "https://swapi.co/api/people/1", true)
-        xhttp.setRequestHeader("Content-type", "application/json")
-        xhttp.send("Your JSON Data Here")
-        }
-    </script>
 </head>
 <body>
     <header class="cabecalho">
@@ -55,26 +36,24 @@
         <div class="resultado">
             <h2>Informações</h2>
             <form>
-                <input type="text" id="nome" name="nome" placeholder="name" value="teste para ver se muda">
-                <input type="text" id="birth_year" name="birth_year" placeholder="birth_year" disabled>
-                <input type="text" id="eye_color" name="eye_color" placeholder="eye_color" disabled>
-                <input type="text" id="gender" name="gender" placeholder="gender" disabled>
-                <input type="text" id="hair_color" name="hair_color" placeholder="hair_color" disabled>
-                <input type="text" id="height" name="height" placeholder="height" disabled>
-                <input type="text" id="mass" name="mass" placeholder="mass" disabled>
-                <input type="text" id="skin_color" name="skin_color" placeholder="skin_color" disabled>
-                <input type="text" id="homeworld" name="homeworld" placeholder="homeworld" disabled>
-                <input type="text" id="films" name="films" placeholder="films" disabled>
-                <input type="text" id="species" name="species" placeholder="species" disabled>
+                <input type="text" id="txtName" name="txtName" placeholder="name">
+                <input type="text" id="txtBirth_year" name="txtBirth_year" placeholder="birth_year">
+                <input type="text" id="txtEye_color" name="txtEye_color" placeholder="eye_color">
+                <input type="text" id="txtGender" name="txtGender" placeholder="gender">
+                <input type="text" id="txtHair_color" name="txtHair_color" placeholder="hair_color">
+                <input type="text" id="txtHeight" name="txtHeight" placeholder="height">
+                <input type="text" id="txtMass" name="txtMass" placeholder="mass" disabled>
+                <input type="text" id="txtSkin_color" name="txtSkin_color" placeholder="skin_color">
+                <input type="text" id="txtHomeworld" name="txtHomeworld" placeholder="homeworld">
+                <input type="text" id="txtFilms" name="txtFilms" placeholder="films" disabled>
+                <input type="text" id="txtSpecies" name="txtSpecies" placeholder="species">
                 <button> Voltar </button>
             </form>
+            
+            <!-- Scripts -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="js/script.js"></script>
 
-            <script>
-                obj = UserAction();
-                var nome = window.document.getElementById("nome")
-                var nomeJson = obj.name;
-                nome.setAttribute("value",nomeJson)
-            </script>
         </div>
     </div> 
     <footer class="rodape">
