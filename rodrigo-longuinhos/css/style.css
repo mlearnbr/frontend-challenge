@@ -1,114 +1,493 @@
 /*=========== RESET ===========*/
-* {margin: 0; padding: 0; font-size: 100%; border: none; outline: none; font-weight: 300; box-sizing: border-box;
-font-family: 'Lato', sans-serif;}
 
-body {background-color: #111;}
-a {text-decoration: none;}
-ul {list-style: none;}
-img {max-width: 100%;}
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    border: none;
+    outline: none;
+    font-weight: 300;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: #111;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
 
 /* CABEÇALHO */
-.cabecalho {width:100%; float: left; padding: 3% 4%;}
-.logo {margin: 0; width: 56px; height: 56px; float: left; background: url(../img/stormtrooper.png) center center no-repeat; 
-font-size: 0;}
-.btn-menu {width: 56px; height: 56px; font-size: 1.3em; float: right; text-align: center; color: #000; border-radius: 56px; cursor: pointer;
-background: linear-gradient(to right,#ff0,#ff0);}
+
+.cabecalho {
+    width: 100%;
+    float: left;
+    padding: 3% 4%;
+}
+
+.logo {
+    margin: 0;
+    width: 56px;
+    height: 56px;
+    float: left;
+    background: url(../img/stormtrooper.png) center center no-repeat;
+    font-size: 0;
+}
+
+.btn-menu {
+    width: 56px;
+    height: 56px;
+    font-size: 1.3em;
+    float: right;
+    text-align: center;
+    color: #000;
+    border-radius: 56px;
+    cursor: pointer;
+    background: linear-gradient(to right, #ff0, #ff0);
+}
 
 /* MENU */
-.menu {display: none; width: 100%; height: 100%; position: fixed; background-color: rgba(0,0,0,0.9); top: 0; left: 0;}
-.btn-close {font-size: 1.5em; color: #fff; float: right; cursor: pointer; margin: 2% 3% 0 0;}
-.menu ul {width: 100%; float: left; text-align: center;}
-.menu li {padding: 1.5%;}
-.menu li a {font-size: 2em; color: #fff; padding: 1.5% 3%;}
-.menu li a:hover {border:1px solid #da6709;}
+
+.menu {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 0;
+    left: 0;
+}
+
+.btn-close {
+    font-size: 1.5em;
+    color: #fff;
+    float: right;
+    cursor: pointer;
+    margin: 2% 3% 0 0;
+}
+
+.menu ul {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+.menu li {
+    padding: 1.5%;
+}
+
+.menu li a {
+    font-size: 2em;
+    color: #fff;
+    padding: 1.5% 3%;
+}
+
+.menu li a:hover {
+    border: 1px solid #da6709;
+}
 
 /* BANNER */
-.banner {width: 100%; float: left; text-align: center; padding: 3% 4%; background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),url(../img/starwars-backdrop.jpg) no-repeat fixed;}
-.titulo {width: 100%;}
-.titulo h2 {font-size: 2.5em; color:#ff0; font-weight: 700;}
-.titulo h3 {font-size: 1.5em; color:#fff; line-height: 1.3em;}
-.buttons {width: 100%; margin-top: 10%;}
-.buttons i {float: right;}
-.btn {width: 100%; font-size: 1.5em; text-align: left; cursor: pointer; padding: 5%; border-radius: 10px; margin: 1%;}
-.btn-pesquisar { background-color: #fff; color: #130400;}
-.btn-catalogo {  background-color: #fff; color: #130400;}
-.btn-sobre {background-color: #130400; color:#fff ;}
+
+.banner {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 3% 4%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(../img/starwars-backdrop.jpg) no-repeat fixed;
+}
+
+.titulo {
+    width: 100%;
+}
+
+.titulo h2 {
+    font-size: 2.5em;
+    color: #ff0;
+    font-weight: 700;
+}
+
+.titulo h3 {
+    font-size: 1.5em;
+    color: #fff;
+    line-height: 1.3em;
+}
+
+.buttons {
+    width: 100%;
+    margin-top: 10%;
+}
+
+.buttons i {
+    float: right;
+}
+
+.btn {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: left;
+    cursor: pointer;
+    padding: 5%;
+    border-radius: 10px;
+    margin: 1%;
+}
+
+.btn-pesquisar {
+    background-color: #fff;
+    color: #130400;
+}
+
+.btn-catalogo {
+    background-color: #fff;
+    color: #130400;
+}
+
+.btn-sobre {
+    background-color: #130400;
+    color: #fff;
+}
 
 /* CATÁLOGO */
-.catalogo {width: 100%; float: left; text-align: center; padding: 3% 4%; background-color:#130400;}
-.catalogo h2 {color:#fff;}
-.catalogo form {margin-top: 2%;}
-.catalogo input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 4%; border-radius: 5px; margin-top: 2%;}
-.catalogo button {width: 100%; font-size: 1.5em; text-align: center; background-color: #fff; color: 130400; padding: 5%; border-radius: 10px; cursor: pointer; margin-top: 2%;}
+
+.catalogo {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 3% 4%;
+    background-color: #130400;
+}
+
+.catalogo h2 {
+    color: #fff;
+}
+
+.catalogo form {
+    margin-top: 2%;
+}
+
+.catalogo input {
+    width: 100%;
+    font-size: 1.5em;
+    background-color: #130400;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 4%;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+.catalogo button {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #fff;
+    color: 130400;
+    padding: 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 2%;
+}
 
 /* PESQUISAR */
-.pesquisar {width: 100%; float: left; text-align: center; padding: 3% 4%; background-color:#130400;}
-.pesquisar h2 {color:#fff;}
-.pesquisar form {margin-top: 2%;}
-.pesquisar select {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5%; border-radius: 5px; margin-top: 2%;}
-.pesquisar input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5%; border-radius: 5px; margin-top: 2%;}
-.pesquisar button {width: 100%; font-size: 1.5em; text-align: center; background-color: #fff; color: 130400; padding: 5%; border-radius: 10px; cursor: pointer; margin-top: 2%;}
+
+.pesquisar {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 3% 4%;
+    background-color: #130400;
+}
+
+.pesquisar h2 {
+    color: #fff;
+}
+
+.pesquisar form {
+    margin-top: 2%;
+}
+
+.pesquisar select {
+    width: 100%;
+    font-size: 1.5em;
+    background-color: #130400;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5%;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+.pesquisar input {
+    width: 100%;
+    font-size: 1.5em;
+    background-color: #130400;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5%;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+.pesquisar button {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #fff;
+    color: 130400;
+    padding: 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 2%;
+}
 
 /* RESULTADO */
-.resultado {width: 100%; float: left; text-align: center; padding: 3% 4%; background-color:#130400;}
-.resultado h2 {color:#fff;}
-.resultado form {margin-top: 2%;}
-.resultado input {width: 100%; font-size: 1.5em; background-color: #130400; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 4%; border-radius: 5px; margin-top: 2%;}
-.resultado button {width: 100%; font-size: 1.5em; text-align: center; background-color: #fff; color: 130400; padding: 5%; border-radius: 10px; cursor: pointer; margin-top: 2%;}
+
+.resultado {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 3% 4%;
+    background-color: #130400;
+}
+
+.resultado h2 {
+    color: #fff;
+}
+
+.resultado form {
+    margin-top: 2%;
+}
+
+.resultado input {
+    width: 100%;
+    font-size: 1.5em;
+    background-color: #130400;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 4%;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+.resultado button {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #fff;
+    color: 130400;
+    padding: 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 2%;
+}
 
 /* RODAPÉ */
-.rodape {width:100%; float:left; padding: 3% 4%; text-align: center; background: linear-gradient(to right,#ce2e3c,#da6709);}
-.social-icons a {font-size: 1.5em; color: rgba(255,255,255,0.7); margin-right: 3%;}
-.social-icons a:last-child {margin-right: 0;} /*zerar a margem do último item*/
-.social-icons a:hover {color: rgb(255,255,255); }
-.copyright {margin-top: 2%;color: rgba(255,255,255,0.7);}
+
+.rodape {
+    width: 100%;
+    float: left;
+    padding: 3% 4%;
+    text-align: center;
+    background: linear-gradient(to right, #ce2e3c, #da6709);
+}
+
+.social-icons a {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 3%;
+}
+
+.social-icons a:last-child {
+    margin-right: 0;
+}
+
+/*zerar a margem do último item*/
+
+.social-icons a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.copyright {
+    margin-top: 2%;
+    color: rgba(255, 255, 255, 0.7);
+}
 
 /* MOBILE FIRST */
+
 /* Small Devices*/
-@media screen and (min-width: 480px){
-    .logo {margin: 0; width: 214px; background: url(../img/logo.png) center center no-repeat;}
-    .btn {font: 2em;}
+
+@media screen and (min-width: 480px) {
+    .logo {
+        margin: 0;
+        width: 214px;
+        background: url(../img/logo.png) center center no-repeat;
+    }
+    .btn {
+        font: 2em;
+    }
 }
+
 /* Tablets */
-@media screen and (min-width: 768px){
-    .catalogo input {width:70%; padding: 2%; float:left; margin-right: 1%;}
-    .catalogo button {width:29%; padding: 2%; float: right;}
-    .pesquisar h2 {font-size: 2em;}
-    .pesquisar h3 {font-size: 1.5em;}
-    .pesquisar select {width:70%; padding: 2%; float:left; margin-right: 1%;}
-    .pesquisar input {width:70%; padding: 2%; float:left; margin-right: 1%;}
-    .pesquisar button {width:29%; padding: 2%; float: right;}
-    .resultado input {width:70%; padding: 2%; float:left; margin-right: 1%;}
-    .resultado button {width:29%; padding: 2%; float: right;}
 
+@media screen and (min-width: 768px) {
+    .catalogo input {
+        width: 70%;
+        padding: 2%;
+        float: left;
+        margin-right: 1%;
+    }
+    .catalogo button {
+        width: 29%;
+        padding: 2%;
+        float: right;
+    }
+    .pesquisar h2 {
+        font-size: 2em;
+    }
+    .pesquisar h3 {
+        font-size: 1.5em;
+    }
+    .pesquisar select {
+        width: 70%;
+        padding: 2%;
+        float: left;
+        margin-right: 1%;
+    }
+    .pesquisar input {
+        width: 70%;
+        padding: 2%;
+        float: left;
+        margin-right: 1%;
+    }
+    .pesquisar button {
+        width: 29%;
+        padding: 2%;
+        float: right;
+    }
+    .resultado input {
+        width: 70%;
+        padding: 2%;
+        float: left;
+        margin-right: 1%;
+    }
+    .resultado button {
+        width: 29%;
+        padding: 2%;
+        float: right;
+    }
 }
+
 /*Tablets & Desktops */
-@media screen and (min-width: 960px){
-    .titulo {width: 70%; float: left; text-align: left;}
-    .titulo h2 {font-size: 3em;}
-    .titulo h3 {font-size: 2em;}
-    .buttons {width: 30%; float: right; margin-top: 0;}
-    .catalogo input {width: 49%; float: none;}
-    .catalogo button {width: 20%; float: none;}
-    .pesquisar input {width: 70%; float: left;}
-    .pesquisar select {width: 70%; float: left;}
-    .pesquisar button {width: 29%; float: right;}
-    .resultado input {width: 49%; float: none;}
-    .resultado button {width: 20%; float: none;}
 
+@media screen and (min-width: 960px) {
+    .titulo {
+        width: 70%;
+        float: left;
+        text-align: left;
+    }
+    .titulo h2 {
+        font-size: 3em;
+    }
+    .titulo h3 {
+        font-size: 2em;
+    }
+    .buttons {
+        width: 30%;
+        float: right;
+        margin-top: 0;
+    }
+    .catalogo input {
+        width: 49%;
+        float: none;
+    }
+    .catalogo button {
+        width: 20%;
+        float: none;
+    }
+    .pesquisar input {
+        width: 70%;
+        float: left;
+    }
+    .pesquisar select {
+        width: 70%;
+        float: left;
+    }
+    .pesquisar button {
+        width: 29%;
+        float: right;
+    }
+    .resultado input {
+        width: 49%;
+        float: none;
+    }
+    .resultado button {
+        width: 20%;
+        float: none;
+    }
 }
+
 /*Large Devices - Wide-Screens */
-@media screen and (min-width: 1280px){
-    .btn-menu {display: none;}
-    .btn-close {display: none;}
-    .menu {width: auto; height: 56px; float: right; background-color: #111; display: block !important; position:static }
-    .menu li {padding: 0; float:left; font-size: 1.5em;}
-    .menu li a {color:#fff; font-size: 1em; padding: 15px;}
-    .menu li a:hover {border: none; color:#ff0;}
-    .catalogo input {width: 49%; float: left;}
-    .catalogo button {width: 20%; float: left;}
-    .pesquisar input {width: 70%; float: left;}
-    .pesquisar button {width: 29%; float: left;}
-    .resultado input {width: 49%; float: left;}
-    .resultado button {width: 20%; float: left;}
+
+@media screen and (min-width: 1280px) {
+    .btn-menu {
+        display: none;
+    }
+    .btn-close {
+        display: none;
+    }
+    .menu {
+        width: auto;
+        height: 56px;
+        float: right;
+        background-color: #111;
+        display: block !important;
+        position: static
+    }
+    .menu li {
+        padding: 0;
+        float: left;
+        font-size: 1.5em;
+    }
+    .menu li a {
+        color: #fff;
+        font-size: 1em;
+        padding: 15px;
+    }
+    .menu li a:hover {
+        border: none;
+        color: #ff0;
+    }
+    .catalogo input {
+        width: 49%;
+        float: left;
+    }
+    .catalogo button {
+        width: 20%;
+        float: left;
+    }
+    .pesquisar input {
+        width: 70%;
+        float: left;
+    }
+    .pesquisar button {
+        width: 29%;
+        float: left;
+    }
+    .resultado input {
+        width: 49%;
+        float: left;
+    }
+    .resultado button {
+        width: 20%;
+        float: left;
+    }
 }
