@@ -67,12 +67,11 @@
              let url = 'https://swapi.co/api/people/1/';
                 $.getJSON(url, function (cardStarWars) {
                     console.log(cardStarWars.name);
-                    $('option:selected','nth-child(1)').cardStarWars.name;
+                    $("select option:nth-child(1)").attr('value', cardStarWars.name);
+                    $("select option:nth-child(1)").attr('selected','selected');
                 })
         </script>
-
-var option = $('option:selected', this).attr('mytag');
-
+        
         <div class="titulo">
             <h3>All the Star Wars data you've ever wanted:
                 Planets, Spaceships, Vehicles, People, Films and Species
