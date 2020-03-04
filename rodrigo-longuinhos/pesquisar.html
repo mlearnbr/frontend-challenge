@@ -46,7 +46,6 @@
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="pesquisar.html">Pesquisar</a></li>
                 <li><a href="resultado.html">Resultado</a></li>
-                <li><a href="testSWAPI.html">testSWAPI</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
             </ul>
         </nav>
@@ -60,11 +59,20 @@
             <form>
                 <select name="pesquisar">
                     <option value="0">Selecione personagem</option>
-                    <option value="Luke Skywalker">Luke Skywalker</option>
                 </select>
                 <button> Pesquisar </button>
             </form>
         </div>
+        <script>
+             let url = 'https://swapi.co/api/people/1/';
+                $.getJSON(url, function (cardStarWars) {
+                    console.log(cardStarWars.name);
+                    $('option:selected','nth-child(1)').cardStarWars.name;
+                })
+        </script>
+
+var option = $('option:selected', this).attr('mytag');
+
         <div class="titulo">
             <h3>All the Star Wars data you've ever wanted:
                 Planets, Spaceships, Vehicles, People, Films and Species

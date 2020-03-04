@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
     <link rel="icon" href="img/favicon.png">
+     <!-- Scripts -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 </head>
 <body>
     <header class="cabecalho">
@@ -27,7 +30,6 @@
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="pesquisar.html">Pesquisar</a></li>
                 <li><a href="resultado.html">Resultado</a></li>
-                <li><a href="testSWAPI.html">testSWAPI</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
             </ul>
         </nav>
@@ -49,11 +51,24 @@
                 <input type="text" id="txtSpecies" name="txtSpecies" placeholder="species">
                 <button> Voltar </button>
             </form>
-            
-            <!-- Scripts -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-            <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-            <script src="js/script.js"></script>
+
+            <script>
+                let url = 'https://swapi.co/api/people/1/';
+                    $.getJSON(url, function (cardStarWars) {
+                        console.log(cardStarWars.name);
+                        $("input:nth-child(1)").attr('value', cardStarWars.name);
+                        $("input:nth-child(2)").attr('value', cardStarWars.birth_year);
+                        $('input:nth-child(3)').attr('value',cardStarWars.eye_color);
+                        $('input:nth-child(4)').attr('value',cardStarWars.gender);
+                        $('input:nth-child(5)').attr('value',cardStarWars.hair_color);
+                        $('input:nth-child(6)').attr('value',cardStarWars.height);
+                        $('input:nth-child(7)').attr('value',cardStarWars.mass);
+                        $('input:nth-child(8)').attr('value',cardStarWars.skin_color);
+                        $('input:nth-child(9)').attr('value',cardStarWars.homeworld);
+                        $('input:nth-child(10)').attr('value',...cardStarWars.films);
+                        $('input:nth-child(11)').attr('value',cardStarWars.species);
+                    })
+            </script>
 
         </div>
     </div> 
