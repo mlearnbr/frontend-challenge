@@ -17,21 +17,6 @@
     <link rel="icon" href="img/favicon.png">
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        function UserAction() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText)
-                json = JSON.parse(this.responseText)
-                return json
-            }
-         }
-        xhttp.open("POST", "https://swapi.co/api/people", true)
-        xhttp.setRequestHeader("Content-type", "application/json")
-        xhttp.send("Your JSON Data Here")
-        }
-    </script>
 </head>
 <body>
     <header class="cabecalho">
@@ -51,15 +36,21 @@
     <div class="banner">
         <div class="catalogo">
             <h2>Catálogo</h2>
-            <script>
-                UserAction();
-            </script>
             <form>
                 <input type="text" name="name" placeholder="name" disabled>
                 <input type="text" name="species" placeholder="species" disabled>
                 <input type="text" name="birth_year" placeholder="birth_year" disabled>
-                <button onclick='window.location.href = "index.html"'> Voltar </button>
+                <button name="proximo"id="proximo" onclick='window.location.href = "catalogo.html"'> Próximo </button>
             </form>
+            <script>
+                let url = 'https://swapi.co/api/people/1';
+                    $.getJSON(url, function (cardStarWars) {
+                        console.log(cardStarWars.name);
+                        $("input:nth-child(1)").attr('value', cardStarWars.name);
+                        $("input:nth-child(2)").attr('value', cardStarWars.birth_year);
+                        $('input:nth-child(3)').attr('value',cardStarWars.species);   
+                   })
+           </script>
         </div>
         <div class="titulo">
             <h3>All the Star Wars data you've ever wanted:

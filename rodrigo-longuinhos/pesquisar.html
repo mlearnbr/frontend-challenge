@@ -57,18 +57,21 @@
                 UserAction();
             </script>
             <form>
-                <select name="pesquisar">
-                    <option value="0">Selecione personagem</option>
+                <select name="pesquisar" id="pesquisar">
                 </select>
                 <button> Pesquisar </button>
             </form>
         </div>
         <script>
-             let url = 'https://swapi.co/api/people/1/';
-                $.getJSON(url, function (cardStarWars) {
-                    console.log(cardStarWars.name);
-                    $("select option:nth-child(1)").attr('value', cardStarWars.name);
-                    $("select option:nth-child(1)").attr('selected','selected');
+             let url = 'https://swapi.co/api/people/';
+                $.getJSON(url, function (cardStarWars){
+                    console.log(cardStarWars);
+                    //$("select option:nth-child(1)").append('<option value=' + cardStarWars.name + '>' + cardStarWars.name+ '</option>');
+                    for (key in cardStarWars){
+                        if (typeof (cardStarWars[key] == 'string')){
+                            $("select:nth-child(1)").append('<option value=' + key + '>' + cardStarWars.name + '</option>');
+                        }
+                    }                 
                 })
         </script>
         
