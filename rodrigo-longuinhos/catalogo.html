@@ -26,7 +26,7 @@
             <a class="btn-close"><i class="fa fa-times"></i></a>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="catalogo.html?id=1">Catálogo</a></li>
                 <li><a href="pesquisar.html">Pesquisar</a></li>
                 <li><a href="resultado.html">Resultado</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -42,7 +42,8 @@
                 <input type="text" name="birth_year" placeholder="birth_year" disabled>
                 <button name="btNext" id="btNext" onclick=""> Próximo </button>
             </form>
-
+            
+            <!-- script para buscar a query string de interesse -->
             <script>
                 var getUrlParameter = function getUrlParameter(sParam) {
                      var sPageURL = window.location.search.substring(1),
@@ -60,6 +61,7 @@
                  };
             </script>
 
+            <!-- script para carregar nos inputs os valores do json -->
             <script>
                 var id = getUrlParameter('id');
                 var url = 'https://swapi.co/api/people/' + id;
@@ -69,8 +71,9 @@
                         $("input:nth-child(2)").attr('value', cardStarWars.birth_year);
                         $('input:nth-child(3)').attr('value',cardStarWars.species);                 
                    })
-           </script>         
+            </script>         
 
+            <!-- script que carrega próximo registro da api -->
             <script>
                 $('#btNext').click(function() {
                     var id = getUrlParameter('id');

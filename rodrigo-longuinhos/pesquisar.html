@@ -18,22 +18,6 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- AJAX - Send a Request To a SWAPI -->
-    <script>
-        function UserAction() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText)
-                json = JSON.parse(this.responseText)
-                return json
-            }
-         }
-        xhttp.open("POST", "https://swapi.co/api/people", true)
-        xhttp.setRequestHeader("Content-type", "application/json")
-        xhttp.send("Your JSON Data Here")
-        }
-    </script>
-
 </head>
 <body>
     <header class="cabecalho">
@@ -60,6 +44,8 @@
                 <button id="btPesquisar" name="btPesquisar" onclick=""> Pesquisar </button>
             </form>
         </div>
+
+        <!-- script que carrega na combo os nomes dos personagens -->
         <script>
             let url = 'https://swapi.co/api/people/1';
                $.getJSON(url, function (cardStarWars){
@@ -69,7 +55,9 @@
                    var proximo = cardStarWars.next;
                         $("select:nth-child(1)").append('<option value=' + cardStarWars.next + '>' + cardStarWars.name + '</option>');
                })
-        </script> 
+        </script>
+        
+        <!-- script que carrega resultado ao clicar no botão pesquisar-->
         <script>
             $('#btPesquisar').click(function() {
                 window.location.href = 'resultado.html';
