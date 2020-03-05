@@ -53,28 +53,29 @@
     <div class="banner">
         <div class="pesquisar">
             <h2>Pesquisar</h2>
-            <script>
-                UserAction();
-            </script>
             <form>
                 <select name="pesquisar" id="pesquisar">
+                    <option value="0" selected>Selecione personagem</option>
                 </select>
-                <button> Pesquisar </button>
+                <button id="btPesquisar" onclick=""> Pesquisar </button>
             </form>
         </div>
         <script>
-             let url = 'https://swapi.co/api/people/';
-                $.getJSON(url, function (cardStarWars){
-                    console.log(cardStarWars);
-                    //$("select option:nth-child(1)").append('<option value=' + cardStarWars.name + '>' + cardStarWars.name+ '</option>');
-                    for (key in cardStarWars){
-                        if (typeof (cardStarWars[key] == 'string')){
-                            $("select:nth-child(1)").append('<option value=' + key + '>' + cardStarWars.name + '</option>');
-                        }
-                    }                 
-                })
-        </script>
-        
+            let url = 'https://swapi.co/api/people/1';
+               $.getJSON(url, function (cardStarWars){
+                   console.log(cardStarWars);
+                   //$("select option:nth-child(1)").append('<option value=' + cardStarWars.name + '>' + cardStarWars.name+ '</option>');
+                   var contador = cardStarWars.count;
+                   var proximo = cardStarWars.next;
+                        $("select:nth-child(1)").append('<option value=' + cardStarWars.next + '>' + cardStarWars.name + '</option>');
+               })
+        </script> 
+        <script>
+            $('#btPesquisar').click(function() {
+                window.location.href = 'resultado.html';
+                return false;
+            });
+        </script>    
         <div class="titulo">
             <h3>All the Star Wars data you've ever wanted:
                 Planets, Spaceships, Vehicles, People, Films and Species

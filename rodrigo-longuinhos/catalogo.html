@@ -40,7 +40,7 @@
                 <input type="text" name="name" placeholder="name" disabled>
                 <input type="text" name="species" placeholder="species" disabled>
                 <input type="text" name="birth_year" placeholder="birth_year" disabled>
-                <button name="proximo"id="proximo" onclick='window.location.href = "catalogo.html"'> Próximo </button>
+                <button name="proximo"id="proximo" onclick='pageRedirect()'> Próximo </button>
             </form>
             <script>
                 let url = 'https://swapi.co/api/people/1';
@@ -48,9 +48,16 @@
                         console.log(cardStarWars.name);
                         $("input:nth-child(1)").attr('value', cardStarWars.name);
                         $("input:nth-child(2)").attr('value', cardStarWars.birth_year);
-                        $('input:nth-child(3)').attr('value',cardStarWars.species);   
+                        $('input:nth-child(3)').attr('value',cardStarWars.species);
+                        var nextURL =  cardStarWars.next;
                    })
            </script>
+           <script>
+                function pageRedirect() {
+                    window.location.replace("catalogo.html?swapi=" + nextURL);
+                }      
+                setTimeout("pageRedirect()", 10000);
+            </script>
         </div>
         <div class="titulo">
             <h3>All the Star Wars data you've ever wanted:
