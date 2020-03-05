@@ -40,24 +40,47 @@
                 <input type="text" name="name" placeholder="name" disabled>
                 <input type="text" name="species" placeholder="species" disabled>
                 <input type="text" name="birth_year" placeholder="birth_year" disabled>
-                <button name="proximo"id="proximo" onclick='pageRedirect()'> Próximo </button>
+                <button name="btNext" id="btNext" onclick=""> Próximo </button>
             </form>
+
             <script>
-                let url = 'https://swapi.co/api/people/1';
+                var getUrlParameter = function getUrlParameter(sParam) {
+                     var sPageURL = window.location.search.substring(1),
+                         sURLVariables = sPageURL.split('&'),
+                         sParameterName,
+                         i;
+ 
+                     for (i = 0; i < sURLVariables.length; i++) {
+                         sParameterName = sURLVariables[i].split('=');
+ 
+                         if (sParameterName[0] === sParam) {
+                             return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                         }
+                     }
+                 };
+            </script>
+
+            <script>
+                var id = getUrlParameter('id');
+                var url = 'https://swapi.co/api/people/' + id;
                     $.getJSON(url, function (cardStarWars) {
                         console.log(cardStarWars.name);
                         $("input:nth-child(1)").attr('value', cardStarWars.name);
                         $("input:nth-child(2)").attr('value', cardStarWars.birth_year);
-                        $('input:nth-child(3)').attr('value',cardStarWars.species);
-                        var nextURL =  cardStarWars.next;
+                        $('input:nth-child(3)').attr('value',cardStarWars.species);                 
                    })
-           </script>
-           <script>
-                function pageRedirect() {
-                    window.location.replace("catalogo.html?swapi=" + nextURL);
-                }      
-                setTimeout("pageRedirect()", 10000);
-            </script>
+           </script>         
+
+            <script>
+                $('#btNext').click(function() {
+                    var id = getUrlParameter('id');
+                    id++;
+                    window.location.href = 'catalogo.html?id=' + id;
+                    return false;
+                    })
+            </script> 
+
+         
         </div>
         <div class="titulo">
             <h3>All the Star Wars data you've ever wanted:
