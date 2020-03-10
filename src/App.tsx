@@ -1,8 +1,14 @@
 import React from 'react';
 
+import TopBar from 'components/TopBar';
+import AppRouter from './app.router';
+
 function App() {
   return (
-    <h1>mLearn test</h1>
+    <>
+      <TopBar />
+      <AppRouter />
+    </>
   );
 }
 
