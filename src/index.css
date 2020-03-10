@@ -1,0 +1,33 @@
+body, html {
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:root {
+  --color-blueGrey-900: #263238;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.5s;
+}
+button {
+  background: none;
+}
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  width: 95%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
