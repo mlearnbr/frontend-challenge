@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './character-card.css';
 
@@ -25,9 +25,9 @@ export default function CharacterCard(props: CharacterCardProps) {
         <p>Birth year: { character.birth_year }</p>
       </div>
 
-      <NavLink className="characterCard__btn" to={`/character/${getCharacterId(character.url)}`}>
+      <Link className="characterCard__btn" to={`/character/${getCharacterId(character.url)}`}>
         See more
-      </NavLink>
+      </Link>
     </div>
   )
 }

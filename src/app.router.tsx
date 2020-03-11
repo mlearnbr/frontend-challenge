@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import TopBar from 'components/TopBar';
+import CharacterPage from 'pages/Character';
 import HomePage from 'pages/Home';
 
 export default function AppRouter() {
@@ -15,7 +16,8 @@ export default function AppRouter() {
       <TopBar />
 
       <Switch>
-        <Route path="/" component={HomePage} />
+        <Route exact path="/" component={HomePage} />
+        <Route path="/character/:id" component={CharacterPage} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

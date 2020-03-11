@@ -1,7 +1,3 @@
-#home {
-  margin-top: var(--space-medium);
-}
-
 #catalogue {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, auto));
