@@ -1,0 +1,22 @@
+.characterCard {
+  border: 1px solid var(--color-blueGrey-900);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.characterCard__infos {
+  padding: 15px;
+}
+
+.characterCard__infos > h2 {
+  min-height: 60px;
+}
+
+.characterCard__btn {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--color-blueGrey-900);
+  line-height: 2.5;
+}

@@ -1,0 +1,46 @@
+body, html {
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-blueGrey-900: #263238;
+
+  --space-small: 0.25rem;
+  --space-normal: 1rem; 
+  --space-medium: 1.5rem;
+  --space-large: 2rem;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  width: 95%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.page {
+  margin-top: var(--space-medium);
+}
