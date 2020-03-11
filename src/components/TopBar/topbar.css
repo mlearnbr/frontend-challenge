@@ -1,6 +1,6 @@
 #topbar {
   width: 100%;
-  padding: 15px 0;
+  padding: var(--space-normal) 0;
   background-color: var(--color-blueGrey-900);
 }
 

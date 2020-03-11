@@ -1,0 +1,31 @@
+#home {
+  margin-top: var(--space-medium);
+}
+
+#catalogue {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+  grid-column-gap: var(--space-normal);
+  grid-row-gap: var(--space-normal);
+}
+
+#loadingText {
+  display: block;
+  width: 100%;
+  margin: var(--space-medium) 0;
+  text-align: center;
+}
+
+#btn-loadMore {
+  width: 100%;
+  max-width: 130px;
+  font-size: 1.1em;
+  border: 1px solid var(--color-blueGrey-900);
+  color: var(--color-blueGrey-900);
+  display: block;
+  padding: var(--space-small) 0;
+  margin: var(--space-medium) auto;
+}
+
+@media(min-width: 701px) {
+}

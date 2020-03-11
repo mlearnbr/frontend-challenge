@@ -2,7 +2,8 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 
 import TopBar from 'components/TopBar';
@@ -15,6 +16,7 @@ export default function AppRouter() {
 
       <Switch>
         <Route path="/" component={HomePage} />
+        <Redirect from="*" to="/" />
       </Switch>
     </Router>
   )
