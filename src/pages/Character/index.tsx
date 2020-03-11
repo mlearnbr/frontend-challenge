@@ -69,7 +69,7 @@ export default function CharacterPage() {
             <h4>Eye color: { character.eye_color }</h4>
             <h4>Gender: { character.gender }</h4>
             <h4>Hair color: { character.hair_color }</h4>
-            <h4>Heght: { character.height }</h4>
+            <h4>Height: { character.height }</h4>
             <h4>Mass: { character.mass }</h4>
             <h4>Skin color: { character.skin_color }</h4>
             <h4>Homeworld: { character.homeworld }</h4>

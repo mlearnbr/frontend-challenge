@@ -16,7 +16,7 @@ export default function HomePage() {
     try {
       const response = await CharactersSevice.getCharacters(page);
       const chars = response.data.results;
-      setCharacters(prev => prev?.concat(chars));
+      setCharacters(prevChars => prevChars?.concat(chars));
     } catch {
       setError(true);
     } finally {
