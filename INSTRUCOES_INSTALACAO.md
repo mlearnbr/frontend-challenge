@@ -1,0 +1,4 @@
+- versão do projeto ionic: 3.2.4
+- instalar o ionic e cordova com o comando "npm install -g ionic cordova"
+- rodar o comenado "npm install" na raiz do app (starWars)
+- rodar o comando "ionic serve" na raiz do app (starWars)

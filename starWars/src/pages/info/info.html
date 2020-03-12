@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-navbar color="starWarsTheme">
+    <ion-title>{{ character.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-horizontal class="fundo">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+  <ion-grid>
+    <ion-col>
+      <ion-card id="banner">
+        <ion-row>
+
+          <ion-col id="img" col-4 col-md-4 col-lg-2 col-sm-2 col-xl-2>
+          </ion-col>
+
+          <ion-col col-8 col-md-8 col-lg-10 col-sm-10 col-xl-10>
+            <ion-list no-lines>
+              <ion-item *ngFor="let specie of species ">
+                <ion-icon name="custom-specie" item-start></ion-icon>
+                <ion-label>{{ specie.__zone_symbol__value }}</ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon name="custom-gender" item-start></ion-icon>
+                <ion-label>{{ character.gender }}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="custom-calendar" item-start></ion-icon>
+                <ion-label>{{ character.birth_year }}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-row id="info">
+        <h3>Physical Characteristics</h3>
+      </ion-row>
+
+      <ion-list no-lines>
+        <ion-item>
+          <ion-icon name="custom-eye" item-start></ion-icon>
+          <ion-label>{{ character.eye_color }}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="custom-skin" item-start></ion-icon>
+          <ion-label>{{ character.skin_color }}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="custom-hair" item-start></ion-icon>
+          <ion-label>{{ character.hair_color }}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="custom-height" item-start></ion-icon>
+          <ion-label>{{ character.height }} cm</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="custom-weight" item-start></ion-icon>
+          <ion-label>{{ character.mass }} kg</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-row id="info">
+        <h3>Origin</h3>
+      </ion-row>
+
+      <ion-list>
+        <ion-item>
+          <ion-icon name="custom-planet" item-start></ion-icon>
+          <ion-label>{{ planet }}</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-row id="info">
+        <h3>Films</h3>
+      </ion-row>
+
+      <ion-scroll scrollX="true" direction="x">
+        <ion-spinner *ngIf="films.lenght == 0"></ion-spinner>
+        <ion-card class="cards" id="film" *ngFor="let film of films">
+          <ion-card-content>
+            <p>{{ film }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-scroll>
+    </ion-col>
+  </ion-grid>
+</ion-content>
