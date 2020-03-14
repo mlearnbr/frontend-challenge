@@ -1,6 +1,16 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import {Box, Grid} from "@material-ui/core";
 import {makeStyles} from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CakeIcon from '@material-ui/icons/Cake';
+import Typography from '@material-ui/core/Typography';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 
 export const CharactersCards = (props) => {
 
@@ -26,65 +36,49 @@ export const CharactersCards = (props) => {
         title:{
             marginLeft:'auto',
             marginRight: 'auto',
-        },
-        alive: {
-            backgroundColor: "#038c1a"
-        },
-        presumed: {
-            backgroundColor: "#ff1100",
-        },
-        dead:{
-            backgroundColor :"#fc8c03"
-        },
-        unknown:{
-            backgroundColor: "#4f4f4f"
         }
-
     }));
 
     const { characters } = props;
+    const classes = useStyles();
 
     useEffect(() => {
         console.log("props", characters)
     }, [characters]);
 
     return (
-        <div className="row">
-            {characters.map( character => {
-                return(
-                    <div className="col-lg-4 col-md-6" key={character.url}>
-                        <div className="card">
-                            <div className="card-header">
-                            </div>
-                            <div className="card-body">
-                                <h5 className="card-title h2">{character.name}</h5>
-                                <p className="card-text">
-                                    <strong>Height:</strong> {character.height} {"//"} <strong>Mass:</strong> {character.mass}
-                                </p>
-                                <p className="card-text">
-                                    <strong>Hair Color:</strong> {character.hair_color} {"//"} <strong> Skin Color:</strong> {character.skin_color} {"//"} <strong> Eye Color:</strong> {character.eye_color}
-                                </p>
-                                <p className="card-text">
-                                    <strong> Birth Year:</strong> {character.birth_year}
-                                </p>
-                                <p className="card-text">
-                                    <strong> Gender:</strong> {character.gender}
-                                </p>
+        <Box display="flex" flexDirection="row" boxShadow={3} item xl={3}>
+            <Grid container >
+                {characters.map((character) => (
+                    <Card className={classes.root}>
+                        <CardHeader
+                            title={
+                                <Box color="#ffffff" className={classes.title}>{character.name}</Box>}
+                        />
+                        <CardMedia
+                            className={classes.media}
+                            image={character.img}
+                            title={character.nickname}
+                        />
+                        <CardContent>
+                            <Typography variant="body2" component="p" >
+                                <p><Box color="#ffffff" className={classes.title}><CakeIcon/>{character.birth_year}</Box> </p>
+                                <p> <Box color="#ffffff" className={classes.title}><EmojiPeopleIcon/>{character.height+" "}</Box> </p>
 
-                                <Link
-                                    to={
-                                        { pathname: `/characterdetails/${character.name}`,
-                                            query:{url: character.url}
-                                        }}
-                                    className="btn btn-warning"
-
-                                >Detalhes</Link>
-                            </div>
-                        </div>
-                    </div>
-
-                )
-            })}
-        </div>
+                            </Typography>
+                        </CardContent>
+                        <CardActions disableSpacing>
+                            <Link
+                                to={
+                                    { pathname: `/characterdetails/${character.name}`,
+                                        query:{url: character.url}
+                                    }}
+                                className="btn btn-light"
+                            >Detalhes</Link>
+                        </CardActions>
+                    </Card>
+                ))}
+            </Grid>
+        </Box>
     )
 };

@@ -5,7 +5,7 @@ import { CharactersCards } from "./CharacterCard";
 const Result = () => {
 
     const {
-        state: { characters }} = useContext(ApiContext)
+        state: { characters }} = useContext(ApiContext);
 
     useEffect(() => {
         console.log("results ", characters)

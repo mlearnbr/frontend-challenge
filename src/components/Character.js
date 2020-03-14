@@ -38,7 +38,6 @@ const styles = theme => ({
 });
 
 class Character extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -50,24 +49,15 @@ class Character extends React.Component {
     }
 
     getHomeWorld(homeworld) {
-
         fetch(homeworld)
             .then(response => response.json())
             .then(json => this.setState({homeworld: json}));
-
         return this.state.homeworld.name
     }
 
-    getFavorite(character) {
-
-        return JSON.parse(localStorage.getItem("character_" + character.url))
-    }
-
     setFavorite(character) {
-
         localStorage.setItem('character_' + character.url, JSON.stringify(character));
     }
-
 
     render() {
         const {classes} = this.props;
