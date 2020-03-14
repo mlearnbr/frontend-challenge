@@ -1,42 +1,18 @@
 # Desafio front-end da mLearn
 
-Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
-
-Provavelmente você já está participando do nosso processo de contratação, mas se você caiu aqui por acaso, leia o documento até o final e caso haja interesse, você pode começar daqui mesmo.
+Utilizando o ReactJS para gerar uma lista de personagens de Star Wars, proveniente da https://swapi.co/. 
 
 
-## Sobre o desafio
+## Instalação 
 
-Esse é um desafio, não um teste ou uma prova de faculdade, portanto não há uma única resposta certa.
+Após clonar o projeto rodar os comandos:
 
-Daremos a você alguns requisitos que devem ser cumpridos, e pelos quais você será avaliado, mas deixamos livre a escolha do método de solução.
+npm i => Para instalar as dependências
 
-O que nós esperamos aprender de você com o desafio:
+npm start => Para iniciar o projeto
 
-- Seu estilo de trabalho
-- Como você pensa e resolve problemas
-- Como você se comunica
+## Utilização
 
-O que nós esperamos que você aprenda sobre a mLearn:
-
-- Como nós trabalhamos como um time.
-- Tenha uma visão próxima dos desafios que enfrentamos no dia-a-dia.
-
-## Próximos passos
-
-1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. As instruções do desafio se encontram no arquivo [`CHALENGE.md`](/CHALENGE.md).
-2. Resolva o desafio da forma que você julgar mais adequada.
-3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
-
-## Considerações
-
-- Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
-- O tempo limite para execução do teste é  de **2 horas**.
-- Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
-
-## Dúvidas?
-
-Ficou com alguma dúvida sobre como irá funcionar o processo? Entre em contato que nós te ajudaremos com o processo.
-
-**Boa sorte!**
+1. A tela contém apenas uma barra de busca, que retorna os personagens que contém o nome similar ao digitado na barra de pesquisas
+2. É retonardo em forma de cards os resultados
+3. O card contém um link que envia para a tela de detalhes sobre o personagem
