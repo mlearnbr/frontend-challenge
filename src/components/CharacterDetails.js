@@ -21,7 +21,7 @@ const CharacterDetails = (props) => {
                 marginRight: 'auto',
                 marginLeft:'auto',
                 marginBottom:'50px',
-                backgroundColor:"#323232",
+                backgroundColor:"#212121",
             },
             media: {
                 height: 0,
