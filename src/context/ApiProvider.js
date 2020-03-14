@@ -9,6 +9,7 @@ export default  class ApiProvider extends  Component {
         this.state = {
             characters:[],
             homeworld: {},
+            movies:[],
             selectedCharacter: {}
         }
     }
@@ -44,6 +45,13 @@ export default  class ApiProvider extends  Component {
         return this.state.homeworld.name
     }
 
+    getMovies = (url) => {
+        fetch(url)
+            .then( response => response.json() )
+            .then( json => this.setState({ movies: json } ))
+        return this.state.movies.name
+    }
+
     render(){
         const value = {
             state: { ...this.state },
@@ -51,7 +59,8 @@ export default  class ApiProvider extends  Component {
                 getSearch: this.getSearch,
                 getHomeWorld: this.getHomeWorld,
                 selectCharacter: this.selectCharacter,
-                getCharacter: this.getCharacter
+                getCharacter: this.getCharacter,
+                getMovies:this.getMovies
             }
         };
 

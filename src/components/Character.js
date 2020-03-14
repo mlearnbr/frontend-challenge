@@ -43,7 +43,6 @@ class Character extends React.Component {
         this.state = {
             characters: [],
             homeworld: {},
-            movies: []
         };
 
     }

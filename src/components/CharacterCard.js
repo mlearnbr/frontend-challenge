@@ -10,14 +10,13 @@ import CakeIcon from '@material-ui/icons/Cake';
 import Typography from '@material-ui/core/Typography';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
 
 export const CharactersCards = (props) => {
 
     const useStyles = makeStyles(theme => ({
         root: {
-            minWidth: 420,
-            minheight:640,
+            minWidth: 320,
+            minheight:200,
             marginRight: 'auto',
             marginLeft:'auto',
             marginBottom:'30px',
@@ -36,8 +35,10 @@ export const CharactersCards = (props) => {
         title:{
             marginLeft:'auto',
             marginRight: 'auto',
+            color: "#ffffff"
         }
-    }));
+    }
+    ));
 
     const { characters } = props;
     const classes = useStyles();
@@ -68,13 +69,13 @@ export const CharactersCards = (props) => {
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
-                            <Link
+                            <Link color="#ffffff" className={classes.title}
                                 to={
                                     { pathname: `/characterdetails/${character.name}`,
                                         query:{url: character.url}
                                     }}
-                                className="btn btn-light"
-                            >Detalhes</Link>
+
+                            >Character Info</Link>
                         </CardActions>
                     </Card>
                 ))}
