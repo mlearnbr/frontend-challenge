@@ -1,4 +1,61 @@
-:host {
-  width: 100%;
+@import '../../../styles-variables.scss';
+
+
+.card {
+  background: white;
   height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  padding: 20px 25px;
+}
+
+
+.img-wrapper {
+  display: flex; 
+  justify-content: center;
+  padding: 10px 0;
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.presentation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 30px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: $title-color;
+  }
+  
+  .subtitle {
+    padding-top: 8px;
+    font-size: 18px;
+    color: $subtitle-color;
+  }
+}
+
+
+.species-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .specie-item {
+    width: auto;
+    background: $primary-color;
+    color: white;
+    margin: 6px;
+    padding: 4px 16px;
+    border-radius: 16px;
+  }
 }

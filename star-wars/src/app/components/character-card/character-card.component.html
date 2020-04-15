@@ -1,5 +1,21 @@
 
-<!-- <a [routerLink]="character.id">
-  Personagem 1
-</a> -->
-{{ character | json }}
+<div class="card mat-elevation-z6" [routerLink]="character.id">
+
+  <div class="wrapper">
+    <div class="img-wrapper">
+      <img src="/assets/user-avatar.png">
+    </div>
+  
+    <div class="presentation">
+      <div class="title">{{ character.name }}</div>
+      <div class="subtitle">{{ character.birthYear }}</div>
+    </div>
+  
+    <div class="species-wrapper">
+      <div class="specie-item" *ngFor="let specie of character.species">
+        {{ specie }}
+      </div>
+    </div>
+  </div>
+
+</div>
