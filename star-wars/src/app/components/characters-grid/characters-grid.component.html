@@ -1,0 +1,19 @@
+
+
+
+<div class="grid-container" [ngClass]="{
+  'handset-container': (isHandset$ | async),
+  'medium-container': (isMedium$ | async)
+}" >
+    
+  <div class="grid">
+    
+    <ng-template ngFor let-item [ngForOf]="characters">
+      <div class="item">      
+        <app-character-card [character]="item"></app-character-card>
+      </div>
+    </ng-template>
+    
+  </div>
+  
+</div>

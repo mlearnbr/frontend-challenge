@@ -12,13 +12,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { HttpClientModule } from '@angular/common/http';
+import { CharacterCardComponent } from './components/character-card/character-card.component';
+import { CharactersGridComponent } from './components/characters-grid/characters-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersListComponent,
-    CharactersItemComponent
+    CharactersItemComponent,
+
+    CharacterCardComponent,
+    CharactersGridComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatProgressBarModule,
 
     HttpClientModule,
   ],

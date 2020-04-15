@@ -1,0 +1,32 @@
+
+
+.grid {
+  
+  padding: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+
+}
+
+.handset-container {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.medium-container {
+  .grid {
+    padding: 30px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+.item {
+  cursor: pointer;
+
+  text-align: center;
+  background-color: gainsboro;
+}
