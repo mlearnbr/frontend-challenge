@@ -1,27 +1,28 @@
-# StarWars
+# Star Wars Catalog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+Execução do desafio proposto no processo de seleção da mLearn
 
-## Development server
+O projeto pode ser acessado no endereço: http://star-wars-catalog.firebaseapp.com/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Ferramentas utilizadas
 
-## Code scaffolding
+- Angular 9: Framework Frontend
+- Angular Material: Componentes visuais no padrão Material Design
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+# Execução
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+É necessário utilizar o [Angular CLI para execução / compilação](https://cli.angular.io/)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Execução do servidor de desenvolvimento
+```
+ng serve
+```
 
-## Further help
+Acesso: [http://localhost:4200/](http://localhost:4200/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
