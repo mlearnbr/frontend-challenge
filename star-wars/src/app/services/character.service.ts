@@ -62,6 +62,7 @@ export class CharacterService {
           mass: v.mass,
           skinColor: v.skinColor,
           species: v.species.results.map(s => s.name),
+          homeworld: v.homeworld.name,
 
           films: v.films.results.map(film => {
             
