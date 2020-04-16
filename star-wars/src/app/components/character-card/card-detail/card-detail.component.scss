@@ -1,0 +1,33 @@
+@import '../../../../styles-variables.scss';
+
+.header {
+  margin-top: 10px;
+}
+
+.type {
+  font-size: 10px !important;
+  color: $subtitle-color;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  line-height: 1.4em;
+}
+
+.text {
+  font-size: 18px !important;
+  color: $title-color;
+}
+
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .column {
+    margin-right: 100px;
+  }
+}
+
+.grid.small-container {
+  flex-direction: column;
+}

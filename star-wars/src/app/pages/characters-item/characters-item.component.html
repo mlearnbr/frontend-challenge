@@ -1,19 +1,31 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="mat-elevation-z3" >
-      <button
-        type="button"
-        aria-label="Back"
-        routerLink=""
-        mat-icon-button
-      >
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-      <span>{{ character.name }}</span>
-    </mat-toolbar>
-    
-    
-    aa
 
+    <div class="top-container">
+      <mat-toolbar class="mat-elevation-z3" >
+        <button
+          type="button"
+          aria-label="Back"
+          routerLink=""
+          mat-icon-button
+        >
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span *ngIf="character$ | async as character">{{ character.name }}</span>
+      </mat-toolbar>
+      
+      <div class="progress-wrapper">
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+      </div>
+    </div>
+    
+    <div class="card-wrapper">
+      <app-character-card 
+        *ngIf="character$ | async as character" 
+        [showDetail]="true"
+        [character]="character"
+      ></app-character-card>
+    </div>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>

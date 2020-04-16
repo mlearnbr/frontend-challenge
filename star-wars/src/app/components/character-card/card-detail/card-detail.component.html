@@ -1,0 +1,27 @@
+
+
+<mat-list>
+  <div class="header" *ngIf="smallScreen">
+    <mat-divider></mat-divider>
+    <div mat-subheader>Details</div>
+  </div>
+  
+  <div class="grid" [class.small-container]="smallScreen">
+    <div class="column">
+      <mat-list-item *ngFor="let item of itens1">
+        <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+        <div matLine class="type">{{ item.type }}</div>
+        <div matLine class="text">{{ item.text }}</div>
+      </mat-list-item>
+    </div>
+
+    <div class="column">
+      <mat-list-item *ngFor="let item of itens2">
+        <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+        <div matLine class="type">{{ item.type }}</div>
+        <div matLine class="text">{{ item.text }}</div>
+      </mat-list-item>
+    </div>
+  </div>
+
+</mat-list>

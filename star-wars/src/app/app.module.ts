@@ -16,6 +16,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { CharactersGridComponent } from './components/characters-grid/characters-grid.component';
+import { CardDetailComponent } from './components/character-card/card-detail/card-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CharactersGridComponent } from './components/characters-grid/characters
 
     CharacterCardComponent,
     CharactersGridComponent,
+    CardDetailComponent,
   ],
   imports: [
     BrowserModule,

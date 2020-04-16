@@ -15,14 +15,46 @@
 .img-wrapper {
   display: flex; 
   justify-content: center;
-  padding: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 30px;
 
   img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    border: #dcdcdc 1px solid;
     object-fit: cover;
   }
+}
+
+
+
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailed {
+  .grid {
+    flex-direction: row;
+    
+    .main-character-info {
+      min-width: 250px; 
+      margin-right: 50px;
+    }
+  }
+}
+
+.small-container.detailed {
+  .grid {
+    flex-direction: column;
+
+    .main-character-info {
+      width: 100%; 
+      margin-bottom: 20px;
+    }
+  }
+
 }
 
 .presentation {
