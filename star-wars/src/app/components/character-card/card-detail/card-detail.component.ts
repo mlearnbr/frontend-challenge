@@ -5,7 +5,7 @@ import { Character } from 'src/app/models/character.model';
 class Item {
   icon: string
   type: string
-  text: string
+  text: string | number
 }
 
 @Component({
@@ -58,12 +58,12 @@ export class CardDetailComponent implements OnInit, OnChanges {
       {
         icon: 'height',
         type: 'Height',
-        text: `${this.character.height}`
+        text: this.character.height
       },
       {
         icon: 'person',
         type: 'Mass',
-        text: `${this.character.mass}`
+        text: this.character.mass
       },
       {
         icon: 'color_lens',
