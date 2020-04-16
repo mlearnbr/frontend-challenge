@@ -12,8 +12,24 @@
       </div>
     </div>
 
+    <app-characters-grid 
+      *ngIf="!error; else errorMsg" 
+      [characters]="shownCharacters$ | async"
+    ></app-characters-grid>
 
-    <app-characters-grid [characters]="shownCharacters$ | async"></app-characters-grid>
+
 
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<ng-template #errorMsg>
+  <div class="error-msg-wrapper">
+    <mat-icon color="warn">error_outline</mat-icon>
+
+    <div class="msg">Houve um erro. <br>Tente novamente.</div>
+      
+    <button mat-raised-button color="primary" (click)="load()">Tentar novamente</button>
+
+  </div>
+</ng-template>

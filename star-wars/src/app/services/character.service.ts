@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Character } from '../models/character.model';
 import { ApiService } from './api.service';
 import { charactersListQueryDef, characterObjQueryDef } from '../queries/character.queries'
-import { map } from 'rxjs/operators';
+import { map, retry, tap } from 'rxjs/operators';
 import { Film } from '../models/film.model';
 
 
@@ -22,6 +22,8 @@ export class CharacterService {
     const req = this.apiService.graphqlQuery(charactersListQueryDef())
     
     return req.pipe(
+      
+      retry(10),
       map(v => v.data.characters.results),
       
       map(list => {
@@ -47,6 +49,8 @@ export class CharacterService {
     const req = this.apiService.graphqlQuery(characterObjQueryDef(id))
     
     return req.pipe(
+
+      retry(10),
       map(v => v.data.character),
       
       map(v => {

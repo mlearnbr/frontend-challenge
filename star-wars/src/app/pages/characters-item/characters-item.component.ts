@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap, catchError, map, filter, distinct, share } from 'rxjs/operators';
 import { CharacterService } from 'src/app/services/character.service';
 import { Character } from 'src/app/models/character.model';
-import { Observable } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-characters-item',
@@ -13,7 +13,9 @@ import { Observable } from 'rxjs';
 export class CharactersItemComponent implements OnInit {
 
   loading: boolean
+  error: boolean
 
+  characterId$: BehaviorSubject<string>
   character$: Observable<Character>
 
   character = {
@@ -31,11 +33,39 @@ export class CharactersItemComponent implements OnInit {
 
   listenId() {
 
-    this.character$ = this.activatedRoute.params.pipe(
-      tap(() => this.loading = true),
-      switchMap(v => this.characterService.getItemById(v.id)),
+    this.characterId$ = new BehaviorSubject<string>(null)
+    
+    this.activatedRoute.params.subscribe(params => {
+      this.characterId$.next(params.id)
+    })
+
+
+    this.character$ = this.characterId$.pipe(
+      
+      filter(id => id != null),
+      tap(() => {
+        this.loading = true
+        this.error = false
+      }),
+      switchMap(id => {
+        return this.characterService.getItemById(id).pipe(
+          catchError(error => {
+            this.error = true
+            return of(null)
+          })
+        )
+      }),
+
       tap(() => this.loading = false),
+
+      share()
     )
+
+  }
+
+  load() {    
+    
+    this.characterId$.next(this.characterId$.value)
 
   }
 

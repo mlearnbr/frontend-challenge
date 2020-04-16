@@ -19,7 +19,7 @@
       </div>
     </div>
     
-    <div class="card-wrapper">
+    <div *ngIf="!error; else errorMsg" class="card-wrapper">
       <app-character-card 
         *ngIf="character$ | async as character" 
         [showDetail]="true"
@@ -29,3 +29,15 @@
     
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<ng-template #errorMsg>
+  <div class="error-msg-wrapper">
+    <mat-icon color="warn">error_outline</mat-icon>
+
+    <div class="msg">Houve um erro. <br>Tente novamente.</div>
+      
+    <button mat-raised-button color="primary" (click)="load()">Tentar novamente</button>
+
+  </div>
+</ng-template>
