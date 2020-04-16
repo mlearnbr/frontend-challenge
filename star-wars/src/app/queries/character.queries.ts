@@ -2,7 +2,7 @@
 
 export const charactersListQueryDef = () => `
   query {
-    characters {
+    characters(order: name_ASC) {
       results {  
         id
         name

@@ -5,6 +5,7 @@ import { ApiService } from './api.service';
 import { charactersListQueryDef, characterObjQueryDef } from '../queries/character.queries'
 import { map, retry, tap } from 'rxjs/operators';
 import { Film } from '../models/film.model';
+import { compare } from '../helpers/compare.fn';
 
 
 @Injectable({
@@ -83,7 +84,9 @@ export class CharacterService {
 
         return obj
 
-      })
+      }),
+
+      tap( v => v.films.sort((a, b) => compare(a.title, b.title, true)) )
     )
 
   }
