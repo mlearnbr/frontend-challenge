@@ -1,7 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/theming';
+@import './styles-variables.scss';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+$primary: (
+    100: $primary-color,
+    500: $primary-color,
+    700: $primary-color,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $light-primary-text,
+        400: $light-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $light-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text,
+    )
+);
+
+$accent: (
+    100: $accent-color,
+    500: $accent-color,
+    700: $accent-color,
+    
+    
+    contrast: (
+        50: $dark-secondary-text,
+        100: $dark-secondary-text,
+        200: $dark-secondary-text,
+        300: $light-secondary-text,
+        400: $light-secondary-text,
+        500: white,
+        600: $light-secondary-text,
+        700: $light-secondary-text,
+        800: $light-secondary-text,
+        900: $light-secondary-text,
+        A100: $dark-secondary-text,
+        A200: $light-secondary-text,
+        A400: $light-secondary-text,
+        A700: $light-secondary-text,
+    )
+);
+
+
+$warn: (
+    100: $warn-color,
+    500: $warn-color,
+    700: $warn-color,
+    
+    contrast: (
+        50: $dark-secondary-text,
+        100: $dark-secondary-text,
+        200: $dark-secondary-text,
+        300: $light-secondary-text,
+        400: $light-secondary-text,
+        500: white,
+        600: $light-secondary-text,
+        700: $light-secondary-text,
+        800: $light-secondary-text,
+        900: $light-secondary-text,
+        A100: $dark-secondary-text,
+        A200: $light-secondary-text,
+        A400: $light-secondary-text,
+        A700: $light-secondary-text,
+    )
+);
+
+
+
+$app-primary: mat-palette($primary);
+$app-accent:  mat-palette($accent);
+$app-warn: mat-palette($warn);
+
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+@include angular-material-theme($app-theme);
 
 
 .sidenav-container {
@@ -25,4 +109,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .progress-wrapper {
   height: 4px;
+}
+
+
+.mat-progress-bar-element {
+  background: #cfd6dc;
+}
+
+.top-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
