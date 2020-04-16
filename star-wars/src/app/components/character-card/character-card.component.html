@@ -37,6 +37,11 @@
 
     </div>
 
+
+    <div class="film-list-wrapper" *ngIf="showDetail">
+      <app-films-list [films]="character.films"></app-films-list>
+    </div>
+
   
   </div>
 

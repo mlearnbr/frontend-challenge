@@ -1,0 +1,9 @@
+<mat-list>
+  <mat-divider></mat-divider>
+  <div mat-subheader>Films</div>
+  <mat-list-item *ngFor="let film of films">
+    <mat-icon mat-list-icon>movie</mat-icon>
+    <div mat-line>{{ film.title }}</div>
+    <div class="release-date" mat-line> {{ film.releaseDate | date }} </div>
+  </mat-list-item>
+</mat-list>
