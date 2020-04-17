@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Character } from '../models/character.model';
 import { ApiService } from './api.service';
-import { charactersListQueryDef, characterObjQueryDef } from '../queries/character.queries'
+import { charactersListQueryDef, characterObjQueryDef, charactersListByFilmQueryDef } from '../queries/character.queries'
 import { map, retry, tap } from 'rxjs/operators';
 import { Film } from '../models/film.model';
 import { compare } from '../helpers/compare.fn';
@@ -43,6 +43,33 @@ export class CharacterService {
     )
 
   }
+
+  getListByFilm(film: Film): Observable<Character[]> {
+
+    const req = this.apiService.graphqlQuery(charactersListByFilmQueryDef(film.id))
+    
+    return req.pipe(
+      
+      retry(10),
+      map(v => v.data.film.characters.results),
+      
+      map(list => {
+        return list.map(v => {
+          const obj: Character = {
+            id: v.id,
+            name: v.name,
+            birthYear: v.birthYear,
+            species: v.species.results.map(s => s.name)
+          }
+  
+          return obj
+        })
+      })
+
+    )
+
+  }
+
 
 
   getItemById(id: string): Observable<Character> {

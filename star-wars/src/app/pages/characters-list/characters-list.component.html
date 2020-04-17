@@ -12,12 +12,27 @@
       </div>
     </div>
 
-    <app-characters-grid 
-      *ngIf="!error; else errorMsg" 
-      [characters]="shownCharacters$ | async"
-    ></app-characters-grid>
+
+    <ng-container *ngIf="!error; else errorMsg">
+      
+      <div class="filtro-filme">
+        <mat-form-field>
+          <mat-label>Film</mat-label>
+          <input type="text" matInput [formControl]="filmControl" [matAutocomplete]="filmField">
+          <mat-autocomplete #filmField="matAutocomplete" [displayWith]="displayFilm">
+            <mat-option *ngFor="let option of filteredFilms | async" [value]="option">
+              {{option.title}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+      <app-characters-grid 
+        [characters]="characters$ | async"
+      ></app-characters-grid>
 
 
+    </ng-container>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

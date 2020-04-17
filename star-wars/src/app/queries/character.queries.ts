@@ -15,6 +15,23 @@ export const charactersListQueryDef = () => `
   }
 `
 
+export const charactersListByFilmQueryDef = (id) => `
+  query {
+    film(id: "${id}") {
+      characters {
+        results {  
+          id
+          name
+          birthYear
+          species {
+            results { id name }
+          }
+        }
+      }
+    }
+  }
+`
+
 export const characterObjQueryDef = (id) => `
   query {
     character(id:"${id}") {

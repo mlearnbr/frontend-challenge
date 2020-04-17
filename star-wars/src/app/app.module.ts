@@ -18,6 +18,10 @@ import { CharacterCardComponent } from './components/character-card/character-ca
 import { CharactersGridComponent } from './components/characters-grid/characters-grid.component';
 import { FilmsListComponent } from './components/films-list/films-list.component';
 import { CardDetailComponent } from './components/character-card/card-detail/card-detail.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
 
 @NgModule({
   declarations: [
@@ -41,6 +45,11 @@ import { CardDetailComponent } from './components/character-card/card-detail/car
     MatIconModule,
     MatListModule,
     MatProgressBarModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule, 
+    ReactiveFormsModule,
 
     HttpClientModule,
   ],
