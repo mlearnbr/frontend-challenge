@@ -2,7 +2,7 @@
 
 .grid {
   
-  padding: 40px;
+  padding: 30px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -18,7 +18,6 @@
 
 .medium-container {
   .grid {
-    padding: 30px;
     grid-template-columns: repeat(1, 1fr);
   }
 }
