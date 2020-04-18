@@ -1,17 +1,13 @@
 <template>
-  <div style="height: 100vh;">
-    <nav
-      class="navbar header has-shadow is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
+  <div>
+
+    <nav class="navbar is-fixed-top header has-shadow is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-         <p class="navbar-item">Desafio - Star Wars</p>
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
+        <p class="navbar-item">
+          <b class="challenge">
+            Challenge - Star Wars
+          </b>
+        </p>
       </div>
     </nav>
 
@@ -20,6 +16,7 @@
         <nuxt />
       </div>
     </section>
+
   </div>
 </template>
 
@@ -39,8 +36,17 @@ export default {
 }
 </script>
 <style scoped>
+
 .main-content {
-  background-color: #F7F8FB;
+  background-color: grey;
   padding: 2rem 3rem;
+  min-height: 100%;
+  min-height: 100vh;
 }
+
+.challenge{
+  color: yellow;
+}  
+
+
 </style>
