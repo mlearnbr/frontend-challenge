@@ -13,28 +13,37 @@ import {
   Typography,
   Paper,
 } from "@material-ui/core";
-
 import { KeyboardArrowDown, KeyboardArrowUp } from "@material-ui/icons";
+
 import getPeopleService from "../../services/getPeoplesService";
 
-function createData(name, calories, fat, carbs, protein, price) {
+function createData(
+  name,
+  birth_year,
+  eye_color,
+  gender,
+  hair_color,
+  height,
+  mass,
+  skin_color,
+  homeworld,
+  films,
+  species
+) {
   return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
-    price,
-    history: [
+    name: name,
+    birth_year: birth_year,
+    details: [
       {
-        date: "2020-01-05",
-        customerId: "11091700",
-        amount: 3,
-      },
-      {
-        date: "2020-01-02",
-        customerId: "Anonymous",
-        amount: 1,
+        eye_color: eye_color,
+        gender: gender,
+        hair_color: hair_color,
+        height: height,
+        mass: mass,
+        skin_color: skin_color,
+        homeworld: homeworld,
+        films: films,
+        species: species,
       },
     ],
   };
@@ -44,18 +53,35 @@ function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
 
-  const [generos, setGeneros] = useState([]);
+  const [peoples, setPeoples] = useState([]);
 
   async function GetPeopleService() {
     const peoplesList = await getPeopleService();
-    const genres = peoplesList ? peoplesList : [];
-    setGeneros(genres);
+    const peoples = peoplesList ? peoplesList : [];
+    setPeoples(peoples);
   }
 
   useEffect(() => {
     GetPeopleService();
   }, []);
 
+  const rows = [
+    peoples.map((people) =>
+      createData(
+        people.name,
+        people.birth_year,
+        people.eye_color,
+        people.gender,
+        people.hair_color,
+        people.height,
+        people.mass,
+        peoples.kin_color,
+        peoples.homeworld,
+        people.films,
+        people.species
+      )
+    ),
+  ];
   return (
     <React.Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
@@ -68,40 +94,42 @@ function Row(props) {
             {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
-          {row.name}
-        </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="right">{row.carbs}</TableCell>
-        <TableCell align="right">{row.protein}</TableCell>
+        <TableCell align="right">{row.name}</TableCell>
+        <TableCell align="right">{row.birth_year}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                History
+                Details
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
+                    <TableCell>Name</TableCell>
+                    <TableCell>birth_year</TableCell>
+                    <TableCell align="right">eye_color</TableCell>
+                    <TableCell align="right">gender</TableCell>
+                    <TableCell align="right">hair_color</TableCell>
+                    <TableCell align="right">height</TableCell>
+                    <TableCell align="right">mass</TableCell>
+                    <TableCell align="right">skin_color</TableCell>
+                    <TableCell align="right">homeworld</TableCell>
+                    <TableCell align="right">films</TableCell>
+                    <TableCell align="right">species</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
+                  {row.details.map((detailRow) => (
+                    <TableRow key={detailRow.date}>
                       <TableCell component="th" scope="row">
-                        {historyRow.date}
+                        {detailRow.date}
                       </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
+                      <TableCell>{detailRow.customerId}</TableCell>
+                      <TableCell align="right">{detailRow.amount}</TableCell>
                       <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
+                        {Math.round(detailRow.amount * row.price * 100) / 100}
                       </TableCell>
                     </TableRow>
                   ))}
@@ -114,32 +142,6 @@ function Row(props) {
     </React.Fragment>
   );
 }
-
-Row.propTypes = {
-  row: PropTypes.shape({
-    calories: PropTypes.number.isRequired,
-    carbs: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    history: PropTypes.arrayOf(
-      PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        customerId: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    protein: PropTypes.number.isRequired,
-  }).isRequired,
-};
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0, 3.99),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3, 4.99),
-  createData("Eclair", 262, 16.0, 24, 6.0, 3.79),
-  createData("Cupcake", 305, 3.7, 67, 4.3, 2.5),
-  createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
-];
 
 const CollapsibleTable = () => {
   return (
