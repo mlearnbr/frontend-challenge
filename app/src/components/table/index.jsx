@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   Box,
@@ -15,6 +15,7 @@ import {
 } from "@material-ui/core";
 
 import { KeyboardArrowDown, KeyboardArrowUp } from "@material-ui/icons";
+import getPeopleService from "../../services/getPeoplesService";
 
 function createData(name, calories, fat, carbs, protein, price) {
   return {
@@ -42,6 +43,18 @@ function createData(name, calories, fat, carbs, protein, price) {
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+
+  const [generos, setGeneros] = useState([]);
+
+  async function GetPeopleService() {
+    const peoplesList = await getPeopleService();
+    const genres = peoplesList ? peoplesList : [];
+    setGeneros(genres);
+  }
+
+  useEffect(() => {
+    GetPeopleService();
+  }, []);
 
   return (
     <React.Fragment>
