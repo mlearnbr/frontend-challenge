@@ -1,11 +1,11 @@
 import './App.css';
+import CollapsibleTable from './components/table'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div>OI</div>
-      </header>
+      
+        <CollapsibleTable/>
     </div>
   );
 }
