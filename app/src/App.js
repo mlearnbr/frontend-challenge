@@ -5,7 +5,7 @@ import Title from "./components/h1";
 function App() {
   return (
     <div className="App">
-      <Title msg="Titulo" />
+      <Title msg="Star Wars | Characters" />
       <CollapsibleTable />
     </div>
   );
