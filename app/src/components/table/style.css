@@ -1,0 +1,15 @@
+.config-table {
+  background-color: rgb(192, 186, 186);
+}
+
+.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-input.MuiInput-input {
+  cursor: pointer;
+  min-width: 100px;
+  user-select: none;
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.MuiTableRow-root.MuiTableRow-head {
+  background-color: rgba(224, 223, 223, 0.315);
+}
