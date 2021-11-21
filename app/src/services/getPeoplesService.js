@@ -13,9 +13,22 @@ const getPeopleService = async () => {
 
 function setPeople(peoples) {
   const objectPeoples = peoples.results.map(
-    (people) => new People(people.name, people.birth_year, people.gender)
+    (people) =>
+      new People(
+        people.name,
+        people.birth_year,
+        people.eye_color,
+        people.gender,
+        people.hair_color,
+        people.height,
+        people.mass,
+        people.skin_color,
+        people.homeworld,
+        people.films,
+        people.species
+      )
   );
-
+  console.log(objectPeoples);
   return objectPeoples;
 }
 
