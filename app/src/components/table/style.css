@@ -13,3 +13,8 @@
 .MuiTableRow-root.MuiTableRow-head {
   background-color: rgba(224, 223, 223, 0.315);
 }
+div.MuiFormControl-root {
+  display: flex;
+  margin: 10px 0;
+  width: 20%;
+}
