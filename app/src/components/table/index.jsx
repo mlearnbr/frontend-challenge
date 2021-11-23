@@ -13,15 +13,12 @@ import {
   Paper,
   Select,
   MenuItem,
-  OutlinedInput,
   InputLabel,
   FormControl,
 } from "@material-ui/core";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@material-ui/icons";
-import "../../";
 
 import getPeopleService from "../../services/getPeoplesService";
-import getSpeciesService from "../../services/getSpeciesService";
 
 import "./style.css";
 function createData(
@@ -74,7 +71,9 @@ function Row(props) {
           {row.name}
         </TableCell>
         <TableCell align="left">
-          {row.details.species.length > 0 ? row.details.species[0] : "N/D"}
+          {row.details.species.length !== 0
+            ? row.details.species[0].name
+            : "N/D"}
         </TableCell>
         <TableCell align="left">{row.birth_year}</TableCell>
       </TableRow>
@@ -90,16 +89,16 @@ function Row(props) {
                 <TableHead>
                   <TableRow>
                     <TableCell>Name</TableCell>
-                    <TableCell>birth_year</TableCell>
-                    <TableCell align="left">eye_color</TableCell>
-                    <TableCell align="left">gender</TableCell>
-                    <TableCell align="left">hair_color</TableCell>
-                    <TableCell align="left">height</TableCell>
-                    <TableCell align="left">mass</TableCell>
-                    <TableCell align="left">skin_color</TableCell>
-                    <TableCell align="left">homeworld</TableCell>
-                    <TableCell align="left">films</TableCell>
-                    <TableCell align="left">species</TableCell>
+                    <TableCell>Birth Year</TableCell>
+                    <TableCell align="left">Eye Color</TableCell>
+                    <TableCell align="left">Gender</TableCell>
+                    <TableCell align="left">Hair Color</TableCell>
+                    <TableCell align="left">Height</TableCell>
+                    <TableCell align="left">Mass</TableCell>
+                    <TableCell align="left">Skin Color</TableCell>
+                    <TableCell align="left">Home World</TableCell>
+                    <TableCell align="left">Films</TableCell>
+                    <TableCell align="left">Species</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -121,14 +120,13 @@ function Row(props) {
                         )}`}
                     </TableCell>
                     <TableCell>
-                      {"Film " +
-                        `${row.details.films.map((film) =>
-                          film.charAt(film.length - 2)
-                        )}`}
+                      {row.details.films.length >= 1
+                        ? `${row.details.films[0].title} | ${row.details.films[1].title} ...`
+                        : "N/D"}
                     </TableCell>
                     <TableCell>
                       {row.details.species.length !== 0
-                        ? row.details.species[0]
+                        ? row.details.species[0].name
                         : "N/D"}
                     </TableCell>
                   </TableRow>
@@ -145,7 +143,7 @@ function Row(props) {
 const CollapsibleTable = () => {
   const [peoples, setPeoples] = useState([]);
   const [peopleList, setPeopleList] = useState([]);
-  const [specieList, setSpecieList] = useState([]);
+
   const [peoplesName, setPeoplesName] = useState([]);
 
   async function GetPeopleService() {
@@ -156,16 +154,8 @@ const CollapsibleTable = () => {
     setPeoplesName(peoples.filter((people) => people.name));
   }
 
-  async function GetSpeciesService() {
-    const speciesList = await getSpeciesService();
-    const species = speciesList ? speciesList : [];
-    setSpecieList(species);
-    console.log(species[0]);
-  }
-
   useEffect(() => {
     GetPeopleService();
-    GetSpeciesService();
   }, []);
 
   const rows = [
@@ -181,7 +171,7 @@ const CollapsibleTable = () => {
         people.skin_color,
         people.homeworld,
         people.films,
-        species.map((e) => (e.specie = people.especie))
+        people.species
       )
     ),
   ];
@@ -203,17 +193,20 @@ const CollapsibleTable = () => {
         <InputLabel id="demo-multiple-checkbox-label">Characters</InputLabel>
         <Select
           labelId="demo-multiple-checkbox-label"
-          value={peoplesName[0]}
           onChange={handleSetPeople}
+          variant="outlined"
+          value={peoples.filter((people) => people.name)}
+          autoWidth
         >
           <MenuItem value="">
             <em>Todos</em>
           </MenuItem>
-          {peoplesName.map((people) => (
+          {peoples.map((people) => (
             <MenuItem value={people.name}>{people.name}</MenuItem>
           ))}
         </Select>
       </FormControl>
+
       <TableContainer component={Paper} className="config-table">
         <Table aria-label="collapsible table">
           <TableHead>
@@ -221,7 +214,7 @@ const CollapsibleTable = () => {
               <Table Cell />
               <TableCell>Name </TableCell>
               <TableCell align="left">Specie</TableCell>
-              <TableCell align="left">Birth_year&nbsp;</TableCell>
+              <TableCell align="left">Birth Year&nbsp;</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
