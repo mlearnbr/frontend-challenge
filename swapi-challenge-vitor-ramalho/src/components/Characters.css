@@ -17,7 +17,10 @@ body{
     font-family: 'Star Jedi', arial;
 }
 .character-container{
-    background-color: white;
+    color: white;
     padding: 15px 15px 40px;
     text-align: center;
+    background-color: black;
+    border: 1px solid #FFE300;
+    box-shadow: #FFE300 20%;
 }
