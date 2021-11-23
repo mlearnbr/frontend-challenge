@@ -10,7 +10,8 @@ class People {
     skin_color,
     homeworld,
     films,
-    species
+    specieUrl,
+    planetsUrl
   ) {
     this.name = name;
     this.birth_year = birth_year;
@@ -22,7 +23,8 @@ class People {
     this.skin_color = skin_color;
     this.homeworld = homeworld;
     this.films = films;
-    this.species = species;
+    this.species = specieUrl;
+    this.planet = planetsUrl;
   }
 }
 
