@@ -7,38 +7,34 @@ import CharacterDetailsModal from './CharacterDetailsModal';
 
 const Characters = () => {
     const { people } = usePeople();
-    //const [people, setPeople] = useState([{}]);
     const [modalOpen, setModalOpen] = useState(false);
-    //const [characterInfo, setCharacterInfo] = useState(false);
-
-    console.log('this is the return of characters', '-----', people);
-
-    const showCharacterInfo = () => {
-        //setCharacterInfo = true;
-    }
-
-    /*useEffect(() => {
-        axios
-            .get('https://swapi.dev/api/people/?format=json')
-            .then((response) => {
-                setPeople(response.data.results);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [])*/
+    const [index, setIndex] = useState();
 
 
     return (
         <>
-            {modalOpen && <CharacterDetailsModal setOpenModal={setModalOpen} />}
+            {modalOpen && <CharacterDetailsModal setOpenModal={setModalOpen} index={index} />}
             <h1 className="title">Star Wars Characters</h1>
             <div className="container">
                 {people.map(characters =>
                     <div className="character-container">
                         <h2>{characters.name}</h2>
                         <p>{characters.birth_year}</p>
-                        <button onClick={() => { setModalOpen(true); }}>Expand Infos</button>
+                        <button 
+                            className="expand-info"
+                            onClick={
+                                //setando o indice de cada personagem e passando as infos para outro componente pelas props
+                                () => {
+                                    setModalOpen(true)
+                                    let index = people.find((character) => {
+                                        return character.name === characters.name
+                                    })
+                                    setIndex(index);
+                                }
+                            }
+                        >
+                            Expand Infos
+                        </button>
                     </div>
                 )}
             </div>
