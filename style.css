@@ -1,0 +1,332 @@
+html {
+    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+#root{
+    padding: 60px 10px;
+    min-height: 80vh;
+}
+#psg{
+    padding: 20px 20px 100px 20px;
+    min-height: 76vh;
+}
+#root, #psg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    color: white;
+    font-size: 32px;
+    line-height: 42px;
+}
+#characters h1{
+    color: #DAAA08 !important;
+}
+#h1_st{
+    text-align: center;
+    font-size: 1.7rem;
+    max-width: 305px;
+}
+#h3_st{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 305px;
+    color: #7a7979;
+}
+h2{
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 32px;
+    color: white;
+    text-decoration: none;
+    background-color: unset;
+}
+#h2_ch{
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 30px;
+}
+h3{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    background-color: unset;
+}
+h4{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #7a7979;
+    text-decoration: none;
+    background-color: unset;
+}
+.blt:hover h4{
+    color: #DAAA08;
+    transition: .25s
+}
+p{
+    width: 100%;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: left;
+    color: white;
+    margin: 0;
+    padding-bottom: 10px;
+}
+#character p{
+    padding-left: 70px;
+
+}
+.logo{
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 20px;
+}
+#character .logo{
+    display: none;
+}
+.blt{
+    width: 25%;
+    max-width: 300px;
+    min-width: 250px;
+    margin: 0px 10px 20px 10px;
+    text-align: left;
+    padding: 20px 20px 10px 20px;
+    display: flex;
+    background-color: rgb(37, 37, 37);
+    border-radius: 16px;
+    min-height: 160px;
+}
+.blt:hover{
+    animation: growth .25s;
+    transform:scale(1.1);
+    transition: .25s;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.thumb{
+    
+    width: 100%;
+    max-width: 130px;
+    max-height: 147px;
+    margin-bottom: 1rem;
+    margin-right: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.cdiv{
+    height: auto;
+    position: relative;
+    display: block;
+}
+#img_charc{
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    max-width: 300px;
+    max-height: auto;
+    margin-bottom: 1rem;
+    margin: auto;
+}
+.pagenumbers{
+    padding: 30px 0px 0px 0px;
+}
+.pagenumbers button{
+    border: none;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 15px;
+    padding: 0;
+    color: #ADADAD;
+}
+.pagenumbers button:hover{
+    color: white;
+}
+button.active, button.active:hover{
+    color: #DAAA08 !important;
+    cursor: default;
+}
+.btns{
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 30px 15px 60px 15px;
+    border: solid #DAAA08 2px;
+    padding: 20px;
+    border-radius: 12px;
+    justify-items: center;
+    padding: 30px 20px;
+}
+
+.contain_check {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 2px 15px;
+    width: 220px;
+}
+.contain_check input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.contain_check label {
+    position: relative;
+    padding-left: 26px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    display: inline-block;
+    color: white;
+}
+.contain_check label::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 14px;
+    width: 14px;
+    background: black;
+    margin-right: 0.5em;
+    border: 2px solid #ADADAD;
+    transition: all 0.2s ease;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    border-radius: 6px;
+}
+.contain_check label::after {
+    content: "\2713";
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+.contain_check label:focus::before, .contain_check label:hover::before {
+    background: black;
+    border: 2px solid #DAAA08;
+}
+.contain_check input:checked + label::before {
+    background: #DAAA08;
+    border-color: #DAAA08;
+}
+.contain_check input:checked + label::after {
+    opacity: 1;
+}
+footer{
+    background-color: #252525;
+    margin: 0;
+    padding: 30px 20px;
+    position: relative;
+    bottom: 0;
+}
+footer p{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#characters .container{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+#voltar{
+    margin: 20px;
+}
+.arrow{
+    width: 200px;
+    height: 34px;
+    display: flex;
+}
+#arrow_1{
+    width: 12px;
+    height: 12px;
+    transform: rotateY(0deg) rotate(45deg);
+    margin-top: 8px;
+    border: solid #DAAA08;
+    border-width: 0px 0px 3px 3px;
+}
+#arrow_2{
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 34px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+.arrow:hover #arrow_2{
+    color: #DAAA08;
+    transition: .25s;
+}
+
+@media only screen and (min-width: 701px) {
+    .btns{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 700px;
+        width: 100%;
+    }
+    #characters .container{
+        max-width: 1080px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    #character .logo{
+        display: none;
+    }
+    .container{
+        max-width: 1080px;
+    }
+    #h1_st{
+        text-align: center;
+        font-size: 1.9rem;
+        max-width: 100%;
+        margin: 40px 0 0 0;
+    }
+    #h3_st{
+        text-align: center;
+        font-size: 1.4rem;
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    #img_charc{
+        margin-top: 60px;
+    }
+
+}
