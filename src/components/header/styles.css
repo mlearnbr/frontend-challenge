@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--yellow);
+}
+
+.header img{
+    width: 100px;
+}
+
+@media only screen and (max-width: 680px){
+    
+}
+
+@media only screen and (max-width: 950px){
+    
+}
+
+@media only screen and (min-width: 951px){
+    
+}

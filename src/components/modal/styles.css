@@ -1,0 +1,89 @@
+
+.modal{
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: var(--yellow);
+    border-radius: 1%;
+    border: .1rem solid var(--yellow);
+}
+
+.modal .modal-header button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    width: 2rem;
+}
+
+.modal .modal-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.modal .modal-body h1{
+    width: 100%;
+    align-self: center;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.modal .modal-body span{
+    font-size: 1rem;
+}
+
+.modal .modal-body span span{
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 300px){
+    .modal{
+        width: 100%;
+        height: 100%;
+    }
+    .modal .modal-header button,img{
+        width: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+
+@media only screen and (max-width: 680px) and (min-width: 301px){
+    .modal{
+        width: 85%;
+        height: 80%;
+        top: 5%;
+        left: 7%;
+    }
+    .modal .modal-header button,img{
+        width: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 681px){
+    .modal{
+        width: 50%;
+        height: 90%;
+        top: 5%;
+        left: 24.9%;
+    }
+    .modal .modal-header button,img{
+        width: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 951px){
+    .modal{
+        width: 20%;
+        height: 80%;
+        top: 5%;
+        left: 40%;
+    }
+}

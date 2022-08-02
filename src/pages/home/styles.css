@@ -1,0 +1,39 @@
+div.home{
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+
+    gap: 1rem;
+
+    background-image: url('../../../public/images/mobile-background.png');
+}
+
+
+@media only screen and (max-width: 300px){
+    .home{
+        background-image: url('../../../public/images/mobile-background.png');
+    }
+}
+
+
+@media only screen and (max-width: 680px) and (min-width: 301px){
+    .home{
+        background-image: url('../../../public/images/mobile-background.png');
+    }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 681px){
+    .home{
+        background-image: url('../../../public/images/mobile-background.png');
+    }
+}
+
+@media only screen and (min-width: 951px){
+    .home{
+        background-image: url('../../../public/images/desktop-background.png');
+    }
+}
