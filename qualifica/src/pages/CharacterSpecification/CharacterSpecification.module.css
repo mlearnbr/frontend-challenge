@@ -1,0 +1,36 @@
+.info {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.info h1 {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info ul {
+  text-align: end;
+}
+
+.button {
+  background: var(--green-500);
+  display: flex;
+  justify-content: center;
+  max-width: 200px;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  border: 0;
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3rem;
+
+  transition: background-color 0.1s;
+}
+
+.button:hover {
+  background: var(--green-300);
+}
