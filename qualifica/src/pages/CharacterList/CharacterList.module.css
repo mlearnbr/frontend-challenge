@@ -1,0 +1,39 @@
+.wrapper {
+  max-width: 700rem;
+  margin: 2rem auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.actions {
+  display: flex;
+}
+
+.actions > button {
+  margin-left: 10px;
+}
+
+.actions button {
+  background: var(--green-500);
+  display: flex;
+  justify-content: center;
+  max-width: 200px;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  border: 0;
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3rem;
+
+  transition: background-color 0.1s;
+}
+
+.actions button:hover {
+  background: var(--green-300);
+}
+
+.items {
+  width: 100%;
+}
