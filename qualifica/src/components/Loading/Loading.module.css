@@ -1,0 +1,13 @@
+.container {
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+
+.container img {
+  width: 9.25rem;
+}
+
+.container h1 {
+  font-size: 1.3rem;
+}
