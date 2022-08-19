@@ -32,7 +32,6 @@ O que nós esperamos que você aprenda sobre a mLearn:
 ## Considerações
 
 - Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
-- O tempo limite para execução do teste é  de **2 horas**.
 - Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
 
 ## Dúvidas?
