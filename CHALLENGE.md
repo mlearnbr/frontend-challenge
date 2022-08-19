@@ -11,9 +11,9 @@ O objetivo do desafio é construir de personagens do [Star Wars](https://swapi.d
 ## Requisitos
 
 - A página deve ser responsiva. Se possível, utilize a abordagem _mobile-first_.
-- Mostrar uma página de catálogo com a lista de personagens Star Wars (ver [documentação](https://swapi.dev/documentation#people).
+- Mostrar uma página de catálogo com a lista de personagens Star Wars (ver [documentação](https://swapi.dev/documentation#people)).
     - name
-    - species
+    - species
     - birth_year
     
 - Quando seleciona um personagem, abre uma página de detalhes com as informações:
