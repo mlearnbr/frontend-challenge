@@ -1,4 +1,4 @@
-# Desafio front-end da mLearn
+# Desafio front-end da Qualifica
 
 Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
 
@@ -17,7 +17,7 @@ O que nós esperamos aprender de você com o desafio:
 - Como você pensa e resolve problemas
 - Como você se comunica
 
-O que nós esperamos que você aprenda sobre a mLearn:
+O que nós esperamos que você aprenda sobre a Qualifica:
 
 - Como nós trabalhamos como um time.
 - Tenha uma visão próxima dos desafios que enfrentamos no dia-a-dia.
@@ -33,6 +33,7 @@ O que nós esperamos que você aprenda sobre a mLearn:
 
 - Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
 - Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
+- Também leve em consideração que estamos availando como será o seu modo de trabalho no nosso dia a dia. Então, use as melhores práticas de legibilidade e estruturação.
 
 ## Dúvidas?
 
