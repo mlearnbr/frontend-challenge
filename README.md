@@ -25,7 +25,7 @@ O que nós esperamos que você aprenda sobre a Qualifica:
 ## Próximos passos
 
 1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. As instruções do desafio se encontram no arquivo [`CHALENGE.md`](/CHALENGE.md).
+2. As instruções do desafio se encontram no arquivo [`CHALLENGE.md`](/CHALLENGE.md).
 2. Resolva o desafio da forma que você julgar mais adequada.
 3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
 
