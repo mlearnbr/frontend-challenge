@@ -1,0 +1,70 @@
+.card{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: .5rem;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card img{
+    width: 100%;
+}
+
+.card .name{
+    text-align: left;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 1.2rem;
+    height: 55%;
+}
+.card .specie{
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--black);
+}
+
+
+
+.card .background{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 300px){
+    .card{
+        width: 90%;
+    }
+}
+
+
+@media only screen and (max-width: 680px) and (min-width: 301px){
+    .card{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 681px){
+    .card{
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 951px){
+    .card{
+        width: 10%;
+    }
+}
