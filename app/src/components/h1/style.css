@@ -1,0 +1,24 @@
+.config-title {
+  font-family: Baskerville, Times, "Times New Roman", serif;
+  color: rgb(192, 186, 186);
+  font-variant: small-caps;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px 0px 15px 0px;
+  margin: 0px;
+  background-image: url("../../assets/star-wars-backgrounds-08.jpg");
+  background-size: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .config-title {
+    font-size: 30px;
+    background-size: 95%;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .config-title {
+    font-size: 80px;
+  }
+}
