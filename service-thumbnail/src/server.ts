@@ -1,13 +1,13 @@
 import express from 'express'
-import { Router, Request, Response } from 'express';
-import puppeteer from 'puppeteer';
-import cors from 'cors';
+import { Router, Request, Response } from 'express'
+import puppeteer from 'puppeteer'
+import cors from 'cors'
 
-const app = express();
-const route = Router();
+const app = express()
+const route = Router()
 
-app.use(express.json());
-app.use(cors());
+app.use(express.json())
+app.use(cors())
 
 type NameParam = {
   name: string
@@ -26,7 +26,7 @@ route.get('/character-thumbnail/:name', async (req: Request<NameParam>, res: Res
   })
 
   await browser.close()
-  
+
   res.send(characterThumbnail)
 })
 
