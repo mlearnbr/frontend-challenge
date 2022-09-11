@@ -12,11 +12,11 @@ function CharactersList() {
   const [characters, setCharacters] = useState<Character[] | undefined>()
   const [page, setPage] = useState<number | undefined | null>(1)
   const [apiPagination, setApiPagination ] = useState<IPagination>({
-    next: undefined,
-    previous: undefined
+    next: 1,
+    previous: 1
   })
 
-  const extractPageNumberFromURL = (url: string | null) => (isNaN(Number(url)) ? Number(url?.replace('\D+', '')) : undefined)
+  const extractPageNumberFromURL = (url: string | null) => (url ? Number(url?.replace(/\D/g, '')) : undefined)
 
   useEffect(() => {
     const cachedPeople = JSON.parse(localStorage.getItem(`swCache.https://swapi.dev/api/people/?page=${page}`)!)
@@ -59,14 +59,16 @@ function CharactersList() {
           />
         ))}
       </ul>
-
-      {}
-      <button onClick={handlePrevPageClick}>
-          Previous
-      </button>
-      <button onClick={handleNextPageClick}>
-          Next
-      </button>
+      {page !== 1 && (
+        <button onClick={handlePrevPageClick}>
+            Previous
+        </button>
+      )}
+      {apiPagination.next && (
+        <button onClick={handleNextPageClick}>
+            Next
+        </button>
+      )}
     </>
   )
 }
