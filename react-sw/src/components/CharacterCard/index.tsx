@@ -1,15 +1,21 @@
-import { memo, useEffect, useState } from "react"
+import { memo, useContext, useEffect, useState } from "react"
 import { ISpecie } from "swapi-ts"
 import thumbnailsAPI from "../../services/thumbnails-api"
 import { PartialCharacter } from "../../typings/characters"
 import placeholder from "../../assets/placeholder.png"
 import Spinner from "../Spinner"
 import { Link } from "react-router-dom"
+import { CharacterContext } from "../../contexts/CharacterContex"
 
-function CharactersCard({ name, species, birth_year }: PartialCharacter) {
+interface Props extends PartialCharacter {
+  selectCharacter: () => void
+}
+
+function CharactersCard({ name, species, birth_year, selectCharacter }: Props) {
   const [characterThumbnail, setCharacterThumbnail] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [charSpecie, setCharSpecie] = useState('')
+  const { state, dispatch } = useContext(CharacterContext)
 
   useEffect(() => {
     setIsLoading(true)
@@ -31,11 +37,15 @@ function CharactersCard({ name, species, birth_year }: PartialCharacter) {
     }
   }, [species])
 
+  const handleClick = () => {
+    selectCharacter()
+    dispatch({type: "SET_THUMBNAIL", payload: {...state.character, thumbnail: characterThumbnail} })
+  }
 
   return (
     <>
       {isLoading && <Spinner />}
-      <Link to='person'>
+      <Link to='person' onClick={handleClick}>
         <li>
           {!isLoading && (
             <img src={characterThumbnail} alt="Character Thumbnail" width={200} height={150} />
