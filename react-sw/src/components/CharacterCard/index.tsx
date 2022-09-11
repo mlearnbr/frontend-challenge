@@ -4,6 +4,7 @@ import thumbnailsAPI from "../../services/thumbnails-api"
 import { PartialCharacter } from "../../typings/characters"
 import placeholder from "../../assets/placeholder.png"
 import Spinner from "../Spinner"
+import { Link } from "react-router-dom"
 
 function CharactersCard({ name, species, birth_year }: PartialCharacter) {
   const [characterThumbnail, setCharacterThumbnail] = useState('')
@@ -34,7 +35,7 @@ function CharactersCard({ name, species, birth_year }: PartialCharacter) {
   return (
     <>
       {isLoading && <Spinner />}
-      <a href="#">
+      <Link to='person'>
         <li>
           {!isLoading && (
             <img src={characterThumbnail} alt="Character Thumbnail" width={200} height={150} />
@@ -43,7 +44,7 @@ function CharactersCard({ name, species, birth_year }: PartialCharacter) {
           <p>species: {charSpecie}</p>
           <p>birth year: {birth_year}</p>
         </li>
-      </a>
+      </Link>
     </>
   )
 }
