@@ -19,7 +19,8 @@ route.get('/character-thumbnail/:name', async (req: Request<NameParam>, res: Res
   const searchParam = req.params.name.toLowerCase().replace(' ', '-')
 
   await page.goto(`https://www.starwars.com/databank/${searchParam}`, {
-    timeout: 0 
+    timeout: 0,
+    waitUntil: 'networkidle2'
   })
   const characterThumbnail = await page.evaluate(() => {
     return {
