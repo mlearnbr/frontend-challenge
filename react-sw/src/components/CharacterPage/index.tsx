@@ -1,10 +1,17 @@
-function CharactersPage() {
+import placeholder from "../../assets/placeholder.png"
+
+function CharacterPage() {
 
   return (
     <>
       <section>
+        <button onClick={() => history.back()}>
+          Back to the list
+        </button>
+      </section>
+      <section>
         <figure>
-          <img src="" alt="" />
+          <img src={placeholder} alt="Character Thumbnail" height={150} width={200}/>
         </figure>
         <details>
           <p>name</p>
@@ -24,4 +31,4 @@ function CharactersPage() {
   )
 }
 
-export default CharactersPage
+export default CharacterPage
