@@ -3,6 +3,7 @@ const Spinner = () => {
   return (
     <>
       <img src={spinner} alt="Spinner Image"/>
+      <p>May the patience be with you...</p>
     </>
   )
 }
