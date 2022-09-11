@@ -6,6 +6,13 @@ export interface Films {
   films: ['']
 }
 
+export interface PeopleResponse {
+  count: number
+  next: string | null
+  previous: string | null
+  results: Character[]
+}
+
 export interface PartialCharacter {
   name: string
   species: Species
