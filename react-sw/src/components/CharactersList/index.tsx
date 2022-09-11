@@ -50,9 +50,9 @@ function CharactersList() {
   return (
     <>
       <ul>
-        {characters?.map((character, index) => (
+        {characters?.map((character) => (
           <CharactersCard
-            key={index}
+            key={character.name.trim()}
             birth_year={character.birth_year}
             name={character.name}
             species={character.species}
