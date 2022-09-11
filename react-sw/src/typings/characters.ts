@@ -1,9 +1,9 @@
 export interface Species {
-  species: ['']
+  species: string[]
 }
 
 export interface Films {
-  films: ['']
+  films: string[]
 }
 
 export interface PeopleResponse {
@@ -13,9 +13,8 @@ export interface PeopleResponse {
   results: Character[]
 }
 
-export interface PartialCharacter {
+export interface PartialCharacter extends Species{
   name: string
-  species: Species
   birth_year: string
 }
 
