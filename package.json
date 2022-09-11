@@ -1,0 +1,14 @@
+{
+  "name": "frontend-chalenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CoutoDev/frontend-chalenge.git",
+  "author": "CoutoDev <c.svitor@yahoo.com.br>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"cd service-thumbnail && yarn dev;\" \"cd react-sw && yarn dev\""
+  },
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
