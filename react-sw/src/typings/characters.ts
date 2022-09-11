@@ -18,7 +18,7 @@ export interface PartialCharacter extends Species{
   birth_year: string
 }
 
-export interface Character extends PartialCharacter {
+export interface Character extends PartialCharacter, Films, CharacterThumbnail {
   eye_color: string
   gender: string
   hair_color: string
@@ -26,7 +26,6 @@ export interface Character extends PartialCharacter {
   mass: string
   skin_color: string
   homeworld: string
-  films: Films
 }
 
 export interface CharacterThumbnail {
