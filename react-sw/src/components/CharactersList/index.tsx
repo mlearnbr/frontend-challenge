@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { People } from 'swapi-ts'
+import { CharacterContext } from "../../contexts/CharacterContex"
 import { Character, PeopleResponse } from "../../typings/characters"
 import CharactersCard from "../CharacterCard"
 
@@ -15,6 +16,7 @@ function CharactersList() {
     next: 1,
     previous: 1
   })
+  const { dispatch } = useContext(CharacterContext)
 
   const extractPageNumberFromURL = (url: string | null) => (url ? Number(url?.replace(/\D/g, '')) : undefined)
 
@@ -56,6 +58,7 @@ function CharactersList() {
             birth_year={character.birth_year}
             name={character.name}
             species={character.species}
+            selectCharacter={() =>  dispatch({type: 'SET_CHARACTER', payload: character})}
           />
         ))}
       </ul>
