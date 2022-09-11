@@ -17,25 +17,20 @@ route.get('/character-thumbnail/:name', async (req: Request<NameParam>, res: Res
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   const searchParam = req.params.name.toLowerCase().replace(' ', '-')
-  const cachedThumbnail = localStorage.getItem(`${searchParam}-thumbnail`)
 
-  if (!cachedThumbnail) {
-    await page.goto(`https://www.starwars.com/databank/${searchParam}`)
-    const characterThumbnail = await page.evaluate(() => {
-      return {
-        thumbnail: document.querySelector('.thumb.reserved-ratio')?.getAttribute('src')
-      }
-    })
-
-    await browser.close()
-    localStorage.setItem(`${searchParam}-thumbnail`, characterThumbnail.thumbnail!)
-    res.send(characterThumbnail)
-  }
+  await page.goto(`https://www.starwars.com/databank/${searchParam}`, {
+    timeout: 0 
+  })
+  const characterThumbnail = await page.evaluate(() => {
+    return {
+      thumbnail: document.querySelector('.image-wrapper img')?.getAttribute('src')
+    }
+  })
 
   await browser.close()
-
-  res.send(cachedThumbnail)
+  res.send(characterThumbnail)
 })
+
 
 app.use(route)
 
