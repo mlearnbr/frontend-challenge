@@ -56,6 +56,7 @@ export const PrimaryButton = styled.button`
   border-radius: 15px;
   border: 2px solid ${props => props.theme.colors.main};
   color: ${props => props.theme.colors.main};
+  cursor: pointer;
   font-size: 1em;
   margin: 1em;
   min-width: 100px;
