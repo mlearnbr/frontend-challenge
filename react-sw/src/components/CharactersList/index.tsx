@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import { People } from 'swapi-ts'
 import { CharacterContext } from "../../contexts/CharacterContex"
+import { PrimaryButton } from "../../theme"
 import { Character, PeopleResponse } from "../../typings/characters"
 import CharactersCard from "../CharacterCard"
+import { ButtonsSection } from "./styled"
 
 interface IPagination {
   next: number | undefined | null
@@ -62,16 +64,18 @@ function CharactersList() {
           />
         ))}
       </ul>
-      {page !== 1 && (
-        <button onClick={handlePrevPageClick}>
-            Previous
-        </button>
-      )}
-      {apiPagination.next && (
-        <button onClick={handleNextPageClick}>
-            Next
-        </button>
-      )}
+      <ButtonsSection>
+        {page !== 1 && (
+          <PrimaryButton onClick={handlePrevPageClick}>
+              Previous
+          </PrimaryButton>
+        )}
+        {apiPagination.next && (
+          <PrimaryButton onClick={handleNextPageClick}>
+              Next
+          </PrimaryButton>
+        )}
+      </ButtonsSection>
     </>
   )
 }

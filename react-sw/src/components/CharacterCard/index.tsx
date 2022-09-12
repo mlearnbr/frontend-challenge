@@ -2,7 +2,7 @@ import { memo, useContext, useEffect, useState } from "react"
 import { ISpecie } from "swapi-ts"
 import thumbnailsAPI from "../../services/thumbnails-api"
 import { PartialCharacter } from "../../typings/characters"
-import placeholder from "../../assets/placeholder.png"
+import placeholder from "../../assets/images/placeholder.png"
 import Spinner from "../Spinner"
 import { Link } from "react-router-dom"
 import { CharacterContext } from "../../contexts/CharacterContex"
@@ -48,7 +48,7 @@ function CharactersCard({ name, species, birth_year, selectCharacter }: Props) {
       <Link to='person' onClick={handleClick}>
         <li>
           {!isLoading && (
-            <img src={characterThumbnail} alt="Character Thumbnail" width={200} height={150} />
+            <img src={characterThumbnail} alt="Character Thumbnail" />
           )}
           <p>name: {name}</p>
           <p>species: {charSpecie}</p>

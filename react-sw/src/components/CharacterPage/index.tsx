@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { CharacterContext } from "../../contexts/CharacterContex"
-import axios from 'axios'
+import { BackButton, MainSection } from './styled'
 
 function CharacterPage() {
   const { state } = useContext(CharacterContext)
@@ -19,19 +19,19 @@ function CharacterPage() {
     species
   } = state.character
 
-
   return (
     <>
-      <section>
-        <button onClick={() => history.back()}>
-          Voltar
-        </button>
-      </section>
-      <section>
+      <MainSection>
+        <section>
+          <BackButton onClick={() => history.back()}>
+            Voltar
+          </BackButton>
+        </section>
         <figure>
-          <img src={thumbnail} alt="Character Thumbnail" height={150} width={200} />
+          <img src={thumbnail} alt="Character Thumbnail" />
         </figure>
-        <details title={`Detalhes sobre: ${name}`}>
+        <details>
+          <summary>Detalhes sobre: {name}</summary>
           <p>Nome: {name}</p>
           <p>Ano de Nascimento: {birth_year}</p>
           <p>Cor dos olhos: {eye_color}</p>
@@ -43,20 +43,21 @@ function CharacterPage() {
           <p>Planeta Natal:
             <a href={homeworld}>{homeworld}</a>
           </p>
-          <p>Filmes:
+          <details>
+            <summary>Filmes</summary>
             <ul>
-              {films.map((film) => (
-                  <li>
+              {films.map((film, index) => (
+                <li key={index}>
                     <a href={film}>{film}</a>
                   </li>
               ))}
             </ul>
-          </p>
+          </details>
           <p>Espécie:
             <a href={species[0]}>{species[0]}</a>
           </p>
         </details>
-      </section>
+      </MainSection>
     </>
   )
 }
