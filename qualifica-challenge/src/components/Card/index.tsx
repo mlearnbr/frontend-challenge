@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom';
+
 import { BrithYear, Button, Container, Content, Name, Specie } from './styles';
 
 interface CardProsp {
+  id: number;
   name: string;
   specie: string;
   brithYear: string;
@@ -18,7 +21,9 @@ function Card(props: CardProsp) {
           <b>Birth Year:</b> {props.brithYear}
         </BrithYear>
       </Content>
-      <Button>ver detalher</Button>
+      <Link to={`/profile/${props.id}`}>
+        <Button>ver detalher</Button>
+      </Link>
     </Container>
   );
 }
