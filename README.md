@@ -1,42 +1,33 @@
-# Desafio front-end da Qualifica
+#Project Dot-Challenge
 
-Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
+## Skills
 
-Provavelmente você já está participando do nosso processo de contratação, mas se você caiu aqui por acaso, leia o documento até o final e caso haja interesse, você pode começar daqui mesmo.
+- Create functional components in React
+- Use props and handling functions to interact with the page. 
+- Use Material UI/Boostrap and Pure CSS for design (Skeletons, Navbar, grid, etc)
+- Display responsive on mobile
+- Request an api from SWAPI https://swapi.dev/
 
 
-## Sobre o desafio
+## What was developed
 
-Esse é um desafio, não um teste ou uma prova de faculdade, portanto não há uma única resposta certa.
+- An Star Wars application using ReactJS
 
-Daremos a você alguns requisitos que devem ser cumpridos, e pelos quais você será avaliado, mas deixamos livre a escolha do método de solução.
+## :dart: Instructions for viewing the project:
 
-O que nós esperamos aprender de você com o desafio:
+ Make git clone;
+  - Give the command `npm install`;
+  - Use `npm start` and wait for your browser to start.;
 
-- Seu estilo de trabalho
-- Como você pensa e resolve problemas
-- Como você se comunica
+OR (easiest)
 
-O que nós esperamos que você aprenda sobre a Qualifica:
 
-- Como nós trabalhamos como um time.
-- Tenha uma visão próxima dos desafios que enfrentamos no dia-a-dia.
+2. Access through the Vercel link: 
 
-## Próximos passos
+https://projet-teste-mlearn.vercel.app/
 
-1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. As instruções do desafio se encontram no arquivo [`CHALLENGE.md`](/CHALLENGE.md).
-2. Resolva o desafio da forma que você julgar mais adequada.
-3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
-
-## Considerações
-
-- Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
-- Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
-- Também leve em consideração que estamos availando como será o seu modo de trabalho no nosso dia a dia. Então, use as melhores práticas de semântica, estruturação, legibilidade e componentização.
-
-## Dúvidas?
-
-Ficou com alguma dúvida sobre como irá funcionar o processo? Entre em contato que nós te ajudaremos com o processo.
-
-**Boa sorte!**
+## GIF from the project:
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/47367373/195746187-7d0012a8-7fe3-42ca-bb6f-ec8e81ec9790.gif"
+lt="Star Wars"/>
+</p>
