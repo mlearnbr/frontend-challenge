@@ -28,6 +28,6 @@ https://projet-teste-mlearn.vercel.app/
 
 ## GIF from the project:
 <p align="center">
-  <img  src=""
+  <img  src="https://user-images.githubusercontent.com/47367373/195746187-7d0012a8-7fe3-42ca-bb6f-ec8e81ec9790.gif"
 lt="Star Wars"/>
 </p>
