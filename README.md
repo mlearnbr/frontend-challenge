@@ -23,6 +23,8 @@ Particularmente eu sou muito fã de Star Wars, então foi muito divertido realiz
 
 - E finalmente para preparmos a aplicação para ambiente de produção, podemos fazer o build do projeto através do comando `npm run build`
 
+- Você pode conferir o projeto rodando diretamente em: https://starwars-2bvvw3ika-andre-menezes.vercel.app/
+
 ## Considerações
 
 Este projeto foi desafiador, porém muito gratificante e prazeroso em desenvolvê-lo.
