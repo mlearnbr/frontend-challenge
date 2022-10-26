@@ -1,42 +1,48 @@
 # Desafio front-end da Qualifica
 
-Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
+Esse projeto foi realizado como parte do processo seletivo da empresa.
 
-Provavelmente você já está participando do nosso processo de contratação, mas se você caiu aqui por acaso, leia o documento até o final e caso haja interesse, você pode começar daqui mesmo.
+Nele tive o desafio de desenvolver uma aplicação baseada nos personagens da série de filmes de Star Wars.
+Particularmente eu sou muito fã de Star Wars, então foi muito divertido realizá-lo.
 
+## Sobre o projeto
 
-## Sobre o desafio
+- Desenvolvimento da aplicação utilizando ReactJS com conceitos de escalabilidade e componentização
+- Utilização de rotas para tornar a experiência do usuário mais dinâmica com React Router DOM
+- Desenvolvimento da estilização utilizando CSS e conceito de responsividade
+- Requisições para APIs externas com AXIOS
+- Arquitetura de código buscando seguir os princípios SOLID
 
-Esse é um desafio, não um teste ou uma prova de faculdade, portanto não há uma única resposta certa.
+## Executando o projeto
 
-Daremos a você alguns requisitos que devem ser cumpridos, e pelos quais você será avaliado, mas deixamos livre a escolha do método de solução.
+- Primeiramente devemos fazer o clone do projeto através do comando `git clone`
 
-O que nós esperamos aprender de você com o desafio:
+- Uma vez clonado, dentro da pasta raiz, devemos instalar as dependências do projeto através do comando `npm install`
 
-- Seu estilo de trabalho
-- Como você pensa e resolve problemas
-- Como você se comunica
+- Para iniciarmos a aplicação, devemos utilizar o comando `npm start`. No terminal irá mostrar em qual endereço (localhost) devemos acessar para visualizar o projeto no browser
 
-O que nós esperamos que você aprenda sobre a Qualifica:
+- E finalmente para preparmos a aplicação para ambiente de produção, podemos fazer o build do projeto através do comando `npm run build`
 
-- Como nós trabalhamos como um time.
-- Tenha uma visão próxima dos desafios que enfrentamos no dia-a-dia.
-
-## Próximos passos
-
-1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. As instruções do desafio se encontram no arquivo [`CHALLENGE.md`](/CHALLENGE.md).
-2. Resolva o desafio da forma que você julgar mais adequada.
-3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
+- Você pode conferir o projeto rodando diretamente em: https://starwars-2bvvw3ika-andre-menezes.vercel.app/
 
 ## Considerações
 
-- Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
-- Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
-- Também leve em consideração que estamos availando como será o seu modo de trabalho no nosso dia a dia. Então, use as melhores práticas de semântica, estruturação, legibilidade e componentização.
+Este projeto foi desafiador, porém muito gratificante e prazeroso em desenvolvê-lo.
 
-## Dúvidas?
+Porém, reconheço minhas limitações técnicas e alguns pontos não foram possíveis de realizar, dentre eles:
 
-Ficou com alguma dúvida sobre como irá funcionar o processo? Entre em contato que nós te ajudaremos com o processo.
+- Desenvolvimento de testes unitários com Jest (tive problemas de configuração do Jest)
 
-**Boa sorte!**
+- Utilização de frameworks pre-processadores de CSS como SASS, TailwindCSS (não tive tempo para aprender a usar tais ferramentas)
+
+- Refatoração do código (devido ao tempo curto de desenvolvimento, sei que poderia ter componentizado melhor alguns trechos do código)
+
+## Feedbacks
+
+Gosto muito de receber feedbacks, pois isso contribui para o meu desenvolvimento, creio que nosso aprendizado nunca tem fim.
+
+Portanto gostaria de pedir seu feedback, que poderá ser feito através dos seguintes meios:
+
+- Github: https://www.github.com/andre-menezes
+- E-mail: andre_menezes@outlook.com
+- Telefone: +55 14 99687-5702

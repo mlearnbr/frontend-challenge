@@ -1,0 +1,136 @@
+.character-content {
+  align-items: center;
+  background-image: url('../assets/sw_back2.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: scroll;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  background-image: url('../assets/sw_back2.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+  overflow: scroll;
+}
+
+.loading {
+  height: 350px;
+  width: 350px;
+}
+
+.field {
+  background-color: rgba(193, 193, 193, .3);
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  display: flex;
+  height: 50px;
+  position: relative;
+}
+
+.field span {
+  font-size: 1.5rem;
+  height: 100%;
+  width: 100%;
+  margin-left: 20px;
+  z-index: 2;
+}
+
+.field label, .box label {
+  color: rgb(255, 233, 25, .8);
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 5px black;
+  z-index: 1;
+}
+
+.box {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+  background-color: rgb(193, 193, 193, .3);
+}
+
+
+.field-lg {
+  padding: 10px;
+  width: 100%;
+}
+
+.field-lg li {
+  font-size: 1.5rem;
+  margin-left: 20px;
+}
+
+.content aside {
+  width: 200px;
+}
+
+.content img {
+  width: 100%;
+}
+
+.character-image {
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px black;
+}
+
+@media (min-width: 450px)
+{
+  .content aside {
+    width: 350px;
+  }
+
+  .content main {
+    width: 400px;
+  }
+}
+
+@media (min-width: 700px)
+{
+  .content aside {
+    width: 450px;
+  }
+
+  .content main {
+    width: 500px;
+  }
+}
+
+@media (min-width: 950px)
+{
+  .content aside {
+    width: 400px;
+    margin: 0 20px;
+  }
+
+  .content {
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1250px)
+{
+  .content {
+    justify-content: center;
+  }
+
+  .content aside {
+    margin-right: 150px;
+  }
+}

@@ -1,0 +1,54 @@
+.card {
+  box-shadow: 5px 5px 20px black;
+  border-radius: 10px;
+  height: 270px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card img {
+  height: 100%;
+  width: 220px;
+  border-radius: 3px;
+  transition: .5s;
+}
+
+.intro {
+  height: 100px;
+  width: 350px;
+  padding: 6px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  background: rgb(27, 27, 27, .5);
+}
+
+.intro h2 {
+  color: rgb(255, 233, 25, .8);
+  font-size: 1.15rem;
+  margin: 5px;
+  text-shadow: 2px 2px 5px black;
+}
+
+.intro p {
+  font-size: .9rem;
+  margin-left: 10px;
+}
+
+.intro span {
+  font-weight: 700;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover > .intro {
+  background: black;
+  transition: .5s;
+}
+
+.card:hover > img {
+  transform: scale(1.2);
+  transition: .5s;
+}
