@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="starWarsTheme">
+    <ion-title text-center>
+      STAR WARS
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fundo">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+
+  <ion-grid class="container">
+    <ion-row>
+      <ion-col
+        class="list"
+        *ngFor="let character of characters"
+        (click)="openInfo(character)"
+        col-sm-9
+        col-md-6
+        col-lg-4
+        col-xl-3
+      >
+        <ion-card class="cards">
+          <ion-grid>
+            <ion-row>
+
+              <ion-col id="img" col-4 col-md-4 col-lg-4 col-sm-4 col-xl-4>
+              </ion-col>
+
+              <ion-col col-8 col-md-8 col-lg-8 col-sm-8 col-xl-8>
+                <ion-item>
+                  <ion-icon name="custom-user" item-start></ion-icon>
+                  <ion-label>{{ character.name }}</ion-label>
+                </ion-item>
+                <ion-list *ngFor="let specie of character.species">
+                  <ion-item>
+                    <ion-icon name="custom-specie" item-start></ion-icon>
+                    <ion-label> {{ specie.__zone_symbol__value }} </ion-label>
+                  </ion-item>
+                </ion-list>
+                <ion-item>
+                  <ion-icon name="custom-calendar" item-start></ion-icon>
+                  <ion-label>{{ character.birth_year }}</ion-label>
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
