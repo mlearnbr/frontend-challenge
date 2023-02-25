@@ -18,7 +18,6 @@ class SwapiApiDatasource {
   Future<ResultApiModel> getAllPersons() async {
     try {
       var response = await _dio.get(Api.pathPeople);
-
       try {
         var data = Map<String, dynamic>.from((response.data));
 
