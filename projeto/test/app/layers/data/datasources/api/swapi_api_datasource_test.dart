@@ -1,4 +1,4 @@
-import 'package:flutter_application/app/layers/data/datasources/api/swapi_api_datasource.dart';
+import 'package:star_wars_app/app/layers/data/datasources/api/swapi_api_datasource.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

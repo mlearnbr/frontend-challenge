@@ -1,6 +1,6 @@
-import 'package:flutter_application/app/layers/data/datasources/api/swapi_api_datasource.dart';
-import 'package:flutter_application/app/layers/data/repositories/persons_repository.dart';
-import 'package:flutter_application/app/layers/domain/models/persons_states_model.dart';
+import 'package:star_wars_app/app/layers/data/datasources/api/swapi_api_datasource.dart';
+import 'package:star_wars_app/app/layers/data/repositories/persons_repository.dart';
+import 'package:star_wars_app/app/layers/domain/states/persons_states_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
