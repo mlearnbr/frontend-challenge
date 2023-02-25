@@ -1,0 +1,56 @@
+.modal-background{
+    width: 100%;
+    height: 100%;
+    background: url('../assets/star-wars-backgrounds-25.jpg');
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container{
+    background-color: black;
+    color: white;
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    transition: 0.2s ease-in-out;
+    
+}
+
+.modal-container .modal-title{
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.close-btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-btn button{
+    color: #ffe300;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-container .modal-body{
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+}

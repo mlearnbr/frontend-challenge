@@ -1,0 +1,45 @@
+body {
+	background: url('../assets/star-wars-backgrounds-25.jpg');
+}
+
+.container {
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+	grid-gap: 20px;
+	justify-content: center;
+	padding: 20px;
+}
+
+.title {
+	color: #ffe300;
+	text-align: center;
+	font-family: 'Star Jedi', arial;
+}
+.character-container {
+	color: white;
+	padding: 15px 15px 40px;
+	text-align: center;
+	background-color: black;
+	border: 1px solid #ffe300;
+}
+/*
+.character-container:hover{
+    transition: all .2s ease-in;
+    transform: scale(1.1);
+}
+*/
+
+.expand-info {
+	cursor: pointer;
+	padding: 10px;
+	margin-top: 5px;
+	color: #ffe300;
+	background-color: transparent;
+	border: 1px solid #ffe300;
+}
+
+.expand-info:hover {
+	transition: all .2s ease-in;
+	transform: scale(1.1);
+}
