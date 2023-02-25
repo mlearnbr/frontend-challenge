@@ -10,17 +10,17 @@ class ResponseModelPeople {
     required this.results,
   });
 
-  List<Result> results;
+  List<ResultCharacter> results;
 
   factory ResponseModelPeople.fromJson(Map<String, dynamic> json) =>
       ResponseModelPeople(
         results:
-            List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+            List<ResultCharacter>.from(json["results"].map((x) => ResultCharacter.fromJson(x))),
       );
 }
 
-class Result {
-  Result({
+class ResultCharacter {
+  ResultCharacter({
     required this.name,
     required this.height,
     required this.mass,
@@ -56,7 +56,7 @@ class Result {
   DateTime edited;
   String url;
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory ResultCharacter.fromJson(Map<String, dynamic> json) => ResultCharacter(
         name: json["name"],
         height: json["height"],
         mass: json["mass"],
