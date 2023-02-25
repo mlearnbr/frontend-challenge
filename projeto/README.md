@@ -1,4 +1,4 @@
-# flutter_application
+# star_wars_app
 
 A new Flutter project.
 

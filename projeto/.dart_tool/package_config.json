@@ -164,13 +164,13 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "flutter_application",
+      "name": "star_wars_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-02-25T11:18:47.417610Z",
+  "generated": "2023-02-25T14:52:18.461903Z",
   "generator": "pub",
   "generatorVersion": "2.18.6"
 }
