@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_application/app/layers/domain/models/result_api_model.dart';
+import 'package:star_wars_app/app/layers/domain/models/result_api_model.dart';
 
 import '../../../../shared/helpers/consts.dart';
 
@@ -37,6 +36,34 @@ class SwapiApiDatasource {
     } on Exception catch (e) {
       debugPrint(e.toString());
       return ResultApiModel(null, error: e.toString());
+    }
+  }
+
+  /// Obtem os dez primeiros personagens Starwars.
+  /// Caso sucesso, retorna um ResultApiModel com a lista no 'object'.
+  /// Caso dê erro, retorna um ResultApiModel com
+  /// o 'object' null e a mensagem de erro em 'error'.
+  Future<String> getNameSpecie(String specieUrl) async {
+    try {
+      var response = await _dio.getUri(Uri.parse(specieUrl));
+      try {
+        var data = Map<String, dynamic>.from((response.data));
+
+        if (response.statusCode == 200) {
+          var results = data['name'].toString();
+
+          return results;
+        } else {
+          debugPrint(response.statusCode.toString());
+          return '';
+        }
+      } on Exception catch (e) {
+        debugPrint(e.toString());
+        return '';
+      }
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+      return '';
     }
   }
 }
