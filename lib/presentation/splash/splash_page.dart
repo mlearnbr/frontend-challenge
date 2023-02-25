@@ -9,10 +9,12 @@ class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashPage'),
-      ),
-      body: Container(),
-    );
+        appBar: AppBar(
+          title: const Text('SplashPage'),
+        ),
+        body: GetBuilder<SplashController>(
+          init: SplashController(),
+          builder: (controller) => Container(),
+        ));
   }
 }

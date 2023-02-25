@@ -12,7 +12,10 @@ class HomePage extends GetView<HomeController> {
       appBar: AppBar(
         title: const Text('HomePage'),
       ),
-      body: Container(),
+      body: GetBuilder<HomeController>(
+        init: HomeController(Get.find()),
+        builder: (controller) => Container(),
+      ),
     );
   }
 }

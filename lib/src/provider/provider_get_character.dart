@@ -1,9 +1,9 @@
 import '../interface/interface_provider.dart';
-import '../interface/interface_respository.dart';
 import '../model/model_response_people.dart';
+import '../repository/respository_get_character.dart';
 
 class ProviderGetCharacter implements InterfaceProvider {
-  final InterfaceRespository interfaceRespository;
+  final RespositoryGetCharacter interfaceRespository;
 
   ProviderGetCharacter(this.interfaceRespository);
   @override

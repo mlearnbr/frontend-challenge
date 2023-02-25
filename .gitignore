@@ -42,3 +42,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+test/unit_test/business_rule_test.dart
+test/unit_test/business_rule_test.dart
