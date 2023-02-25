@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Star Wars - mLearn Frontend Challenge</title>
+    <meta name="description" content="Desafio de Frontend da mLearn">
+    <meta name="keywords" content="frontend,mobile first,layout responsivo,javascript,aplicativos híbridos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <!-- Fonts/links -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
+    <link rel="icon" href="img/favicon.png">
+     <!-- Scripts -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="index.html"><h1 class="logo"> Star Wars - mLearn Frontend Challenge ></h1></a>
+        <button class="btn-menu"><i class="fa fa-bars fa-lg"></i></button>
+        <nav class="menu">
+            <a class="btn-close"><i class="fa fa-times"></i></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html?id=1">Catálogo</a></li>
+                <li><a href="pesquisar.html">Pesquisar</a></li>
+                <li><a href="resultado.html">Resultado</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="banner">
+        <div class="resultado">
+            <h2>Informações</h2>
+            <form>
+                <input type="text" id="txtName" name="txtName" placeholder="name">
+                <input type="text" id="txtBirth_year" name="txtBirth_year" placeholder="birth_year">
+                <input type="text" id="txtEye_color" name="txtEye_color" placeholder="eye_color">
+                <input type="text" id="txtGender" name="txtGender" placeholder="gender">
+                <input type="text" id="txtHair_color" name="txtHair_color" placeholder="hair_color">
+                <input type="text" id="txtHeight" name="txtHeight" placeholder="height">
+                <input type="text" id="txtMass" name="txtMass" placeholder="mass" disabled>
+                <input type="text" id="txtSkin_color" name="txtSkin_color" placeholder="skin_color">
+                <input type="text" id="txtHomeworld" name="txtHomeworld" placeholder="homeworld">
+                <input type="text" id="txtFilms" name="txtFilms" placeholder="films" disabled>
+                <input type="text" id="txtSpecies" name="txtSpecies" placeholder="species">
+                <button> Voltar </button>
+            </form>
+
+            <!-- script para carregar nos inputs os valores do json -->
+            <script>
+                let url = 'https://swapi.co/api/people/1/';
+                    $.getJSON(url, function (cardStarWars) {
+                        console.log(cardStarWars.name);
+                        $("input:nth-child(1)").attr('value', cardStarWars.name);
+                        $("input:nth-child(2)").attr('value', cardStarWars.birth_year);
+                        $('input:nth-child(3)').attr('value',cardStarWars.eye_color);
+                        $('input:nth-child(4)').attr('value',cardStarWars.gender);
+                        $('input:nth-child(5)').attr('value',cardStarWars.hair_color);
+                        $('input:nth-child(6)').attr('value',cardStarWars.height);
+                        $('input:nth-child(7)').attr('value',cardStarWars.mass);
+                        $('input:nth-child(8)').attr('value',cardStarWars.skin_color);
+                        $('input:nth-child(9)').attr('value',cardStarWars.homeworld);
+                        $('input:nth-child(10)').attr('value',...cardStarWars.films);
+                        $('input:nth-child(11)').attr('value',cardStarWars.species);
+                    })
+            </script>
+
+        </div>
+    </div> 
+    <footer class="rodape">
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="copyright">Copyright Desafio mLearn 2020. Todos os direitos reservados</p>
+    </footer>   
+    <script>
+        $(".btn-menu").click(function(){
+            $(".menu").show();
+        })
+        $(".btn-close").click(function(){
+            $(".menu").hide();
+        })
+    </script>
+</body>
+</html>

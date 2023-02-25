@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Star Wars - mLearn Frontend Challenge</title>
+    <meta name="description" content="Desafio de Frontend da mLearn">
+    <meta name="keywords" content="frontend,mobile first,layout responsivo,javascript,aplicativos híbridos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <!-- Fonts/links -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
+    <link rel="icon" href="img/favicon.png">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="index.html"><h1 class="logo"> Star Wars - mLearn Frontend Challenge ></h1></a>
+        <button class="btn-menu"><i class="fa fa-bars fa-lg"></i></button>
+        <nav class="menu">
+            <a class="btn-close"><i class="fa fa-times"></i></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html?id=1">Catálogo</a></li>
+                <li><a href="pesquisar.html">Pesquisar</a></li>
+                <li><a href="resultado.html">Resultado</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="banner">
+        <div class="catalogo">
+            <h2>Catálogo</h2>
+            <form>
+                <input type="text" name="name" placeholder="name" disabled>
+                <input type="text" name="species" placeholder="species" disabled>
+                <input type="text" name="birth_year" placeholder="birth_year" disabled>
+                <button name="btNext" id="btNext" onclick=""> Próximo </button>
+            </form>
+            
+            <!-- script para buscar a query string de interesse -->
+            <script>
+                var getUrlParameter = function getUrlParameter(sParam) {
+                     var sPageURL = window.location.search.substring(1),
+                         sURLVariables = sPageURL.split('&'),
+                         sParameterName,
+                         i;
+ 
+                     for (i = 0; i < sURLVariables.length; i++) {
+                         sParameterName = sURLVariables[i].split('=');
+ 
+                         if (sParameterName[0] === sParam) {
+                             return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                         }
+                     }
+                 };
+            </script>
+
+            <!-- script para carregar nos inputs os valores do json -->
+            <script>
+                var id = getUrlParameter('id');
+                var url = 'https://swapi.co/api/people/' + id;
+                    $.getJSON(url, function (cardStarWars) {
+                        console.log(cardStarWars.name);
+                        $("input:nth-child(1)").attr('value', cardStarWars.name);
+                        $("input:nth-child(2)").attr('value', cardStarWars.birth_year);
+                        $('input:nth-child(3)').attr('value',cardStarWars.species);                 
+                   })
+            </script>         
+
+            <!-- script que carrega próximo registro da api -->
+            <script>
+                $('#btNext').click(function() {
+                    var id = getUrlParameter('id');
+                    id++;
+                    window.location.href = 'catalogo.html?id=' + id;
+                    return false;
+                    })
+            </script> 
+
+         
+        </div>
+        <div class="titulo">
+            <h3>All the Star Wars data you've ever wanted:
+                Planets, Spaceships, Vehicles, People, Films and Species
+                From all SEVEN Star Wars films
+                Now with The Force Awakens data!</h3>
+        </div>
+    </div> 
+    <footer class="rodape">
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="copyright">Copyright Desafio mLearn 2020. Todos os direitos reservados</p>
+    </footer>   
+    <script>
+        $(".btn-menu").click(function(){
+            $(".menu").show();
+        })
+        $(".btn-close").click(function(){
+            $(".menu").hide();
+        })
+    </script>
+</body>
+</html>

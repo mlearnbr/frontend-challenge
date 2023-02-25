@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Star Wars - mLearn Frontend Challenge</title>
+    <meta name="description" content="Desafio de Frontend da mLearn">
+    <meta name="keywords" content="frontend,mobile first,layout responsivo,javascript,aplicativos híbridos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <!-- Fonts/links -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/starwars.css">   
+    <link rel="icon" href="img/favicon.png">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // Sets the number of stars we wish to display
+        const numStars = 100;
+
+        // For every star we want to display
+        for (let i = 0; i < numStars; i++) {
+        let star = document.createElement("div");  
+        star.className = "star";
+        var xy = getRandomPosition();
+        star.style.top = xy[0] + 'px';
+        star.style.left = xy[1] + 'px';
+        document.body.append(star);
+        }
+
+        // Gets random x, y values based on the size of the container
+        function getRandomPosition() {  
+        var y = window.innerWidth;
+        var x = window.innerHeight;
+        var randomX = Math.floor(Math.random()*x);
+        var randomY = Math.floor(Math.random()*y);
+        return [randomX,randomY];
+        }
+    </script>
+</head>
+<body>
+    <section class="intro">
+        A long time ago, in a galaxy far,<br> far away....
+    </section> 
+
+    <section class="logo">
+        <img src="img/starwars.svg" class="img-responsive">
+    </section>
+    
+    <!-- Change the text to your liking -->
+    <div id="board">  
+        <div id="content">
+            <p id="title">Desafio I</p>
+            <p id="subtitle">THE CODER'S MENACE</p>
+            <br>
+            <p>In a new era of hope for the galaxy, an anonymous programmer travels to the planet mLearn to participate in a challenge with the best programmers in the empire.</p>    
+            <p>When he makes his journey, he will try to connect his code to SWAPI which unfortunately is now under the control of the empire..</p>
+            <!-- Add as many paragraphs as you want -->
+            <!-- And make it cheesy ! -->
+        </div>  
+  </div>
+
+  <audio preload="auto" autoplay>
+    <source src="audio/Star_Wars_original_opening_crawl_1977" type="audio/mpeg">
+  </audio>
+</body>
+</html>

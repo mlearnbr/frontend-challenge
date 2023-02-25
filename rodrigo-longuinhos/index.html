@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Star Wars - mLearn Frontend Challenge</title>
+    <meta name="description" content="Desafio de Frontend da mLearn">
+    <meta name="keywords" content="frontend,mobile first,layout responsivo,javascript,aplicativos híbridos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <!-- Fonts/links -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
+    <link rel="icon" href="img/favicon.png">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="index.html"><h1 class="logo"> Star Wars - mLearn Frontend Challenge ></h1></a>
+        <button class="btn-menu"><i class="fa fa-bars fa-lg"></i></button>
+        <nav class="menu">
+            <a class="btn-close"><i class="fa fa-times"></i></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html?id=1">Catálogo</a></li>
+                <li><a href="pesquisar.html">Pesquisar</a></li>
+                <li><a href="resultado.html">Resultado</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="banner">
+        <div class="titulo">
+            <h2>Star Wars mLearn</h2>
+            <h3>Selecione um personagem de Star Wars em pesquisar para acessar suas informações detalhadas via SWAPI - The Star Wars API</h3>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-catalogo" onclick="window.location.href = 'catalogo.html?id=1'">Catálogo <i class="fa fa-arrow-circle-right"></i></button>
+            <button class="btn btn-pesquisar" onclick="window.location.href = 'pesquisar.html'">Pesquisar <i class="fa fa-arrow-circle-right"></i></button>
+            <button class="btn btn-sobre" onclick="window.location.href = 'sobre.html'">Sobre <i class="fa fa-question-circle"></i></button>
+        </div>
+        <div class="titulo">
+            <h3>All the Star Wars data you've ever wanted:
+                Planets, Spaceships, Vehicles, People, Films and Species
+                From all SEVEN Star Wars films
+                Now with The Force Awakens data!</h3>
+        </div>
+    </div> 
+    <footer class="rodape">
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="copyright">Copyright Desafio mLearn 2020. Todos os direitos reservados</p>
+    </footer>  
+    <script>
+        $(".btn-menu").click(function(){
+            $(".menu").show();
+        })
+        $(".btn-close").click(function(){
+            $(".menu").hide();
+        })
+    </script>
+</body>
+</html>
