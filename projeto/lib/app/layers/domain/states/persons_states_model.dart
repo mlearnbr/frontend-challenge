@@ -1,4 +1,4 @@
-import 'package:flutter_application/app/layers/domain/models/person_model.dart';
+import 'package:star_wars_app/app/layers/domain/models/person_model.dart';
 
 abstract class PersonsState {}
 
@@ -14,3 +14,7 @@ class PersonsErrorState implements PersonsState {
 
   PersonsErrorState(this.errorMessage, this.error);
 }
+
+class PersonInitialState implements PersonsState {}
+
+class PersonLoadingState implements PersonsState {}
