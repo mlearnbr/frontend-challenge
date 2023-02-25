@@ -5,5 +5,5 @@ import 'app/app_widget.dart';
 
 void main() {
   initInject();
-  runApp(const MyApp());
+  inject.allReady().then((value) => runApp(const MyApp()));
 }
