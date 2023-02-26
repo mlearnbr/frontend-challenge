@@ -17,7 +17,7 @@ Este é um aplicativo (web first) que exibe informações sobre os personagens d
 Este projeto foi desenvolvido utilizando Dart e Flutter, nas seguintes versões:
 - Dart: 2.18
 - Flutter: 3.3
-- Testes realizados em: Chrome (Web) e emulador Android 8.1.0 (API 27)
+- Testes realizados em: Chrome (Web)
 
 <br>
 Este projeto usa as seguintes dependências:
