@@ -1,16 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../helpers/type_specie.dart';
 import '../../src/model/model_response_people.dart';
+import '../details/details_page.dart';
 
 class CustomWidgetCard extends StatelessWidget {
-  final String imagem;
+  final String image;
   final int idCharacter;
   final ResultCharacter resultCharacter;
   const CustomWidgetCard(
       {Key? key,
-      required this.imagem,
+      required this.image,
       required this.idCharacter,
       required this.resultCharacter})
       : super(key: key);
@@ -19,9 +21,7 @@ class CustomWidgetCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(context, MaterialPageRoute(builder: (context) {
-        //   return HeroWidget(imagem: imagem);
-        // }));
+        Get.toNamed(DetailsPage.routName, arguments: [image]);
       },
       child: Stack(
         children: [
@@ -41,7 +41,7 @@ class CustomWidgetCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
                   imageUrl:
-                      "https://starwars-visualguide.com/assets/img/characters/$imagem.jpg",
+                      "https://starwars-visualguide.com/assets/img/characters/$image.jpg",
                   fit: BoxFit.cover,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Center(

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../presentation/details/details_bindings.dart';
+import '../presentation/details/details_page.dart';
 import '../presentation/home/home_bindings.dart';
 import '../presentation/home/home_page.dart';
 import '../presentation/splash/splash_bindings.dart';
@@ -14,6 +16,10 @@ class AppRoutes {
     GetPage(
         name: HomePage.routName,
         page: () => const HomePage(),
-        binding: HomeBindings())
+        binding: HomeBindings()),
+    GetPage(
+        name: DetailsPage.routName,
+        page: () => const DetailsPage(),
+        binding: DetailsBindings())
   ];
 }

@@ -67,7 +67,7 @@ class HomeBodyCustomWidget extends StatelessWidget {
                         );
                       },
                       child: CustomWidgetCard(
-                        imagem: controller.idCharacter.toString(),
+                        image: controller.idCharacter.toString(),
                         idCharacter: controller.idCharacter,
                         resultCharacter: starWars,
                       )),
