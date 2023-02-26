@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:star_wars_app/app/layers/domain/models/person_model.dart';
+import 'package:star_wars_app/app/layers/presenters/view/details/widgets/info_person_species_widget.dart';
 
 import '../../../../shared/dependency_injection/dependency_injection.dart';
 import '../../controllers/persons_controller.dart';
+import 'widgets/info_person_row_widget.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -54,7 +56,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         .textTheme
                         .headline4!
                         .copyWith(shadows: [
-                      Shadow(
+                      const Shadow(
                         offset: Offset(-4, 4),
                         color: Colors.black,
                       )
@@ -112,10 +114,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               title: 'Films: ',
                               value: person.hairColor,
                             ),
-                            InfoPersonRow(
-                              title: 'Species: ',
-                              value: 'specie',
-                            ),
+                            InfoPersonSpecies(person: person),
                           ],
                         ),
                       ),
@@ -128,32 +127,5 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
       );
     }
-  }
-}
-
-class InfoPersonRow extends StatelessWidget {
-  const InfoPersonRow({
-    Key? key,
-    required this.title,
-    required this.value,
-  }) : super(key: key);
-
-  final String title;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
-        children: [
-          Text(title),
-          Text(
-            value,
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-        ],
-      ),
-    );
   }
 }

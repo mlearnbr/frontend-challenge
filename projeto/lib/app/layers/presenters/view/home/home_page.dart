@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars_app/app/layers/presenters/view/details/details_page.dart';
-import 'package:star_wars_app/app/shared/theme/colors_theme_const.dart';
+import '../details/details_page.dart';
+import '../../../../shared/theme/colors_theme_const.dart';
 
 import '../../../../shared/dependency_injection/dependency_injection.dart';
 import '../../../domain/states/persons_states_model.dart';
 import '../../controllers/persons_controller.dart';
+import '../common/species_text_widget.dart';
+import 'widgets/head_title_home_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,32 +30,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: ListView(
         children: [
-          Container(
-            //  height: 100,
-            constraints: BoxConstraints(minHeight: 80, maxHeight: 150),
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              //   borderRadius: BorderRadius.circular(15),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                    child: Image.asset(
-                  'assets/Star_Wars_Logo.png',
-                )),
-                const SizedBox(width: 16),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    'Learn more about your favorite Star Wars character',
-                    style: Theme.of(context).textTheme.headline5,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const HeadTitleHome(),
           ValueListenableBuilder(
             valueListenable: controller.personsState,
             builder: (context, value, child) {
@@ -97,39 +74,7 @@ class _HomePageState extends State<HomePage> {
                                             .textTheme
                                             .bodyText1,
                                       ),
-                                      person.species.isNotEmpty
-                                          ? Row(
-                                              children: person.species
-                                                  .map((specieUrl) {
-                                                return FutureBuilder<String>(
-                                                    future: controller
-                                                        .getSpecie(specieUrl),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      if (snapshot.hasData) {
-                                                        return Text(
-                                                          '${snapshot.data!} ',
-                                                          style:
-                                                              Theme.of(context)
-                                                                  .textTheme
-                                                                  .bodyText1,
-                                                        );
-                                                      }
-                                                      return Text(
-                                                        '...',
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .bodyText1,
-                                                      );
-                                                    });
-                                              }).toList(),
-                                            )
-                                          : Text(
-                                              'Specie undefined',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1,
-                                            ),
+                                      SpeciesTextWidget(person: person),
                                     ],
                                   ),
                                 ),
