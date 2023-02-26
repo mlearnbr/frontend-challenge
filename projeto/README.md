@@ -29,7 +29,6 @@ Este projeto usa as seguintes dependências:
 
 Como arquitetura do projeto foi aplicado o MVC e um pouco de Clean Archicteture (de uma forma mais simplificada), devido ao tamanho do projeto, mas buscando um baixo acoplamento do código, com camadas definidas e classes objetivas, e conforme as boas práticas de desenvolvimento, facilitando reuso, testes, e manutenção. Para controle de estado foi utilizado uma opção nativa - o ValueNotifier -, que é bem otimizado, contribue para a performace, manutenção e legibilidade, sendo assim a melhor opção para este projeto. Para injeção de dependencias foi usado uma dependencia - Get It -, que é simples e funciona muito bem para o projeto, não afetando a perfomance.
 
-
 <br>
 
 Para o design foi escolhido algo que remetesse as cores do universo Star Wars, sendo assim escolhidos o Preto e amarelo.
@@ -38,8 +37,6 @@ Para o design foi escolhido algo que remetesse as cores do universo Star Wars, s
 
 ## **Fluxo de interação**
 ----
-
-<br>
 <br>
 
  ###  **| 1. Home Page**
@@ -59,7 +56,6 @@ O usuario tambem tem a opção para filtrar a lista por filme. Quando usa o filt
 <img src="screenshots/video1.gif"  width=300>
 
 <br>
-<br>
 
  ###  **| 2. Details Page**
 
@@ -78,7 +74,6 @@ Ao clicar em um dos personagens da lista, abre uma nova pagina que contem todas 
  Os campos _'Homeworld'_ and _'Specie'_, demora um pouco a aparecer por que é buscado a informação usando a url que é retornada. Portanto, são feitas varias requisições simultaneas para exibir todos os dados do personagem.
 
 
-
 <br>
 <br>
 
@@ -87,9 +82,8 @@ Ao clicar em um dos personagens da lista, abre uma nova pagina que contem todas 
 
 <br>
 Foram realizados testes unitários das camadas datasource, repository e controller, o que ajudou num desenvolvimento mais rápido, mapeando todos os caminhos possiveis ao realizar as requisições Http, localizar erros, e acompanhar o funcionamento das funcionalidades no código.
+
 <br>
-
-
 <br>
 
 ## **Manutenção e Melhorias**
