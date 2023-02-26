@@ -38,6 +38,7 @@ class PersonsController {
   }
 
   /// Carrega a lista de personagens na home page (primeira pagina apenas)
+  /// Load persons list in homepage (top 10)
   loadingListHome() async {
     isLoadingPerson();
     if (filterFilm.value.isEmpty) {
