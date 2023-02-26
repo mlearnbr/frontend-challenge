@@ -20,7 +20,7 @@ Este projeto foi desenvolvido utilizando Dart e Flutter, nas seguintes versões:
 - Testes realizados em: Chrome (Web) e emulador Android 8.1.0 (API 27)
 
 <br>
-Este projeto usa as seguintes dependências e suas versões:
+Este projeto usa as seguintes dependências:
 
 - Dio: para realizar requisições http
 - Get It: para injeções de dependência.
@@ -105,8 +105,8 @@ Os proximos passos para este projeto é inserir imagens na página de detalhes  
 
 Como opções de API para essa feature sugiro uma destas duas opções: 
 
-- A API do Google (Custom Search API), que permitiria uma quantidade muito grande de requisições, mas que requer uma requisição mais avançada, com muitos parametros e informações.
-- SerpApi, que utiliza a API do google informada acima, mas com mais simplicidade de uso, e com limitação de no máximo 100 requisições ao mês.
+- A API do Google ([Custom Search API](https://developers.google.com/custom-search/v1/reference/rest?hl=pt-br)), que permitiria uma quantidade muito grande de requisições, mas que requer uma requisição mais avançada, com muitos parametros e informações.
+- [SerpApi](https://serpapi.com/images-results), que utiliza a API do google informada acima, mas com mais simplicidade de uso, e com limitação de no máximo 100 requisições ao mês.
 
 <br>
 <br> 
@@ -117,3 +117,13 @@ Nos testes, uma das melhorias é realizar tambem os testes de integração e de 
 
 Nesse sentido, talvez fosse interessante criar repositories abstratos para facilitar estes testes, e inserindo-os no projeto, seguindo assim mais de perto o Clean Archtecture. Até o momento, o projeto foi desenvolvimento de forma mais simples devido isso ter sido um dos requisitos passados. Mas conforme o projeto for crescendo, essa mudança se fará necessária.
 
+
+
+<br>
+
+## **Acesse a aplicação agora**
+----
+
+<br>
+
+- [Acessar aplicação funcionando →](https://starwars-s.web.app/#/)
