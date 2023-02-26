@@ -15,7 +15,7 @@ class DetailsPage extends GetView<DetailsController> {
         builder: (controller) {
           return SafeArea(
             child: DetailsCustomBodyWidget(
-              image: controller.arguments[0],
+              controller: controller,
             ),
           );
         },

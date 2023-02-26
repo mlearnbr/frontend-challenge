@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../src/interface/interface_provider.dart';
+import '../../src/interface/interface_provider_character.dart';
 import '../../src/model/model_response_people.dart';
 
 class HomeController extends GetxController with StateMixin {
-  final InterfaceProvider interfaceProvider;
+  final InterfaceProviderCharacter interfaceProvider;
   late final PageController pageController;
   late final PageController innerPageController;
   int idCharacter = 1;

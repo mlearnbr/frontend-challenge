@@ -21,7 +21,19 @@ class CustomWidgetCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(DetailsPage.routName, arguments: [image]);
+        Get.toNamed(DetailsPage.routName, arguments: [
+          image,
+          resultCharacter.name,
+          resultCharacter.birthYear,
+          resultCharacter.eyeColor,
+          resultCharacter.gender,
+          resultCharacter.hairColor,
+          resultCharacter.height,
+          resultCharacter.mass,
+          resultCharacter.skinColor,
+          resultCharacter.homeworld,
+          setTypeSpecie(idCharacter),
+        ]);
       },
       child: Stack(
         children: [
@@ -84,26 +96,28 @@ class CustomWidgetCard extends StatelessWidget {
               height: 60,
               child: SizedBox(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Name: ${resultCharacter.name}",
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 12),
-                      ),
-                      Text(
-                        "Species: ${setTypeSpecie(idCharacter)}",
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 12),
-                      ),
-                      Text(
-                        "birth: ${resultCharacter.birthYear}",
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 12),
-                      )
-                    ],
+                  padding: const EdgeInsets.all(4.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Name: ${resultCharacter.name}",
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12),
+                        ),
+                        Text(
+                          "Species: ${setTypeSpecie(idCharacter)}",
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12),
+                        ),
+                        Text(
+                          "birth: ${resultCharacter.birthYear}",
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

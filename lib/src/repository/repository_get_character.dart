@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../base_url/base_url_api.dart';
-import '../interface/interface_respository.dart';
+import '../interface/interface_repository_character.dart';
 import '../model/model_response_people.dart';
 
-class RespositoryGetCharacter implements InterfaceRespository {
+class RepositoryGetCharacter implements InterfaceRepositoryCharacter {
   List<ResultCharacter> model = [];
   final GetConnect getConnect;
 
-  RespositoryGetCharacter(this.getConnect);
+  RepositoryGetCharacter(this.getConnect);
   @override
   Future<List<ResultCharacter>> getCharacter({int? page}) async {
     final response = await getConnect.get(BaseUrlApi.people);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../src/model/model_response_people.dart';
-import '../../widgets/custom_card_widget.dart';
+import '../../widgets/custom_card_widget_widget.dart';
 import '../home_controller.dart';
 
 class HomeBodyCustomWidget extends StatelessWidget {
