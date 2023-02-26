@@ -15,11 +15,15 @@ class InfoPersonRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title),
-          Text(
-            value,
-            style: Theme.of(context).textTheme.bodyText1,
+          Expanded(
+            child: Text(
+              value,
+              style: Theme.of(context).textTheme.bodyText1,
+              maxLines: 4,
+            ),
           ),
         ],
       ),

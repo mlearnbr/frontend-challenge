@@ -5,6 +5,9 @@ abstract class Api {
   // get all the people resources
   static const pathPeople = '/people/';
 
+  // get film data resources
+  static const pathFilm = '/films/';
+
   // get all the people resources
   static const pathSpecie = '/specie/';
 

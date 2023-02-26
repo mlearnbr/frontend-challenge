@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars_app/app/layers/domain/models/person_model.dart';
 import 'package:star_wars_app/app/layers/presenters/view/details/widgets/info_person_species_widget.dart';
 import 'package:star_wars_app/app/shared/helpers/get_films_of_persons.dart';
 
@@ -107,15 +106,16 @@ class _DetailsPageState extends State<DetailsPage> {
                               title: 'Hair Color: ',
                               value: person.hairColor,
                             ),
-                            InfoPersonRow(
-                              title: 'Homeworld: ',
-                              value: person.homeworld,
-                            ),
+                            InfoPersonSpecies(
+                                list: [person.homeworld], label: 'Homeworld'),
                             InfoPersonRow(
                               title: 'Films: ',
                               value: getFilmsPerson(person.films),
                             ),
-                            InfoPersonSpecies(person: person),
+                            InfoPersonSpecies(
+                              list: person.species,
+                              label: 'Specie',
+                            ),
                           ],
                         ),
                       ),

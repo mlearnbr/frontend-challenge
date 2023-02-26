@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars_app/app/layers/domain/models/person_model.dart';
 import 'package:star_wars_app/app/layers/presenters/view/details/details_page.dart';
 import 'package:star_wars_app/app/layers/presenters/view/home/home_page.dart';
 
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
 
         switch (route) {
           case DetailsPage.route:
-            page = DetailsPage();
+            page = const DetailsPage();
             break;
 
           case HomePage.route:

@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 
 import '../../../../shared/dependency_injection/dependency_injection.dart';
-import '../../../domain/models/person_model.dart';
 import '../../controllers/persons_controller.dart';
 
-class SpeciesTextWidget extends StatelessWidget {
-  const SpeciesTextWidget({
+class InfoTextUrlWidget extends StatelessWidget {
+  const InfoTextUrlWidget({
     Key? key,
-    required this.person,
+    required this.list,
+    required this.label,
   }) : super(key: key);
 
-  final PersonModel person;
+  final List list;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
     final controller = inject.get<PersonsController>();
     return Container(
-      child: person.species.isNotEmpty
+      child: list.isNotEmpty
           ? Row(
-              children: person.species.map((specieUrl) {
+              children: list.map((specieUrl) {
                 return FutureBuilder<String>(
                     future: controller.getSpecie(specieUrl),
                     builder: (context, snapshot) {
@@ -36,7 +37,7 @@ class SpeciesTextWidget extends StatelessWidget {
               }).toList(),
             )
           : Text(
-              'Specie undefined',
+              '$label undefined',
               style: Theme.of(context).textTheme.bodyText1,
             ),
     );

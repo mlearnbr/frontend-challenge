@@ -31,8 +31,8 @@ class DefaultTheme {
   static get dark => ThemeData(
         primaryColor: themeYellow,
         primarySwatch: Colors.yellow,
-        cardColor: Color.fromARGB(255, 24, 24, 24),
-        scaffoldBackgroundColor: Color.fromARGB(255, 12, 12, 12),
+        cardColor: const Color.fromARGB(255, 24, 24, 24),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 12, 12, 12),
         iconTheme: IconThemeData(color: Colors.grey[500]),
         appBarTheme: const AppBarTheme(
             backgroundColor: themeYellow,
@@ -51,7 +51,7 @@ class DefaultTheme {
             headline4: TextStyle(
               color: Colors.grey[300],
             ),
-            headline5: TextStyle(
+            headline5: const TextStyle(
                 color: themeYellow, fontWeight: FontWeight.w300, fontSize: 16),
             headline6: TextStyle(
                 color: Colors.grey[200],

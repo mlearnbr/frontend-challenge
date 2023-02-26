@@ -6,6 +6,7 @@ import '../../../../shared/dependency_injection/dependency_injection.dart';
 import '../../../domain/states/persons_states_model.dart';
 import '../../controllers/persons_controller.dart';
 import '../common/species_text_widget.dart';
+import 'widgets/dialog_filter_films_widget.dart';
 import 'widgets/head_title_home_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,6 +32,40 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           const HeadTitleHome(),
+          Container(
+            padding: const EdgeInsets.all(8),
+            alignment: Alignment.centerRight,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    alignment: Alignment.centerRight,
+                    child: ValueListenableBuilder(
+                      valueListenable: controller.filterFilm,
+                      builder: (context, value, child) => Text(
+                        value
+                            .toString()
+                            .replaceAll('[', '')
+                            .replaceAll(']', ''),
+                        style: Theme.of(context).textTheme.bodyText1,
+                        maxLines: 4,
+                      ),
+                    ),
+                  ),
+                ),
+                //  const SizedBox(width: 8),
+                TextButton.icon(
+                  onPressed: (() {
+                    showDialogFilterFilms(context, controller);
+                  }),
+                  icon: const Icon(Icons.filter_list_alt),
+                  label: const Text('Filters'),
+                )
+              ],
+            ),
+          ),
           ValueListenableBuilder(
             valueListenable: controller.personsState,
             builder: (context, value, child) {
@@ -74,7 +109,10 @@ class _HomePageState extends State<HomePage> {
                                             .textTheme
                                             .bodyText1,
                                       ),
-                                      SpeciesTextWidget(person: person),
+                                      InfoTextUrlWidget(
+                                        list: person.species,
+                                        label: 'Specie',
+                                      ),
                                     ],
                                   ),
                                 ),

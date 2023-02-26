@@ -32,6 +32,29 @@ class PersonsRepository {
     }
   }
 
+  /// Get the specie name using url passed by parameters
   Future<String> getNameSpecie(String specieUrl) =>
       _apiDatasource.getNameSpecie(specieUrl);
+
+  /// Get person filtered by film e return a PersonState with result
+  Future<PersonsState> getPersonsFilmFilter(String indexFilm) async {
+    try {
+      var result = await _apiDatasource.getPersonsFilmFilter(indexFilm);
+      if (result.error == null && result.object != null) {
+        var list = (result.object as List<Map<String, dynamic>>)
+            .map((e) => PersonModel.fromMap(e))
+            .toList();
+
+        return PersonsSuccessState(list);
+      } else {
+        if (result.error == null) {
+          return PersonsErrorState('Erro desconhecido', null);
+        } else {
+          return PersonsErrorState(result.error!, null);
+        }
+      }
+    } catch (e) {
+      return PersonsErrorState(e.toString(), e);
+    }
+  }
 }

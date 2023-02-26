@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
-import '../../../../domain/models/person_model.dart';
 import '../../common/species_text_widget.dart';
 
 class InfoPersonSpecies extends StatelessWidget {
   const InfoPersonSpecies({
     Key? key,
-    required this.person,
+    required this.list,
+    required this.label,
   }) : super(key: key);
 
-  final PersonModel person;
+  final List list;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Row(
-        children: [const Text('Species: '), SpeciesTextWidget(person: person)],
+        children: [
+          Text('$label: '),
+          InfoTextUrlWidget(
+            list: list,
+            label: label,
+          ),
+        ],
       ),
     );
   }

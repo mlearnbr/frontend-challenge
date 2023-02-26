@@ -9,4 +9,23 @@ void main() {
     expect(result, isNotNull);
     expect(result.object, isA<List<Map<String, dynamic>>>());
   });
+
+  test('swapi api datasource: should get person using index person', () async {
+    final api = SwapiApiDatasource();
+    var result = await api.getPerson('/');
+
+    expect(result, isNotNull);
+    expect(result.object, isA<Map<String, dynamic>>());
+  });
+
+  test(
+      'swapi api datasource: should get list persons fitered by films using index film',
+      () async {
+    final api = SwapiApiDatasource();
+    var result = await api.getPersonsFilmFilter('2/');
+
+    expect(result, isNotNull);
+//    print(result.object);
+    expect(result.object, isA<List<Map<String, dynamic>>>());
+  });
 }
