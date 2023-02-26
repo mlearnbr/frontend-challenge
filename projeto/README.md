@@ -11,7 +11,7 @@ Este é um aplicativo (web first) que exibe informações sobre os personagens d
 <br>
 
 ## **Informações técnicas**
-----
+
 <br>
 
 Este projeto foi desenvolvido utilizando Dart e Flutter, nas seguintes versões:
@@ -36,7 +36,7 @@ Para o design foi escolhido algo que remetesse as cores do universo Star Wars, s
 <br>
 
 ## **Fluxo de interação**
-----
+
 <br>
 
  ###  **| 1. Home Page**
@@ -78,7 +78,7 @@ Ao clicar em um dos personagens da lista, abre uma nova pagina que contem todas 
 <br>
 
 ## **Testes**
-----
+
 
 <br>
 Foram realizados testes unitários das camadas datasource, repository e controller, o que ajudou num desenvolvimento mais rápido, mapeando todos os caminhos possiveis ao realizar as requisições Http, localizar erros, e acompanhar o funcionamento das funcionalidades no código.
@@ -87,7 +87,6 @@ Foram realizados testes unitários das camadas datasource, repository e controll
 <br>
 
 ## **Manutenção e Melhorias**
-----
 
 <br>
 
