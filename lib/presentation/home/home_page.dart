@@ -10,6 +10,9 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black.withAlpha(150),
+      ),
       backgroundColor: Colors.black,
       body: GetBuilder<HomeController>(
         init: HomeController(Get.find()),

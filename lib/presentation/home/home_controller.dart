@@ -23,6 +23,7 @@ class HomeController extends GetxController with StateMixin {
     try {
       change([], status: RxStatus.loading());
       resultCharacter = await interfaceProvider.getCharacter();
+
       change([], status: RxStatus.success());
     } catch (e) {
       change([], status: RxStatus.error());

@@ -67,77 +67,12 @@ class HomeBodyCustomWidget extends StatelessWidget {
                         );
                       },
                       child: CustomWidgetCard(
-                          imagem: controller.idCharacter.toString())),
+                        imagem: controller.idCharacter.toString(),
+                        idCharacter: controller.idCharacter,
+                        resultCharacter: starWars,
+                      )),
                 );
               }),
-          Positioned(
-            bottom: 50,
-            left: 20,
-            right: 20,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.grey[200],
-                    backgroundImage: const NetworkImage(
-                      "https://i.ibb.co/xgwkhVb/740922.png",
-                    ),
-                  ),
-                  title: const Text("Personagem"),
-                  subtitle: const Text(""),
-                  trailing: SizedBox(
-                    width: 120.0,
-                    height: 200,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.blueGrey,
-                          radius: 12.0,
-                          child: Center(
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.remove,
-                                color: Colors.white,
-                                size: 9.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            "1",
-                            style: TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                        CircleAvatar(
-                          backgroundColor: Colors.blueGrey,
-                          radius: 12.0,
-                          child: Center(
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                                size: 9.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );
