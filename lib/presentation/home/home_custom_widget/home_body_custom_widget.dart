@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../src/model/model_response_people.dart';
 import '../../widgets/custom_card_widget_widget.dart';
 import '../home_controller.dart';
+import 'home_header_custom_widget.dart';
 
 class HomeBodyCustomWidget extends StatelessWidget {
   final HomeController controller;
@@ -20,8 +21,6 @@ class HomeBodyCustomWidget extends StatelessWidget {
               itemCount: 8,
               controller: controller.pageController,
               itemBuilder: (context, index) {
-                ResultCharacter starWars = controller.resultCharacter[index];
-
                 return TweenAnimationBuilder<double>(
                     curve: Curves.ease,
                     duration: controller.duration,
@@ -49,6 +48,7 @@ class HomeBodyCustomWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 ResultCharacter starWars = controller.resultCharacter[index];
                 controller.idCharacter = index;
+
                 if (index >= 0) {
                   controller.idCharacter++;
                 }
@@ -73,6 +73,9 @@ class HomeBodyCustomWidget extends StatelessWidget {
                       )),
                 );
               }),
+          HomeHeaderCustomWidget(
+            controller: controller,
+          )
         ],
       ),
     );

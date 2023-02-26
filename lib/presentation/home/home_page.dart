@@ -15,7 +15,7 @@ class HomePage extends GetView<HomeController> {
       ),
       backgroundColor: Colors.black,
       body: GetBuilder<HomeController>(
-        init: HomeController(Get.find()),
+        init: HomeController(Get.find(), Get.find()),
         builder: (controller) => controller
             .obx((state) => HomeBodyCustomWidget(controller: controller)),
       ),

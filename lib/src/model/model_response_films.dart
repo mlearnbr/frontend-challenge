@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-ResponseModelFilme responseModelFilmeFromJson(String str) =>
-    ResponseModelFilme.fromJson(json.decode(str));
+ResponseModelFilms responseModelFilmsFromJson(String str) =>
+    ResponseModelFilms.fromJson(json.decode(str));
 
-class ResponseModelFilme {
-  ResponseModelFilme({
+class ResponseModelFilms {
+  ResponseModelFilms({
     required this.count,
     this.next,
     this.previous,
@@ -14,30 +14,52 @@ class ResponseModelFilme {
   int count;
   dynamic next;
   dynamic previous;
-  List<ResultFilme> results;
+  List<ResultFilms> results;
 
-  factory ResponseModelFilme.fromJson(Map<String, dynamic> json) =>
-      ResponseModelFilme(
+  factory ResponseModelFilms.fromJson(Map<String, dynamic> json) =>
+      ResponseModelFilms(
         count: json["count"],
         next: json["next"],
         previous: json["previous"],
-        results: List<ResultFilme>.from(
-            json["results"].map((x) => ResultFilme.fromJson(x))),
+        results: List<ResultFilms>.from(
+            json["results"].map((x) => ResultFilms.fromJson(x))),
       );
 }
 
-class ResultFilme {
-  ResultFilme({
+class ResultFilms {
+  ResultFilms({
     required this.title,
     required this.characters,
   });
 
   String title;
+  String? thumbnail;
 
   List<String> characters;
 
-  factory ResultFilme.fromJson(Map<String, dynamic> json) => ResultFilme(
+  factory ResultFilms.fromJson(Map<String, dynamic> json) => ResultFilms(
         title: json["title"],
         characters: List<String>.from(json["characters"].map((x) => x)),
       );
+}
+
+class CharactersModel {
+  String character;
+  CharactersModel({
+    required this.character,
+  });
+
+  static CharactersModel? fromMap(Map<String, dynamic>? map) {
+    if (map == null) return null;
+    try {
+      return CharactersModel(
+        character: map['character'],
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
+  static CharactersModel? fromJson(String source) =>
+      CharactersModel.fromMap(json.decode(source));
 }

@@ -5,6 +5,9 @@ import 'dart:convert';
 ResponseModelPeople responseModelPeopleFromJson(String str) =>
     ResponseModelPeople.fromJson(json.decode(str));
 
+ResultCharacter responseModelPeopleFilterFromJson(String str) =>
+    ResultCharacter.fromJson(json.decode(str));
+
 class ResponseModelPeople {
   ResponseModelPeople({
     required this.results,
@@ -46,7 +49,7 @@ class ResultCharacter {
   String skinColor;
   String eyeColor;
   String birthYear;
-  Gender gender;
+  Gender? gender;
   String homeworld;
   List<String> films;
   List<String> species;
@@ -66,7 +69,7 @@ class ResultCharacter {
         skinColor: json["skin_color"],
         eyeColor: json["eye_color"],
         birthYear: json["birth_year"],
-        gender: genderValues.map[json["gender"]]!,
+        gender: genderValues.map[json["gender"]],
         homeworld: json["homeworld"],
         films: List<String>.from(json["films"].map((x) => x)),
         species: List<String>.from(json["species"].map((x) => x)),
