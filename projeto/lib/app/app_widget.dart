@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Persons Star Wars',
-      theme: DefaultTheme.theme,
+      theme: DefaultTheme.light,
+      themeMode: ThemeMode.dark,
+      darkTheme: DefaultTheme.dark,
       debugShowCheckedModeBanner: false,
       initialRoute: HomePage.route,
       onGenerateRoute: (settings) {

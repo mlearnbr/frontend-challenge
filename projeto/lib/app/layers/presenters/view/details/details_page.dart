@@ -18,9 +18,9 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   void initState() {
     if (controller.personSelected == null) {
-      //  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Navigator.pop(context);
-      //    });
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        Navigator.pop(context);
+      });
     }
     super.initState();
   }
@@ -47,12 +47,113 @@ class _DetailsPageState extends State<DetailsPage> {
                     }),
               ),
               Column(
-                children: [Text(person.name)],
+                children: [
+                  Text(
+                    person.name,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4!
+                        .copyWith(shadows: [
+                      Shadow(
+                        offset: Offset(-4, 4),
+                        color: Colors.black,
+                      )
+                    ]),
+                    semanticsLabel: 'Character name',
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            InfoPersonRow(
+                              title: 'Birth Year: ',
+                              value: person.birthYear,
+                            ),
+                            InfoPersonRow(
+                              title: 'Eye Color: ',
+                              value: person.eyeColor,
+                            ),
+                            InfoPersonRow(
+                              title: 'Gender: ',
+                              value: person.gender,
+                            ),
+                            InfoPersonRow(
+                              title: 'Hair Color: ',
+                              value: person.hairColor,
+                            ),
+                            InfoPersonRow(
+                              title: 'Height: ',
+                              value: person.height,
+                            ),
+                            InfoPersonRow(
+                              title: 'Mass: ',
+                              value: person.mass,
+                            ),
+                            InfoPersonRow(
+                              title: 'Skin Color: ',
+                              value: person.skinColor,
+                            ),
+                            InfoPersonRow(
+                              title: 'Hair Color: ',
+                              value: person.hairColor,
+                            ),
+                            InfoPersonRow(
+                              title: 'Homeworld: ',
+                              value: person.homeworld,
+                            ),
+                            InfoPersonRow(
+                              title: 'Films: ',
+                              value: person.hairColor,
+                            ),
+                            InfoPersonRow(
+                              title: 'Species: ',
+                              value: 'specie',
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               )
             ],
           ),
         ),
       );
     }
+  }
+}
+
+class InfoPersonRow extends StatelessWidget {
+  const InfoPersonRow({
+    Key? key,
+    required this.title,
+    required this.value,
+  }) : super(key: key);
+
+  final String title;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Row(
+        children: [
+          Text(title),
+          Text(
+            value,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
+        ],
+      ),
+    );
   }
 }

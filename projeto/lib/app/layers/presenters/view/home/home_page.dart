@@ -29,12 +29,29 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           Container(
-            height: 100,
+            //  height: 100,
+            constraints: BoxConstraints(minHeight: 80, maxHeight: 150),
             alignment: Alignment.center,
             padding: const EdgeInsets.all(16),
-            child: Text(
-              'Learn more about your favorite Star Wars character',
-              style: Theme.of(context).textTheme.headline5,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              //   borderRadius: BorderRadius.circular(15),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                    child: Image.asset(
+                  'assets/Star_Wars_Logo.png',
+                )),
+                const SizedBox(width: 16),
+                Expanded(
+                  flex: 4,
+                  child: Text(
+                    'Learn more about your favorite Star Wars character',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ),
+              ],
             ),
           ),
           ValueListenableBuilder(
@@ -51,10 +68,10 @@ class _HomePageState extends State<HomePage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15)),
                               child: InkWell(
-                                focusColor: themeBlueLight1.withOpacity(0.2),
-                                hoverColor: themeBlueLight1.withOpacity(0.1),
+                                focusColor: themeYellowLight1.withOpacity(0.25),
+                                hoverColor: themeYellowLight1.withOpacity(0.25),
                                 highlightColor:
-                                    themeBlueLight1.withOpacity(0.1),
+                                    themeYellowLight1.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(15),
                                 onTap: (() {
                                   controller.personSelected = person;
@@ -66,15 +83,20 @@ class _HomePageState extends State<HomePage> {
                                   isThreeLine: true,
                                   title: Text(
                                     person.name,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold),
+                                    style:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                   visualDensity: VisualDensity.comfortable,
                                   subtitle: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(person.birthYear),
+                                      Text(
+                                        person.birthYear,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1,
+                                      ),
                                       person.species.isNotEmpty
                                           ? Row(
                                               children: person.species
@@ -86,13 +108,28 @@ class _HomePageState extends State<HomePage> {
                                                         (context, snapshot) {
                                                       if (snapshot.hasData) {
                                                         return Text(
-                                                            '${snapshot.data!} ');
+                                                          '${snapshot.data!} ',
+                                                          style:
+                                                              Theme.of(context)
+                                                                  .textTheme
+                                                                  .bodyText1,
+                                                        );
                                                       }
-                                                      return const Text('...');
+                                                      return Text(
+                                                        '...',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText1,
+                                                      );
                                                     });
                                               }).toList(),
                                             )
-                                          : const Text('Specie undefined'),
+                                          : Text(
+                                              'Specie undefined',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText1,
+                                            ),
                                     ],
                                   ),
                                 ),
