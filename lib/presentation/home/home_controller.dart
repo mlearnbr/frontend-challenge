@@ -12,8 +12,11 @@ class HomeController extends GetxController with StateMixin {
   late final PageController pageController;
   late final PageController innerPageController;
   int idCharacter = 1;
+  int idfilter = 1;
 
   List<ResultCharacter> resultCharacter = [];
+  List<ResultCharacter> filterOfFilms = [];
+
   List<ResultFilms> films = [];
   List caracters = [];
 
@@ -47,7 +50,19 @@ class HomeController extends GetxController with StateMixin {
   }
 
   Future filterPeopleFilms(List caracters) async {
-    await interfaceProviderFilm.filterPeopleFilms(caracters);
+    try {
+      change([], status: RxStatus.loading());
+
+      filterOfFilms = await interfaceProviderFilm.filterPeopleFilms(caracters);
+      change([], status: RxStatus.success());
+    } catch (e) {
+      change([], status: RxStatus.error());
+    }
+  }
+
+  void cleanListFilter() {
+    filterOfFilms.clear();
+    update();
   }
 
   @override

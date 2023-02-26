@@ -9,16 +9,28 @@ class HomePage extends GetView<HomeController> {
   static String routName = "/home";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black.withAlpha(150),
-      ),
-      backgroundColor: Colors.black,
-      body: GetBuilder<HomeController>(
+    return GetBuilder<HomeController>(
         init: HomeController(Get.find(), Get.find()),
-        builder: (controller) => controller
-            .obx((state) => HomeBodyCustomWidget(controller: controller)),
-      ),
-    );
+        builder: (controller) {
+          return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.black.withAlpha(150),
+            ),
+            backgroundColor: Colors.black,
+            floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+            floatingActionButton: controller.filterOfFilms.isNotEmpty
+                ? CircleAvatar(
+                    backgroundColor: Colors.amber,
+                    child: IconButton(
+                      onPressed: () {
+                        controller.cleanListFilter();
+                      },
+                      icon: const Icon(Icons.arrow_back_ios_new_outlined),
+                    ))
+                : Container(),
+            body: controller
+                .obx((state) => HomeBodyCustomWidget(controller: controller)),
+          );
+        });
   }
 }

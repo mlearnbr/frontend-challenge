@@ -4,6 +4,7 @@ class BaseUrlApi {
   static String filme = "$baseUrl/films";
 }
 
+const String urlImg = "https://starwars-visualguide.com/assets/img/characters/";
 const String film1 =
     "https://lumiere-a.akamaihd.net/v1/images/EP4_POS_2_D-RESIZED_f977074a.jpeg";
 const String film2 =

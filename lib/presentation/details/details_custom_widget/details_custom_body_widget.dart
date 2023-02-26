@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../helpers/type_planets.dart';
+import '../../../src/base_url/base_url_api.dart';
 import '../../widgets/custom_text_details_widget.dart';
 import '../details_controller.dart';
 
@@ -38,8 +39,7 @@ class DetailsCustomBodyWidget extends StatelessWidget {
                 child: CachedNetworkImage(
                   width: Get.width,
                   height: Get.height / 1.8,
-                  imageUrl:
-                      "https://starwars-visualguide.com/assets/img/characters/${controller.arguments[0]}.jpg",
+                  imageUrl: "$urlImg${controller.arguments[0]}.jpg",
                   fit: BoxFit.cover,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Center(

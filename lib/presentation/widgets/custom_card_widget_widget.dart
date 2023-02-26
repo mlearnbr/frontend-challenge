@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../helpers/type_specie.dart';
+import '../../src/base_url/base_url_api.dart';
 import '../../src/model/model_response_people.dart';
 import '../details/details_page.dart';
 
@@ -52,8 +53,7 @@ class CustomWidgetCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
-                  imageUrl:
-                      "https://starwars-visualguide.com/assets/img/characters/$image.jpg",
+                  imageUrl: "$urlImg$image.jpg",
                   fit: BoxFit.cover,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Center(
