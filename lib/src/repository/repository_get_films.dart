@@ -24,15 +24,26 @@ class RepositoryGetFilms implements InterfaceRepositoryFilms {
   }
 
   @override
-  Future<List<ResultCharacter>> filterPeopleFilms(List pokemonList) async {
-    for (var item in pokemonList) {
+  Future<List<ResultCharacter>> filterPeopleFilms(List filterList) async {
+    for (var item in filterList) {
       final response = await getconnect.get(item);
       String convertToString = response.bodyString!;
       if (response.statusCode == 200) {
         peaple.add(responseModelPeopleFilterFromJson(convertToString));
-        print(peaple);
       }
     }
     return peaple;
+  }
+
+  @override
+  Future<List<ResultFilms>> filterFilmByPeopleFilms(List filterList) async {
+    for (var item in filterList) {
+      final response = await getconnect.get(item);
+      String convertToString = response.bodyString!;
+      if (response.statusCode == 200) {
+        filme.add(responseModelFilmsFilterFromJson(convertToString));
+      }
+    }
+    return filme;
   }
 }

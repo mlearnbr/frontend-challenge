@@ -2,7 +2,8 @@ import 'dart:convert';
 
 ResponseModelFilms responseModelFilmsFromJson(String str) =>
     ResponseModelFilms.fromJson(json.decode(str));
-
+ResultFilms responseModelFilmsFilterFromJson(String str) =>
+    ResultFilms.fromJson(json.decode(str));
 class ResponseModelFilms {
   ResponseModelFilms({
     required this.count,

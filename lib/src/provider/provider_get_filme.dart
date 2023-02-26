@@ -14,7 +14,15 @@ class ProviderGetFilms implements InterfaceProviderFilms {
   }
 
   @override
-  Future<List<ResultCharacter>> filterPeopleFilms(List pokemonList) {
-    return repositoryGetFilms.filterPeopleFilms(pokemonList);
+  Future<List<ResultCharacter>> filterPeopleFilms(List filterList) async {
+    final response = await repositoryGetFilms.filterPeopleFilms(filterList);
+    return response;
+  }
+
+  @override
+  Future<List<ResultFilms>> filterFilmByPeopleFilms(List filterList) async {
+    final response =
+        await repositoryGetFilms.filterFilmByPeopleFilms(filterList);
+    return response;
   }
 }

@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 
 import '../../../helpers/type_planets.dart';
 import '../../../src/base_url/base_url_api.dart';
+import '../../../src/model/model_response_films.dart';
+import '../../home/home_controller.dart';
 import '../../widgets/custom_text_details_widget.dart';
 import '../details_controller.dart';
 
@@ -90,6 +92,59 @@ class DetailsCustomBodyWidget extends StatelessWidget {
                       ),
                       CustomTextDetailsWidget(
                         title: "Home world: ${setTypePlanets(value)}",
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      const CustomTextDetailsWidget(
+                        title: "Films:",
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      SizedBox(
+                        width: Get.width,
+                        height: 50,
+                        child: GetBuilder<HomeController>(
+                            init: HomeController(Get.find(), Get.find()),
+                            builder: (controller) {
+                              return controller.obx((state) => ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                    itemCount: 10,
+                                    itemBuilder: (context, index) {
+                                      ResultFilms resultFilms =
+                                          controller.filterFilmByPeoper[index];
+                                      return controller.obx((state) {
+                                        return Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12.0,
+                                            vertical: 8.0,
+                                          ),
+                                          margin: const EdgeInsets.only(
+                                              right: 10.0),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(5.0),
+                                            ),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              resultFilms.title,
+                                              style: const TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                          onLoading:
+                                              const LinearProgressIndicator());
+                                    },
+                                  ));
+                            }),
                       ),
                     ],
                   ),

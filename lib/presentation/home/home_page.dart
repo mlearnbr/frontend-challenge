@@ -26,10 +26,14 @@ class HomePage extends GetView<HomeController> {
                         controller.cleanListFilter();
                       },
                       icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                    ))
+                    ),
+                  )
                 : Container(),
-            body: controller
-                .obx((state) => HomeBodyCustomWidget(controller: controller)),
+            body: controller.obx(
+                (state) => HomeBodyCustomWidget(controller: controller),
+                onLoading: const Center(
+                  child: CircularProgressIndicator(),
+                )),
           );
         });
   }

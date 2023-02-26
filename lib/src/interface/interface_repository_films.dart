@@ -3,5 +3,6 @@ import '../model/model_response_people.dart';
 
 abstract class InterfaceRepositoryFilms {
   Future<List<ResultFilms>> getFilms();
-  Future<List<ResultCharacter>> filterPeopleFilms(List pokemonList);
+  Future<List<ResultCharacter>> filterPeopleFilms(List filterList);
+  Future<List<ResultFilms>> filterFilmByPeopleFilms(List filterList);
 }

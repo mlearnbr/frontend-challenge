@@ -10,6 +10,10 @@ class DetailsPage extends GetView<DetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
       body: GetBuilder<DetailsController>(
         init: DetailsController(),
         builder: (controller) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../helpers/type_specie.dart';
-import '../../../src/base_url/base_url_api.dart';
 import '../../../src/model/model_response_people.dart';
 import '../../details/details_page.dart';
 import '../../widgets/custom_card_widget_widget.dart';
@@ -42,9 +41,13 @@ class HomeBodyCustomWidget extends StatelessWidget {
               }),
           controller.filterOfFilms.length.isEqual(0)
               ? PageView.builder(
-                  itemCount: 8,
+                  itemCount: controller.resultCharacter.length,
                   controller: controller.innerPageController,
                   onPageChanged: (index) {
+                    if (index >= 0) {
+                      controller.idCharacter = index;
+                      controller.idCharacter++;
+                    }
                     controller.pageController.animateToPage(index,
                         duration: const Duration(milliseconds: 400),
                         curve: Curves.easeIn);
@@ -53,11 +56,7 @@ class HomeBodyCustomWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     ResultCharacter starWars =
                         controller.resultCharacter[index];
-                    controller.idCharacter = index;
 
-                    if (index >= 0) {
-                      controller.idCharacter++;
-                    }
                     return Center(
                       child: TweenAnimationBuilder<double>(
                           curve: Curves.ease,
@@ -72,10 +71,31 @@ class HomeBodyCustomWidget extends StatelessWidget {
                               child: child,
                             );
                           },
-                          child: CustomWidgetCard(
-                            image: controller.idCharacter.toString(),
-                            idCharacter: controller.idCharacter,
-                            resultCharacter: starWars,
+                          child: GestureDetector(
+                            onTap: () {
+                              controller
+                                  .filterFilmByPeopleFilms(starWars.films);
+                              String valueid =
+                                  controller.idCharacter.toString();
+                              Get.toNamed(DetailsPage.routName, arguments: [
+                                valueid,
+                                starWars.name,
+                                starWars.birthYear,
+                                starWars.eyeColor,
+                                starWars.gender,
+                                starWars.hairColor,
+                                starWars.height,
+                                starWars.mass,
+                                starWars.skinColor,
+                                starWars.homeworld,
+                                setTypeSpecie(controller.idfilter),
+                              ]);
+                            },
+                            child: CustomWidgetCard(
+                              image: controller.idCharacter.toString(),
+                              idCharacter: controller.idCharacter,
+                              resultCharacter: starWars,
+                            ),
                           )),
                     );
                   })
@@ -92,12 +112,13 @@ class HomeBodyCustomWidget extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: controller.filterOfFilms.length,
                         itemBuilder: (context, index) {
-                          ResultCharacter filter =
-                              controller.filterOfFilms[index];
-                          controller.idfilter = index;
                           if (index >= 0) {
+                            controller.idfilter = index;
                             controller.idfilter++;
                           }
+                          ResultCharacter filter =
+                              controller.filterOfFilms[index];
+
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Card(
@@ -105,37 +126,11 @@ class HomeBodyCustomWidget extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: ListTile(
                                 leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                    "$urlImg${controller.idfilter}.jpg",
-                                  ),
+                                  backgroundColor: Colors.amber,
+                                  child: Text(controller.idfilter.toString()),
                                 ),
                                 title: Text(filter.name),
                                 subtitle: Text(filter.birthYear),
-                                trailing: IconButton(
-                                  onPressed: () {
-                                    String valueid =
-                                        controller.idfilter.toString();
-                                    Get.toNamed(DetailsPage.routName,
-                                        arguments: [
-                                          valueid,
-                                          filter.name,
-                                          filter.birthYear,
-                                          filter.eyeColor,
-                                          filter.gender,
-                                          filter.hairColor,
-                                          filter.height,
-                                          filter.mass,
-                                          filter.skinColor,
-                                          filter.homeworld,
-                                          setTypeSpecie(controller.idfilter),
-                                        ]);
-                                  },
-                                  icon: const Icon(
-                                    Icons.visibility,
-                                    size: 24.0,
-                                    color: Colors.amber,
-                                  ),
-                                ),
                               ),
                             ),
                           );

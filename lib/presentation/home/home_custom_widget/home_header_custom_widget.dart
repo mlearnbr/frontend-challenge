@@ -24,9 +24,6 @@ class HomeHeaderCustomWidget extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             final ResultFilms resultFilms = controller.films[index];
-            if (resultFilms == null) {
-              return const LinearProgressIndicator();
-            }
             if (index == 0) {
               resultFilms.thumbnail = film1;
             }
@@ -47,6 +44,7 @@ class HomeHeaderCustomWidget extends StatelessWidget {
             }
             return GestureDetector(
                 onTap: () {
+                  controller.cleanListFilter();
                   controller.filterPeopleFilms(resultFilms.characters);
                 },
                 child: CustomCardFilm(resultFilms: resultFilms));

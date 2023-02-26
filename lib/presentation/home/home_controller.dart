@@ -11,22 +11,34 @@ class HomeController extends GetxController with StateMixin {
   final InterfaceProviderFilms interfaceProviderFilm;
   late final PageController pageController;
   late final PageController innerPageController;
-  int idCharacter = 1;
-  int idfilter = 1;
 
   List<ResultCharacter> resultCharacter = [];
   List<ResultCharacter> filterOfFilms = [];
-
+  List<ResultFilms> filterFilmByPeoper = [];
   List<ResultFilms> films = [];
   List caracters = [];
-
   int currentIndex = 0;
+  int idCharacter = 1;
+  int idfilter = 1;
+
+  bool isListfilterFilms = false;
   Duration duration = const Duration(milliseconds: 500);
   HomeController(this.interfaceProvider, this.interfaceProviderFilm);
 
   currentIndeX(int index) {
     currentIndex = index;
     update();
+  }
+
+  Future getFilms() async {
+    try {
+      change([], status: RxStatus.loading());
+      films = await interfaceProviderFilm.getFilms();
+      resultCharacter = await interfaceProvider.getCharacter();
+      change([], status: RxStatus.success());
+    } catch (e) {
+      change([], status: RxStatus.error());
+    }
   }
 
   Future getCharacter() async {
@@ -39,20 +51,9 @@ class HomeController extends GetxController with StateMixin {
     }
   }
 
-  Future getFilms() async {
-    try {
-      change([], status: RxStatus.loading());
-      films = await interfaceProviderFilm.getFilms();
-      change([], status: RxStatus.success());
-    } catch (e) {
-      change([], status: RxStatus.error());
-    }
-  }
-
   Future filterPeopleFilms(List caracters) async {
     try {
       change([], status: RxStatus.loading());
-
       filterOfFilms = await interfaceProviderFilm.filterPeopleFilms(caracters);
       change([], status: RxStatus.success());
     } catch (e) {
@@ -60,15 +61,31 @@ class HomeController extends GetxController with StateMixin {
     }
   }
 
-  void cleanListFilter() {
+  Future filterFilmByPeopleFilms(List caracters) async {
+    try {
+      change([], status: RxStatus.loading());
+      filterFilmByPeoper =
+          await interfaceProviderFilm.filterFilmByPeopleFilms(caracters);
+      change([], status: RxStatus.success());
+    } catch (e) {
+      change([], status: RxStatus.error());
+    }
+  }
+
+  checkListFilms(bool value) {
+    isListfilterFilms = value;
+    update();
+  }
+
+  cleanListFilter() {
     filterOfFilms.clear();
     update();
   }
 
   @override
   void onInit() {
-    getCharacter();
     getFilms();
+    getCharacter();
     pageController = PageController(initialPage: currentIndex);
     innerPageController =
         PageController(initialPage: currentIndex, viewportFraction: 1 / 1.4);
