@@ -23,12 +23,7 @@ class DefaultTheme {
         hoverColor: themeYellow.withOpacity(0.3),
       );
 
-  ///
-  ///
-  ///
-  ///
-  ///
-  static get dark => ThemeData(
+  static ThemeData get dark => ThemeData(
         primaryColor: themeYellow,
         primarySwatch: Colors.yellow,
         cardColor: const Color.fromARGB(255, 24, 24, 24),
@@ -57,6 +52,40 @@ class DefaultTheme {
                 color: Colors.grey[200],
                 fontWeight: FontWeight.w500,
                 fontSize: 16)),
+        focusColor: themeYellow.withOpacity(0.3),
+        splashColor: themeYellow.withOpacity(0.4),
+        hoverColor: themeYellow.withOpacity(0.3),
+      );
+
+  static get contrast => ThemeData(
+        primaryColor: themeYellow,
+        primarySwatch: Colors.yellow,
+        cardColor: Color.fromARGB(255, 19, 19, 19),
+        scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0),
+        iconTheme: IconThemeData(color: Color.fromARGB(255, 228, 228, 228)),
+        appBarTheme: const AppBarTheme(
+            backgroundColor: themeYellow,
+            elevation: 0,
+            foregroundColor: Colors.white,
+            scrolledUnderElevation: 10),
+        textTheme: TextTheme(
+            bodyText1: TextStyle(
+                color: Color.fromARGB(255, 255, 255, 255),
+                fontWeight: FontWeight.w300,
+                fontSize: 14),
+            bodyText2: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.w400,
+            ),
+            headline4: TextStyle(
+              color: Colors.grey[300],
+            ),
+            headline5: const TextStyle(
+                color: themeYellow, fontWeight: FontWeight.w300, fontSize: 18),
+            headline6: TextStyle(
+                color: Colors.grey[200],
+                fontWeight: FontWeight.w500,
+                fontSize: 18)),
         focusColor: themeYellow.withOpacity(0.3),
         splashColor: themeYellow.withOpacity(0.4),
         hoverColor: themeYellow.withOpacity(0.3),
