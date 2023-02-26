@@ -17,15 +17,17 @@ class PersonsController {
     //  personsState.notifyListeners();
   }
 
+  /// Carrega a lista de personagens na home page (primeira pagina apenas)
   loadingListHome() async {
     isLoadingPerson();
 
     var result = await _personsRepository.getAllPersons();
 
     personsState.value = result;
-    //   personsState.notifyListeners();
   }
 
+  /// busca o nome da especie usando a url passado por parametro
+  /// get specie name using url passed by  parameter
   Future<String> getSpecie(String specieUrl) =>
       _personsRepository.getNameSpecie(specieUrl);
 }
