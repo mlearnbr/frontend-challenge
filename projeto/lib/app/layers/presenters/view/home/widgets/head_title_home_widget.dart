@@ -47,16 +47,26 @@ class HeadTitleHome extends StatelessWidget {
               child: ValueListenableBuilder<ThemeData>(
                   valueListenable: themeController.themeData,
                   builder: (context, theme, _) {
-                    return Switch(
-                      value: (themeController.isContrast),
-                      onChanged: (value) {
-                        if (value) {
-                          themeController.setToContrast();
-                        } else {
-                          //     themeController.themeLight.value = false;
-                          themeController.setToDark();
-                        }
-                      },
+                    return Row(
+                      children: [
+                        Icon(
+                          Icons.contrast,
+                          color:
+                              themeController.isContrast ? themeYellow : null,
+                        ),
+                        Switch(
+                          inactiveTrackColor: Colors.white24,
+                          value: (themeController.isContrast),
+                          onChanged: (value) {
+                            if (value) {
+                              themeController.setToContrast();
+                            } else {
+                              //     themeController.themeLight.value = false;
+                              themeController.setToDark();
+                            }
+                          },
+                        ),
+                      ],
                     );
                   })),
         )
