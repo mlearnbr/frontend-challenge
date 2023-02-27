@@ -33,6 +33,11 @@ Como arquitetura do projeto foi aplicado o MVC e um pouco de Clean Archicteture 
 
 Para o design foi escolhido algo que remetesse as cores do universo Star Wars, sendo assim escolhidos o Preto e amarelo.
 
+Como opção de temas, o dark está definido como padrão, o light está preparado para ser aplicado em atualizações futuras, e o de alto contraste para melhor acessibilidade pode ser ativado facilmente na home page, por meio do switch no canto superior direito.
+<br>
+
+<img src="screenshots/video3.gif"  width=300>
+
 <br>
 
 ## **Fluxo de interação**

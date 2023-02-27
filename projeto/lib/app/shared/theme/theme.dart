@@ -60,7 +60,7 @@ class DefaultTheme {
   static get contrast => ThemeData(
         primaryColor: themeYellow,
         primarySwatch: Colors.yellow,
-        cardColor: Color.fromARGB(255, 15, 15, 15),
+        cardColor: const Color.fromARGB(255, 15, 15, 15),
         scaffoldBackgroundColor: const Color.fromARGB(255, 0, 0, 0),
         iconTheme:
             const IconThemeData(color: Color.fromARGB(255, 228, 228, 228)),
