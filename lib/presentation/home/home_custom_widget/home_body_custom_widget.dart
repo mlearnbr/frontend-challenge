@@ -40,65 +40,9 @@ class HomeBodyCustomWidget extends StatelessWidget {
                     child: Image.asset("assets/background.jpg"));
               }),
           controller.filterOfFilms.length.isEqual(0)
-              ? PageView.builder(
-                  itemCount: controller.resultCharacter.length,
-                  controller: controller.innerPageController,
-                  onPageChanged: (index) {
-                    if (index >= 0) {
-                      controller.idCharacter = index;
-                      controller.idCharacter++;
-                    }
-                    controller.pageController.animateToPage(index,
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeIn);
-                    controller.currentIndeX(index);
-                  },
-                  itemBuilder: (context, index) {
-                    ResultCharacter starWars =
-                        controller.resultCharacter[index];
-
-                    return Center(
-                      child: TweenAnimationBuilder<double>(
-                          curve: Curves.ease,
-                          duration: controller.duration,
-                          tween: controller.currentIndex == index
-                              ? Tween(begin: 2, end: 1.7)
-                              : Tween(begin: 1, end: 1),
-                          builder: (context, value, child) {
-                            return Transform.scale(
-                              alignment: Alignment.center,
-                              scale: value,
-                              child: child,
-                            );
-                          },
-                          child: GestureDetector(
-                            onTap: () {
-                              controller
-                                  .filterFilmByPeopleFilms(starWars.films);
-                              String valueid =
-                                  controller.idCharacter.toString();
-                              Get.toNamed(DetailsPage.routName, arguments: [
-                                valueid,
-                                starWars.name,
-                                starWars.birthYear,
-                                starWars.eyeColor,
-                                starWars.gender,
-                                starWars.hairColor,
-                                starWars.height,
-                                starWars.mass,
-                                starWars.skinColor,
-                                starWars.homeworld,
-                                setTypeSpecie(controller.idfilter),
-                              ]);
-                            },
-                            child: CustomWidgetCard(
-                              image: controller.idCharacter.toString(),
-                              idCharacter: controller.idCharacter,
-                              resultCharacter: starWars,
-                            ),
-                          )),
-                    );
-                  })
+              ? Get.width <= 820
+                  ? CustomPageViewWidget(controller: controller)
+                  : CustomGridViewWidget(controller: controller)
               : Positioned(
                   top: 60,
                   left: 20,
@@ -144,5 +88,134 @@ class HomeBodyCustomWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class CustomPageViewWidget extends StatelessWidget {
+  const CustomPageViewWidget({
+    super.key,
+    required this.controller,
+  });
+
+  final HomeController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return PageView.builder(
+        itemCount: controller.resultCharacter.length,
+        controller: controller.innerPageController,
+        onPageChanged: (index) {
+          if (index >= 0) {
+            controller.idCharacter = index;
+            controller.idCharacter++;
+          }
+          controller.pageController.animateToPage(index,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeIn);
+          controller.currentIndeX(index);
+        },
+        itemBuilder: (context, index) {
+          ResultCharacter starWars = controller.resultCharacter[index];
+
+          return Center(
+            child: TweenAnimationBuilder<double>(
+                curve: Curves.ease,
+                duration: controller.duration,
+                tween: controller.currentIndex == index
+                    ? Tween(begin: 2, end: 1.7)
+                    : Tween(begin: 1, end: 1),
+                builder: (context, value, child) {
+                  return Transform.scale(
+                    alignment: Alignment.center,
+                    scale: value,
+                    child: child,
+                  );
+                },
+                child: GestureDetector(
+                  onTap: () {
+                    controller.filterFilmByPeopleFilms(starWars.films);
+                    String valueid = controller.idCharacter.toString();
+                    Get.toNamed(DetailsPage.routName, arguments: [
+                      valueid,
+                      starWars.name,
+                      starWars.birthYear,
+                      starWars.eyeColor,
+                      starWars.gender,
+                      starWars.hairColor,
+                      starWars.height,
+                      starWars.mass,
+                      starWars.skinColor,
+                      starWars.homeworld,
+                      setTypeSpecie(controller.idfilter),
+                    ]);
+                  },
+                  child: CustomWidgetCard(
+                    image: controller.idCharacter.toString(),
+                    idCharacter: controller.idCharacter,
+                    resultCharacter: starWars,
+                  ),
+                )),
+          );
+        });
+  }
+}
+
+class CustomGridViewWidget extends StatelessWidget {
+  const CustomGridViewWidget({
+    super.key,
+    required this.controller,
+  });
+
+  final HomeController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        itemCount: controller.resultCharacter.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: Get.width <= 1015 ? 2 : 3, childAspectRatio: 2 / 3),
+        itemBuilder: (context, index) {
+          ResultCharacter starWars = controller.resultCharacter[index];
+
+          return Center(
+            child: TweenAnimationBuilder<double>(
+                curve: Curves.ease,
+                duration: controller.duration,
+                tween: controller.currentIndex == index
+                    ? Tween(begin: 2, end: 1.7)
+                    : Tween(begin: 1, end: 1),
+                builder: (context, value, child) {
+                  return Transform.scale(
+                    alignment: Alignment.center,
+                    scale: value,
+                    child: child,
+                  );
+                },
+                child: GestureDetector(
+                  onTap: () {
+                    controller.filterFilmByPeopleFilms(starWars.films);
+                    String valueid = controller.idCharacter.toString();
+                    Get.toNamed(DetailsPage.routName, arguments: [
+                      valueid,
+                      starWars.name,
+                      starWars.birthYear,
+                      starWars.eyeColor,
+                      starWars.gender,
+                      starWars.hairColor,
+                      starWars.height,
+                      starWars.mass,
+                      starWars.skinColor,
+                      starWars.homeworld,
+                      setTypeSpecie(controller.idfilter),
+                    ]);
+                  },
+                  child: CustomWidgetCard(
+                    image: controller.idCharacter.toString(),
+                    idCharacter: controller.idCharacter,
+                    resultCharacter: starWars,
+                  ),
+                )),
+          );
+        });
   }
 }

@@ -9,12 +9,15 @@ class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('SplashPage'),
-        ),
+        backgroundColor: Colors.black,
         body: GetBuilder<SplashController>(
           init: SplashController(),
-          builder: (controller) => Container(),
+          builder: (controller) => Center(
+            child: Image.asset(
+              "assets/Star_Wars.png",
+              fit: BoxFit.fill,
+            ),
+          ),
         ));
   }
 }

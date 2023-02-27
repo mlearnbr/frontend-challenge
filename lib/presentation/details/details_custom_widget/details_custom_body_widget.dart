@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../helpers/type_planets.dart';
-import '../../../src/base_url/base_url_api.dart';
 import '../../../src/model/model_response_films.dart';
 import '../../home/home_controller.dart';
 import '../../widgets/custom_text_details_widget.dart';
@@ -30,45 +28,44 @@ class DetailsCustomBodyWidget extends StatelessWidget {
               child: Image.asset(
                 "assets/background.jpg",
                 height: Get.height,
-              ),
-            ),
-            Positioned(
-              top: 0,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20)),
-                child: CachedNetworkImage(
-                  width: Get.width,
-                  height: Get.height / 1.8,
-                  imageUrl: "$urlImg${controller.arguments[0]}.jpg",
-                  fit: BoxFit.cover,
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      Center(
-                          child: CircularProgressIndicator(
-                              value: downloadProgress.progress)),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              child: Container(
                 width: Get.width,
-                height: 350,
-                decoration: BoxDecoration(
-                    color: Colors.white.withAlpha(50),
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20))),
-                child: Padding(
+                fit: BoxFit.cover,
+              ),
+            ),
+            Column(
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20)),
+                  child: SizedBox(
+                    child: Center(
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(top: 80, left: 10, right: 10),
+                        child: Image.asset(
+                          "assets/Star_Wars.png",
+                          width: Get.width,
+                          height: Get.height * 0.35,
+                          // fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                // const SizedBox(height: 20),
+                const Spacer(),
+                Container(
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                      color: Colors.white.withAlpha(50),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomTextDetailsWidget(
-                        title: "Name:${controller.arguments[1]}",
-                      ),
                       CustomTextDetailsWidget(
                         title: "Birth: ${controller.arguments[2]}",
                       ),
@@ -77,9 +74,6 @@ class DetailsCustomBodyWidget extends StatelessWidget {
                       ),
                       CustomTextDetailsWidget(
                         title: "Gender: ${controller.arguments[4]}",
-                      ),
-                      CustomTextDetailsWidget(
-                        title: "Hair Color: ${controller.arguments[5]}",
                       ),
                       CustomTextDetailsWidget(
                         title: "Height: ${controller.arguments[6]}",
@@ -111,7 +105,8 @@ class DetailsCustomBodyWidget extends StatelessWidget {
                               return controller.obx((state) => ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     shrinkWrap: true,
-                                    itemCount: 10,
+                                    itemCount:
+                                        controller.filterFilmByPeoper.length,
                                     itemBuilder: (context, index) {
                                       ResultFilms resultFilms =
                                           controller.filterFilmByPeoper[index];
@@ -149,7 +144,7 @@ class DetailsCustomBodyWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ));

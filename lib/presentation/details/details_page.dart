@@ -13,6 +13,8 @@ class DetailsPage extends GetView<DetailsController> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        title: Text(controller.arguments[1]),
+        centerTitle: true,
       ),
       body: GetBuilder<DetailsController>(
         init: DetailsController(),

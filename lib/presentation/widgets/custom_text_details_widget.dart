@@ -11,7 +11,7 @@ class CustomTextDetailsWidget extends StatelessWidget {
       children: [
         const Icon(
           Icons.star,
-          color: Colors.white,
+          color: Colors.amber,
         ),
         const SizedBox(
           width: 2,
@@ -19,7 +19,7 @@ class CustomTextDetailsWidget extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-              fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
+              fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ],
     );

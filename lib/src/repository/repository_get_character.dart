@@ -10,8 +10,10 @@ class RepositoryGetCharacter implements InterfaceRepositoryCharacter {
 
   RepositoryGetCharacter(this.getConnect);
   @override
-  Future<List<ResultCharacter>> getCharacter({int? page}) async {
-    final response = await getConnect.get(BaseUrlApi.people);
+  Future<List<ResultCharacter>> getCharacter({int? page = 1}) async {
+    final response = await getConnect.get(
+      BaseUrlApi.people,
+    );
     final convertToString = response.bodyString;
     if (response.statusCode == 200) {
       final data = responseModelPeopleFromJson(convertToString!);
