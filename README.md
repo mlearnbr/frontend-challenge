@@ -6,9 +6,11 @@
 <p> Este aplicativo  tem como objetivo Listar personagem do Star Wars com as informações de cada personagem.
 
 
-## Demo
+## Link do video no google driver
 
-![normal](github.com/Jacob-dvlp/frontend-challenge/blob/master/demo_video.webm)
+🔗 https://drive.google.com/file/d/1xNsZ9EkYtLLPanWYprgpGEk1d01i8EOd/view?usp=share_link
+
+
 
 
 ## 📚 Telas que fazem parte do aplicativo.
