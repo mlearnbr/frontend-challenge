@@ -13,9 +13,6 @@ class HomePage extends GetView<HomeController> {
         init: HomeController(Get.find(), Get.find()),
         builder: (controller) {
           return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.black.withAlpha(150),
-            ),
             backgroundColor: Colors.black,
             floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             floatingActionButton: controller.filterOfFilms.isNotEmpty
@@ -30,10 +27,12 @@ class HomePage extends GetView<HomeController> {
                   )
                 : Container(),
             body: controller.obx(
-                (state) => HomeBodyCustomWidget(controller: controller),
-                onLoading: const Center(
-                  child: CircularProgressIndicator(),
-                )),
+              (state) =>
+                  SafeArea(child: HomeBodyCustomWidget(controller: controller)),
+              onLoading: const Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
           );
         });
   }

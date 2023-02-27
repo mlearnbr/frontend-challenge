@@ -33,11 +33,11 @@
   ⚙ -- Neste  código também foi aplicado  SOLID com  GetX e clean Code <br>
  
 ## Obs:
- Nesse aplicativo foi usado o gerenciadores de estado GetX com a finalidade de  ter a melhor gerencia de (Injeçao de dependencias, gerenciamento de estado, e gerenciamento de rotas) e também o GetX tem a ferramenta para consumir API o (Getconnet) foi este Client que usei para consumir a API de pokemon.  
+ Nesse aplicativo foi usado o gerenciadores de estado GetX com a finalidade de  ter a melhor gerencia de (Injeçao de dependencias, gerenciamento de estado, e gerenciamento de rotas) e também o GetX tem a ferramenta para consumir API o (Getconnet) foi este Client que usei para consumir a API de Star Wars.  
 
 
  ## Obs: 
- Devido  o  tempo curto, não cheguei de implementar algumas funcionalidades como páginalão, test unitarios, test de integração e test de widget.
+ Devido  o  tempo curto, não cheguei de implementar algumas funcionalidades como páginasão, test unitarios, test de integração e test de widget.
  
 <br>
 ## 🛠 Pacotes utilizados <br>  
@@ -50,6 +50,7 @@
 
  <br>
  ⚙ -- flutter pub get <br>
+ 
  #fazer o donwload dos pacotes <br>
  ⚙ -- flutter run ou F5 <br>
  #Executar o projeto pelo Android Studio ou Visual Studio code <br>

@@ -4,6 +4,7 @@ ResponseModelFilms responseModelFilmsFromJson(String str) =>
     ResponseModelFilms.fromJson(json.decode(str));
 ResultFilms responseModelFilmsFilterFromJson(String str) =>
     ResultFilms.fromJson(json.decode(str));
+
 class ResponseModelFilms {
   ResponseModelFilms({
     required this.count,
@@ -28,10 +29,8 @@ class ResponseModelFilms {
 }
 
 class ResultFilms {
-  ResultFilms({
-    required this.title,
-    required this.characters,
-  });
+  ResultFilms(
+      {required this.title, required this.characters, this.thumbnail = ""});
 
   String title;
   String? thumbnail;

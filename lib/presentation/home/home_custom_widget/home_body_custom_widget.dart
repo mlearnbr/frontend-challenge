@@ -16,7 +16,7 @@ class HomeBodyCustomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(1.0),
+      padding: const EdgeInsets.only(top: 60),
       child: Stack(
         children: [
           PageView.builder(
@@ -82,8 +82,11 @@ class HomeBodyCustomWidget extends StatelessWidget {
                       ),
                     ),
                   )),
-          HomeHeaderCustomWidget(
-            controller: controller,
+          Positioned(
+            top: 0,
+            child: HomeHeaderCustomWidget(
+              controller: controller,
+            ),
           )
         ],
       ),
@@ -101,62 +104,68 @@ class CustomPageViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-        itemCount: controller.resultCharacter.length,
-        controller: controller.innerPageController,
-        onPageChanged: (index) {
-          if (index >= 0) {
-            controller.idCharacter = index;
-            controller.idCharacter++;
-          }
-          controller.pageController.animateToPage(index,
-              duration: const Duration(milliseconds: 400),
-              curve: Curves.easeIn);
-          controller.currentIndeX(index);
-        },
-        itemBuilder: (context, index) {
-          ResultCharacter starWars = controller.resultCharacter[index];
+    return Positioned(
+      top: 60,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: PageView.builder(
+          itemCount: controller.resultCharacter.length,
+          controller: controller.innerPageController,
+          onPageChanged: (index) {
+            if (index >= 0) {
+              controller.idCharacter = index;
+              controller.idCharacter++;
+            }
+            controller.pageController.animateToPage(index,
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeIn);
+            controller.currentIndeX(index);
+          },
+          itemBuilder: (context, index) {
+            ResultCharacter starWars = controller.resultCharacter[index];
 
-          return Center(
-            child: TweenAnimationBuilder<double>(
-                curve: Curves.ease,
-                duration: controller.duration,
-                tween: controller.currentIndex == index
-                    ? Tween(begin: 2, end: 1.7)
-                    : Tween(begin: 1, end: 1),
-                builder: (context, value, child) {
-                  return Transform.scale(
-                    alignment: Alignment.center,
-                    scale: value,
-                    child: child,
-                  );
-                },
-                child: GestureDetector(
-                  onTap: () {
-                    controller.filterFilmByPeopleFilms(starWars.films);
-                    String valueid = controller.idCharacter.toString();
-                    Get.toNamed(DetailsPage.routName, arguments: [
-                      valueid,
-                      starWars.name,
-                      starWars.birthYear,
-                      starWars.eyeColor,
-                      starWars.gender,
-                      starWars.hairColor,
-                      starWars.height,
-                      starWars.mass,
-                      starWars.skinColor,
-                      starWars.homeworld,
-                      setTypeSpecie(controller.idfilter),
-                    ]);
+            return Center(
+              child: TweenAnimationBuilder<double>(
+                  curve: Curves.ease,
+                  duration: controller.duration,
+                  tween: controller.currentIndex == index
+                      ? Tween(begin: 2, end: 1.7)
+                      : Tween(begin: 1, end: 1),
+                  builder: (context, value, child) {
+                    return Transform.scale(
+                      alignment: Alignment.center,
+                      scale: value,
+                      child: child,
+                    );
                   },
-                  child: CustomWidgetCard(
-                    image: controller.idCharacter.toString(),
-                    idCharacter: controller.idCharacter,
-                    resultCharacter: starWars,
-                  ),
-                )),
-          );
-        });
+                  child: GestureDetector(
+                    onTap: () {
+                      controller.filterFilmByPeopleFilms(starWars.films);
+                      String valueid = controller.idCharacter.toString();
+                      Get.toNamed(DetailsPage.routName, arguments: [
+                        valueid,
+                        starWars.name,
+                        starWars.birthYear,
+                        starWars.eyeColor,
+                        starWars.gender,
+                        starWars.hairColor,
+                        starWars.height,
+                        starWars.mass,
+                        starWars.skinColor,
+                        starWars.homeworld,
+                        setTypeSpecie(controller.idfilter),
+                      ]);
+                    },
+                    child: CustomWidgetCard(
+                      image: controller.idCharacter.toString(),
+                      idCharacter: controller.idCharacter,
+                      resultCharacter: starWars,
+                    ),
+                  )),
+            );
+          }),
+    );
   }
 }
 

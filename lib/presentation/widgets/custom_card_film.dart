@@ -18,11 +18,15 @@ class CustomCardFilm extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-              backgroundColor: Colors.grey[200],
-              backgroundImage:
-                  CachedNetworkImageProvider(resultFilms.thumbnail!),
-            ),
+            resultFilms.thumbnail!.isNotEmpty
+                ? CircleAvatar(
+                    backgroundColor: Colors.grey[200],
+                    backgroundImage:
+                        CachedNetworkImageProvider(resultFilms.thumbnail!))
+                : const Center(
+                    child: CircularProgressIndicator.adaptive(
+                    backgroundColor: Colors.white,
+                  )),
             Flexible(
               child: Center(
                   child: Text(
