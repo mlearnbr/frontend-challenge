@@ -5,6 +5,12 @@
 
 <p> Este aplicativo  tem como objetivo Listar personagem do Star Wars com as informações de cada personagem.
 
+
+## Demo
+
+![normal](https://github.com/Jacob-dvlp/https://github.com/Jacob-dvlp/frontend-challenge/blob/master/demo_video.webm)
+
+
 ## 📚 Telas que fazem parte do aplicativo.
 
  ⚙ --Home, tela que  lista  personagens com as informações(name species e birth_year) e também  com  Lista de filmes no top da tela <br>
