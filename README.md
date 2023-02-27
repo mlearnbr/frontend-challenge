@@ -8,7 +8,7 @@
 
 ## Demo
 
-![normal](https://github.com/Jacob-dvlp/https://github.com/Jacob-dvlp/frontend-challenge/blob/master/demo_video.webm)
+![normal](github.com/Jacob-dvlp/frontend-challenge/blob/master/demo_video.webm)
 
 
 ## 📚 Telas que fazem parte do aplicativo.
