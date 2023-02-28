@@ -19,3 +19,13 @@ class PeopleDatasourceFailure extends HomeFailure {
           stackTrace: stackTrace,
         );
 }
+
+class PeopleUsecaseFailure extends HomeFailure {
+  const PeopleUsecaseFailure({
+    String? message,
+    StackTrace? stackTrace,
+  }) : super(
+          message: message,
+          stackTrace: stackTrace,
+        );
+}
