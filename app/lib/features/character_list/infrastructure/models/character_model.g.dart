@@ -8,6 +8,9 @@ part of 'character_model.dart';
 
 CharacterModel _$CharacterModelFromJson(Map<String, dynamic> json) =>
     CharacterModel(
+      species: (json['species'] as List<dynamic>?)
+          ?.map((e) => SpecieModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       name: json['name'] as String,
       birthYear: json['birth_year'] as String,
       eyeColor: json['eye_color'] as String,
@@ -18,8 +21,6 @@ CharacterModel _$CharacterModelFromJson(Map<String, dynamic> json) =>
       skinColor: json['skin_color'] as String,
       homeworld: json['homeworld'] as String,
       films: (json['films'] as List<dynamic>).map((e) => e as String).toList(),
-      species:
-          (json['species'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$CharacterModelToJson(CharacterModel instance) =>

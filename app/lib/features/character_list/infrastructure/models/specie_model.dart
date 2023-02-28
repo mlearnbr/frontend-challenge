@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'specie_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(anyMap: true, explicitToJson: true)
 class SpecieModel extends SpecieEntity {
   @JsonKey(name: 'average_height')
   final String averageHeight;
@@ -64,5 +64,19 @@ class SpecieModel extends SpecieEntity {
         homeworld: homeworld,
         people: people,
         films: films,
+      );
+
+  factory SpecieModel.toModel(SpecieEntity entity) => SpecieModel(
+        name: entity.name,
+        classification: entity.classification,
+        designation: entity.designation,
+        averageHeight: entity.averageHeight,
+        skinColors: entity.skinColors,
+        hairColors: entity.hairColors,
+        eyeColors: entity.eyeColors,
+        averageLifespan: entity.averageLifespan,
+        language: entity.language,
+        people: entity.people,
+        films: entity.films,
       );
 }

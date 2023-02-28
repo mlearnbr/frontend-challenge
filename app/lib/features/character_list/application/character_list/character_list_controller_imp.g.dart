@@ -95,7 +95,7 @@ mixin _$CharacterListController on CharacterListControllerBase, Store {
       ActionController(name: 'CharacterListControllerBase', context: context);
 
   @override
-  void _startLoading(bool? loadingMore) {
+  void _startLoading([bool? loadingMore]) {
     final _$actionInfo = _$CharacterListControllerBaseActionController
         .startAction(name: 'CharacterListControllerBase._startLoading');
     try {
@@ -106,7 +106,7 @@ mixin _$CharacterListController on CharacterListControllerBase, Store {
   }
 
   @override
-  void _stopLoading(bool? loadingMore) {
+  void _stopLoading([bool? loadingMore]) {
     final _$actionInfo = _$CharacterListControllerBaseActionController
         .startAction(name: 'CharacterListControllerBase._stopLoading');
     try {

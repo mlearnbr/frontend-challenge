@@ -6,7 +6,7 @@ part of 'specie_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SpecieModel _$SpecieModelFromJson(Map<String, dynamic> json) => SpecieModel(
+SpecieModel _$SpecieModelFromJson(Map json) => SpecieModel(
       homeworld: json['homeworld'] as String?,
       name: json['name'] as String,
       classification: json['classification'] as String,

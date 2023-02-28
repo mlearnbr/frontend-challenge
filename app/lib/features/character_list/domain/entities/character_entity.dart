@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_application/features/character_list/infrastructure/models/specie_model.dart';
 
 class CharacterEntity extends Equatable {
   final String name;
@@ -11,7 +12,7 @@ class CharacterEntity extends Equatable {
   final String skinColor;
   final String homeworld;
   final List<String> films;
-  final List<String> species;
+  final List<SpecieModel>? species;
 
   const CharacterEntity({
     required this.name,
@@ -24,7 +25,7 @@ class CharacterEntity extends Equatable {
     required this.skinColor,
     required this.homeworld,
     required this.films,
-    required this.species,
+    this.species,
   });
 
   @override

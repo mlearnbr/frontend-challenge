@@ -1,5 +1,6 @@
 // ignore_for_file: annotate_overrides, overridden_fields
 
+import 'package:flutter_application/features/character_list/infrastructure/models/specie_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
@@ -17,6 +18,7 @@ class CharacterModel extends CharacterEntity {
   @JsonKey(name: 'skin_color')
   final String skinColor;
   const CharacterModel({
+    List<SpecieModel>? species,
     required String name,
     required this.birthYear,
     required this.eyeColor,
@@ -27,7 +29,6 @@ class CharacterModel extends CharacterEntity {
     required this.skinColor,
     required String homeworld,
     required List<String> films,
-    required List<String> species,
   }) : super(
           name: name,
           birthYear: birthYear,

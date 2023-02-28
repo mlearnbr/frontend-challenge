@@ -27,16 +27,26 @@ class CharacterListRepository implements ICharacterListRepository {
   @override
   Future<Either<Failure, List<CharacterEntity>>> getCharacterList(
       {int? page}) async {
+    final characterList = <CharacterEntity>[];
+    final specieList = [];
     if (await networkInfo.isConnected) {
       try {
         final HttpResponse response =
             await client.get('${Endpoints.characters}/?page=${page ?? 1}');
-        final characterList = <CharacterEntity>[];
         final json = jsonDecode(response.data);
-        final characters = json['results'] as List;
-        for (var element in characters) {
-          final character = CharacterModel.fromJson(element);
-          characterList.add(character.toEntity());
+        final characters = json['results'] as List?;
+        if (characters != null) {
+          for (var element in characters) {
+            if (element['species'].isEmpty) {
+              element['species'] = null;
+            } else {
+              final list = await getSpecies(element);
+              specieList.addAll(list);
+              element['species'] = specieList;
+            }
+            final character = CharacterModel.fromJson(element);
+            characterList.add(character.toEntity());
+          }
         }
         return Right(characterList);
       } on HttpError catch (error) {
@@ -47,18 +57,35 @@ class CharacterListRepository implements ICharacterListRepository {
     }
   }
 
+  Future<List<dynamic>> getSpecies(dynamic element) async {
+    final specieList = [];
+    for (var elementSpecie in element['species']) {
+      final result = await getCharacterSpecie(url: elementSpecie);
+      result.fold(
+        (l) => null,
+        (r) {
+          final json = SpecieModel.toModel(r).toJson();
+          specieList.add(json);
+        },
+      );
+    }
+    return specieList;
+  }
+
   @override
   Future<Either<Failure, SpecieEntity>> getCharacterSpecie(
-      {required String url}) async {
-    if (await networkInfo.isConnected) {
+      {required String? url}) async {
+    if (await networkInfo.isConnected && url != null) {
       try {
         final HttpResponse response = await client.get(url);
         final json = jsonDecode(response.data);
-        final SpecieEntity specie = SpecieModel.fromJson(json).toEntity();
+        final specie = SpecieModel.fromJson(json);
         return Right(specie);
       } on HttpError catch (error) {
         return Left(httpErrorToFailure(error));
       }
+    } else if (url == null) {
+      return Left(NotFoundFailure());
     } else {
       return Left(NetworkFailure());
     }

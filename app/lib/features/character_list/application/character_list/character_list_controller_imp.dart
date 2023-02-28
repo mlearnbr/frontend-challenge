@@ -34,12 +34,12 @@ abstract class CharacterListControllerBase
   bool isLoadingMore = false;
 
   @action
-  void _startLoading(bool? loadingMore) => loadingMore ?? false
+  void _startLoading([bool? loadingMore]) => loadingMore ?? false
       ? isLoadingMore = true
       : viewState = AsyncStates.loading;
 
   @action
-  void _stopLoading(bool? loadingMore) => loadingMore ?? false
+  void _stopLoading([bool? loadingMore]) => loadingMore ?? false
       ? isLoadingMore = false
       : viewState = AsyncStates.done;
 

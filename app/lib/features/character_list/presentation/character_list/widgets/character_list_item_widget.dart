@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CharacterListItemWidget extends StatelessWidget {
   final String name;
-  final String specie;
+  final String? specie;
   final String birthYear;
 
   const CharacterListItemWidget({
@@ -26,7 +26,13 @@ class CharacterListItemWidget extends StatelessWidget {
           const SizedBox(height: 8),
           Text(name),
           const SizedBox(height: 4),
-          Text(specie, style: Theme.of(context).textTheme.bodySmall),
+          Visibility(
+            visible: specie != null,
+            child: Text(
+              specie ?? '',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
           const SizedBox(height: 4),
           Text(birthYear, style: Theme.of(context).textTheme.bodySmall),
         ],

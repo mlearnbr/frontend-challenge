@@ -1,4 +1,5 @@
 import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
+import 'package:flutter_application/features/character_list/infrastructure/models/specie_model.dart';
 
 const characterEntityMock = CharacterEntity(
   name: 'name',
@@ -12,6 +13,20 @@ const characterEntityMock = CharacterEntity(
   homeworld: 'homeworld',
   films: [],
   species: [],
+);
+
+const specieMock = SpecieModel(
+  name: 'name',
+  classification: 'classification',
+  designation: 'designation',
+  averageHeight: 'averageHeight',
+  skinColors: 'skinColors',
+  hairColors: 'hairColors',
+  eyeColors: 'eyeColors',
+  averageLifespan: 'averageLifespan',
+  language: 'language',
+  people: [],
+  films: [],
 );
 
 const characterListMock = [
