@@ -47,12 +47,7 @@ class _CharactersListPageState extends State<CharactersListPage> {
                     ),
                     itemBuilder: (BuildContext context, index) {
                       return CharacterListItemWidget(
-                        name: controller.characterList[index].name,
-                        specie:
-                            controller.characterList[index].species?[0].name ??
-                                '',
-                        birthYear: 'birthYear',
-                      );
+                          character: controller.characterList[index]);
                     },
                   ),
                   Visibility(

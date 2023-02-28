@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/core/config/injection/injection.config.dart';
 import 'package:flutter_application/core/config/injection/injection.dart';
 import 'package:flutter_application/core/config/theme/app_theme.dart';
-import 'features/character_list/presentation/presentation.dart';
+import 'core/config/route/app_route.dart';
 
 void main() {
   getIt.init();
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       restorationScopeId: 'app',
       theme: makeAppTheme(),
-      home: const CharactersListPage(),
+      routes: makeAppRoute(),
     );
   }
 }

@@ -10,7 +10,7 @@ ThemeData makeAppTheme() {
 
   const textTheme = TextTheme(
     bodySmall: TextStyle(
-      fontSize: 12,
+      fontSize: 14,
       color: lightTextColor,
       fontWeight: FontWeight.w300,
     ),
