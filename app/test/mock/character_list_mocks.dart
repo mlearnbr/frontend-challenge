@@ -1,3 +1,4 @@
+import 'package:flutter_application/features/character_details/infrastructure/models/film_model.dart';
 import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
 import 'package:flutter_application/features/character_list/infrastructure/models/specie_model.dart';
 
@@ -28,6 +29,15 @@ const specieMock = SpecieModel(
   people: [],
   films: [],
 );
+
+const filmMock = FilmModel(title: 'title');
+
+const filmListMock = [
+  filmMock,
+  filmMock,
+  filmMock,
+  filmMock,
+];
 
 const characterListMock = [
   characterEntityMock,

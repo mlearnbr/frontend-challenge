@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
 import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
 
 class CharacterDetailsInfoWidget extends StatelessWidget {
   final CharacterEntity character;
-  const CharacterDetailsInfoWidget({super.key, required this.character});
+  final List<FilmEntity> characterFilms;
+  const CharacterDetailsInfoWidget({
+    super.key,
+    required this.character,
+    required this.characterFilms,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +51,28 @@ class CharacterDetailsInfoWidget extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            'Films: ${character.films}',
+            'Films:',
             style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(height: 8),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: characterFilms.length,
+            itemBuilder: (context, index) {
+              return Text(
+                characterFilms[index].title,
+                style: Theme.of(context).textTheme.bodySmall,
+              );
+            },
           ),
           const SizedBox(height: 16),
-          Text(
-            'Species: ${character.species}',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
+          Visibility(
+            visible: character.species != null,
+            child: Text(
+              'Species: ${character.species?[0].name}',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          )
         ],
       ),
     );
