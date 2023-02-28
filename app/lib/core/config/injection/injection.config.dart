@@ -7,13 +7,17 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:connectivity_plus/connectivity_plus.dart' as _i4;
 import 'package:flutter_application/core/config/injection/register_modules.dart'
-    as _i11;
+    as _i13;
 import 'package:flutter_application/core/network/network.dart' as _i7;
 import 'package:flutter_application/core/network/network_info_service.dart'
     as _i8;
 import 'package:flutter_application/core/services/http/http.dart' as _i6;
 import 'package:flutter_application/core/services/http/http_service.dart'
     as _i5;
+import 'package:flutter_application/features/character_list/application/character_list/character_list_controller_imp.dart'
+    as _i12;
+import 'package:flutter_application/features/character_list/domain/controllers/character_list_controller.dart'
+    as _i11;
 import 'package:flutter_application/features/character_list/domain/repositories/character_list_repository.dart'
     as _i9;
 import 'package:flutter_application/features/character_list/infrastructure/repositories/character_list_repository_imp.dart'
@@ -47,8 +51,10 @@ extension GetItInjectableX on _i1.GetIt {
           networkInfo: gh<_i7.INetworkInfo>(),
           client: gh<_i6.IHttpClient>(),
         ));
+    gh.factory<_i11.ICharacterListController>(
+        () => _i12.CharacterListController(gh<_i9.ICharacterListRepository>()));
     return this;
   }
 }
 
-class _$RegisterModule extends _i11.RegisterModule {}
+class _$RegisterModule extends _i13.RegisterModule {}
