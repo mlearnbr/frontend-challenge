@@ -23,10 +23,12 @@ class CharacterListRepository implements ICharacterListRepository {
   });
 
   @override
-  Future<Either<Failure, List<CharacterEntity>>> getCharacterList() async {
+  Future<Either<Failure, List<CharacterEntity>>> getCharacterList(
+      {int? page}) async {
     if (await networkInfo.isConnected) {
       try {
-        final HttpResponse response = await client.get(Endpoints.characters);
+        final HttpResponse response =
+            await client.get('${Endpoints.characters}/?page=${page ?? 1}');
         final characterList = <CharacterEntity>[];
         final json = jsonDecode(response.data);
         final characters = json['results'] as List;

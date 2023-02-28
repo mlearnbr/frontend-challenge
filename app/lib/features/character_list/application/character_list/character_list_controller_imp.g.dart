@@ -49,35 +49,68 @@ mixin _$CharacterListController on CharacterListControllerBase, Store {
     });
   }
 
+  late final _$isLoadingMoreAtom =
+      Atom(name: 'CharacterListControllerBase.isLoadingMore', context: context);
+
+  @override
+  bool get isLoadingMore {
+    _$isLoadingMoreAtom.reportRead();
+    return super.isLoadingMore;
+  }
+
+  @override
+  set isLoadingMore(bool value) {
+    _$isLoadingMoreAtom.reportWrite(value, super.isLoadingMore, () {
+      super.isLoadingMore = value;
+    });
+  }
+
+  late final _$offsetAtom =
+      Atom(name: 'CharacterListControllerBase.offset', context: context);
+
+  @override
+  int get offset {
+    _$offsetAtom.reportRead();
+    return super.offset;
+  }
+
+  @override
+  set offset(int value) {
+    _$offsetAtom.reportWrite(value, super.offset, () {
+      super.offset = value;
+    });
+  }
+
   late final _$getCharacterListAsyncAction = AsyncAction(
       'CharacterListControllerBase.getCharacterList',
       context: context);
 
   @override
-  Future<void> getCharacterList() {
-    return _$getCharacterListAsyncAction.run(() => super.getCharacterList());
+  Future<void> getCharacterList({bool? loadingMore}) {
+    return _$getCharacterListAsyncAction
+        .run(() => super.getCharacterList(loadingMore: loadingMore));
   }
 
   late final _$CharacterListControllerBaseActionController =
       ActionController(name: 'CharacterListControllerBase', context: context);
 
   @override
-  void _startLoading() {
+  void _startLoading(bool? loadingMore) {
     final _$actionInfo = _$CharacterListControllerBaseActionController
         .startAction(name: 'CharacterListControllerBase._startLoading');
     try {
-      return super._startLoading();
+      return super._startLoading(loadingMore);
     } finally {
       _$CharacterListControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void _stopLoading() {
+  void _stopLoading(bool? loadingMore) {
     final _$actionInfo = _$CharacterListControllerBaseActionController
         .startAction(name: 'CharacterListControllerBase._stopLoading');
     try {
-      return super._stopLoading();
+      return super._stopLoading(loadingMore);
     } finally {
       _$CharacterListControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -88,6 +121,8 @@ mixin _$CharacterListController on CharacterListControllerBase, Store {
     return '''
 characterList: ${characterList},
 viewState: ${viewState},
+isLoadingMore: ${isLoadingMore},
+offset: ${offset},
 isLoading: ${isLoading}
     ''';
   }

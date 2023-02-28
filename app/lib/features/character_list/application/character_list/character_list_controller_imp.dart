@@ -18,30 +18,47 @@ abstract class CharacterListControllerBase
   final ICharacterListRepository _characterListRepository;
   CharacterListControllerBase(this._characterListRepository);
 
+  @override
   @observable
   List<CharacterEntity> characterList = [];
 
   @observable
   AsyncStates viewState = AsyncStates.initial;
 
+  @override
   @computed
   bool get isLoading => viewState == AsyncStates.loading;
 
-  @action
-  void _startLoading() => viewState = AsyncStates.loading;
+  @override
+  @observable
+  bool isLoadingMore = false;
 
   @action
-  void _stopLoading() => viewState = AsyncStates.done;
+  void _startLoading(bool? loadingMore) => loadingMore ?? false
+      ? isLoadingMore = true
+      : viewState = AsyncStates.loading;
+
+  @action
+  void _stopLoading(bool? loadingMore) => loadingMore ?? false
+      ? isLoadingMore = false
+      : viewState = AsyncStates.done;
+
+  @observable
+  int offset = 1;
 
   @override
   @action
-  Future<void> getCharacterList() async {
-    _startLoading();
-    final result = await _characterListRepository.getCharacterList();
+  Future<void> getCharacterList({bool? loadingMore}) async {
+    _startLoading(loadingMore);
+    final result =
+        await _characterListRepository.getCharacterList(page: offset);
     result.fold(
       (l) => null,
-      (r) => characterList.addAll(r),
+      (r) {
+        characterList.addAll(r);
+        offset++;
+      },
     );
-    _stopLoading();
+    _stopLoading(loadingMore);
   }
 }
