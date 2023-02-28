@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 
-import 'package:flutter_application/features/characters/presentation/presentation.dart';
+import 'package:flutter_application/features/character_list/presentation/presentation.dart';
 import 'not_found_page.dart';
 
 enum AppRoute {
