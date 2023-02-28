@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/core/config/injection/injection.config.dart';
+import 'package:flutter_application/core/config/injection/injection.dart';
 import 'package:flutter_application/core/config/router/app_router.dart';
 import 'package:flutter_application/core/config/theme/app_theme.dart';
 
 void main() {
+  getIt.init();
   runApp(const MyApp());
 }
 

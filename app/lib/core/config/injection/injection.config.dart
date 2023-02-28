@@ -7,13 +7,17 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:connectivity_plus/connectivity_plus.dart' as _i4;
 import 'package:flutter_application/core/config/injection/register_modules.dart'
-    as _i9;
+    as _i11;
 import 'package:flutter_application/core/network/network.dart' as _i7;
 import 'package:flutter_application/core/network/network_info_service.dart'
     as _i8;
 import 'package:flutter_application/core/services/http/http.dart' as _i6;
 import 'package:flutter_application/core/services/http/http_service.dart'
     as _i5;
+import 'package:flutter_application/features/character_list/domain/repositories/character_list_repository.dart'
+    as _i9;
+import 'package:flutter_application/features/character_list/infrastructure/repositories/character_list_repository_imp.dart'
+    as _i10;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:http/http.dart' as _i3;
 import 'package:injectable/injectable.dart'
@@ -39,8 +43,12 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i7.INetworkInfo>(() => registerModule.networkInfo);
     gh.factory<_i8.NetworkInfoService>(
         () => _i8.NetworkInfoService(gh<_i4.Connectivity>()));
+    gh.factory<_i9.ICharacterListRepository>(() => _i10.CharacterListRepository(
+          networkInfo: gh<_i7.INetworkInfo>(),
+          client: gh<_i6.IHttpClient>(),
+        ));
     return this;
   }
 }
 
-class _$RegisterModule extends _i9.RegisterModule {}
+class _$RegisterModule extends _i11.RegisterModule {}
