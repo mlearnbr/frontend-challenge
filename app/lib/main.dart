@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_application/core/config/injection/injection.config.dart';
 import 'package:flutter_application/core/config/injection/injection.dart';
-import 'package:flutter_application/core/config/router/app_router.dart';
 import 'package:flutter_application/core/config/theme/app_theme.dart';
+import 'features/character_list/presentation/presentation.dart';
 
 void main() {
   getIt.init();
@@ -14,10 +15,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: goRouter,
+    return MaterialApp(
       restorationScopeId: 'app',
       theme: makeAppTheme(),
+      home: const CharactersListPage(),
     );
   }
 }

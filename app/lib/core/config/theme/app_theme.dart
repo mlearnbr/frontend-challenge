@@ -10,13 +10,13 @@ ThemeData makeAppTheme() {
 
   const textTheme = TextTheme(
     bodySmall: TextStyle(
-      fontSize: 14,
+      fontSize: 12,
       color: lightTextColor,
+      fontWeight: FontWeight.w300,
     ),
     bodyMedium: TextStyle(
       fontSize: 14,
       color: lightTextColor,
-      fontWeight: FontWeight.bold,
     ),
     labelSmall: TextStyle(
       fontSize: 14,
