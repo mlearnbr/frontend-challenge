@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
