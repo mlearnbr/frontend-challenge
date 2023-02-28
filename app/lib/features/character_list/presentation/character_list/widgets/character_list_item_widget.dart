@@ -15,8 +15,6 @@ class CharacterListItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
-      height: 150,
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColorLight,
         borderRadius: BorderRadius.circular(15),

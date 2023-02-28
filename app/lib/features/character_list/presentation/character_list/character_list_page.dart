@@ -40,9 +40,8 @@ class _CharactersListPageState extends State<CharactersListPage> {
                     shrinkWrap: true,
                     itemCount: controller.characterList.length,
                     padding: const EdgeInsets.symmetric(horizontal: 32),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: _getCrossAxisCount(),
                       crossAxisSpacing: 28,
                       mainAxisSpacing: 13,
                     ),
@@ -71,5 +70,12 @@ class _CharactersListPageState extends State<CharactersListPage> {
         },
       ),
     );
+  }
+
+  int _getCrossAxisCount() {
+    final screenWidth = MediaQuery.of(context).size.width;
+    const itemWidth = 160;
+    final crossAxisCount = (screenWidth / itemWidth).floor();
+    return crossAxisCount;
   }
 }
