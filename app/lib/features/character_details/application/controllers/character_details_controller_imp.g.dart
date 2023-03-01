@@ -33,6 +33,22 @@ mixin _$CharacterDetailsController on CharacterDetailsControllerBase, Store {
     });
   }
 
+  late final _$characterPlanetAtom = Atom(
+      name: 'CharacterDetailsControllerBase.characterPlanet', context: context);
+
+  @override
+  PlanetEntity? get characterPlanet {
+    _$characterPlanetAtom.reportRead();
+    return super.characterPlanet;
+  }
+
+  @override
+  set characterPlanet(PlanetEntity? value) {
+    _$characterPlanetAtom.reportWrite(value, super.characterPlanet, () {
+      super.characterPlanet = value;
+    });
+  }
+
   late final _$viewStateAtom =
       Atom(name: 'CharacterDetailsControllerBase.viewState', context: context);
 
@@ -75,6 +91,16 @@ mixin _$CharacterDetailsController on CharacterDetailsControllerBase, Store {
         .run(() => super.getCharacterFilmList(urls));
   }
 
+  late final _$getCharacterPlanetAsyncAction = AsyncAction(
+      'CharacterDetailsControllerBase.getCharacterPlanet',
+      context: context);
+
+  @override
+  Future<void> getCharacterPlanet(String url) {
+    return _$getCharacterPlanetAsyncAction
+        .run(() => super.getCharacterPlanet(url));
+  }
+
   late final _$CharacterDetailsControllerBaseActionController =
       ActionController(
           name: 'CharacterDetailsControllerBase', context: context);
@@ -105,6 +131,7 @@ mixin _$CharacterDetailsController on CharacterDetailsControllerBase, Store {
   String toString() {
     return '''
 filmList: ${filmList},
+characterPlanet: ${characterPlanet},
 viewState: ${viewState},
 isLoadingMore: ${isLoadingMore},
 isLoading: ${isLoading}

@@ -1,15 +1,15 @@
 import 'dart:convert';
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
 import 'package:flutter_application/core/failures/httpError_to_failure.dart';
 import 'package:flutter_application/core/services/http/http.dart';
-import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart';
-import 'package:flutter_application/features/character_details/infrastructure/models/film_model.dart';
-import 'package:injectable/injectable.dart';
 
 import '../../../../core/failures/failures.dart';
 import '../../../../core/network/network.dart';
+import '../../domain/entities/entities.dart';
+import '../models/models.dart';
 
 @Injectable(as: ICharacterDetailsRepository)
 class CharacterDetailsRepository implements ICharacterDetailsRepository {
@@ -33,6 +33,22 @@ class CharacterDetailsRepository implements ICharacterDetailsRepository {
           filmList.add(film);
         }
         return Right(filmList);
+      } on HttpError catch (error) {
+        return Left(httpErrorToFailure(error));
+      }
+    } else {
+      return Left(NetworkFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, PlanetEntity>> getCharacterPlanet(String url) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final HttpResponse response = await client.get(url);
+        final json = jsonDecode(response.data);
+        final planet = PlanetModel.fromJson(json).toEntity();
+        return Right(planet);
       } on HttpError catch (error) {
         return Left(httpErrorToFailure(error));
       }

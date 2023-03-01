@@ -20,6 +20,7 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
   void initState() {
     super.initState();
     controller.getCharacterFilmList(widget.character.films);
+    controller.getCharacterPlanet(widget.character.homeworld);
   }
 
   @override
@@ -38,7 +39,10 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CharacterDetailsHeaderWidget(character: widget.character),
+                  CharacterDetailsHeaderWidget(
+                    character: widget.character,
+                    characterPlanet: controller.characterPlanet,
+                  ),
                   CharacterDetailsInfoWidget(
                     character: widget.character,
                     characterFilms: controller.filmList,

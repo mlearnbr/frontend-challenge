@@ -1,11 +1,12 @@
 import 'package:flutter_application/core/failures/show_snackbar_failure.dart';
 import 'package:flutter_application/features/character_details/domain/controllers/character_details_controller.dart';
-import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
 import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_application/core/constants/async_states.dart';
+
+import '../../domain/entities/entities.dart';
 
 part 'character_details_controller_imp.g.dart';
 
@@ -22,6 +23,10 @@ abstract class CharacterDetailsControllerBase
   @override
   @observable
   List<FilmEntity> filmList = [];
+
+  @override
+  @observable
+  PlanetEntity? characterPlanet;
 
   @observable
   AsyncStates viewState = AsyncStates.initial;
@@ -54,6 +59,17 @@ abstract class CharacterDetailsControllerBase
       (r) => filmList.addAll(r),
     );
     _stopLoading();
+  }
+
+  @override
+  @action
+  Future<void> getCharacterPlanet(String url) async {
+    _startLoading();
+    final result = await _characterDetailsRepository.getCharacterPlanet(url);
+    result.fold(
+      (l) => _showSnackbarError(),
+      (r) => characterPlanet = r,
+    );
   }
 
   _showSnackbarError() => showSnackBarFailure(
