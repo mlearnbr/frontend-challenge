@@ -56,6 +56,7 @@ class CharacterDetailsInfoWidget extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ListView.builder(
+            physics: const ClampingScrollPhysics(),
             shrinkWrap: true,
             itemCount: characterFilms.length,
             itemBuilder: (context, index) {
