@@ -4,7 +4,7 @@ import 'package:swapi_app/src/presentation/splash/index.dart';
 import 'package:swapi_app/src/presentation/home/index.dart';
 
 abstract class AppPages {
-  static const HOME = AppRoutes.HOME;
+  static const INITIAL = AppRoutes.SPLASH;
 
   static final List<GetPage> pages = <GetPage>[
     GetPage(
@@ -13,7 +13,7 @@ abstract class AppPages {
       binding: SplashBinding(),
     ),
     GetPage(
-      name: HOME,
+      name: AppRoutes.HOME,
       page: () => const HomePage(),
       binding: HomeBinding(),
     ),
