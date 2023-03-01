@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:star_wars/modules/home/domain/entities/people_entity.dart';
 
+import '../domain/entities/people_entity.dart';
 import 'controller/home_controller.dart';
 import 'controller/home_state.dart';
+import 'widgets/people_list_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   final HomeController homeController;
@@ -96,11 +97,19 @@ class _HomeScreenState extends State<HomeScreen> {
           List<PeopleEntity> listPeople =
               (widget.homeController.state as LoadedHomeState).listPeople;
 
-          return ListView.builder(
+          return ListView.separated(
+            padding: const EdgeInsets.all(16),
             itemBuilder: (context, index) {
-              return const Placeholder();
+              return PeopleListWidget(
+                people: listPeople[index],
+              );
             },
             itemCount: listPeople.length,
+            separatorBuilder: (context, index) {
+              return const SizedBox(
+                height: 8,
+              );
+            },
           );
         }
 

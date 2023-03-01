@@ -19,12 +19,18 @@ abstract class _HomeController with Store {
 
   @action
   Future<void> getAllPeople() async {
-    state = state.loadingHomeState();
+    try {
+      state = state.loadingHomeState();
 
-    await Future.delayed(const Duration(seconds: 5));
+      final resultList = await _getAllPeopleUsecase.call();
 
-    state = state.errorLoginState(
-      message: 'Error',
-    );
+      state = state.loadedHomeState(
+        listPeople: resultList,
+      );
+    } catch (e) {
+      state = state.errorLoginState(
+        message: e.toString(),
+      );
+    }
   }
 }
