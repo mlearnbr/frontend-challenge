@@ -1,42 +1,64 @@
 # Desafio front-end da Qualifica
 
-Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
-
-Provavelmente você já está participando do nosso processo de contratação, mas se você caiu aqui por acaso, leia o documento até o final e caso haja interesse, você pode começar daqui mesmo.
+Aplicativo Desafio da Qualifica para o consumo de uma API de Star Wars onde é mostrada uma lista de personagens, espécies, planetas e filmes da saga. Foi utilizado o Fluter para construir esse aplicativo.
 
 
-## Sobre o desafio
+## Ambiente Flutter
 
-Esse é um desafio, não um teste ou uma prova de faculdade, portanto não há uma única resposta certa.
+Flutter 3.7.5 • channel stable
+Dart 2.19.2 • channel stable
 
-Daremos a você alguns requisitos que devem ser cumpridos, e pelos quais você será avaliado, mas deixamos livre a escolha do método de solução.
 
-O que nós esperamos aprender de você com o desafio:
+## Packages
 
-- Seu estilo de trabalho
-- Como você pensa e resolve problemas
-- Como você se comunica
+#### Os packages utilizados foram:
+O [Dio](https://pub.dev/packages/dio) em sua versão mais recente, usado como client HTTP para consumir a API [Star Wars](https://swapi.dev/api).
 
-O que nós esperamos que você aprenda sobre a Qualifica:
+E o [GetX](https://pub.dev/packages/get) também em sua versão mais recente, usado para gerenciamento de estado e injeção de dependência.
 
-- Como nós trabalhamos como um time.
-- Tenha uma visão próxima dos desafios que enfrentamos no dia-a-dia.
 
-## Próximos passos
+## Instalação do projeto
 
-1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. As instruções do desafio se encontram no arquivo [`CHALLENGE.md`](/CHALLENGE.md).
-2. Resolva o desafio da forma que você julgar mais adequada.
-3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
+* Clone o projeto.
 
-## Considerações
+* Abra o projeto através de sua IDE favorita.
 
-- Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
-- Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
-- Também leve em consideração que estamos availando como será o seu modo de trabalho no nosso dia a dia. Então, use as melhores práticas de semântica, estruturação, legibilidade e componentização.
+* Digite ou cole no terminal o código abaixo:
 
-## Dúvidas?
+```bash
+flutter pub get
+```
+* Após isso, já é possível debugar o projeto.
 
-Ficou com alguma dúvida sobre como irá funcionar o processo? Entre em contato que nós te ajudaremos com o processo.
+#### Testes do projeto
 
-**Boa sorte!**
+É possível rodar os testes de duas formas, através do terminal ou debugando o teste.
+
+#### Testes no terminal
+
+* Abra o terminal do projeto.
+
+* Digite ou cole no terminal o seguinte código:
+
+```bash
+flutter test
+```
+
+#### Testes no debug
+
+* Abra a pasta test do projeto.
+
+* Abra os arquivos com o final ___test.dart__.
+
+* Clique na palavra __Run__ ou __Debug__ acima de cada teste.
+
+* Se o teste passou, aparecerá o símbolo (__✓__) seguido do que é esperado no teste.
+
+
+## Screenshots
+
+![alt text](home.png "Home") ![alt text](details.png "Details Page") ![alt text](films_catalog.png "Films Page") ![alt text](details_films.png "Details Films")
+
+## Autor
+
+# [Daniel Eliziario](https://www.linkedin.com/in/daniel-eliziario/)
