@@ -6,6 +6,8 @@ import 'package:swapi_app/src/data/repositories/peoples_repository_impl.dart';
 import 'package:swapi_app/src/domain/repositories/peoples_repository.dart';
 import 'package:swapi_app/src/domain/usecases/get_peoples/get_peoples_usecase.dart';
 import 'package:swapi_app/src/domain/usecases/get_peoples/get_peoples_usecase_impl.dart';
+import 'package:swapi_app/src/domain/usecases/get_peoples_by_name/get_peoples_by_name.dart';
+import 'package:swapi_app/src/domain/usecases/get_peoples_by_name/get_peoples_by_name_impl.dart';
 import 'package:swapi_app/src/presentation/home/home_controller.dart';
 
 class HomeBinding implements Bindings {
@@ -26,9 +28,15 @@ class HomeBinding implements Bindings {
         repository: Get.find<PeoplesRepository>(),
       ),
     );
+    Get.lazyPut<GetPeoplesByNameUseCase>(
+      () => GetPeoplesByNameUseCaseImpl(
+        repository: Get.find<PeoplesRepository>(),
+      ),
+    );
     Get.lazyPut<HomeController>(
       () => HomeController(
         getPeoplesUseCase: Get.find<GetPeoplesUseCase>(),
+        getPeoplesByNameUseCase: Get.find<GetPeoplesByNameUseCase>(),
       ),
     );
   }

@@ -4,4 +4,9 @@ abstract class PeoplesRepository {
   Future<PeoplesResponse> getPeoples({
     int page = 1,
   });
+
+  Future<PeoplesResponse> getPeoplesByName({
+    int page = 1,
+    required String name,
+  });
 }

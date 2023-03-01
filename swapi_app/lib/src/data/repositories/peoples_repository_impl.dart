@@ -10,8 +10,21 @@ class PeoplesRepositoryImpl extends PeoplesRepository {
   });
 
   @override
-  Future<PeoplesResponse> getPeoples({int page = 1}) async {
+  Future<PeoplesResponse> getPeoples({
+    int page = 1,
+  }) async {
     return await peoplesRemoteDataSource.getPeoples(
+      page: page,
+    );
+  }
+
+  @override
+  Future<PeoplesResponse> getPeoplesByName({
+    int page = 1,
+    required String name,
+  }) async {
+    return await peoplesRemoteDataSource.getPeoplesByName(
+      name: name,
       page: page,
     );
   }
