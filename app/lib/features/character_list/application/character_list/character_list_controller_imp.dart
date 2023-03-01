@@ -1,3 +1,4 @@
+import 'package:flutter_application/core/failures/show_snackbar_failure.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
@@ -53,7 +54,7 @@ abstract class CharacterListControllerBase
     final result =
         await _characterListRepository.getCharacterList(page: offset);
     result.fold(
-      (l) => null,
+      (l) => _showSnackbarError(),
       (r) {
         characterList.addAll(r);
         offset++;
@@ -61,4 +62,8 @@ abstract class CharacterListControllerBase
     );
     _stopLoading(loadingMore);
   }
+
+  _showSnackbarError() => showSnackBarFailure(
+      message:
+          'Something went wrong trying to get the characters please try again later!');
 }

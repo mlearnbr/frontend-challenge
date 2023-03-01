@@ -4,6 +4,7 @@ import 'package:flutter_application/core/config/injection/injection.config.dart'
 import 'package:flutter_application/core/config/injection/injection.dart';
 import 'package:flutter_application/core/config/theme/app_theme.dart';
 import 'core/config/route/app_route.dart';
+import 'core/constants/globals.dart';
 
 void main() {
   getIt.init();
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       restorationScopeId: 'app',
       theme: makeAppTheme(),
       routes: makeAppRoute(),
+      scaffoldMessengerKey: snackbarKey,
     );
   }
 }

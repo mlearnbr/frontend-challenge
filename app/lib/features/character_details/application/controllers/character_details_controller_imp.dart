@@ -1,3 +1,4 @@
+import 'package:flutter_application/core/failures/show_snackbar_failure.dart';
 import 'package:flutter_application/features/character_details/domain/controllers/character_details_controller.dart';
 import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
 import 'package:flutter_application/features/character_details/domain/repositories/character_film_repository.dart';
@@ -49,9 +50,13 @@ abstract class CharacterDetailsControllerBase
     _startLoading();
     final result = await _characterFilmRepository.getFilmEntityList(urls);
     result.fold(
-      (l) => null,
+      (l) => _showSnackbarError(),
       (r) => filmList.addAll(r),
     );
     _stopLoading();
   }
+
+  _showSnackbarError() => showSnackBarFailure(
+      message:
+          'Something went wrong trying to get the films please try again later!');
 }
