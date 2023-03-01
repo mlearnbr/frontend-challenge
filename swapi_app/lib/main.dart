@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swapi_app/src/config/routes/app_pages.dart';
-import 'package:swapi_app/src/config/theme/app_theme.dart';
+import 'package:swapi_app/shared/config/routes/app_pages.dart';
+import 'package:swapi_app/shared/config/theme/app_theme.dart';
+import 'package:swapi_app/src/presentation/inital_binding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       initialRoute: AppPages.INITIAL,
       theme: globalTheme,
       debugShowCheckedModeBanner: false,
+      initialBinding: InitalBinding(),
     );
   }
 }

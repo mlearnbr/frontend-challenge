@@ -8,4 +8,11 @@ class PeopleDto extends PeopleEntity {
           name: name,
           birthYear: birthYear,
         );
+
+  factory PeopleDto.fromMap(Map<String, dynamic> map) => PeopleDto(
+        name: map['name'],
+        birthYear: map['birth_year'] == null || map['birth_year'] == 'unknown'
+            ? null
+            : map['birth_year'],
+      );
 }

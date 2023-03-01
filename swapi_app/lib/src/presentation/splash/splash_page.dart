@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:swapi_app/src/presentation/splash/index.dart';
-import 'package:swapi_app/src/utils/app_assets.dart';
+import 'package:swapi_app/shared/utils/app_assets.dart';
 
 class SplashPage extends GetView<SplashController> {
   const SplashPage({super.key});

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:swapi_app/src/config/routes/app_routes.dart';
+import 'package:swapi_app/shared/config/routes/app_routes.dart';
 import 'package:swapi_app/src/presentation/splash/index.dart';
 import 'package:swapi_app/src/presentation/home/index.dart';
 
@@ -14,7 +14,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.HOME,
-      page: () => const HomePage(),
+      page: () => HomePage(),
       binding: HomeBinding(),
     ),
   ];

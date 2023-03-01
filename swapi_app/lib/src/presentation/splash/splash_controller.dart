@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:swapi_app/src/config/routes/app_routes.dart';
+import 'package:swapi_app/shared/config/routes/app_routes.dart';
 
 class SplashController extends GetxController {
   Future<void> loadToPage() async {
