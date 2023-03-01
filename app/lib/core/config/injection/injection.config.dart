@@ -18,9 +18,9 @@ import 'package:flutter_application/features/character_details/application/contr
     as _i14;
 import 'package:flutter_application/features/character_details/domain/controllers/character_details_controller.dart'
     as _i13;
-import 'package:flutter_application/features/character_details/domain/repositories/character_film_repository.dart'
+import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart'
     as _i9;
-import 'package:flutter_application/features/character_details/infrastructure/repositories/character_film_repository_imp.dart'
+import 'package:flutter_application/features/character_details/infrastructure/repositories/character_details_repository_imp.dart'
     as _i10;
 import 'package:flutter_application/features/character_list/application/character_list/character_list_controller_imp.dart'
     as _i16;
@@ -55,17 +55,18 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i7.INetworkInfo>(() => registerModule.networkInfo);
     gh.factory<_i8.NetworkInfoService>(
         () => _i8.NetworkInfoService(gh<_i4.Connectivity>()));
-    gh.factory<_i9.ICharacterFilmRepository>(() => _i10.CharacterFilmRepository(
-          networkInfo: gh<_i7.INetworkInfo>(),
-          client: gh<_i6.IHttpClient>(),
-        ));
+    gh.factory<_i9.ICharacterDetailsRepository>(
+        () => _i10.CharacterDetailsRepository(
+              networkInfo: gh<_i7.INetworkInfo>(),
+              client: gh<_i6.IHttpClient>(),
+            ));
     gh.factory<_i11.ICharacterListRepository>(
         () => _i12.CharacterListRepository(
               networkInfo: gh<_i7.INetworkInfo>(),
               client: gh<_i6.IHttpClient>(),
             ));
     gh.factory<_i13.ICharacterDetailsController>(() =>
-        _i14.CharacterDetailsController(gh<_i9.ICharacterFilmRepository>()));
+        _i14.CharacterDetailsController(gh<_i9.ICharacterDetailsRepository>()));
     gh.factory<_i15.ICharacterListController>(() =>
         _i16.CharacterListController(gh<_i11.ICharacterListRepository>()));
     return this;

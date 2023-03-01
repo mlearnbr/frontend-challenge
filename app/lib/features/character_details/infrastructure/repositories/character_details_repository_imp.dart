@@ -4,19 +4,19 @@ import 'package:flutter_application/core/failures/httpError_to_failure.dart';
 import 'package:flutter_application/core/services/http/http.dart';
 import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_application/features/character_details/domain/repositories/character_film_repository.dart';
+import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart';
 import 'package:flutter_application/features/character_details/infrastructure/models/film_model.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/failures/failures.dart';
 import '../../../../core/network/network.dart';
 
-@Injectable(as: ICharacterFilmRepository)
-class CharacterFilmRepository implements ICharacterFilmRepository {
+@Injectable(as: ICharacterDetailsRepository)
+class CharacterDetailsRepository implements ICharacterDetailsRepository {
   final INetworkInfo networkInfo;
   final IHttpClient client;
 
-  CharacterFilmRepository({
+  CharacterDetailsRepository({
     @injectable required this.networkInfo,
     @injectable required this.client,
   });

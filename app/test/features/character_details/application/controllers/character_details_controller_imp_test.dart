@@ -6,12 +6,12 @@ import 'package:faker/faker.dart';
 import 'package:flutter_application/features/character_details/application/controllers/character_details_controller_imp.dart';
 import 'package:flutter_application/features/character_details/domain/controllers/character_details_controller.dart';
 import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
-import 'package:flutter_application/features/character_details/domain/repositories/character_film_repository.dart';
+import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart';
 import 'package:flutter_application/core/failures/failure.dart';
 
 import '../../../../mock/character_list_mocks.dart';
 
-class RepositorySpy extends Mock implements ICharacterFilmRepository {
+class RepositorySpy extends Mock implements ICharacterDetailsRepository {
   @override
   Future<Either<Failure, List<FilmEntity>>> getFilmEntityList(
       List<String> url) async {
@@ -21,7 +21,7 @@ class RepositorySpy extends Mock implements ICharacterFilmRepository {
 
 void main() {
   late ICharacterDetailsController controller;
-  late ICharacterFilmRepository repository;
+  late ICharacterDetailsRepository repository;
   late String fakeUrl;
   late List<String> fakeListUrl;
 

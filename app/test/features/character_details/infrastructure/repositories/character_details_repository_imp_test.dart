@@ -1,17 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:faker/faker.dart';
-import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
-import 'package:flutter_application/features/character_details/domain/repositories/character_film_repository.dart';
-import 'package:flutter_application/features/character_details/infrastructure/repositories/character_film_repository_imp.dart';
-import 'package:flutter_application/features/character_list/domain/entities/specie_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
+import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart';
+import 'package:flutter_application/features/character_details/infrastructure/repositories/character_details_repository_imp.dart';
 import 'package:flutter_application/core/failures/failures.dart';
-import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
 import 'package:flutter_application/core/network/network.dart';
 import 'package:flutter_application/core/services/http/http.dart';
-import '../../../../mock/character_list_mocks.dart';
 
 class ClientSpy extends Mock implements IHttpClient {}
 
@@ -22,14 +19,14 @@ class UriFake extends Fake implements Uri {}
 void main() {
   late INetworkInfo networkInfo;
   late IHttpClient httpClient;
-  late ICharacterFilmRepository repository;
+  late ICharacterDetailsRepository repository;
   late String fakeUrl;
   late List<String> fakeListUrl;
 
   setUp(() {
     httpClient = ClientSpy();
     networkInfo = NetworkSpy();
-    repository = CharacterFilmRepository(
+    repository = CharacterDetailsRepository(
       networkInfo: networkInfo,
       client: httpClient,
     );

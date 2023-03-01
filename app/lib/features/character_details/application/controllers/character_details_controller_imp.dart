@@ -1,7 +1,7 @@
 import 'package:flutter_application/core/failures/show_snackbar_failure.dart';
 import 'package:flutter_application/features/character_details/domain/controllers/character_details_controller.dart';
 import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
-import 'package:flutter_application/features/character_details/domain/repositories/character_film_repository.dart';
+import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
@@ -16,8 +16,8 @@ class CharacterDetailsController = CharacterDetailsControllerBase
 abstract class CharacterDetailsControllerBase
     with Store
     implements ICharacterDetailsController {
-  final ICharacterFilmRepository _characterFilmRepository;
-  CharacterDetailsControllerBase(this._characterFilmRepository);
+  final ICharacterDetailsRepository _characterDetailsRepository;
+  CharacterDetailsControllerBase(this._characterDetailsRepository);
 
   @override
   @observable
@@ -48,7 +48,7 @@ abstract class CharacterDetailsControllerBase
   @action
   Future<void> getCharacterFilmList(List<String> urls) async {
     _startLoading();
-    final result = await _characterFilmRepository.getFilmEntityList(urls);
+    final result = await _characterDetailsRepository.getFilmEntityList(urls);
     result.fold(
       (l) => _showSnackbarError(),
       (r) => filmList.addAll(r),
