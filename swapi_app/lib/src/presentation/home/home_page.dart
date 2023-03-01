@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
           height: size.height,
           fit: BoxFit.cover,
         ),
-        Scaffold(),
+        const Scaffold(),
       ],
     );
   }
