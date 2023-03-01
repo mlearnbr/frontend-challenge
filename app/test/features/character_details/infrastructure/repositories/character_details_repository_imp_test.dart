@@ -3,7 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
+import 'package:flutter_application/features/character_details/domain/entities/character_film_entity.dart';
 import 'package:flutter_application/features/character_details/domain/repositories/character_details_repository.dart';
 import 'package:flutter_application/features/character_details/infrastructure/repositories/character_details_repository_imp.dart';
 import 'package:flutter_application/core/failures/failures.dart';
@@ -44,7 +44,7 @@ void main() {
       when(() => networkInfo.isConnected).thenAnswer((_) async => true);
       final result = await repository.getFilmEntityList(fakeListUrl);
       expect(result, isA<Right>());
-      expect(result.getOrElse(() => []), isA<List<FilmEntity>>());
+      expect(result.getOrElse(() => []), isA<List<CharacterFilmEntity>>());
     });
 
     test('should return a NetworkFailure when there is no network connection',

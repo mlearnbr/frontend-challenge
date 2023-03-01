@@ -1,7 +1,7 @@
 import 'package:flutter_application/core/failures/failures.dart';
 import 'package:flutter_application/core/services/http/http.dart';
 
-httpErrorToFailure(HttpError error) {
+Failure httpErrorToFailure(HttpError error) {
   switch (error) {
     case HttpError.badRequest:
       return NetworkFailure();

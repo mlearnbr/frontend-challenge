@@ -5,6 +5,6 @@ abstract class ICharacterDetailsController {
   Future<void> getCharacterPlanet(String url);
   bool get isLoading;
   bool get isLoadingMore;
-  List<FilmEntity> get filmList;
-  PlanetEntity? get characterPlanet;
+  List<CharacterFilmEntity> get filmList;
+  CharacterPlanetEntity? get characterPlanet;
 }

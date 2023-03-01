@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/features/character_details/domain/entities/film_entity.dart';
+import 'package:flutter_application/features/character_details/domain/entities/character_film_entity.dart';
 import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
 
 class CharacterDetailsInfoWidget extends StatelessWidget {
   final CharacterEntity character;
-  final List<FilmEntity> characterFilms;
+  final List<CharacterFilmEntity> characterFilms;
   const CharacterDetailsInfoWidget({
     super.key,
     required this.character,

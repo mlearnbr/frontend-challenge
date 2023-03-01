@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_application/core/constants/endpoints.dart';
 import 'package:flutter_application/core/failures/failures.dart';
-import 'package:flutter_application/core/failures/httpError_to_failure.dart';
+import 'package:flutter_application/core/failures/http_error_to_failure.dart';
 import 'package:flutter_application/features/character_list/domain/entities/character_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_application/features/character_list/domain/entities/specie_entity.dart';

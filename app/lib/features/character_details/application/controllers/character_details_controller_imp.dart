@@ -22,11 +22,11 @@ abstract class CharacterDetailsControllerBase
 
   @override
   @observable
-  List<FilmEntity> filmList = [];
+  List<CharacterFilmEntity> filmList = [];
 
   @override
   @observable
-  PlanetEntity? characterPlanet;
+  CharacterPlanetEntity? characterPlanet;
 
   @observable
   AsyncStates viewState = AsyncStates.initial;

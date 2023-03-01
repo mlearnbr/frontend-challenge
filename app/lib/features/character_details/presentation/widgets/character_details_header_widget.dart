@@ -4,7 +4,7 @@ import 'package:flutter_application/features/character_list/domain/entities/char
 
 class CharacterDetailsHeaderWidget extends StatelessWidget {
   final CharacterEntity character;
-  final PlanetEntity? characterPlanet;
+  final CharacterPlanetEntity? characterPlanet;
   const CharacterDetailsHeaderWidget({
     super.key,
     required this.character,

@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-class FilmEntity extends Equatable {
+class CharacterFilmEntity extends Equatable {
   final String title;
 
-  const FilmEntity({
+  const CharacterFilmEntity({
     required this.title,
   });
 

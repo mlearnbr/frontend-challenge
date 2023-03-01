@@ -1,15 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'film_model.dart';
+part of 'character_film_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-FilmModel _$FilmModelFromJson(Map<String, dynamic> json) => FilmModel(
+CharacterFilmModel _$CharacterFilmModelFromJson(Map<String, dynamic> json) =>
+    CharacterFilmModel(
       title: json['title'] as String,
     );
 
-Map<String, dynamic> _$FilmModelToJson(FilmModel instance) => <String, dynamic>{
+Map<String, dynamic> _$CharacterFilmModelToJson(CharacterFilmModel instance) =>
+    <String, dynamic>{
       'title': instance.title,
     };

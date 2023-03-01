@@ -21,13 +21,13 @@ mixin _$CharacterDetailsController on CharacterDetailsControllerBase, Store {
       Atom(name: 'CharacterDetailsControllerBase.filmList', context: context);
 
   @override
-  List<FilmEntity> get filmList {
+  List<CharacterFilmEntity> get filmList {
     _$filmListAtom.reportRead();
     return super.filmList;
   }
 
   @override
-  set filmList(List<FilmEntity> value) {
+  set filmList(List<CharacterFilmEntity> value) {
     _$filmListAtom.reportWrite(value, super.filmList, () {
       super.filmList = value;
     });
@@ -37,13 +37,13 @@ mixin _$CharacterDetailsController on CharacterDetailsControllerBase, Store {
       name: 'CharacterDetailsControllerBase.characterPlanet', context: context);
 
   @override
-  PlanetEntity? get characterPlanet {
+  CharacterPlanetEntity? get characterPlanet {
     _$characterPlanetAtom.reportRead();
     return super.characterPlanet;
   }
 
   @override
-  set characterPlanet(PlanetEntity? value) {
+  set characterPlanet(CharacterPlanetEntity? value) {
     _$characterPlanetAtom.reportWrite(value, super.characterPlanet, () {
       super.characterPlanet = value;
     });

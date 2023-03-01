@@ -1,2 +1,2 @@
-export 'film_entity.dart';
-export 'planet_entity.dart';
+export 'character_film_entity.dart';
+export 'character_planet_entity.dart';

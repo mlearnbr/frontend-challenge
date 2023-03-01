@@ -1,16 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'planet_model.dart';
+part of 'character_planet_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PlanetModel _$PlanetModelFromJson(Map<String, dynamic> json) => PlanetModel(
+CharacterPlanetModel _$CharacterPlanetModelFromJson(
+        Map<String, dynamic> json) =>
+    CharacterPlanetModel(
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$PlanetModelToJson(PlanetModel instance) =>
+Map<String, dynamic> _$CharacterPlanetModelToJson(
+        CharacterPlanetModel instance) =>
     <String, dynamic>{
       'name': instance.name,
     };

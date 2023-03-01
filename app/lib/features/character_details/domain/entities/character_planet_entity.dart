@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-class PlanetEntity extends Equatable {
+class CharacterPlanetEntity extends Equatable {
   final String name;
 
-  const PlanetEntity({
+  const CharacterPlanetEntity({
     required this.name,
   });
 
