@@ -66,13 +66,13 @@ flutter test
      <td>Details Films</td>
   </tr>
   <tr>
-    <td><img src="/assets/screenshots/home.png" width=270 ></td>
-    <td><img src="/assets/screenshots/details.png" width=270 ></td>
-    <td><img src="/assets/screenshots/films_catalog.png" width=270 ></td>
-    <td><img src="/assets/screenshots/etails_films.png" width=270 ></td>
+    <td><img src="https://github.com/eliziariodm/qualifica-challenge/blob/desafio-daniel-eliziario/qualifica_challenge/assets/screenshots/home.png" width=270 ></td>
+    <td><img src="https://github.com/eliziariodm/qualifica-challenge/blob/desafio-daniel-eliziario/qualifica_challenge/assets/screenshots/details.png" width=270 ></td>
+    <td><img src="https://github.com/eliziariodm/qualifica-challenge/blob/desafio-daniel-eliziario/qualifica_challenge/assets/screenshots/films_catalog.png" width=270 ></td>
+    <td><img src="https://github.com/eliziariodm/qualifica-challenge/blob/desafio-daniel-eliziario/qualifica_challenge/assets/screenshots/details_films.png" width=270 ></td>
   </tr>
  </table>
- 
+
 
 ### Autor
 
