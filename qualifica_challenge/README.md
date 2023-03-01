@@ -6,6 +6,7 @@ Aplicativo Desafio da Qualifica para o consumo de uma API de Star Wars onde é m
 ## Ambiente Flutter
 
 Flutter 3.7.5 • channel stable
+
 Dart 2.19.2 • channel stable
 
 
@@ -57,8 +58,22 @@ flutter test
 
 ## Screenshots
 
-![alt text](home.png "Home") ![alt text](details.png "Details Page") ![alt text](films_catalog.png "Films Page") ![alt text](details_films.png "Details Films")
+<table>
+  <tr>
+     <td>Home</td>
+     <td>Details Page</td>
+     <td>Films Page</td>
+     <td>Details Films</td>
+  </tr>
+  <tr>
+    <td><img src="/assets/screenshots/home.png" width=270 ></td>
+    <td><img src="/assets/screenshots/details.png" width=270 ></td>
+    <td><img src="/assets/screenshots/films_catalog.png" width=270 ></td>
+    <td><img src="/assets/screenshots/etails_films.png" width=270 ></td>
+  </tr>
+ </table>
+ 
 
-## Autor
+### Autor
 
-# [Daniel Eliziario](https://www.linkedin.com/in/daniel-eliziario/)
+### [Daniel Eliziario](https://www.linkedin.com/in/daniel-eliziario/)
