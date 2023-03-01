@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../domain/entities/people_entity.dart';
 import 'controller/home_controller.dart';
@@ -102,6 +103,12 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               return PeopleListWidget(
                 people: listPeople[index],
+                onCarPeople: () {
+                  Modular.to.pushNamed(
+                    '/details',
+                    arguments: listPeople[index],
+                  );
+                },
               );
             },
             itemCount: listPeople.length,

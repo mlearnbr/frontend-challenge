@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../modules/core/rest/dio_rest_service.dart';
 import '../modules/core/rest/rest_service.dart';
+import '../modules/detalhes/presenter/detalhes_screen.dart';
 import '../modules/home/domain/repositories/get_all_people_repository.dart';
 import '../modules/home/domain/usecases/get_all_people_usecase.dart';
 import '../modules/home/domain/usecases/get_all_people_usecase_impl.dart';
@@ -83,9 +84,17 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/',
-            child: (context, args) => HomeScreen(
-                  homeController: Modular.get<HomeController>(),
-                )),
+        ChildRoute(
+          '/',
+          child: (context, args) => HomeScreen(
+            homeController: Modular.get<HomeController>(),
+          ),
+        ),
+        ChildRoute(
+          '/details',
+          child: (context, args) => DetalhesScreen(
+            peopleEntity: args.data,
+          ),
+        ),
       ];
 }
