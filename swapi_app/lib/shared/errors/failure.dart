@@ -17,4 +17,11 @@ class Failure implements Exception {
         message: map['message'],
         statusCode: map['statusCode'] ?? 500,
       );
+
+  Map<String, dynamic> toMap() => {
+        'status': status,
+        'code': code,
+        'message': message,
+        'statusCode': statusCode,
+      };
 }

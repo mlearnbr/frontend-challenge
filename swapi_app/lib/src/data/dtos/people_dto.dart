@@ -12,17 +12,19 @@ class PeopleDto extends PeopleEntity {
     String? gender,
     required String homeworld,
     required List<String> films,
+    required List<String> species,
   }) : super(
           name: name,
+          heigth: heigth,
+          mass: mass,
+          hairColor: hairColor,
+          skinColor: skinColor,
           birthYear: birthYear,
           eyeColor: eyeColor,
-          heigth: heigth,
-          homeworld: homeworld,
-          mass: mass,
-          skinColor: skinColor,
           gender: gender,
-          hairColor: hairColor,
+          homeworld: homeworld,
           films: films,
+          species: species,
         );
 
   factory PeopleDto.fromMap(Map<String, dynamic> map) => PeopleDto(
@@ -42,5 +44,6 @@ class PeopleDto extends PeopleEntity {
             ? null
             : map['gender'],
         films: map['films'].cast<String>(),
+        species: map['species'].cast<String>(),
       );
 }

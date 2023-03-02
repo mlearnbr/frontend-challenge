@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:swapi_app/src/domain/entities/people_entity.dart';
 import 'package:swapi_app/src/domain/usecases/get_peoples/get_peoples_usecase.dart';
 import 'package:swapi_app/src/domain/usecases/get_peoples_by_name/get_peoples_by_name.dart';
+import 'package:swapi_app/src/presentation/global_widgets/snacbars.dart';
+
+enum HomeState { loading, error, idle }
 
 class HomeController extends GetxController {
   late final ScrollController scrollController;
@@ -15,16 +18,17 @@ class HomeController extends GetxController {
     required this.getPeoplesByNameUseCase,
   });
 
+  final Rx<HomeState> pageState = HomeState.loading.obs;
+
   TextEditingController textEditingController = TextEditingController();
   RxString query = ''.obs;
 
-  final Rx<bool> _loading = true.obs;
+  final Rx<bool> _loading = false.obs;
   final RxList<PeopleEntity> _peoples = <PeopleEntity>[].obs;
   int? _nextPage = 1;
 
   bool get loading => _loading.value;
   List<PeopleEntity> get peoples => _peoples.toList();
-  bool get initLoading => loading && peoples.isEmpty;
 
   final RxList<PeopleEntity> _peoplesFiltered = <PeopleEntity>[].obs;
   int? _nextPageFiltered = 1;
@@ -37,7 +41,7 @@ class HomeController extends GetxController {
   void onInit() {
     scrollController = ScrollController();
     scrollController.addListener(infiniteScrolling);
-    _initList();
+    initList();
     debounce(
       query,
       (_) => _queryPeoples(
@@ -53,15 +57,18 @@ class HomeController extends GetxController {
     scrollController.dispose();
   }
 
-  Future<void> _initList() async {
+  Future<void> initList() async {
     try {
-      _loading.value = true;
-      final result = await getPeoplesUseCase.call();
-      _loading.value = false;
+      pageState.value = HomeState.loading;
+      _peoples.clear();
+      final result = await getPeoplesUseCase.call(
+        page: 1,
+      );
       _peoples.addAll(result.result);
+      pageState.value = HomeState.idle;
       _nextPage = 2;
     } catch (e) {
-      print(e);
+      pageState.value = HomeState.error;
     }
   }
 
@@ -101,7 +108,10 @@ class HomeController extends GetxController {
       }
       _loading.value = false;
     } catch (e) {
-      print(e);
+      _loading.value = false;
+      Snackbars.error(
+        message: 'Error when fetching more characters!',
+      );
     }
   }
 
@@ -139,7 +149,11 @@ class HomeController extends GetxController {
       _loading.value = false;
       _loadingFiltered.value = false;
     } catch (e) {
-      print(e);
+      _loading.value = false;
+      _loadingFiltered.value = false;
+      Snackbars.error(
+        message: 'Error when fetching more characters!',
+      );
     }
   }
 }

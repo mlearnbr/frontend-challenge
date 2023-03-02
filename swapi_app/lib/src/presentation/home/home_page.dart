@@ -33,48 +33,88 @@ class HomePage extends StatelessWidget {
                       left: 30,
                       right: 30,
                     ),
-                    child: Image.asset(
-                      AppAssets.logo,
-                      scale: 2,
+                    child: Center(
+                      child: Image.asset(
+                        AppAssets.logo,
+                        scale: 2,
+                      ),
                     ),
                   ),
-                  Obx(
-                    () => controller.initLoading
-                        ? const SizedBox()
-                        : SearchContainer(
-                            onPressed: () {
-                              controller.textEditingController.clear();
-                              controller.query.value = '';
-                              FocusScope.of(context).unfocus();
-                            },
-                            controller: controller.textEditingController,
-                            onChanged: (String text) {
-                              controller.query.value = text;
-                            },
-                          ),
-                  ),
-                  Obx(
-                    () {
-                      if (controller.initLoading) {
-                        return const LoaderWidget();
-                      }
-                      return Expanded(
-                        child: Obx(
-                          () {
-                            return controller.loadingFiltered
+                  Expanded(
+                    child: Obx(
+                      () {
+                        if (controller.pageState.value == HomeState.loading) {
+                          return const LoaderWidget();
+                        } else if (controller.pageState.value ==
+                            HomeState.error) {
+                          return SizedBox(
+                            width: 220,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Error fetching character list!',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    controller.initList();
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        Theme.of(context).primaryColor,
+                                  ),
+                                  child: const Text(
+                                    'Try again',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        }
+                        return Column(
+                          children: [
+                            SearchContainer(
+                              onPressed: () {
+                                controller.textEditingController.clear();
+                                controller.query.value = '';
+                                FocusScope.of(context).unfocus();
+                              },
+                              controller: controller.textEditingController,
+                              onChanged: (String text) {
+                                controller.query.value = text;
+                              },
+                            ),
+                            controller.loadingFiltered
                                 ? const LoaderWidget()
-                                : ListViewPeoples(
-                                    isLoading: controller.loading,
-                                    peoples: controller.query.isEmpty
-                                        ? controller.peoples
-                                        : controller.peoplesFiltered,
-                                    scrollController:
-                                        controller.scrollController,
-                                  );
-                          },
-                        ),
-                      );
-                    },
+                                : Expanded(
+                                    child: ListViewPeoples(
+                                      isLoading: controller.loading,
+                                      peoples: controller.query.isEmpty
+                                          ? controller.peoples
+                                          : controller.peoplesFiltered,
+                                      scrollController:
+                                          controller.scrollController,
+                                    ),
+                                  )
+                          ],
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),

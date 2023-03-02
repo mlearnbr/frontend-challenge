@@ -3,12 +3,13 @@ class PeopleEntity {
   final String? birthYear;
   final String heigth;
   final String mass;
-  final String? hairColor; //n/a
+  final String? hairColor;
   final String skinColor;
   final String eyeColor;
-  final String? gender; //n/a
+  final String? gender;
   final String homeworld;
   final List<String> films;
+  final List<String> species;
 
   PeopleEntity({
     required this.name,
@@ -21,6 +22,7 @@ class PeopleEntity {
     this.gender,
     required this.homeworld,
     required this.films,
+    required this.species,
   });
 
   List<Object?> get props => [
@@ -34,5 +36,7 @@ class PeopleEntity {
         gender,
         homeworld,
         films,
+        species,
+        skinColor,
       ];
 }

@@ -5,6 +5,7 @@ import 'package:swapi_app/shared/config/theme/app_theme.dart';
 import 'package:swapi_app/src/presentation/inital_binding.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

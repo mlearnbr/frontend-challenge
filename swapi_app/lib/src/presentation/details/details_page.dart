@@ -130,7 +130,48 @@ class DetailsPage extends GetView<DetailsController> {
                         .toList(),
                   ),
                 );
-              })
+              }),
+              const SizedBox(
+                height: 10,
+              ),
+              controller.people.species.isEmpty
+                  ? const SizedBox()
+                  : Obx(
+                      () {
+                        if (controller.loadingSpecies.value) {
+                          return const LoaderWidget();
+                        } else if (!controller.loadingSpecies.value &&
+                            controller.species.isEmpty) {
+                          return const SizedBox();
+                        }
+                        return InfoCard(
+                          title: 'Species',
+                          body: '',
+                          bodyWidget: Column(
+                            children: controller.species
+                                .map(
+                                  (element) => Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 5,
+                                    ),
+                                    child: Text(
+                                      element.name,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        );
+                      },
+                    ),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),
