@@ -1,5 +1,6 @@
 {
   "starWars": "Star Wars",
   "characters": "Personagens",
-  "characterDatabase": "Banco de dados de personagens"
+  "characterDatabase": "Banco de dados de personagens",
+  "errSomethingWentWrong": "Oops, parece que algo deu errado."
 }
