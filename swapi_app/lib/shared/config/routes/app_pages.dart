@@ -20,7 +20,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.DETAILS,
-      page: () => DetailsPage(),
+      page: () => const DetailsPage(),
       binding: DetailsBinding(),
     ),
   ];
