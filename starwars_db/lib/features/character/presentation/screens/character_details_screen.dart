@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:starwars_db/core/constants/constants.dart';
 import 'package:starwars_db/features/character/domain/entities/character.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CharacterDetailsScreen extends StatefulWidget {
   final Character character;
@@ -25,40 +26,95 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text(widget.character.name),
+      centerTitle: true,
+      title: Text(
+        widget.character.name,
+      ),
+      elevation: 0,
     );
   }
 
   Widget _buildBody() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          _buildImage(),
-          _buildTitle(),
-          _buildDescription(),
-        ],
+    return SizedBox(
+      width: double.infinity,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            _buildImage(),
+            const SizedBox(height: 24),
+            _buildDetails(),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildImage() {
     return SizedBox(
+      width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.3,
       child: Image.network(
         kCharacterImageBaseUrl + widget.character.imagePath,
-        fit: BoxFit.cover,
+        fit: BoxFit.fitHeight,
       ),
     );
   }
 
-  Widget _buildTitle() {
-    return Text(
-      widget.character.name,
-      style: Theme.of(context).textTheme.titleLarge,
+  Widget _buildDetails() {
+    final appLocalizations = AppLocalizations.of(context)!;
+    return Column(
+      children: [
+        _buildDetailsText(
+          label: appLocalizations.name,
+          text: widget.character.name,
+        ),
+        _buildDetailsText(
+          label: appLocalizations.birthYear,
+          text: widget.character.birthYear,
+        ),
+        _buildDetailsText(
+          label: appLocalizations.eyeColor,
+          text: widget.character.eyeColor,
+        ),
+        _buildDetailsText(
+          label: appLocalizations.gender,
+          text: widget.character.gender,
+        ),
+        _buildDetailsText(
+          label: appLocalizations.hairColor,
+          text: widget.character.hairColor,
+        ),
+        _buildDetailsText(
+          label: appLocalizations.height,
+          text: widget.character.height,
+        ),
+        _buildDetailsText(
+          label: appLocalizations.mass,
+          text: widget.character.mass,
+        ),
+        _buildDetailsText(
+          label: appLocalizations.skinColor,
+          text: widget.character.skinColor,
+        ),
+      ],
     );
   }
 
-  Widget _buildDescription() {
-    return Text(widget.character.gender);
+  Widget _buildDetailsText({required String label, required String text}) {
+    return Row(
+      children: [
+        Text(
+          '$label: ',
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: Colors.grey,
+              ),
+        ),
+        Text(
+          text,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+      ],
+    );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:starwars_db/core/themes/app_theme.dart';
 import 'package:starwars_db/features/character/presentation/blocs/character_bloc.dart';
 import 'package:starwars_db/features/character/presentation/screens/character_list_screen.dart';
 import 'package:starwars_db/injection_container.dart' as ic;
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
     return BlocProvider(
       create: (_) => ic.getIt<CharacterBloc>(),
       child: _buildMaterialApp(),
@@ -28,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: appThemeData[AppTheme.dark],
       home: const CharacterListScreen(),
     );
   }

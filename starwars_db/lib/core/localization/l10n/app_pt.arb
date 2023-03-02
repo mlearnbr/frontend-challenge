@@ -2,5 +2,14 @@
   "starWars": "Star Wars",
   "characters": "Personagens",
   "characterDatabase": "Banco de dados de personagens",
+  "characterDetails": "Informações de personagem",
+  "name":  "Nome",
+  "birthYear": "Nascimento",
+  "eyeColor":  "Cor dos olhos",
+  "gender": "Gênero",
+  "hairColor":  "Cor do cabelo",
+  "height": "Altura",
+  "mass":  "Peso",
+  "skinColor": "Cor da pele",
   "errSomethingWentWrong": "Oops, parece que algo deu errado."
 }
