@@ -99,16 +99,7 @@ flutter_icons:
   ios: true
   remove_alpha_ios: true
   android: "launcher_icon"
-  web:
-    generate: true
-    image_path: "assets/images/icon.png"
-  windows:
-    generate: true
-    image_path: "assets/images/icon.png"
-    icon_size: 48 # min:48, max:256, default: 48
-  macos:
-    generate: true
-    image_path: "assets/images/icon.png"
+
 
 flutter_native_splash:
   color: "#000000"
