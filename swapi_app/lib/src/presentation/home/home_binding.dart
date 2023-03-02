@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:swapi_app/shared/services/http_manager.dart';
-import 'package:swapi_app/src/data/datasources/remote/peoples_remote_data_source.dart';
-import 'package:swapi_app/src/data/datasources/remote/peoples_remote_data_source_impl.dart';
+import 'package:swapi_app/src/data/datasources/remote/people/peoples_remote_data_source.dart';
+import 'package:swapi_app/src/data/datasources/remote/people/peoples_remote_data_source_impl.dart';
 import 'package:swapi_app/src/data/repositories/peoples_repository_impl.dart';
 import 'package:swapi_app/src/domain/repositories/peoples_repository.dart';
 import 'package:swapi_app/src/domain/usecases/get_peoples/get_peoples_usecase.dart';

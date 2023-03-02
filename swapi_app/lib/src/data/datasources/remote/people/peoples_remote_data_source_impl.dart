@@ -1,6 +1,6 @@
 import 'package:swapi_app/shared/errors/failure.dart';
 import 'package:swapi_app/shared/services/http_manager.dart';
-import 'package:swapi_app/src/data/datasources/remote/peoples_remote_data_source.dart';
+import 'package:swapi_app/src/data/datasources/remote/people/peoples_remote_data_source.dart';
 import 'package:swapi_app/src/data/dtos/response/peoples_response_dto.dart';
 import 'package:swapi_app/src/domain/entities/response/peoples_response.dart';
 

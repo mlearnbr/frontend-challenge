@@ -1,4 +1,4 @@
-import 'package:swapi_app/src/data/datasources/remote/peoples_remote_data_source.dart';
+import 'package:swapi_app/src/data/datasources/remote/people/peoples_remote_data_source.dart';
 import 'package:swapi_app/src/domain/entities/response/peoples_response.dart';
 import 'package:swapi_app/src/domain/repositories/peoples_repository.dart';
 
