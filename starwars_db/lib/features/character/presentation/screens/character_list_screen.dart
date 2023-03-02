@@ -46,7 +46,14 @@ class _CharacterListScreenState extends State<CharacterListScreen> {
         }
         if (state is CharacterLoadedState) {
           final characters = state.characters;
-          return ListView.builder(
+          return GridView.builder(
+            padding: const EdgeInsets.all(4),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+              childAspectRatio: 3 / 2,
+            ),
             itemCount: characters.length,
             itemBuilder: (_, index) {
               return CharacterCard(character: characters[index]);

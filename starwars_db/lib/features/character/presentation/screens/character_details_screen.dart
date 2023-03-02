@@ -38,7 +38,6 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
     return SizedBox(
       width: double.infinity,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             _buildImage(),
@@ -51,7 +50,14 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
   }
 
   Widget _buildImage() {
-    return SizedBox(
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/star_wars_logo.png"),
+          opacity: 0.1,
+          fit: BoxFit.cover,
+        ),
+      ),
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.3,
       child: Image.network(
@@ -63,41 +69,45 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
 
   Widget _buildDetails() {
     final appLocalizations = AppLocalizations.of(context)!;
-    return Column(
-      children: [
-        _buildDetailsText(
-          label: appLocalizations.name,
-          text: widget.character.name,
-        ),
-        _buildDetailsText(
-          label: appLocalizations.birthYear,
-          text: widget.character.birthYear,
-        ),
-        _buildDetailsText(
-          label: appLocalizations.eyeColor,
-          text: widget.character.eyeColor,
-        ),
-        _buildDetailsText(
-          label: appLocalizations.gender,
-          text: widget.character.gender,
-        ),
-        _buildDetailsText(
-          label: appLocalizations.hairColor,
-          text: widget.character.hairColor,
-        ),
-        _buildDetailsText(
-          label: appLocalizations.height,
-          text: widget.character.height,
-        ),
-        _buildDetailsText(
-          label: appLocalizations.mass,
-          text: widget.character.mass,
-        ),
-        _buildDetailsText(
-          label: appLocalizations.skinColor,
-          text: widget.character.skinColor,
-        ),
-      ],
+    return Container(
+      padding: const EdgeInsets.all(16),
+      width: double.infinity,
+      child: Column(
+        children: [
+          _buildDetailsText(
+            label: appLocalizations.name,
+            text: widget.character.name,
+          ),
+          _buildDetailsText(
+            label: appLocalizations.birthYear,
+            text: widget.character.birthYear,
+          ),
+          _buildDetailsText(
+            label: appLocalizations.eyeColor,
+            text: widget.character.eyeColor,
+          ),
+          _buildDetailsText(
+            label: appLocalizations.gender,
+            text: widget.character.gender,
+          ),
+          _buildDetailsText(
+            label: appLocalizations.hairColor,
+            text: widget.character.hairColor,
+          ),
+          _buildDetailsText(
+            label: appLocalizations.height,
+            text: widget.character.height,
+          ),
+          _buildDetailsText(
+            label: appLocalizations.mass,
+            text: widget.character.mass,
+          ),
+          _buildDetailsText(
+            label: appLocalizations.skinColor,
+            text: widget.character.skinColor,
+          ),
+        ],
+      ),
     );
   }
 
@@ -108,6 +118,7 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
           '$label: ',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: Colors.grey,
+                fontSize: 14,
               ),
         ),
         Text(
