@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:swapi_app/shared/utils/app_assets.dart';
 import 'package:swapi_app/src/presentation/details/details_controller.dart';
 import 'package:swapi_app/src/presentation/details/widgets/info_card.dart';
+import 'package:swapi_app/src/presentation/global_widgets/loader_widget.dart';
 
 class DetailsPage extends GetView<DetailsController> {
   const DetailsPage({super.key});
@@ -81,6 +82,21 @@ class DetailsPage extends GetView<DetailsController> {
                 title: 'Skin Color',
                 body: controller.people.skinColor,
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              Obx(() {
+                if (controller.loadingPlanet.value) {
+                  return const LoaderWidget();
+                } else if (!controller.loadingPlanet.value &&
+                    controller.planet.value == null) {
+                  return const SizedBox();
+                }
+                return InfoCard(
+                  title: 'Planet',
+                  body: controller.planet.value!.name,
+                );
+              }),
               const SizedBox(
                 height: 10,
               ),

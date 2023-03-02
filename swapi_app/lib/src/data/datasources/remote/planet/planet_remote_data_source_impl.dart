@@ -14,6 +14,9 @@ class PlanetRemoteDataSourceImpl extends PlanetRemoteDataSource {
     final response = await manager.restRequest(
       url: url,
       method: HttpMethods.get,
+      queryParameters: {
+        'format': 'json',
+      },
     );
     if (!response.containsKey("message")) {
       return PlanetDto.fromMap(response);

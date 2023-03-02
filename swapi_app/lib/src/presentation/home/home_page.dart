@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:swapi_app/shared/utils/app_assets.dart';
 import 'package:swapi_app/src/presentation/home/home_controller.dart';
 import 'package:swapi_app/src/presentation/home/widgets/listview_peoples.dart';
-import 'package:swapi_app/src/presentation/home/widgets/loader_widget.dart';
+import 'package:swapi_app/src/presentation/global_widgets/loader_widget.dart';
 import 'package:swapi_app/src/presentation/home/widgets/search_container.dart';
 
 class HomePage extends StatelessWidget {
