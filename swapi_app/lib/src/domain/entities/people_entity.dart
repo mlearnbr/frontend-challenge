@@ -1,16 +1,35 @@
 class PeopleEntity {
   final String name;
   final String? birthYear;
+  final String heigth;
+  final String mass;
+  final String? hairColor; //n/a
+  final String skinColor;
+  final String eyeColor;
+  final String? gender; //n/a
+  final String homeworld;
 
   PeopleEntity({
     required this.name,
     this.birthYear,
+    required this.heigth,
+    required this.mass,
+    this.hairColor,
+    required this.skinColor,
+    required this.eyeColor,
+    this.gender,
+    required this.homeworld,
   });
 
-  /* factory PeopleEntity.fromMap(Map<String, dynamic> map) => PeopleEntity(
-        name: map['name'],
-        birthYear: map['birth_year'],
-      );*/
-
-  List<Object?> get props => [name, birthYear];
+  List<Object?> get props => [
+        name,
+        birthYear,
+        heigth,
+        mass,
+        hairColor,
+        skinColor,
+        eyeColor,
+        gender,
+        homeworld,
+      ];
 }

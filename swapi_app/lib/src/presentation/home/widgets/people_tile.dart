@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:swapi_app/shared/config/routes/app_routes.dart';
 import 'package:swapi_app/src/domain/entities/people_entity.dart';
 
 class PeopleTile extends StatelessWidget {
@@ -13,6 +15,11 @@ class PeopleTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        Get.toNamed(AppRoutes.DETAILS, arguments: {
+          'people': people,
+        });
+      },
       dense: true,
       minVerticalPadding: 10,
       horizontalTitleGap: 6,

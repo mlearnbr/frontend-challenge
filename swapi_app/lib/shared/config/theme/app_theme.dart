@@ -8,4 +8,9 @@ final ThemeData globalTheme = ThemeData(
       Colors.deepPurple,
     ),
   ),
+  appBarTheme: const AppBarTheme(
+    centerTitle: true,
+    elevation: 0,
+    backgroundColor: Colors.deepPurple,
+  ),
 );
