@@ -100,6 +100,37 @@ class DetailsPage extends GetView<DetailsController> {
               const SizedBox(
                 height: 10,
               ),
+              Obx(() {
+                if (controller.loadingMovies.value) {
+                  return const LoaderWidget();
+                } else if (!controller.loadingMovies.value &&
+                    controller.movies.isEmpty) {
+                  return const SizedBox();
+                }
+                return InfoCard(
+                  title: 'Movies',
+                  body: '',
+                  bodyWidget: Column(
+                    children: controller.movies
+                        .map(
+                          (element) => Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 5,
+                            ),
+                            child: Text(
+                              element.title,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                );
+              })
             ],
           ),
         ),

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class InfoCard extends StatelessWidget {
   final String title;
   final String body;
+  final Widget? bodyWidget;
   const InfoCard({
     super.key,
     required this.title,
     required this.body,
+    this.bodyWidget,
   });
 
   @override
@@ -54,22 +56,23 @@ class InfoCard extends StatelessWidget {
                 bottomLeft: Radius.circular(12),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 5,
-              ),
-              child: Center(
-                child: Text(
-                  body,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+            child: bodyWidget ??
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 5,
+                  ),
+                  child: Center(
+                    child: Text(
+                      body,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
           )
         ],
       ),
