@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:starwars_db/core/util/logger.dart';
 import 'package:starwars_db/features/character/domain/entities/character.dart';
 import 'package:starwars_db/features/character/domain/use_cases/list_characters_usecase.dart';
 
@@ -15,11 +16,11 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
   }) : super(CharacterInitialState()) {
     on<ListCharactersEvent>((event, emit) async {
       try {
+        emit(CharacterLoadingState());
         final characters = await listCharacters();
         emit(CharacterLoadedState(characters: characters));
       } catch (e) {
-        // TODO remove print and add a logger to avoid print in prod builds
-        print(e);
+        Logger.log(e);
         emit(CharacterErrorState());
       }
     });

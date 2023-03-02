@@ -10,9 +10,21 @@ class CharacterRemoteDataSource {
     required this.client,
   });
 
-  // TODO also get the other pages
   Future<List<CharacterModel>> listCharacters() async {
-    const url = 'https://swapi.dev/api/people/?page=1';
+    const firstUrl = 'https://swapi.dev/api/people/?page=1';
+    return _listCharacterByPage([], firstUrl);
+  }
+
+  ///
+  /// IMPORTANT: This method is not great for real world usage, since we need
+  /// to wait for the whole list to load at once.
+  /// For a better experience we would need to implement it in a way that
+  /// allowed us to call it page by page to give faster results to the user.
+  ///
+  Future<List<CharacterModel>> _listCharacterByPage(
+    List<CharacterModel> loadedCharacters,
+    String url,
+  ) async {
     final response = await client.get(
       Uri.parse(url),
       headers: {'Content-Type': 'application/json;'},
@@ -20,10 +32,22 @@ class CharacterRemoteDataSource {
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      return data['results']
+      final newCharacters = data['results']
           .map((it) => CharacterModel.fromJson(it))
           .toList()
           .cast<CharacterModel>();
+      final nextUrl = data['next'];
+
+      if (nextUrl == null) {
+        // no more pages available, return the characters
+        return loadedCharacters..addAll(newCharacters);
+      } else {
+        // call the next page
+        return _listCharacterByPage(
+          loadedCharacters..addAll(newCharacters),
+          nextUrl,
+        );
+      }
     } else {
       throw Exception('Server Exception');
     }
