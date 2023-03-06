@@ -1,16 +1,26 @@
 # star_wars_app
 
-A new Flutter project.
+Aplicação Flutter com tema Star Wars, utilizando:
 
-## Getting Started
+- Modular
+- Mobx
+- getIt
+- Slidy
+- dio
+- Versão do Flutter: 3.7.6 stable
+- Entre outros
 
-This project is a starting point for a Flutter application.
+## Setup
 
-A few resources to get you started if this is your first Flutter project:
+1. Antes de rodar a aplicação, instale as dependências:
+``flutter pub get``
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Instale o Slidy CLI:
+``dart pub global activate slidy``
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Gere os arquivos necessários para a execução do aplicativo:
+``slidy run runner``
+
+#
+
+Utilizei ferramentas e pacotes que estou acostumado a trabalhar, mesmo assim infelizmente faltaram algumas coisas para concluir o desafio completo. Preciso principalmente estudar e aprender para desenvolver com maior facilidade, com este projeto, por exemplo, consegui utilizar alguns conceitos que estou estudando, como o infinite scroll, mostrando mais personagens ao rolar a tela do aplicativo.
