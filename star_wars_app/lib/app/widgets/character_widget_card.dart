@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class CharacterWidgetCard extends StatelessWidget {
-  final int uid;
-  final String? name;
-  final String? birthYear;
+  final String uid;
+  final String url;
+  final String name;
+  final String birthYear;
+  final List species;
 
-  const CharacterWidgetCard({super.key, required this.uid, this.name, this.birthYear});
+  const CharacterWidgetCard({
+    super.key,
+    required this.uid,
+    required this.url,
+    required this.name,
+    required this.birthYear,
+    required this.species,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,37 +29,35 @@ class CharacterWidgetCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[800],
-                    border: Border.all(
-                      color: Colors.transparent,
-                    ),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(5),
-                    ),
-                  ),
-                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      name ?? 'Luke Skywalker',
+                      name,
                       style: const TextStyle(
                         fontWeight: FontWeight.w800,
                         fontSize: 16,
                       ),
                     ),
-                    Text(birthYear ?? 'Birth year: 112BBY'),
+                    Row(
+                      children: [
+                        const Text('Birth Year: '),
+                        Text(birthYear),
+                      ],
+                    ),
                   ],
                 )
               ],
             ),
           ),
           onTap: () {
-            Modular.to.pushNamed('/home/character/$uid');
+            Modular.to.pushNamed(
+              '/home/character/',
+              arguments: {
+                "uid": uid,
+                "url": url,
+              },
+            );
           },
         ),
       ),

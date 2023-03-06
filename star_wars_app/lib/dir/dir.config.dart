@@ -11,13 +11,15 @@ import 'package:star_wars_app/data/data_sources/character/character_data_source.
     as _i3;
 import 'package:star_wars_app/data/data_sources/people/people_data_source.dart'
     as _i6;
+import 'package:star_wars_app/data/data_sources/specie/specie_data_source.dart'
+    as _i8;
 import 'package:star_wars_app/data/repositories/character_repository.dart'
     as _i4;
 import 'package:star_wars_app/data/repositories/people_repository.dart' as _i7;
 import 'package:star_wars_app/data/use_cases/character/get_character.dart'
     as _i5;
 import 'package:star_wars_app/data/use_cases/people/get_characters_from_people_list.dart'
-    as _i8;
+    as _i9;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -40,6 +42,7 @@ _i1.GetIt $initGetIt(
   gh.factory<_i6.PeopleDataSource>(() => _i6.PeopleDataSource());
   gh.factory<_i7.PeopleRepository>(
       () => _i7.PeopleRepository(gh<_i6.PeopleDataSource>()));
-  gh.singleton<_i8.GetPeople>(_i8.GetPeople(gh<_i7.PeopleRepository>()));
+  gh.factory<_i8.SpecieDataSource>(() => _i8.SpecieDataSource());
+  gh.singleton<_i9.GetPeople>(_i9.GetPeople(gh<_i7.PeopleRepository>()));
   return getIt;
 }

@@ -7,13 +7,13 @@ import 'package:star_wars_app/app/home/home_store.dart';
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => CharacterStore(i.args.data)),
+    Bind.factory((i) => CharacterStore(i.args.data["uid"], i.args.data)),
     Bind((i) => HomeStore()),
   ];
 
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => const HomePage()),
-    ChildRoute('/character/:uid', child: (_, args) => CharacterPage(uid: args.params['uid']))
+    ChildRoute('/character/:uid', child: (_, args) => CharacterPage(uid: args.data['uid']))
   ];
 }

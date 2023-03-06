@@ -6,7 +6,7 @@ class CharacterModule extends Module {
   @override
   final List<Bind> binds = [
     Bind(
-      (i) => CharacterStore(i.args.data),
+      (i) => CharacterStore(i.args.data["uid"], i.args.data),
     )
   ];
 
