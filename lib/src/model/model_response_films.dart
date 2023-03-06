@@ -42,24 +42,3 @@ class ResultFilms {
         characters: List<String>.from(json["characters"].map((x) => x)),
       );
 }
-
-class CharactersModel {
-  String character;
-  CharactersModel({
-    required this.character,
-  });
-
-  static CharactersModel? fromMap(Map<String, dynamic>? map) {
-    if (map == null) return null;
-    try {
-      return CharactersModel(
-        character: map['character'],
-      );
-    } catch (e) {
-      return null;
-    }
-  }
-
-  static CharactersModel? fromJson(String source) =>
-      CharactersModel.fromMap(json.decode(source));
-}

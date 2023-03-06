@@ -102,43 +102,45 @@ class DetailsCustomBodyWidget extends StatelessWidget {
                         child: GetBuilder<HomeController>(
                             init: HomeController(Get.find(), Get.find()),
                             builder: (controller) {
-                              return controller.obx((state) => ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    shrinkWrap: true,
-                                    itemCount:
-                                        controller.filterFilmByPeoper.length,
-                                    itemBuilder: (context, index) {
-                                      ResultFilms resultFilms =
-                                          controller.filterFilmByPeoper[index];
-                                      return controller.obx((state) {
-                                        return Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 12.0,
-                                            vertical: 8.0,
+                              return controller.obx(
+                                (state) => ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  shrinkWrap: true,
+                                  itemCount:
+                                      controller.filterFilmByPeoper.length,
+                                  itemBuilder: (context, index) {
+                                    ResultFilms resultFilms =
+                                        controller.filterFilmByPeoper[index];
+                                    return controller.obx((state) {
+                                      return Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 12.0,
+                                          vertical: 8.0,
+                                        ),
+                                        margin:
+                                            const EdgeInsets.only(right: 10.0),
+                                        decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(5.0),
                                           ),
-                                          margin: const EdgeInsets.only(
-                                              right: 10.0),
-                                          decoration: const BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(5.0),
-                                            ),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            resultFilms.title,
+                                            style: const TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold),
                                           ),
-                                          child: Center(
-                                            child: Text(
-                                              resultFilms.title,
-                                              style: const TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 15.0,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                          onLoading:
-                                              const LinearProgressIndicator());
+                                        ),
+                                      );
                                     },
-                                  ));
+                                        onLoading:
+                                            const LinearProgressIndicator());
+                                  },
+                                ),
+                              );
                             }),
                       ),
                     ],
