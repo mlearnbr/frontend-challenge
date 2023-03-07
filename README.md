@@ -1,42 +1,71 @@
-# Desafio front-end da Qualifica
-
-Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
-
-Provavelmente você já está participando do nosso processo de contratação, mas se você caiu aqui por acaso, leia o documento até o final e caso haja interesse, você pode começar daqui mesmo.
+## APLICATIVO STAR WARS
 
 
-## Sobre o desafio
+<b>Objectivo desse app </b>   
 
-Esse é um desafio, não um teste ou uma prova de faculdade, portanto não há uma única resposta certa.
+<p> Este aplicativo  tem como objetivo Listar personagem do Star Wars com as informações de cada personagem.
 
-Daremos a você alguns requisitos que devem ser cumpridos, e pelos quais você será avaliado, mas deixamos livre a escolha do método de solução.
 
-O que nós esperamos aprender de você com o desafio:
+## Link do video no google driver
 
-- Seu estilo de trabalho
-- Como você pensa e resolve problemas
-- Como você se comunica
+🔗 https://drive.google.com/file/d/1xNsZ9EkYtLLPanWYprgpGEk1d01i8EOd/view?usp=share_link
 
-O que nós esperamos que você aprenda sobre a Qualifica:
 
-- Como nós trabalhamos como um time.
-- Tenha uma visão próxima dos desafios que enfrentamos no dia-a-dia.
 
-## Próximos passos
 
-1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. As instruções do desafio se encontram no arquivo [`CHALLENGE.md`](/CHALLENGE.md).
-2. Resolva o desafio da forma que você julgar mais adequada.
-3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
+## 📚 Telas que fazem parte do aplicativo.
 
-## Considerações
+ ⚙ --Home, tela que  lista  personagens com as informações(name species e birth_year) e também  com  Lista de filmes no top da tela <br>
+ ⚙ --Detalhes, tela que lista detalhes de cada personagem como por exemplo  <br>
+- name <br>
+- birth_year <br>
+- eye_color<br>
+- gender<br>
+- hair_color<br>
+- height<br>
+- mass<br>
+- skin_color<br>
+- homeworld<br>
+- films<br>
+- species<br>
 
-- Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
-- Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
-- Também leve em consideração que estamos availando como será o seu modo de trabalho no nosso dia a dia. Então, use as melhores práticas de semântica, estruturação, legibilidade e componentização.
+ ⚙ --Lista, tela que lista todos os personagem por filme <br>
+ ⚙ --Splash screen tela inicial <br>
 
-## Dúvidas?
+## 📚  FUNCIONALIDADES
 
-Ficou com alguma dúvida sobre como irá funcionar o processo? Entre em contato que nós te ajudaremos com o processo.
+ ⚙ -- Dentro do aplicativo é possivel filtrar personagens clicando no nome do filme <br>
+ ⚙ -- Dentro do aplicativo também foi aplicado  animação nos cards da tela home <br>
 
-**Boa sorte!**
+## 📚  CONCEITOS APLICADO NO CODIGO
+  ⚙ -- Neste  código também foi aplicado  SOLID com  GetX e clean Code <br>
+ 
+## Obs:
+ Nesse aplicativo foi usado o gerenciadores de estado GetX com a finalidade de  ter a melhor gerencia de (Injeçao de dependencias, gerenciamento de estado, e gerenciamento de rotas) e também o GetX tem a ferramenta para consumir API o (Getconnet) foi este Client que usei para consumir a API de Star Wars.  
+
+
+ ## Obs: 
+ Devido  o  tempo curto, não cheguei de implementar algumas funcionalidades como páginasão, test unitarios, test de integração e test de widget.
+ 
+<br>
+## 🛠 Pacotes utilizados <br>  
+⚙ get: ^4.6.5 <br>  
+⚙ cached_network_image: ^3.2.0 <br>
+
+<br>
+
+ ## obs.: Para o funcionamento Do projecto deves configurar do ambiente de flutter ou se  o ambiente de flutter  estive configurado deves executar os seguintes comandos:
+
+ <br>
+ ⚙ -- flutter pub get <br>
+ 
+ #fazer o donwload dos pacotes <br>
+ ⚙ -- flutter run ou F5 <br>
+ #Executar o projeto pelo Android Studio ou Visual Studio code <br>
+ 
+ 
+
+
+
+
+ 
