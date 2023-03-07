@@ -36,8 +36,9 @@ class DetailsCustomBodyWidget extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
                   child: SizedBox(
                     child: Center(
                       child: Padding(

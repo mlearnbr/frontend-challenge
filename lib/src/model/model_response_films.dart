@@ -34,7 +34,6 @@ class ResultFilms {
 
   String title;
   String? thumbnail;
-
   List<String> characters;
 
   factory ResultFilms.fromJson(Map<String, dynamic> json) => ResultFilms(

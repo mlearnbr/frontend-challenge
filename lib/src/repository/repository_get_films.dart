@@ -15,7 +15,6 @@ class RepositoryGetFilms implements InterfaceRepositoryFilms {
   Future<List<ResultFilms>> getFilms() async {
     final response = await getconnect.get(BaseUrlApi.filme);
     final convertToString = response.bodyString;
-
     if (response.statusCode == 200) {
       final model = responseModelFilmsFromJson(convertToString!);
       filme = model.results;

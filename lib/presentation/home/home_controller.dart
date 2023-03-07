@@ -17,7 +17,7 @@ class HomeController extends GetxController with StateMixin {
   List<ResultCharacter> filterOfFilms = [];
   List<ResultFilms> filterFilmByPeoper = [];
   List<ResultFilms> films = [];
-  List caracters = [];
+
   int currentIndex = 0;
   int idCharacter = 1;
   int idfilter = 1;
@@ -29,7 +29,6 @@ class HomeController extends GetxController with StateMixin {
 
   currentIndeX(int index) {
     currentIndex = index;
-
     update();
   }
 
@@ -91,7 +90,6 @@ class HomeController extends GetxController with StateMixin {
     pageController = PageController(initialPage: currentIndex);
     innerPageController =
         PageController(initialPage: currentIndex, viewportFraction: 1 / 1.4);
-    // print(innerPageController.position.pixels);
     super.onInit();
   }
 }
