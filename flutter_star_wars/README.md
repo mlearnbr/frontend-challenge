@@ -1,16 +1,24 @@
-# flutter_star_wars
+# Aplicativo Star Wars
 
-A new Flutter project.
+Aplicativo com o propósito de exibir informações dos personagens da saga Star Wars, através do consumo da API:
+> API: https://swapi.dev/documentation#people
+## Packages
 
-## Getting Started
+- [Mobx](https://pub.dev/packages/flutter_mobx): como gerência de estado.
+- [flutter_modular](https://pub.dev/packages/flutter_modular): injeção de dependências e gerenciamento de rotas.
+- [Http](https://pub.dev/packages/http): cliente HTTP para consumo da API.
 
-This project is a starting point for a Flutter application.
+## Instalação do projeto
 
-A few resources to get you started if this is your first Flutter project:
+1. Clone o projeto.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Abra o projeto através de sua IDE de preferência.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Digite ou cole no terminal o código abaixo:
+
+```bash
+flutter pub get
+```
+
+4. Após feito isso, já é possível debugar o projeto.
+
