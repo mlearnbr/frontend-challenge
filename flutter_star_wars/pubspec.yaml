@@ -40,6 +40,8 @@ dependencies:
   flutter_modular: ^5.0.3
   mobx: ^2.1.4
   mobx_codegen: ^2.1.1
+  slidy: ^4.0.4
+  build_runner: ^2.3.3
 
 dev_dependencies:
   flutter_test:
@@ -93,3 +95,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+scripts: 
+  mobx_watch_build_clean: $clean & $get & $runner watch --delete-conflicting-outputs 
+
+vars: 
+  clean: flutter clean 
+  get: flutter pub get  
+  runner: flutter pub run build_runner
