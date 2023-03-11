@@ -42,6 +42,7 @@ dependencies:
   mobx_codegen: ^2.1.1
   slidy: ^4.0.4
   build_runner: ^2.3.3
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

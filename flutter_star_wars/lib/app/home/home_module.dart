@@ -1,12 +1,28 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'domain/usecases/get_people_usecase.dart';
+import 'domain/usecases/get_species_usecase.dart';
+import 'external/http/http_get_people.dart';
+import 'external/http/http_get_species.dart';
+import 'infra/repositiories/get_people_repository_impl.dart';
+import 'infra/repositiories/get_species_repository_impl.dart';
 import 'presenter/home_page.dart';
 import 'presenter/home_store.dart';
 
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => HomeStore()),
+    // Get People Usecase
+    Bind.lazySingleton((i) => HttpGetPeople()),
+    Bind.lazySingleton((i) => GetPeopleRepositoryImpl(i())),
+    Bind.lazySingleton((i) => GetPeopleUsecase(i())),
+
+    // Get Species Usecase
+    Bind.lazySingleton((i) => HttpGetSpecies()),
+    Bind.lazySingleton((i) => GetSpeciesRepositoryImpl(i())),
+    Bind.lazySingleton((i) => GetSpeciesUsecase(i())),
+
+    Bind.lazySingleton((i) => HomeStore(i(), i())),
   ];
 
   @override
