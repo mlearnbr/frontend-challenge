@@ -1,0 +1,46 @@
+name: flutter_star_wars
+description: Flutter project show information about star wars saga and developed by Natan Bosso .
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  flutter_mobx: ^2.0.6+5
+  flutter_modular: ^5.0.3
+  mobx: ^2.1.4
+  mobx_codegen: ^2.1.1
+  slidy: ^4.0.4
+  build_runner: ^2.3.3
+  dartz: ^0.10.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/screenshots/
+
+scripts: 
+  mobx_watch_build_clean: $clean & $get & $runner watch --delete-conflicting-outputs 
+
+vars: 
+  clean: flutter clean 
+  get: flutter pub get  
+  runner: flutter pub run build_runner
