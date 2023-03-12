@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_star_wars/app/home/domain/entities/people_entity.dart';
 
 import '../errors/errors.dart';
-import '../repositiories/get_people_repository.dart';
+import '../repositories/get_people_repository.dart';
 
 abstract class IGetPeopleUsecase {
   Future<Either<GetPeopleException, List<PeopleEntity>>> call();

@@ -4,12 +4,12 @@ import 'package:http/http.dart' as http;
 
 import '../../domain/entities/specie_entity.dart';
 import '../../domain/errors/errors.dart';
-import '../../infra/datasources/get_species_datasource.dart';
+import '../../infra/datasources/get_species_by_people_id_datasource.dart';
 import '../mapper.dart';
 
-class HttpGetSpecies implements GetSpeciesDatasource {
+class HttpGetSpeciesByPeopleId implements GetSpeciesByPeopleIdDatasource {
   @override
-  Future<SpecieEntity> getSpecies(String id) async {
+  Future<SpecieEntity> getSpeciesByPeopleId(String id) async {
     try {
       var response = await http
           .get(
@@ -19,10 +19,10 @@ class HttpGetSpecies implements GetSpeciesDatasource {
       if (response.statusCode == 200) {
         return SpecieMapper.fromJson(jsonDecode(response.body));
       } else {
-        throw GetSpeciesException(jsonDecode(response.body)["message"]);
+        throw GetSpeciesByPeopleIdException(jsonDecode(response.body)["message"]);
       }
     } catch (e) {
-      throw GetSpeciesException(e.toString());
+      throw GetSpeciesByPeopleIdException(e.toString());
     }
   }
 }

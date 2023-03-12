@@ -19,7 +19,7 @@ class _TabBarInfoWidgetState extends State<TabBarInfoWidget> {
   String specieName = '-- --';
   @override
   void initState() {
-    final result = store.getSpecies(widget.character.species);
+    final result = store.getSpeciesByPeopleId(widget.character.species);
     result!.then((value) {
       setState(() {
         specieName = value;

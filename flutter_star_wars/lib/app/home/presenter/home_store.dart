@@ -6,7 +6,7 @@ import 'package:mobx/mobx.dart';
 import '../domain/entities/people_entity.dart';
 import '../domain/usecases/get_films_usecase.dart';
 import '../domain/usecases/get_people_usecase.dart';
-import '../domain/usecases/get_species_usecase.dart';
+import '../domain/usecases/get_species_by_people_id_usecase.dart';
 
 part 'home_store.g.dart';
 
@@ -14,11 +14,11 @@ class HomeStore = _HomeStoreBase with _$HomeStore;
 
 abstract class _HomeStoreBase with Store {
   final GetPeopleUsecase getPeopleUsecase;
-  final GetSpeciesUsecase getSpeciesUsecase;
+  final GetSpeciesByPeopleIdUsecase getSpeciesByPeopleIdUsecase;
   final GetFilmsUsecase getFilmsUsecase;
 
   _HomeStoreBase(
-      this.getPeopleUsecase, this.getSpeciesUsecase, this.getFilmsUsecase);
+      this.getPeopleUsecase, this.getSpeciesByPeopleIdUsecase, this.getFilmsUsecase);
 
   @observable
   var listPeople = ObservableList<PeopleEntity>();
@@ -105,14 +105,14 @@ abstract class _HomeStoreBase with Store {
     listPeople.addAll(value);
   }
 
-  Future<String>? getSpecies(List url) async {
+  Future<String>? getSpeciesByPeopleId(List url) async {
     var name = '-- --';
     if (url.isNotEmpty) {
       var id = url.first
           .toString()
           .replaceAll('https://swapi.dev/api/species/', '')
           .replaceAll('/', '');
-      final result = await getSpeciesUsecase(id);
+      final result = await getSpeciesByPeopleIdUsecase(id);
       result.fold((l) {}, (r) {
         name = r.name!;
       });

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../domain/entities/films_entity.dart';
 import '../../domain/errors/errors.dart';
-import '../../domain/repositiories/get_films_repository.dart';
+import '../../domain/repositories/get_films_repository.dart';
 import '../datasources/get_films_datasource.dart';
 
 class GetFilmsRepositoryImpl implements GetFilmsRepository {

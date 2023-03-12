@@ -25,7 +25,7 @@ class _ItemCharacterWidgetState extends State<ItemCharacterWidget> {
     setState(() {
       imageUrl = store.getImageCharacter(widget.character.name);
     });
-    final result = store.getSpecies(widget.character.species);
+    final result = store.getSpeciesByPeopleId(widget.character.species);
     result!.then((value) {
       setState(() {
         specieName = value;

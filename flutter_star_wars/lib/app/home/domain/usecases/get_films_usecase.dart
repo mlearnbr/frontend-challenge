@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../entities/films_entity.dart';
 import '../errors/errors.dart';
-import '../repositiories/get_films_repository.dart';
+import '../repositories/get_films_repository.dart';
 
 abstract class IGetFilmsUsecase {
   Future<Either<GetFilmsException, List<FilmsEntity>>> call();

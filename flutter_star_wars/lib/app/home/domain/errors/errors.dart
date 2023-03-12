@@ -7,10 +7,10 @@ class GetPeopleException implements Exception {
   String toString() => message;
 }
 
-class GetSpeciesException implements Exception {
+class GetSpeciesByPeopleIdException implements Exception {
   final String message;
 
-  GetSpeciesException(this.message);
+  GetSpeciesByPeopleIdException(this.message);
 
   @override
   String toString() => message;
