@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_star_wars/app/home/domain/entities/films_entity.dart';
+import 'package:flutter_star_wars/app/utils/app_images.dart';
 import 'package:mobx/mobx.dart';
 
 import '../domain/entities/people_entity.dart';
@@ -28,6 +30,9 @@ abstract class _HomeStoreBase with Store {
   PeopleEntity? characterSelected;
 
   @observable
+  FilmsEntity? filmSelected;
+
+  @observable
   bool isLoading = false;
   @action
   setLoading(bool value) => isLoading = value;
@@ -39,28 +44,59 @@ abstract class _HomeStoreBase with Store {
     tabBarSelected = tabBar;
   }
 
-  getThumbnailByFilm(String film){
-    switch(film){
+  getThumbnailByFilm(String film) {
+    switch (film) {
       case 'A New Hope':
-        return "https://resizing.flixster.com/kMIUvpDVv_oQABEDe1lp-6HDQWw=/206x305/v2/https://flxt.tmsimg.com/assets/p4407_p_v12_ab.jpg";
+        return AppImages.filmNewHope;
       case "The Empire Strikes Back":
-        return "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/192/2022/04/21120853/k2J0GbxnuWJARxLHa2vAyO77qRX.jpg";
+        return AppImages.filmTheEmpireStrikes;
       case "Return of the Jedi":
-        break;
+        return AppImages.filmReturnOfTheJedi;
       case "The Phantom Menace":
-        break;
+        return AppImages.filmThePhantomMenace;
       case "Attack of the Clones":
-        break;
+        return AppImages.filmAttackOfTheClones;
       case "Revenge of the Sith":
-        break;
+        return AppImages.filmRevengeOfTheSith;
     }
   }
 
-  @observable
+  getImageCharacter(String film) {
+    switch (film) {
+      case "Luke Skywalker":
+        return '${AppImages.charactersImages}1.jpg';
+      case "C-3PO":
+        return '${AppImages.charactersImages}2.jpg';
+      case "R2-D2":
+        return '${AppImages.charactersImages}3.jpg';
+      case "Darth Vader":
+        return '${AppImages.charactersImages}4.jpg';
+      case "Leia Organa":
+        return '${AppImages.charactersImages}5.jpg';
+      case "Owen Lars":
+        return '${AppImages.charactersImages}6.jpg';
+      case "Beru Whitesun lars":
+        return '${AppImages.charactersImages}7.jpg';
+      case "R5-D4":
+        return '${AppImages.charactersImages}8.jpg';
+      case "Biggs Darklighter":
+        return '${AppImages.charactersImages}9.jpg';
+      case "Obi-Wan Kenobi":
+        return '${AppImages.charactersImages}10.jpg';
+    }
+  }
+
   getPeople() async {
     setLoading(true);
     final result = await getPeopleUsecase();
-    result.fold((l) {}, (r) => setPeople(r));
+    result.fold((l) {
+      AlertDialog(
+        content: const Text('An error occurred while fetching the characters.'),
+        actions: [TextButton(onPressed: () {
+          getPeople();
+        }, child: const Text('Try again'))],
+      );
+    }, (r) => setPeople(r));
     setLoading(false);
   }
 

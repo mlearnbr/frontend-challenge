@@ -12,12 +12,12 @@ class GetFilmsRepositoryImpl implements GetFilmsRepository {
   @override
   Future<Either<GetFilmsException, List<FilmsEntity>>>
       getFilms() async {
-    // try {
+    try {
       return Right(await datasource.getFilms());
-    // } on GetFilmsException catch (e) {
-    //   return Left(e);
-    // } catch (e) {
-    //   return Left(GetFilmsException(e.toString()));
-    // }
+    } on GetFilmsException catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(GetFilmsException(e.toString()));
+    }
   }
 }

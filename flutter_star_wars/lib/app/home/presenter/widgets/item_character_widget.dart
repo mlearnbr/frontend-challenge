@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_star_wars/app/home/domain/entities/people_entity.dart';
 import 'package:flutter_star_wars/app/home/presenter/pages/details_page.dart';
 
+import '../../../utils/app_images.dart';
 import '../home_store.dart';
 
 class ItemCharacterWidget extends StatefulWidget {
@@ -17,8 +18,13 @@ class _ItemCharacterWidgetState extends State<ItemCharacterWidget> {
   final HomeStore store = Modular.get();
 
   String specieName = '';
+  String imageUrl = '';
+
   @override
   void initState() {
+    setState(() {
+      imageUrl = store.getImageCharacter(widget.character.name);
+    });
     final result = store.getSpecies(widget.character.species);
     result!.then((value) {
       setState(() {
@@ -59,7 +65,7 @@ class _ItemCharacterWidgetState extends State<ItemCharacterWidget> {
                     style: const TextStyle(fontSize: 16),
                   ),
                   Text(
-                    widget.character.birthYear ?? '',
+                    widget.character.birthYear ?? '-- --',
                     style: const TextStyle(fontSize: 16),
                   ),
                   InkWell(
@@ -88,13 +94,19 @@ class _ItemCharacterWidgetState extends State<ItemCharacterWidget> {
               ),
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.amber[700],
-                borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(16),
-                    bottomRight: Radius.circular(16))),
-            width: 20,
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(16),
+                  bottomRight: Radius.circular(16)),
+            child: FadeInImage(
+              fadeInDuration: const Duration(seconds: 1),
+              image: NetworkImage(imageUrl),
+              placeholder: const AssetImage(AppImages.noImage),
+              imageErrorBuilder: (context, error, stackTrace) {
+                return const Icon(Icons.error);
+              },
+              fit: BoxFit.fitWidth,
+            ),
           ),
         ],
       ),

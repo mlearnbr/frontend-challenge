@@ -17,23 +17,54 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   final HomeStore store = Modular.get();
+  String imageUrl = '';
+
+  @override
+  void dispose() {
+    store.changeTabBar('INFO');
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    setState(() {
+      imageUrl = store.getImageCharacter(store.characterSelected!.name);
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (_) {
-        return Scaffold(
-          body: Column(children: [
+    return Observer(builder: (_) {
+      return SafeArea(
+        child: Scaffold(
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
             Container(
                 alignment: Alignment.bottomLeft,
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  // shape: BoxShape.circle,
+                  // color: Colors.white,
+                  image: DecorationImage(image: NetworkImage("https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg"), fit: BoxFit.cover)
                 ),
-                height: 400,
+                height: 300,
                 width: double.infinity,
-                child: ItemContainerNameWidget(
-                  name: store.characterSelected!.name,
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: CircleAvatar(
+                        radius: 100,
+                        backgroundImage: NetworkImage(imageUrl),
+                      ),
+                    ),
+                    ItemContainerNameWidget(
+                      name: store.characterSelected!.name,
+                    ),
+                  ],
                 )),
             Expanded(
               child: Column(
@@ -48,7 +79,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     ],
                   ),
                   const SizedBox(
-                    height: 24,
+                    height: 8,
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -94,8 +125,8 @@ class _DetailsPageState extends State<DetailsPage> {
                       )),
                 )),
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 }

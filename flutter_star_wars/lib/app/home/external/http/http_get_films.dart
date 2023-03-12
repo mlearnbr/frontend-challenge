@@ -12,12 +12,12 @@ class HttpGetFilms implements GetFilmsDatasource {
   Future<List<FilmsEntity>> getFilms() async {
     try {
       var response = await http
-          .get(Uri.parse('https://swapi.dev/api/films/'), headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      }).timeout(const Duration(seconds: 120));
+          .get(
+            Uri.parse('https://swapi.dev/api/films/'),
+          )
+          .timeout(const Duration(seconds: 120));
       if (response.statusCode == 200) {
-        return FilmMapper.fromList(jsonDecode(response.body)['results']);          // return SpecieMapper.fromJson(jsonDecode(response.body));
+        return FilmMapper.fromList(jsonDecode(response.body)['results']);
       } else {
         throw GetFilmsException(jsonDecode(response.body)["message"]);
       }

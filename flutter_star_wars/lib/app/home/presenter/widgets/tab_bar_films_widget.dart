@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_star_wars/app/home/domain/entities/films_entity.dart';
 
+import '../../../utils/app_images.dart';
 import '../home_store.dart';
 
 class TabBarFilmsWidget extends StatefulWidget {
@@ -33,9 +34,10 @@ class _TabBarFilmsWidgetState extends State<TabBarFilmsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24),
-      child: SingleChildScrollView(
+    return Align(
+      alignment: Alignment.center,
+      child: Padding(
+        padding: const EdgeInsets.all(24),
         child: Wrap(
           runSpacing: 16,
           spacing: 16,
@@ -64,12 +66,12 @@ class _TabBarFilmsWidgetState extends State<TabBarFilmsWidget> {
                             Container(
                               width: 60,
                               decoration: const BoxDecoration(
-                                // color: Colors.red,
                               ),
                               child: FadeInImage(
-                                image: NetworkImage(thumbnail ?? "https://resizing.flixster.com/kMIUvpDVv_oQABEDe1lp-6HDQWw=/206x305/v2/https://flxt.tmsimg.com/assets/p4407_p_v12_ab.jpg"),
+                                fadeInDuration: const Duration(seconds: 1),
+                                image: NetworkImage(thumbnail),
                                 placeholder:
-                                    const AssetImage("assets/icons/no_image.png"),
+                                    const AssetImage(AppImages.noImage),
                                 imageErrorBuilder:
                                     (context, error, stackTrace) {
                                   return const Icon(Icons.error);
@@ -84,18 +86,19 @@ class _TabBarFilmsWidgetState extends State<TabBarFilmsWidget> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
                                     e.title,
                                     style: const TextStyle(
-                                        fontSize: 24,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.w500),
                                   ),
-                                  Expanded(
+                                  Flexible(
                                     child: Text(
                                       e.openingCrawl ?? '-- --',
-                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.fade,
                                       style: const TextStyle(fontSize: 14),
                                     ),
                                   ),

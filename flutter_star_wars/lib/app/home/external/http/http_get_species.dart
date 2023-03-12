@@ -12,12 +12,12 @@ class HttpGetSpecies implements GetSpeciesDatasource {
   Future<SpecieEntity> getSpecies(String id) async {
     try {
       var response = await http
-          .get(Uri.parse('https://swapi.dev/api/species/$id/'), headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      }).timeout(const Duration(seconds: 120));
+          .get(
+            Uri.parse('https://swapi.dev/api/species/$id/'),
+          )
+          .timeout(const Duration(seconds: 120));
       if (response.statusCode == 200) {
-          return SpecieMapper.fromJson(jsonDecode(response.body));
+        return SpecieMapper.fromJson(jsonDecode(response.body));
       } else {
         throw GetSpeciesException(jsonDecode(response.body)["message"]);
       }

@@ -50,7 +50,7 @@ class _ItemContainerNameWidgetState
                   key: key,
                   widget.name,
                   style: const TextStyle(
-                      fontSize: 14,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Colors.black),
                 ),

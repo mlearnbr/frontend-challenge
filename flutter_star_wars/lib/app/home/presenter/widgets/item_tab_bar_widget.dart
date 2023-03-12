@@ -29,11 +29,11 @@ class _ItemTabBarWidgetState
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               child: Text(
                 widget.tabBar,
                 style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
                     color: store.tabBarSelected ==
                             widget.tabBar
@@ -46,7 +46,7 @@ class _ItemTabBarWidgetState
               height: 5,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                  color: store.tabBarSelected == widget.tabBar ? Colors.amber[700]!
+                  color: store.tabBarSelected == widget.tabBar ? Colors.amber[300]!
                       : Colors.transparent),
             )
           ],

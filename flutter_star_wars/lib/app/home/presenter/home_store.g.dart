@@ -57,6 +57,22 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  late final _$filmSelectedAtom =
+      Atom(name: '_HomeStoreBase.filmSelected', context: context);
+
+  @override
+  FilmsEntity? get filmSelected {
+    _$filmSelectedAtom.reportRead();
+    return super.filmSelected;
+  }
+
+  @override
+  set filmSelected(FilmsEntity? value) {
+    _$filmSelectedAtom.reportWrite(value, super.filmSelected, () {
+      super.filmSelected = value;
+    });
+  }
+
   late final _$isLoadingAtom =
       Atom(name: '_HomeStoreBase.isLoading', context: context);
 
@@ -87,12 +103,6 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     _$tabBarSelectedAtom.reportWrite(value, super.tabBarSelected, () {
       super.tabBarSelected = value;
     });
-  }
-
-  @override
-  ObservableFuture getPeople() {
-    final _$future = super.getPeople();
-    return ObservableFuture(_$future, context: context);
   }
 
   late final _$_HomeStoreBaseActionController =
@@ -126,6 +136,7 @@ mixin _$HomeStore on _HomeStoreBase, Store {
 listPeople: ${listPeople},
 listFilms: ${listFilms},
 characterSelected: ${characterSelected},
+filmSelected: ${filmSelected},
 isLoading: ${isLoading},
 tabBarSelected: ${tabBarSelected}
     ''';

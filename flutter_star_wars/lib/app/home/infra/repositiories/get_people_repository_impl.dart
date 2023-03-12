@@ -12,12 +12,12 @@ class GetPeopleRepositoryImpl implements GetPeopleRepository {
   @override
   Future<Either<GetPeopleException, List<PeopleEntity>>>
       getPeople() async {
-    // try {
+    try {
       return Right(await datasource.getPeople());
-    // } on GetPeopleException catch (e) {
-    //   return Left(e);
-    // } catch (e) {
-    //   return Left(GetPeopleException(e.toString()));
-    // }
+    } on GetPeopleException catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(GetPeopleException(e.toString()));
+    }
   }
 }
