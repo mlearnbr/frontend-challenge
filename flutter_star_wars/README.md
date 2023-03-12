@@ -54,10 +54,10 @@ slidy run
      <td>Details page - Films</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/home.jpg" width=270 ></td>
-    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/home_with_filter.jpg" width=270 ></td>
-    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/detail_info.jpg" width=270 ></td>
-    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/detail_films.jpg" width=270 ></td>
+    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/home.jpeg" width=270 ></td>
+    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/home_with_filter.jpeg" width=270 ></td>
+    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/detail_info.jpeg" width=270 ></td>
+    <td><img src="https://github.com/Nbosso/natan-bosso/tree/natan-bosso/flutter_star_wars/assets/screenshots/detail_films.jpeg" width=270 ></td>
   </tr>
  </table>
 

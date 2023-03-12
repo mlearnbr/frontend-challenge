@@ -35,6 +35,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/screenshots/
 
 scripts: 
   mobx_watch_build_clean: $clean & $get & $runner watch --delete-conflicting-outputs 
