@@ -25,6 +25,38 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  late final _$listFilmsAtom =
+      Atom(name: '_HomeStoreBase.listFilms', context: context);
+
+  @override
+  ObservableList<FilmsEntity> get listFilms {
+    _$listFilmsAtom.reportRead();
+    return super.listFilms;
+  }
+
+  @override
+  set listFilms(ObservableList<FilmsEntity> value) {
+    _$listFilmsAtom.reportWrite(value, super.listFilms, () {
+      super.listFilms = value;
+    });
+  }
+
+  late final _$characterSelectedAtom =
+      Atom(name: '_HomeStoreBase.characterSelected', context: context);
+
+  @override
+  PeopleEntity? get characterSelected {
+    _$characterSelectedAtom.reportRead();
+    return super.characterSelected;
+  }
+
+  @override
+  set characterSelected(PeopleEntity? value) {
+    _$characterSelectedAtom.reportWrite(value, super.characterSelected, () {
+      super.characterSelected = value;
+    });
+  }
+
   late final _$isLoadingAtom =
       Atom(name: '_HomeStoreBase.isLoading', context: context);
 
@@ -39,6 +71,28 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     _$isLoadingAtom.reportWrite(value, super.isLoading, () {
       super.isLoading = value;
     });
+  }
+
+  late final _$tabBarSelectedAtom =
+      Atom(name: '_HomeStoreBase.tabBarSelected', context: context);
+
+  @override
+  String get tabBarSelected {
+    _$tabBarSelectedAtom.reportRead();
+    return super.tabBarSelected;
+  }
+
+  @override
+  set tabBarSelected(String value) {
+    _$tabBarSelectedAtom.reportWrite(value, super.tabBarSelected, () {
+      super.tabBarSelected = value;
+    });
+  }
+
+  @override
+  ObservableFuture getPeople() {
+    final _$future = super.getPeople();
+    return ObservableFuture(_$future, context: context);
   }
 
   late final _$_HomeStoreBaseActionController =
@@ -56,10 +110,24 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   }
 
   @override
+  dynamic changeTabBar(String tabBar) {
+    final _$actionInfo = _$_HomeStoreBaseActionController.startAction(
+        name: '_HomeStoreBase.changeTabBar');
+    try {
+      return super.changeTabBar(tabBar);
+    } finally {
+      _$_HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 listPeople: ${listPeople},
-isLoading: ${isLoading}
+listFilms: ${listFilms},
+characterSelected: ${characterSelected},
+isLoading: ${isLoading},
+tabBarSelected: ${tabBarSelected}
     ''';
   }
 }

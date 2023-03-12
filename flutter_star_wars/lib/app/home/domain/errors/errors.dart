@@ -15,3 +15,12 @@ class GetSpeciesException implements Exception {
   @override
   String toString() => message;
 }
+
+class GetFilmsException implements Exception {
+  final String message;
+
+  GetFilmsException(this.message);
+
+  @override
+  String toString() => message;
+}

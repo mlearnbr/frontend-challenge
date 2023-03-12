@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_star_wars/app/home/domain/entities/people_entity.dart';
+import 'package:flutter_star_wars/app/home/presenter/pages/details_page.dart';
 
 import '../home_store.dart';
 
@@ -62,11 +63,20 @@ class _ItemCharacterWidgetState extends State<ItemCharacterWidget> {
                     style: const TextStyle(fontSize: 16),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      store.characterSelected = widget.character;
+                      Modular.to.push(
+                        MaterialPageRoute(
+                            builder: (context) => const DetailsPage()),
+                      );
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
-                        Text('More info', style: TextStyle(fontWeight: FontWeight.w500),),
+                        Text(
+                          'More info',
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
                         Icon(
                           Icons.chevron_right_outlined,
                           size: 30,

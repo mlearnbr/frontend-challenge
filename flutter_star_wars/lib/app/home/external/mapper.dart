@@ -1,3 +1,4 @@
+import 'package:flutter_star_wars/app/home/domain/entities/films_entity.dart';
 import 'package:flutter_star_wars/app/home/domain/entities/people_entity.dart';
 import 'package:flutter_star_wars/app/home/domain/entities/specie_entity.dart';
 
@@ -38,5 +39,19 @@ class SpecieMapper {
         people: object['people'],
         films: object['films']);
   }
+}
 
+class FilmMapper {
+  static FilmsEntity fromJson(Map object) {
+    return FilmsEntity(
+        title: object['title'],
+        url: object['url'],
+        characters: List.from(object['characters']),
+        openingCrawl: object['opening_crawl'],
+        created: DateTime.parse(object['created']));
+  }
+
+  static List<FilmsEntity> fromList(List list) {
+    return list.map((e) => fromJson(e)).toList();
+  }
 }
