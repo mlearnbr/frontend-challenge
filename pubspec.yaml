@@ -39,6 +39,7 @@ dependencies:
   dartz: any
   flutter_bloc: any
   bloc: any
+  http: any
 
 dev_dependencies:
   flutter_test:
