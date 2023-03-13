@@ -37,9 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_modular: any
   dartz: any
-  flutter_bloc: any
-  bloc: any
+  flutter_bloc: ^8.1.2
+  bloc: ^8.1.1
   http: any
+  equatable: any
+  animations: any
 
 dev_dependencies:
   flutter_test:

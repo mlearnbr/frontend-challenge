@@ -1,5 +1,3 @@
-import 'package:http/http.dart';
-
 abstract class HttpClient<ResponseType> {
   Future<ResponseType> request({
     required String url,

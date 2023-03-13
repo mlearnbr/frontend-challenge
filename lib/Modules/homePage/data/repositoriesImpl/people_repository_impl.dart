@@ -7,13 +7,13 @@ import '../../domain/repositories/people_repository.dart';
 import '../remote_datasource/people_remote_datasource.dart';
 
 class PeopleRepositoryImplementation implements PeopleRepository {
-  final PeopleRemoteDatasource localDatasource;
-  PeopleRepositoryImplementation({required this.localDatasource});
+  final PeopleRemoteDatasource remoteDatasource;
+  PeopleRepositoryImplementation({required this.remoteDatasource});
 
   @override
   Future<Either<Failure, List<People>>> getPeoples() async {
     try {
-      final result = await localDatasource.getPeoples();
+      final result = await remoteDatasource.getPeoples();
       return right(result);
     } on CacheException {
       return left(CacheFailure());

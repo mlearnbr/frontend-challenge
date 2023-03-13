@@ -1,7 +1,7 @@
 import '../failure.dart';
 
-class NoPeopleFoundFailure implements Failure {}
+class NoPeoplesFoundFailure implements Failure {}
 
-class UnableToGetPeopleFailure implements Failure {}
+class UnableToGetPeoplesFailure implements Failure {}
 
 class InvalidPeopleContentFailure implements Failure {}
