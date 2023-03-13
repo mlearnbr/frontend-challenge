@@ -1,5 +1,5 @@
 class Film {
   final String title;
-
-  Film(this.title);
+  final int episodeId;
+  Film(this.title, this.episodeId);
 }

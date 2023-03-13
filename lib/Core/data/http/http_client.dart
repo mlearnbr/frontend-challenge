@@ -1,5 +1,7 @@
-abstract class HttpClient {
-  Future<Map?> request({
+import 'package:http/http.dart';
+
+abstract class HttpClient<ResponseType> {
+  Future<ResponseType> request({
     required String url,
     required String method,
     Map body,
