@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 import '../../data/http/http.dart';
+import '../../enums/methods_enum.dart';
 
 class HttpAdapter implements HttpClient {
   final Client client;
@@ -11,9 +12,9 @@ class HttpAdapter implements HttpClient {
   );
 
   @override
-  Future<Map?> request({
+  Future<Map<String, dynamic>> request({
     required String url,
-    required String method,
+    required MethodEnum method,
     Map? body,
   }) async {
     final headers = {
@@ -23,18 +24,22 @@ class HttpAdapter implements HttpClient {
     final jsonBody = body != null ? jsonEncode(body) : null;
     var response = Response('', 500);
     try {
-      if (method == 'post') {
-        response = await client.post(
-          Uri.parse(url),
-          headers: headers,
-          body: jsonBody,
-        );
-      }
-      if (method == 'get') {
-        response = await client.get(
-          Uri.parse(url),
-          headers: headers,
-        );
+      switch (method) {
+        case MethodEnum.post:
+          response = await client.post(
+            Uri.parse(url),
+            headers: headers,
+            body: jsonBody,
+          );
+          break;
+        case MethodEnum.get:
+          response = await client.get(
+            Uri.parse(url),
+            headers: headers,
+          );
+          break;
+        default:
+          break;
       }
     } catch (error) {
       throw HttpError.serverError;
@@ -43,7 +48,7 @@ class HttpAdapter implements HttpClient {
     return _handleResponse(response);
   }
 
-  Map? _handleResponse(Response response) {
+  Map<String, dynamic> _handleResponse(Response response) {
     if (response.statusCode == 200) {
       return response.body.isEmpty ? null : jsonDecode(response.body);
     } else if (response.statusCode == 400) {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:challenge/Modules/homePage/domain/models/specie_model.dart';
+import 'package:challenge/Core/domain/models/specie_model.dart';
 
 class SpecieMapper {
   static Map<String, dynamic> toMap(Specie specie) {

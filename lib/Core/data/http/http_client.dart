@@ -1,7 +1,9 @@
-abstract class HttpClient<ResponseType> {
-  Future<ResponseType> request({
+import 'package:challenge/Core/enums/methods_enum.dart';
+
+abstract class HttpClient {
+  Future<Map<String, dynamic>> request({
     required String url,
-    required String method,
+    required MethodEnum method,
     Map body,
   });
 }

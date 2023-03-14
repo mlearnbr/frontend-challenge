@@ -2,7 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../Core/baseStates/base_states.dart';
 import '../../../../../Core/errors/failures/people/people_failures.dart';
-import '../../../domain/models/people_model.dart';
+import '../../../../../Core/domain/models/people_model.dart';
 import '../../../domain/usecases/get_peoples_usecase.dart';
 import 'home_people_event.dart';
 import 'home_people_state.dart';

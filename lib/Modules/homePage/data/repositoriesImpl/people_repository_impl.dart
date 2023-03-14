@@ -1,4 +1,4 @@
-import 'package:challenge/Modules/homePage/domain/models/people_model.dart';
+import 'package:challenge/Core/domain/models/people_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../Core/errors/exceptions/base_exceptions.dart';
