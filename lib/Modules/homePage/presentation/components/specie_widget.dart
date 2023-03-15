@@ -1,11 +1,11 @@
 import 'package:challenge/Modules/homePage/presentation/controller/species_bloc/specie_bloc.dart';
+import 'package:challenge/Modules/homePage/presentation/controller/species_bloc/specie_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../Core/baseStates/base_states.dart';
 
-import '../controller/species_bloc/specie_event.dart';
 import '../controller/species_bloc/specie_state.dart';
 
 class SpecieWidget extends StatelessWidget {
@@ -15,7 +15,7 @@ class SpecieWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => specieBloc,
+        create: (_) => specieBloc..add(FetchSpecies(speciesUrl)),
         child: BlocBuilder<SpecieBloc, AppState>(
           builder: (context, state) {
             if (state is InitialState) {
@@ -27,7 +27,10 @@ class SpecieWidget extends StatelessWidget {
               return const CircularProgressIndicator();
             }
             return OutlinedButton(
-                onPressed: () {}, child: Text(specieBloc.species[0].name));
+                onPressed: () {},
+                child: specieBloc.species.isEmpty
+                    ? Container()
+                    : Text(specieBloc.species[0].name));
           },
         ));
   }

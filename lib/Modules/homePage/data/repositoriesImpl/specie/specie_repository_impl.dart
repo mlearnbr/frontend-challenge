@@ -14,7 +14,7 @@ class SpecieRepositoryImplementation implements SpecieRepository {
   @override
   Future<Either<Failure, List<Specie>>> getSpecies(
       List<String> specieUrl) async {
-    if (specieUrl.isEmpty) {
+    if (specieUrl.isEmpty || specieUrl == []) {
       return left(NoSpeciesFoundFailure());
     }
     try {

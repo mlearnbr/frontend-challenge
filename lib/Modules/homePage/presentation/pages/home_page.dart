@@ -27,10 +27,10 @@ class _HomePageState extends State<HomePage>
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: const Text(
-          'teste',
-          style: TextStyle(color: Colors.black),
+        title: Image.asset(
+          'assets/images/star_wars_logo.png',
+          width: 80,
+          height: 80,
         ),
       ),
       //Barra de pesquisa
@@ -64,9 +64,20 @@ class _HomePageState extends State<HomePage>
                                 'people': homePeopleBloc.peoples[i]
                               });
                             },
-                            title: Text(homePeopleBloc.peoples[i].name!),
+                            title: Text(
+                              homePeopleBloc.peoples[i].name!,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium
+                                  ?.copyWith(color: Colors.black),
+                            ),
+                            subtitle: Text(homePeopleBloc.peoples[i].birthYear!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(color: Colors.black)),
                             leading: const CircleAvatar(
-                              child: Icon(Icons.accessibility_new),
+                              child: Icon(Icons.account_box_rounded),
                             ),
                           ),
                         );

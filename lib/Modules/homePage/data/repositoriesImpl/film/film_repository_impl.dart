@@ -14,7 +14,7 @@ class FilmRepositoryImplementation implements FilmRepository {
 
   @override
   Future<Either<Failure, List<Film>>> getFilms(List<String> filmUrl) async {
-    if (filmUrl.isEmpty) {
+    if (filmUrl.isEmpty || filmUrl == []) {
       return left(NoFilmsFoundFailure());
     }
     try {

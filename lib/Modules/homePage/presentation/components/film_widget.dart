@@ -1,10 +1,10 @@
+import 'package:challenge/Modules/homePage/presentation/controller/film_bloc/film_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../Core/baseStates/base_states.dart';
 import '../controller/film_bloc/film_bloc.dart';
-import '../controller/film_bloc/film_event.dart';
 import '../controller/film_bloc/film_state.dart';
 
 class FilmWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class FilmWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => filmBloc,
+        create: (_) => filmBloc..add(FetchFilms(filmsUrl)),
         child: BlocBuilder<FilmBloc, AppState>(
           builder: (context, state) {
             if (state is InitialState) {
@@ -25,8 +25,10 @@ class FilmWidget extends StatelessWidget {
             if (state is GettingAllFilmsState) {
               return const CircularProgressIndicator();
             }
-            return OutlinedButton(
-                onPressed: () {}, child: Text(filmBloc.films[0].title));
+            return Container(
+                child: filmBloc.films.isEmpty
+                    ? Container()
+                    : Text(filmBloc.films[0].title));
           },
         ));
   }

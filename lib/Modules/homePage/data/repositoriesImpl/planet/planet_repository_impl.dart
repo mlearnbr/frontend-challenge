@@ -13,12 +13,12 @@ class PlanetRepositoryImplementation implements PlanetRepository {
   PlanetRepositoryImplementation({required this.remoteDatasource});
 
   @override
-  Future<Either<Failure, Planet>> getPlanet(String homeWorldUrl) async {
-    if (homeWorldUrl.isEmpty) {
+  Future<Either<Failure, Planet>> getPlanet(String planetUrl) async {
+    if (planetUrl.isEmpty) {
       return left(NoPlanetFoundFailure());
     }
     try {
-      final result = await remoteDatasource.getPlanet(homeWorldUrl);
+      final result = await remoteDatasource.getPlanet(planetUrl);
       return right(result);
     } on CacheException {
       return left(CacheFailure());

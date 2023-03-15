@@ -1,16 +1,8 @@
-import 'package:challenge/Modules/homePage/presentation/components/film_widget.dart';
-import 'package:challenge/Modules/homePage/presentation/components/planet_widget.dart';
-import 'package:challenge/Modules/homePage/presentation/controller/planet_bloc/planet_bloc.dart';
-import 'package:challenge/Modules/homePage/presentation/controller/planet_bloc/planet_event.dart';
-import 'package:challenge/Modules/homePage/presentation/controller/species_bloc/specie_bloc.dart';
-import 'package:challenge/Modules/homePage/presentation/controller/species_bloc/specie_event.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../Core/domain/models/people_model.dart';
+import '../components/film_widget.dart';
 import '../components/specie_widget.dart';
-import '../controller/film_bloc/film_bloc.dart';
-import '../controller/film_bloc/film_event.dart';
 
 class PeopleDetailsPage extends StatefulWidget {
   final People people;
@@ -21,45 +13,34 @@ class PeopleDetailsPage extends StatefulWidget {
 }
 
 class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
-  final filmBloc = Modular.get<FilmBloc>();
-  final specieBloc = Modular.get<SpecieBloc>();
-  final planetBloc = Modular.get<PlanetBloc>();
-  @override
-  void initState() {
-    super.initState();
-    filmBloc.add(FetchFilms(widget.people.films!));
-    if (widget.people.species != null) {
-      specieBloc.add(FetchSpecies(widget.people.species!));
-    }
-    if (widget.people.planet != null) {
-      planetBloc.add(FetchPlanet(widget.people.planet!));
-    }
-
-    //Films
-    //Planet
-    //Specie
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('teste'),
+          title: Text(widget.people.name!),
           centerTitle: true,
         ),
         body: LayoutBuilder(
           builder: (_, constraints) {
-            return Column(
-              children: [
-                Text(widget.people.name!),
-                FilmWidget(filmsUrl: widget.people.films!),
-                // if (widget.people.species != null) ...[
-                //   SpecieWidget(
-                //     speciesUrl: widget.people.species!,
-                //   )
-                // ],
-                PlanetWidget(planetUrl: widget.people.planet!),
-              ],
+            return SizedBox(
+              height: constraints.maxHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Name: ${widget.people.name ?? ''}'),
+                  Text('Birth year: ${widget.people.birthYear ?? ''}'),
+                  Text('Eye Color:${widget.people.eyeColor ?? ''}'),
+                  Text('Gender: ${widget.people.gender ?? ''}'),
+                  Text('Hair Color: ${widget.people.hairColor ?? ''}'),
+                  Text('height: ${widget.people.height ?? ''} '),
+                  Text('mass: ${widget.people.mass ?? ''}'),
+                  Text('skin Color: ${widget.people.skinColor ?? ''}'),
+                  FilmWidget(filmsUrl: widget.people.films!),
+                  SpecieWidget(
+                    speciesUrl: widget.people.species!,
+                  )
+                ],
+              ),
             );
           },
         ));

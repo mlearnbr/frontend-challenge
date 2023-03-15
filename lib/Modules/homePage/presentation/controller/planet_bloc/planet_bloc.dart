@@ -5,7 +5,6 @@ import 'package:challenge/Modules/homePage/presentation/controller/planet_bloc/p
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../Core/baseStates/base_states.dart';
-import '../../../../../Core/domain/models/film_model.dart';
 import '../../../../../Core/errors/failures/homeworld/planet_failures.dart';
 import '../../../domain/usecases/get_planet_usecase.dart';
 

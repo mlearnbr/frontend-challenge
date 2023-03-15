@@ -14,8 +14,8 @@ class PeopleMapper {
       map['mass'] != null ? map['mass'] as String : null,
       map['skin_color'] != null ? map['skin_color'] as String : null,
       map['homeworld'] != null ? map['homeworld'] as String : null,
-      map['films'] != null ? List<String>.from((map['films'])) : null,
-      map['species'] != null ? List<String>.from((map['species'])) : null,
+      map['films'] != null ? List<String>.from((map['films'])) : [],
+      map['species'] != null ? List<String>.from((map['species'])) : [],
     );
   }
 
