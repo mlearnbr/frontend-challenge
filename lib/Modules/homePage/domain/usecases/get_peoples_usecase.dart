@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../Core/errors/failures/failure.dart';
 import '../../../../Core/domain/models/people_model.dart';
-import '../repositories/people_repository.dart';
+import '../repositories/people/people_repository.dart';
 
 class GetPeoplesUseCase {
   final PeopleRepository peopleRepository;

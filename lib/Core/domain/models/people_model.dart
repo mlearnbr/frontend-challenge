@@ -7,7 +7,7 @@ class People {
   final String? height;
   final String? mass;
   final String? skinColor;
-  final String? homeworld;
+  final String? planet;
   final List<String>? films;
   final List<String>? species;
 
@@ -20,7 +20,7 @@ class People {
       this.height,
       this.mass,
       this.skinColor,
-      this.homeworld,
+      this.planet,
       this.films,
       this.species);
 }

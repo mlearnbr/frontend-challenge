@@ -1,11 +1,11 @@
-import 'package:challenge/Modules/homePage/presentation/controller/bill_bloc/home_people_event.dart';
+import 'package:challenge/Modules/homePage/presentation/controller/home_bloc/home_people_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../Core/baseStates/base_states.dart';
-import '../controller/bill_bloc/home_people_bloc.dart';
-import '../controller/bill_bloc/home_people_state.dart';
+import '../controller/home_bloc/home_people_bloc.dart';
+import '../controller/home_bloc/home_people_state.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,8 +14,13 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  final homePeopleBloc = Modular.get<HomePeopleBloc>();
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
+  final homePeopleBloc = Modular.get<HomeBloc>();
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,15 +33,16 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(color: Colors.black),
         ),
       ),
+      //Barra de pesquisa
       body: LayoutBuilder(
         builder: (_, constraints) {
           return BlocProvider(
             create: (_) => homePeopleBloc..add(const FetchPeoples()),
-            child: BlocBuilder<HomePeopleBloc, AppState>(
+            child: BlocBuilder<HomeBloc, AppState>(
               builder: (context, state) {
                 if (state is InitialState) {
                   return const Center(
-                    child: Text("Crie Contas"),
+                    child: Text(""),
                   );
                 }
                 if (state is GettingAllPeoplesState) {
@@ -53,13 +59,12 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: ListTile(
+                            onTap: () {
+                              Modular.to.pushNamed('/detailPage', arguments: {
+                                'people': homePeopleBloc.peoples[i]
+                              });
+                            },
                             title: Text(homePeopleBloc.peoples[i].name!),
-                            trailing: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: const [
-                                  Icon(Icons.edit),
-                                  Icon(Icons.delete)
-                                ]),
                             leading: const CircleAvatar(
                               child: Icon(Icons.accessibility_new),
                             ),
